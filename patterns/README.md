@@ -6,16 +6,16 @@ Learn these once and you can assemble an answer to almost any design question. E
 |---------|----------------|--------|
 | [Caching](caching.md) | Read latency and load on the data store | Written |
 | [Load balancing](load-balancing.md) | Distributing traffic across servers | Written |
-| Sharding and partitioning | Scaling data beyond one machine | Planned |
-| Replication | Availability and read scaling | Planned |
-| Consistency models | Correctness under concurrency | Planned |
-| CAP theorem | Reasoning about trade-offs under partitions | Planned |
-| Consistent hashing | Even distribution with minimal reshuffling | Planned |
-| Message queues | Decoupling and async processing | Planned |
-| Rate limiting | Protecting services from overload | Planned |
-| CDN | Serving static content close to users | Planned |
-| Database indexing | Fast lookups | Planned |
-| Bloom filters | Cheap "definitely not present" checks | Planned |
+| [Sharding and partitioning](sharding-partitioning.md) | Scaling data beyond one machine | Written |
+| [Replication](replication.md) | Availability and read scaling | Written |
+| [Consistency models](consistency-models.md) | Correctness under concurrency | Written |
+| [CAP theorem](cap-theorem.md) | Reasoning about trade-offs under partitions | Written |
+| [Consistent hashing](consistent-hashing.md) | Even distribution with minimal reshuffling | Written |
+| [Message queues](message-queues.md) | Decoupling and async processing | Written |
+| [Rate limiting](rate-limiting.md) | Protecting services from overload | Written |
+| [CDN](cdn.md) | Serving static content close to users | Written |
+| [Database indexing](database-indexing.md) | Fast lookups | Written |
+| [Bloom filters](bloom-filters.md) | Cheap "definitely not present" checks | Written |
 
 ## Add a new pattern
 

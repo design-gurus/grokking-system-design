@@ -68,4 +68,5 @@ A pre-generated key service (a pool of unused keys handed out in batches) avoids
 
 ## Go deeper
 
-See the full worked solution with diagrams in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
+- Read more (free): [How to Design a URL Shortener](https://www.designgurus.io/blog/url-shortening)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

@@ -59,6 +59,7 @@ See the full list in [patterns/](patterns/). To add a new pattern, copy [pattern
 | Design Instagram | Medium | Sharding, caching, feed generation | [design-instagram.md](questions/design-instagram.md) |
 | Design Twitter | Medium | Fan-out, caching, timelines | [design-twitter.md](questions/design-twitter.md) |
 | Design Uber | Hard | Geo-indexing, matching, streaming | [design-uber.md](questions/design-uber.md) |
+| Design a web crawler | Hard | Frontier, dedup, politeness | [design-web-crawler.md](questions/design-web-crawler.md) |
 
 See the full catalog in [questions/](questions/). To add a new question, copy [questions/_template.md](questions/_template.md). For full worked solutions, see the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
 

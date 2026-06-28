@@ -34,4 +34,5 @@ A focused plan for when you have an interview coming up soon. Assumes about 1 to
 
 ## Go deeper
 
-For a guided, structured path, follow the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
+- Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

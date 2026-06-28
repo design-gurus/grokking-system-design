@@ -45,4 +45,5 @@ State where the load balancer sits, the algorithm and why, how health checks wor
 
 ## Go deeper
 
-See the load balancing lessons in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
+- Read more (free): [Complete Load Balancer Guide](https://www.designgurus.io/blog/complete-load-balancing-guide)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
