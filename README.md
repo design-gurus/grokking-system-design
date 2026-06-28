@@ -63,6 +63,10 @@ See the full list in [patterns/](patterns/). To add a new pattern, copy [pattern
 
 See the full catalog in [questions/](questions/). To add a new question, copy [questions/_template.md](questions/_template.md). For full worked solutions, see the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
 
+## Distributed systems deep dives
+
+Case studies of landmark systems, the "how does X work" questions common in senior interviews: Dynamo, Cassandra, BigTable, Kafka, Chubby, GFS, and HDFS. See [deep-dives/](deep-dives/).
+
 ## Cheat sheets
 
 - [Back-of-the-envelope estimation](cheat-sheets/estimation.md): the latency and capacity numbers worth memorizing.
