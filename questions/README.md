@@ -7,13 +7,13 @@ Classic system design interview questions. Each walkthrough stays at the level o
 | [Design TinyURL](design-tinyurl.md) | Easy | Hashing, caching, data modeling | Written |
 | [Design Instagram](design-instagram.md) | Medium | Sharding, caching, feed generation | Written |
 | [Design Twitter](design-twitter.md) | Medium | Fan-out, caching, timelines | Written |
+| [Design WhatsApp](design-whatsapp.md) | Medium | Connections, message delivery, presence | Written |
 | [Design Uber](design-uber.md) | Hard | Geo-indexing, matching, streaming | Written |
+| [Design Netflix](design-netflix.md) | Hard | CDN, encoding, recommendations | Written |
+| [Design Dropbox](design-dropbox.md) | Hard | Chunking, metadata, sync | Written |
 | [Design a web crawler](design-web-crawler.md) | Hard | Frontier, dedup, politeness | Written |
-| Design WhatsApp | Medium | Connections, message delivery, presence | Planned |
-| Design Netflix | Hard | CDN, encoding, recommendations | Planned |
-| Design Dropbox | Hard | Chunking, metadata, sync | Planned |
-| Design a rate limiter | Medium | Token bucket, distributed counters | Planned |
-| Design a notification system | Medium | Queues, fan-out, channels | Planned |
+| [Design a rate limiter](design-rate-limiter.md) | Medium | Token bucket, distributed counters | Written |
+| [Design a notification system](design-notification-system.md) | Medium | Queues, fan-out, channels | Written |
 
 ## Add a new question
 
