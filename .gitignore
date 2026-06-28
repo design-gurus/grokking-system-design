@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Build artifacts (if you later add tooling for diagrams or static site generation)
+node_modules/
+dist/
+build/
+.cache/
