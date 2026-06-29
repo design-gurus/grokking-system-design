@@ -15,7 +15,7 @@ The numbers worth memorizing so you can size a system quickly and credibly.
 | Disk seek (spinning) | ~10 ms |
 | Round trip between continents | ~150 ms |
 
-Takeaway: memory is roughly 100 times faster than SSD, which is far faster than a disk seek, which is far faster than a cross-continent network call. Cache accordingly.
+Takeaway: memory is roughly 100 times faster than SSD, which is far faster than a disk seek, which is far faster than a cross-continent network call. [Cache](../patterns/caching.md) accordingly.
 
 ## Powers of two (for storage)
 
@@ -42,7 +42,7 @@ Takeaway: memory is roughly 100 times faster than SSD, which is far faster than 
 
 ## How to use this in an interview
 
-State your assumptions, round aggressively, and show the division. Interviewers care that the method is sound, not that the number is exact.
+State your assumptions, round aggressively, and show the division (this is Step 2 of the [interview framework](interview-framework.md)). Interviewers care that the method is sound, not that the number is exact.
 
 ## Go deeper
 

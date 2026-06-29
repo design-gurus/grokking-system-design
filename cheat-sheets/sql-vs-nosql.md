@@ -7,17 +7,17 @@ How to choose a data store, and how to justify it in an interview. The right ans
 | Dimension | SQL (relational) | NoSQL |
 |-----------|------------------|-------|
 | Schema | Fixed, enforced | Flexible or schemaless |
-| Joins and transactions | Strong, ACID | Limited; often eventual consistency |
-| Scaling | Vertical first; sharding is harder | Designed to scale horizontally |
+| Joins and transactions | Strong, ACID | Limited; often [eventual consistency](../patterns/consistency-models.md) |
+| Scaling | Vertical first; [sharding](../patterns/sharding-partitioning.md) is harder | Designed to scale horizontally |
 | Best for | Complex queries, strong consistency, relationships | High write volume, simple lookups, flexible data |
 
 ## NoSQL families
 
-| Family | Example use | 
+| Family | Example use |
 |--------|-------------|
-| Key-value | Sessions, caches, simple lookups |
+| [Key-value](../deep-dives/dynamo-key-value-store.md) | Sessions, caches, simple lookups |
 | Document | Catalogs, user profiles, content |
-| Wide-column | Time series, large-scale writes |
+| [Wide-column](../deep-dives/cassandra-wide-column-db.md) | Time series, large-scale writes |
 | Graph | Social graphs, recommendations |
 
 ## How to choose
@@ -29,7 +29,7 @@ How to choose a data store, and how to justify it in an interview. The right ans
 
 ## How to talk about it in an interview
 
-Do not say "I would use NoSQL because it scales". Say "the access pattern is a key lookup by user id at high write volume with no joins, so a wide-column store fits, and I accept eventual consistency here because the data tolerates it". Tie the choice to the requirements.
+Do not say "I would use NoSQL because it scales". Say "the access pattern is a key lookup by user id at high write volume with no joins, so a [wide-column store](../deep-dives/cassandra-wide-column-db.md) fits, and I accept eventual consistency here because the data tolerates it". Tie the choice to the requirements.
 
 ## Go deeper
 
