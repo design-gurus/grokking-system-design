@@ -112,6 +112,12 @@ This repo gives you the map. The course gives you the territory: interactive dia
 - Practice live: [Mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
 - More reading: [DesignGurus blog](https://www.designgurus.io/blog)
 
+## Newsletter
+
+System design and interview tips, straight to your inbox.
+
+[Subscribe on Substack](https://designgurus.substack.com/)
+
 ## Contributing
 
 Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). If this repo helps you, please star it so more engineers can find it.

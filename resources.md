@@ -18,6 +18,7 @@ Different courses fit different stages. Pick by where you are:
 - [Mock interviews](https://www.designgurus.io/mock-interviews): live practice with ex-FAANG engineers.
 - [DesignGurus blog](https://www.designgurus.io/blog): free articles on system design and interview prep.
 - [DesignGurus YouTube](https://www.youtube.com/@DesignGurus): free video lessons.
+- [Newsletter](https://designgurus.substack.com/): system design and interview tips by email.
 
 ## Free deep-dive blogs
 
