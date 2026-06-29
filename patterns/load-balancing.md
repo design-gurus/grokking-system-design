@@ -6,6 +6,27 @@
 
 A load balancer sits in front of a pool of servers and distributes requests among them. It improves scalability (add more servers behind it) and availability (route around unhealthy servers). It can operate at the transport layer (L4, by IP and port) or the application layer (L7, by HTTP attributes like path or headers).
 
+```mermaid
+flowchart LR
+    C1[Client]
+    C2[Client]
+    C3[Client]
+    LB{{Load Balancer}}
+    S1[Server 1]
+    S2[Server 2]
+    S3[Server 3]
+    DB[(Database)]
+    C1 --> LB
+    C2 --> LB
+    C3 --> LB
+    LB -->|"health-checked, round robin"| S1
+    LB --> S2
+    LB --> S3
+    S1 --> DB
+    S2 --> DB
+    S3 --> DB
+```
+
 ## When to use it
 
 - Any service that runs on more than one instance.
