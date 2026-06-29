@@ -6,6 +6,23 @@
 
 A cache is a fast, usually in-memory store that holds copies of data so that future requests can be served without hitting the slower source of truth (a database, a downstream service, or a computation). Caching trades a small amount of memory and some risk of staleness for large gains in read latency and throughput.
 
+The cache-aside read flow:
+
+```mermaid
+sequenceDiagram
+    participant App as Application
+    participant Cache
+    participant DB as Database
+    App->>Cache: read key
+    alt cache hit
+        Cache-->>App: value
+    else cache miss
+        App->>DB: query
+        DB-->>App: value
+        App->>Cache: set key
+    end
+```
+
 ## When to use it
 
 - Read-heavy workloads where the same data is requested often.

@@ -6,6 +6,16 @@
 
 Rate limiting defends against traffic spikes, abusive clients, and runaway costs. It keeps a service available for everyone by refusing or slowing excess traffic, usually returning HTTP 429 (Too Many Requests).
 
+Token bucket, the common default:
+
+```mermaid
+flowchart LR
+    Req[Request] --> RL{Tokens available?}
+    RL -->|yes, consume token| Allow[Allow and forward]
+    RL -->|no| Deny[Reject with 429]
+    Refill[Bucket refills at a fixed rate] -.-> RL
+```
+
 ## Algorithms
 
 | Algorithm | How it works | Notes |

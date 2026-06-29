@@ -6,6 +6,17 @@
 
 Replication maintains copies (replicas) of the same data on more than one node. It improves availability (if one node dies, others serve the data), durability (the data survives a single failure), and read throughput (reads spread across replicas).
 
+Single-leader replication: writes go to the leader, reads can be served by followers.
+
+```mermaid
+flowchart LR
+    Client -->|writes| L[("Leader")]
+    L -->|replicate| F1[("Follower 1")]
+    L -->|replicate| F2[("Follower 2")]
+    F1 -.->|reads| Client
+    F2 -.->|reads| Client
+```
+
 ## Models
 
 | Model | How it works | Trade-off |

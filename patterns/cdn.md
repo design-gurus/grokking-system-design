@@ -6,6 +6,16 @@
 
 A CDN is a globally distributed set of caching servers. When a user requests content, it is served from a nearby edge location instead of your origin server far away. This reduces latency, absorbs traffic spikes, and lowers load and bandwidth costs on the origin.
 
+```mermaid
+flowchart LR
+    U1[User US] --> E1[Edge US]
+    U2[User EU] --> E2[Edge EU]
+    U3[User Asia] --> E3[Edge Asia]
+    E1 -.->|cache miss| O[(Origin)]
+    E2 -.->|cache miss| O
+    E3 -.->|cache miss| O
+```
+
 ## What to put on a CDN
 
 - Static assets: images, video, CSS, JavaScript, fonts, downloads.

@@ -6,6 +6,14 @@
 
 A message queue (or broker) accepts messages from producers and delivers them to consumers later. It decouples the two sides: producers do not wait for consumers, and a burst of work is absorbed by the queue instead of overwhelming downstream services.
 
+```mermaid
+flowchart LR
+    P1[Producer] --> Q[Message Queue]
+    P2[Producer] --> Q
+    Q --> C1[Consumer]
+    Q --> C2[Consumer]
+```
+
 ## When to use it
 
 - Slow or spiky work that should not block the request path (sending email, encoding video, generating thumbnails).

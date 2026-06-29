@@ -6,6 +6,14 @@
 
 Partitioning divides a large dataset into smaller pieces. Sharding is horizontal partitioning across separate database servers (shards), where each shard holds a subset of the rows. It is how you scale writes and storage past the limit of one machine.
 
+```mermaid
+flowchart TB
+    App[Application] --> R{Route by shard key}
+    R --> S1[("Shard 1: keys A-H")]
+    R --> S2[("Shard 2: keys I-P")]
+    R --> S3[("Shard 3: keys Q-Z")]
+```
+
 ## Partitioning strategies
 
 | Strategy | How it works | Watch out for |
