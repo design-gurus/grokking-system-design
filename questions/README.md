@@ -2,6 +2,8 @@
 
 Classic system design interview questions. Each walkthrough stays at the level of approach, key decisions, and trade-offs. For full, worked, interactive solutions, see the courses linked in each file.
 
+Want to self-test without solutions? Use the [practice question bank](practice-bank.md).
+
 ## Core questions
 
 | Question | Difficulty | Key patterns | Status |

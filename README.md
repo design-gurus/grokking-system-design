@@ -61,7 +61,7 @@ See the full list in [patterns/](patterns/). To add a new pattern, copy [pattern
 | Design Uber | Hard | Geo-indexing, matching, streaming | [design-uber.md](questions/design-uber.md) |
 | Design a web crawler | Hard | Frontier, dedup, politeness | [design-web-crawler.md](questions/design-web-crawler.md) |
 
-See the full catalog in [questions/](questions/). To add a new question, copy [questions/_template.md](questions/_template.md). For full worked solutions, see the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
+See the full catalog in [questions/](questions/), or self-test with the [practice question bank](questions/practice-bank.md). To add a new question, copy [questions/_template.md](questions/_template.md). For full worked solutions, see the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
 
 ## Distributed systems deep dives
 
@@ -74,6 +74,7 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 - [Non-functional requirements](cheat-sheets/non-functional-requirements.md): scalability, availability, latency, consistency, and the rest.
 - [Trade-off decision guides](cheat-sheets/trade-offs.md): the common "X vs Y" decisions and how to choose.
 - [SQL vs NoSQL](cheat-sheets/sql-vs-nosql.md): how to choose, and how to justify it in an interview.
+- [Core components reference](cheat-sheets/core-components.md): the building blocks and when to use each.
 - [Common mistakes and anti-patterns](cheat-sheets/common-mistakes.md): what sinks interviews, and how to avoid it.
 - [Interview communication tips](cheat-sheets/communication-tips.md): how to come across as a senior candidate.
 
