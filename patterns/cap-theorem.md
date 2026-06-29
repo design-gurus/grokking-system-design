@@ -6,6 +6,16 @@
 
 The CAP theorem says a distributed data store can provide at most two of three guarantees: Consistency (every read sees the latest write), Availability (every request gets a non-error response), and Partition tolerance (the system keeps working despite dropped messages between nodes). Because network partitions are unavoidable in practice, partition tolerance is a given, so the real choice during a partition is between consistency and availability.
 
+```mermaid
+flowchart TB
+    P["Partition tolerance is a given"]
+    P --> Q{"Network partition?"}
+    Q -->|No| EL["Normal: trade latency vs consistency (PACELC)"]
+    Q -->|Yes| Pick{"Choose one"}
+    Pick --> CP["CP: stay consistent, reject some requests"]
+    Pick --> AP["AP: stay available, allow stale reads"]
+```
+
 ## The practical choice
 
 - CP (consistency over availability): during a partition, refuse requests that cannot be made consistent. Example use: systems where a wrong answer is worse than no answer (banking balances).

@@ -10,13 +10,17 @@ Naive sharding with `hash(key) % N` breaks when N changes: adding or removing on
 
 Map both nodes and keys onto a ring (a hash space treated as a circle). A key belongs to the first node found by moving clockwise from the key's position. When a node is added or removed, only the keys between it and its neighbor move; everything else stays put.
 
+```mermaid
+flowchart LR
+    A((Node A)) --> B((Node B))
+    B --> C((Node C))
+    C --> A
+    K1[key1] -.-> A
+    K2[key2] -.-> B
+    K3[key3] -.-> C
 ```
-   [node A]
-      .  key1 -> A
-key2 .      [node B]
-      .  key3 -> B
-   [node C]
-```
+
+The nodes form a ring (A to B to C and back to A). Each key is owned by the first node found moving clockwise from the key's position.
 
 ## Virtual nodes
 
