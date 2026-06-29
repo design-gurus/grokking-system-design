@@ -33,6 +33,25 @@ Free reads that go deeper than the cheat sheets in this repo:
 - [How to Design a URL Shortener](https://www.designgurus.io/blog/url-shortening)
 - [How to Design a Web Crawler](https://www.designgurus.io/blog/design-web-crawler)
 
+## Top system design guides (DesignGurus blog)
+
+The most-read foundational guides, ranked by readership:
+
+- [25 Fundamental System Design Concepts](https://www.designgurus.io/blog/system-design-interview-fundamentals)
+- [System Design Interview Guide (2026): Framework and How to Prepare](https://www.designgurus.io/blog/complete-guide-sys-design)
+- [The Ultimate System Design Cheat Sheet](https://www.designgurus.io/blog/system-design-cheat-sheet)
+- [System Design Primer: The Ultimate Guide](https://www.designgurus.io/blog/system-design-primer-the-ultimate-guide)
+- [185+ System Design Guides: The Interview Library](https://www.designgurus.io/blog/system-design-interview-library)
+- [Back-of-the-Envelope Estimation](https://www.designgurus.io/blog/back-of-the-envelope-system-design-interview)
+- [Scalability in System Design](https://www.designgurus.io/blog/grokking-system-design-scalability)
+- [High Availability in System Design](https://www.designgurus.io/blog/high-availability-system-design-basics)
+- [CAP Theorem vs PACELC](https://www.designgurus.io/blog/system-design-interview-basics-cap-vs-pacelc)
+- [Consistency Patterns in Distributed Systems](https://www.designgurus.io/blog/consistency-patterns-distributed-systems)
+- [19 Essential Microservices Patterns](https://www.designgurus.io/blog/19-essential-microservices-patterns-for-system-design-interviews)
+- [Monolithic vs Microservices vs SOA](https://www.designgurus.io/blog/monolithic-service-oriented-microservice-architecture)
+- [REST vs GraphQL vs gRPC](https://www.designgurus.io/blog/rest-graphql-grpc-system-design)
+- [Top 10 Software Architecture Patterns](https://www.designgurus.io/blog/understanding-top-10-software-architecture-patterns)
+
 ## In this repo
 
 - [Patterns](patterns/): the building blocks.

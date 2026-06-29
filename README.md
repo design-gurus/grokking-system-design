@@ -82,6 +82,28 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 
 New to the vocabulary? Start with the [glossary](glossary.md).
 
+## Recommended reading (DesignGurus blog)
+
+Free, in-depth articles that pair well with this repo.
+
+**Start here**
+- [25 Fundamental System Design Concepts](https://www.designgurus.io/blog/system-design-interview-fundamentals)
+- [System Design Interview Guide (2026): Framework and How to Prepare](https://www.designgurus.io/blog/complete-guide-sys-design)
+- [The Ultimate System Design Cheat Sheet](https://www.designgurus.io/blog/system-design-cheat-sheet)
+- [185+ System Design Guides: The Interview Library](https://www.designgurus.io/blog/system-design-interview-library)
+
+**Core concepts**
+- [Back-of-the-Envelope Estimation](https://www.designgurus.io/blog/back-of-the-envelope-system-design-interview)
+- [Scalability in System Design](https://www.designgurus.io/blog/grokking-system-design-scalability)
+- [High Availability in System Design](https://www.designgurus.io/blog/high-availability-system-design-basics)
+- [CAP Theorem vs PACELC](https://www.designgurus.io/blog/system-design-interview-basics-cap-vs-pacelc)
+- [Consistency Patterns in Distributed Systems](https://www.designgurus.io/blog/consistency-patterns-distributed-systems)
+
+**Architecture and APIs**
+- [19 Essential Microservices Patterns](https://www.designgurus.io/blog/19-essential-microservices-patterns-for-system-design-interviews)
+- [Monolithic vs Microservices vs SOA](https://www.designgurus.io/blog/monolithic-service-oriented-microservice-architecture)
+- [REST vs GraphQL vs gRPC](https://www.designgurus.io/blog/rest-graphql-grpc-system-design)
+
 ## Go deeper: the full course
 
 This repo gives you the map. The course gives you the territory: interactive diagrams, video lessons, worked solutions, and practice.
