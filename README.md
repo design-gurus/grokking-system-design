@@ -74,11 +74,15 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 - [Non-functional requirements](cheat-sheets/non-functional-requirements.md): scalability, availability, latency, consistency, and the rest.
 - [Trade-off decision guides](cheat-sheets/trade-offs.md): the common "X vs Y" decisions and how to choose.
 - [SQL vs NoSQL](cheat-sheets/sql-vs-nosql.md): how to choose, and how to justify it in an interview.
+- [Common mistakes and anti-patterns](cheat-sheets/common-mistakes.md): what sinks interviews, and how to avoid it.
+- [Interview communication tips](cheat-sheets/communication-tips.md): how to come across as a senior candidate.
 
 ## Study roadmaps
 
-- [2-week plan](roadmaps/2-week-plan.md): a focused sprint before an interview.
-- More plans live in [roadmaps/](roadmaps/).
+- [1-week crash plan](roadmaps/1-week-plan.md): when your interview is days away.
+- [2-week sprint](roadmaps/2-week-plan.md): a focused sprint before an interview.
+- [6-week study plan](roadmaps/6-week-plan.md): build depth from a baseline.
+- Pick by timeline in [roadmaps/](roadmaps/).
 
 ## Glossary
 
