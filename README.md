@@ -71,6 +71,8 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 
 - [Back-of-the-envelope estimation](cheat-sheets/estimation.md): the latency and capacity numbers worth memorizing.
 - [Interview framework](cheat-sheets/interview-framework.md): the step-by-step structure with timings.
+- [Non-functional requirements](cheat-sheets/non-functional-requirements.md): scalability, availability, latency, consistency, and the rest.
+- [Trade-off decision guides](cheat-sheets/trade-offs.md): the common "X vs Y" decisions and how to choose.
 - [SQL vs NoSQL](cheat-sheets/sql-vs-nosql.md): how to choose, and how to justify it in an interview.
 
 ## Study roadmaps
