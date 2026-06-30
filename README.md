@@ -51,17 +51,63 @@ Full breakdown with timings: [cheat-sheets/interview-framework.md](cheat-sheets/
 
 See the full list in [patterns/](patterns/). To add a new pattern, copy [patterns/_template.md](patterns/_template.md).
 
-## Classic system design questions
+## System design questions
 
-| Question | Difficulty | Key patterns | Walkthrough |
-|----------|-----------|--------------|-------------|
-| Design TinyURL | Easy | Hashing, caching, data modeling | [design-tinyurl.md](questions/design-tinyurl.md) |
-| Design Instagram | Medium | Sharding, caching, feed generation | [design-instagram.md](questions/design-instagram.md) |
-| Design Twitter | Medium | Fan-out, caching, timelines | [design-twitter.md](questions/design-twitter.md) |
-| Design Uber | Hard | Geo-indexing, matching, streaming | [design-uber.md](questions/design-uber.md) |
-| Design a web crawler | Hard | Frontier, dedup, politeness | [design-web-crawler.md](questions/design-web-crawler.md) |
+Forty-plus walkthroughs at the approach-and-trade-offs level, grouped by difficulty. Self-test with the [practice question bank](questions/practice-bank.md), and see full worked solutions in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
 
-See the full catalog in [questions/](questions/), or self-test with the [practice question bank](questions/practice-bank.md). To add a new question, copy [questions/_template.md](questions/_template.md). For full worked solutions, see the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
+### Basic
+
+- [Design TinyURL](questions/design-tinyurl.md)
+- [Design a rate limiter](questions/design-rate-limiter.md)
+- [Design a unique ID generator](questions/design-unique-id-generator.md)
+- [Design a distributed cache](questions/design-distributed-cache.md)
+- [Design an API gateway](questions/design-api-gateway.md)
+- [Design typeahead / autocomplete](questions/design-typeahead-autocomplete.md)
+- [Design a notification system](questions/design-notification-system.md)
+- [Design a YouTube likes counter](questions/design-youtube-likes-counter.md)
+- [Design Amazon shopping cart](questions/design-amazon-shopping-cart.md)
+
+### Advanced
+
+- [Design Instagram](questions/design-instagram.md)
+- [Design Twitter](questions/design-twitter.md)
+- [Design WhatsApp](questions/design-whatsapp.md)
+- [Design Reddit](questions/design-reddit.md)
+- [Design YouTube](questions/design-youtube.md)
+- [Design Discord](questions/design-discord.md)
+- [Design Amazon S3](questions/design-amazon-s3.md)
+- [Design Google Calendar](questions/design-google-calendar.md)
+- [Design Gmail](questions/design-gmail.md)
+- [Design Airbnb](questions/design-airbnb.md)
+- [Design a metrics and monitoring system](questions/design-metrics-monitoring.md)
+- [Design a recommendation system](questions/design-recommendation-system.md)
+- [Design People You May Know](questions/design-people-you-may-know.md)
+- [Design LinkedIn connections](questions/design-linkedin-connections.md)
+- [Design an ad click aggregator](questions/design-ad-click-aggregator.md)
+- [Design a live comment streaming service](questions/design-live-comment-streaming.md)
+- [Design a code deployment system](questions/design-code-deployment-system.md)
+- [Design Google News](questions/design-google-news.md)
+- [Design a code judging system](questions/design-code-judging-system.md)
+- [Design a distributed job scheduler](questions/design-distributed-job-scheduler.md)
+
+### Expert
+
+- [Design Uber](questions/design-uber.md)
+- [Design Netflix](questions/design-netflix.md)
+- [Design Dropbox](questions/design-dropbox.md)
+- [Design a web crawler](questions/design-web-crawler.md)
+- [Design a payment system](questions/design-payment-system.md)
+- [Design a flash sale system](questions/design-flash-sale-system.md)
+- [Design a reminder and alert system](questions/design-reminder-alert-system.md)
+- [Design Google Search](questions/design-google-search.md)
+- [Design Google Docs](questions/design-google-docs.md)
+- [Design a collaborative whiteboard](questions/design-collaborative-whiteboard.md)
+- [Design a stock exchange](questions/design-stock-exchange.md)
+- [Design Google Ads](questions/design-google-ads.md)
+- [Design ChatGPT](questions/design-chatgpt.md)
+- [Design Amazon Lambda](questions/design-amazon-lambda.md)
+
+See the full catalog in [questions/](questions/). To add a new question, copy [questions/_template.md](questions/_template.md).
 
 ## Distributed systems deep dives
 
