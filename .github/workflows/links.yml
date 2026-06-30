@@ -1,0 +1,42 @@
+name: Links
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # Weekly, to catch external link rot.
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  internal-links:
+    name: Internal links (relative)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # --offline checks only local file links, so this is deterministic
+          # and fast. It catches moved or renamed files breaking cross-links.
+          args: "--offline --no-progress './**/*.md'"
+          fail: true
+
+  external-links:
+    name: External links
+    # Only run for the weekly schedule or a manual trigger, so flaky external
+    # sites never block a pull request.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check external links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: "--no-progress --max-concurrency 4 --max-retries 3 --retry-wait-time 5 './**/*.md'"
+          # Report rot without failing the run.
+          fail: false
