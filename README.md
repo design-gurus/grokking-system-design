@@ -132,6 +132,7 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 
 ## Cheat sheets
 
+- [System design in one page](cheat-sheets/system-design-in-one-page.md): the whole framework, patterns, and numbers, condensed into one screenshot.
 - [Back-of-the-envelope estimation](cheat-sheets/estimation.md): the latency and capacity numbers worth memorizing.
 - [Interview framework](cheat-sheets/interview-framework.md): the step-by-step structure with timings.
 - [Non-functional requirements](cheat-sheets/non-functional-requirements.md): scalability, availability, latency, consistency, and the rest.
