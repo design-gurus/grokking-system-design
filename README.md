@@ -8,6 +8,23 @@ A pattern-based guide to system design interviews. Learn the building blocks onc
 
 ---
 
+## Contents
+
+- [What is Grokking System Design?](#what-is-grokking-system-design)
+- [How to use this repo](#how-to-use-this-repo)
+- [The interview framework](#the-system-design-interview-framework)
+- [Core building blocks (patterns)](#core-building-blocks-patterns)
+- [System design questions](#system-design-questions)
+- [Distributed systems deep dives](#distributed-systems-deep-dives)
+- [Cheat sheets](#cheat-sheets)
+- [Study roadmaps](#study-roadmaps)
+- [Glossary](#glossary)
+- [Recommended reading](#recommended-reading-designgurus-blog)
+- [Newsletter](#newsletter)
+- [Contributing](#contributing)
+
+---
+
 ## What is "Grokking System Design"?
 
 "Grok" means to understand something so completely that it becomes intuitive. Grokking System Design is the pattern-based approach to system design interviews: instead of memorizing answers to a fixed list of questions, you learn a small set of reusable building blocks (caching, sharding, replication, consistency models, messaging, and more) that appear again and again across very different systems. Once you know the patterns, any new design problem feels familiar.
