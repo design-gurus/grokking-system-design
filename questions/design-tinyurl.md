@@ -51,10 +51,13 @@ A pre-generated key service (a pool of unused keys handed out in batches) avoids
 
 ## 6. High-level design
 
-```
-[client] --> [load balancer] --> [app servers] --> [key-value store]
-                                       |
-                                    [cache]  (hot short codes)
+```mermaid
+flowchart LR
+    Client[Client] --> LB{{Load Balancer}}
+    LB --> App[App Servers]
+    App -->|read hot codes first| Cache[(Cache)]
+    App -->|read and write the mapping| KV[(Key-Value Store)]
+    App -->|get a code on create| KS[Key Service]
 ```
 
 - Redirects read from a cache first (short codes are very read-heavy and cache well). See [caching](../patterns/caching.md).
