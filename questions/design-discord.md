@@ -16,6 +16,17 @@
 - Fan-out: a message in a busy channel must reach many connected clients; push to the connection servers holding those members.
 - Presence and large-server scale are the hard parts; shard members and gateway connections.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    U1[User] ---|WebSocket| G1[Gateway Server]
+    U2[User] ---|WebSocket| G2[Gateway Server]
+    G1 --> MS[Message Service]
+    G2 --> MS
+    MS --> Store[(Channel Store)]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

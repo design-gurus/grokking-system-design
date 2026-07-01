@@ -16,6 +16,17 @@
 - Scheduling: a control plane places invocations onto worker hosts and scales the pool with demand.
 - Isolation is the core challenge, the same concern as a [code judging system](design-code-judging-system.md), but as a general-purpose platform.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Event[Event / Request] --> CP[Control Plane]
+    CP --> W1[Worker Host]
+    W1 --> S1[Sandbox: function]
+    CP --> W2[Worker Host]
+    W2 --> S2[Sandbox: function]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

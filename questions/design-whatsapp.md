@@ -26,8 +26,12 @@ See the [estimation cheat sheet](../cheat-sheets/estimation.md).
 
 Unlike a request-response API, chat needs the server to push messages to clients. Use long-lived connections (WebSocket) held by a fleet of connection servers. A user is connected to one server; a routing layer knows which server holds which user so a message can be delivered to the right place.
 
-```
-[user A] == WebSocket ==> [conn server 1] --> [message service] --> [conn server 2] == WebSocket ==> [user B]
+```mermaid
+flowchart LR
+    A[User A] ---|WebSocket| C1[Conn Server 1]
+    C1 --> MS[Message Service]
+    MS --> C2[Conn Server 2]
+    C2 ---|WebSocket| B[User B]
 ```
 
 ## 4. Data model and storage

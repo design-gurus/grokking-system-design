@@ -31,6 +31,15 @@
 - Consistency over availability for inventory: it is better to reject some buyers than to oversell.
 - User experience: a queue with a clear "you are in line" state beats errors or overselling.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> Adm[Admission / Queue]
+    Adm --> Inv[(Inventory: atomic decrement)]
+    Inv --> Checkout[Checkout]
+```
+
 ## Go deeper
 
 - For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

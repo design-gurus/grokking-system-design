@@ -45,6 +45,17 @@ Use atomic operations (for example Redis INCR with expiry, or Lua scripts) to av
 - Accuracy vs latency: centralized is accurate but slower; local is fast but approximate.
 - The counter store can become a hot spot; shard counters by client.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Req[Request] --> GW[Gateway]
+    GW --> RL{Limiter}
+    RL --> Redis[(Counter Store)]
+    RL -->|allow| Svc[Service]
+    RL -->|deny| R429[429]
+```
+
 ## Go deeper
 
 - Read more (free): [How to Design a Rate Limiter](https://www.designgurus.io/blog/grokking-rate-limiters)

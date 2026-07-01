@@ -16,6 +16,16 @@
 - Rank candidates by mutual-friend count plus other signals, similar to a [recommendation system](design-recommendation-system.md).
 - The graph is partitioned; two-hop queries must avoid scanning the whole graph.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Graph[(Social Graph)] --> Pipe[Offline FoF Pipeline]
+    Pipe --> Cand[(Candidate Store)]
+    Client --> Serve[Serve + Rank]
+    Serve --> Cand
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

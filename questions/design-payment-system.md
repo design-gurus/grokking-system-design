@@ -31,6 +31,17 @@
 - Latency vs safety: extra durability and confirmation steps cost time, but correctness wins for payments.
 - At-least-once delivery plus idempotency gives an exactly-once effect without exactly-once messaging.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> PS[Payment Service]
+    PS --> Idem[(Idempotency Store)]
+    PS --> Ledger[(Ledger)]
+    PS --> Prov[Payment Provider]
+    Prov -.->|reconcile| Ledger
+```
+
 ## Go deeper
 
 - For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

@@ -28,8 +28,12 @@ Files are split into fixed-size chunks. Each chunk is identified by a hash of it
 - Deduplicate identical chunks across files and users.
 - Resume interrupted uploads chunk by chunk.
 
-```
-[file] -> [split into chunks] -> [hash each chunk] -> upload only new chunks -> [object storage]
+```mermaid
+flowchart LR
+    File[File] --> Split[Split into chunks]
+    Split --> Hash[Hash each chunk]
+    Hash --> Upload[Upload only new chunks]
+    Upload --> OS[(Object Storage)]
 ```
 
 ## 4. The two services

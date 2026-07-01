@@ -16,6 +16,18 @@
 - Budgets: decrement advertiser budgets accurately so they are not overspent; this is a consistency-sensitive counter.
 - Fraud detection runs on the click stream to filter invalid clicks before billing.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Req[Ad Request] --> Sel[Ad Selection / Auction]
+    Sel --> Ads[(Ad Index)]
+    Sel --> Serve[Serve Ad]
+    Serve --> Clicks[Click Stream]
+    Clicks --> Agg[Aggregator]
+    Agg --> Budget[(Budgets)]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

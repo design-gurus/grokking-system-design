@@ -32,6 +32,16 @@
 - Clustering accuracy vs latency: better grouping costs more compute, but news must stay fresh.
 - Global ranking vs personalization: combine both rather than choosing one.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Src[Publishers] --> Ing[Ingestion]
+    Ing --> Clust[Dedup + Cluster into stories]
+    Clust --> Rank[Ranking]
+    Rank --> Serve[Serve feed]
+```
+
 ## Go deeper
 
 - For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

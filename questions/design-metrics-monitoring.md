@@ -16,6 +16,17 @@
 - Write volume is the core challenge: aggregate in time windows rather than storing every raw point forever.
 - Alerting: rules evaluate recent windows and fire through a [notification system](design-notification-system.md).
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Agents[Agents] --> Q[Ingestion]
+    Q --> TSDB[(Time-series DB)]
+    TSDB --> Dash[Dashboards]
+    TSDB --> Alert[Alerting]
+    Alert --> Notif[Notifications]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

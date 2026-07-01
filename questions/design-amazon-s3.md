@@ -15,6 +15,17 @@
 - Large objects are split into parts for parallel and resumable uploads.
 - Partition the namespace by key so the metadata service scales (see [sharding](../patterns/sharding-partitioning.md)).
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> API[API]
+    API --> Meta[(Metadata Service)]
+    API --> N1[Storage Node]
+    API --> N2[Storage Node]
+    API --> N3[Storage Node]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

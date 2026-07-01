@@ -16,6 +16,18 @@
 - Context: conversation history is sent with each request (within a context limit); long histories may be summarized or truncated.
 - Scaling and cost: GPUs are expensive, so batching, queuing, and autoscaling the worker pool are central. Cache common results where possible.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> GW[Gateway]
+    GW --> Q[Request Queue]
+    Q --> Sched[Batching Scheduler]
+    Sched --> GPU1[GPU Worker]
+    Sched --> GPU2[GPU Worker]
+    GPU1 -->|stream tokens| Client
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

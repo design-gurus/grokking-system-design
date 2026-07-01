@@ -18,10 +18,13 @@
 
 The system is queue-driven so producers never wait on slow third-party providers:
 
-```
-[services] -> [notification API] -> [queue] -> [channel workers] -> [push / email / SMS providers]
-                                        |
-                                 [preferences + templates]
+```mermaid
+flowchart LR
+    Svc[Services] --> API[Notification API]
+    API --> Q[Queue]
+    Q --> W[Channel Workers]
+    W --> P[Push / Email / SMS providers]
+    Prefs[Preferences + Templates] -.-> W
 ```
 
 - The API validates and enqueues a request quickly.

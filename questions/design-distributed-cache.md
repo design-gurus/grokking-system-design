@@ -16,6 +16,16 @@
 - Eviction: LRU is the common default; also support TTL expiry.
 - Consistency: caches are usually best-effort, so plan invalidation (see [caching](../patterns/caching.md)) and accept brief staleness.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> Router{Consistent Hashing}
+    Router --> N1[(Cache Node 1)]
+    Router --> N2[(Cache Node 2)]
+    Router --> N3[(Cache Node 3)]
+```
+
 ## Go deeper
 
 - Read more (free): [Ultimate Guide to Redis in System Design](https://www.designgurus.io/blog/redis-guide)

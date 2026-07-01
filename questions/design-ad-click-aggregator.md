@@ -16,6 +16,17 @@
 - Deduplication: clicks carry an id so retries and duplicates are not double-counted (idempotency).
 - Late events: windows allow a grace period before they are finalized.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Clicks[Click events] --> Log[Event Log / Kafka]
+    Log --> SP[Stream Processor]
+    SP --> Store[(Aggregate Store)]
+    Store --> Dash[Dashboards]
+    Store --> Bill[Billing]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

@@ -16,6 +16,18 @@
 - Query serving: a query fans out to index shards, each returns top matches, and results are merged and ranked, all within tight latency.
 - Ranking combines relevance signals and authority; precompute what you can and cache popular queries.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Crawl[Crawler] --> Index[Indexer]
+    Index --> Shards[(Inverted Index Shards)]
+    Query[Query] --> Root[Query Coordinator]
+    Root --> Shards
+    Shards --> Rank[Merge + Rank]
+    Rank --> Results[Results]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

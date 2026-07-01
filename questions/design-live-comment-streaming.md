@@ -16,6 +16,17 @@
 - Under extreme load, sampling or rate-limiting comments is acceptable, since not every viewer needs every message.
 - This is a fan-out heavy variant of chat (see [Discord](design-discord.md)).
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Poster[Viewer posts] --> Ingest[Ingest Service]
+    Ingest --> BS[Broadcast Servers]
+    BS --> V1[Viewer]
+    BS --> V2[Viewer]
+    BS --> V3[Viewer]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

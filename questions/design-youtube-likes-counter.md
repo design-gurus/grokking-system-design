@@ -29,6 +29,16 @@ A common design: events stream into a log, a processor aggregates them in time w
 - Idempotency: a user liking twice should count once; track per-user state or dedup events.
 - Read path: serve the cached aggregate; it lags slightly, which is fine.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Likes[Like events] --> Log[Event Log]
+    Log --> Agg[Aggregator: sharded counters]
+    Agg --> Store[(Count Store)]
+    Store --> Cache[(Read Cache)]
+```
+
 ## Go deeper
 
 - For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

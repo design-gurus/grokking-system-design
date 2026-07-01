@@ -38,6 +38,15 @@ A practical pattern: persist reminders in a store partitioned by time, and a sch
 - Precision vs cost: poll more often for tighter timing, less often to save load.
 - At-least-once plus dedup avoids both missed and duplicate reminders.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Store[(Reminders by fire time)] --> Sched[Scheduler]
+    Sched --> Q[Delivery Queue]
+    Q --> Notif[Notification System]
+```
+
 ## Go deeper
 
 - For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

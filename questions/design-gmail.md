@@ -34,6 +34,18 @@
 - Index freshness vs cost: index asynchronously, so new mail is searchable within seconds.
 - Strong durability for mail vs eventual consistency for secondary indexes.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    SMTP[Incoming SMTP] --> Q[Queue]
+    Q --> Spam[Spam Filter]
+    Spam --> Mail[(Mailbox Store)]
+    Mail --> Index[(Search Index)]
+    Client --> API[API]
+    API --> Mail
+```
+
 ## Go deeper
 
 - For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

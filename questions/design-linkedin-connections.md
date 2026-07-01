@@ -16,6 +16,15 @@
 - Mutual connections are an intersection of two users' connection sets; keep adjacency lists in a fast store.
 - Partition the graph by user id; cross-partition traversals are the scaling challenge (related to [people you may know](design-people-you-may-know.md)).
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> GS[Graph Service]
+    GS --> Adj[(Adjacency Lists)]
+    GS --> Cache[(2nd-degree Cache)]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

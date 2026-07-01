@@ -31,6 +31,16 @@
 
 - Store-rule-and-expand (cheap storage, compute on read) vs materialize-occurrences (cheap read, expensive storage). Expansion on read is the common choice.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> Ev[Event Service]
+    Ev --> DB[(Events: rules + exceptions)]
+    Ev --> Rem[Reminder Scheduler]
+    Rem --> Notif[Notification System]
+```
+
 ## Go deeper
 
 - For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

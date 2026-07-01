@@ -16,6 +16,17 @@
 - Architecture: clients send small operations to a document server that orders them, applies the merge strategy, and broadcasts the result to all editors.
 - Persistence: store the document plus an operation log so edits can replay and offline changes can sync.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    U1[User] ---|edits| DS[Document Server]
+    U2[User] ---|edits| DS
+    DS -->|OT / CRDT merge| Store[(Document + Op Log)]
+    DS -->|broadcast| U1
+    DS -->|broadcast| U2
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

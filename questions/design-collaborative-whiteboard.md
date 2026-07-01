@@ -16,6 +16,15 @@
 - State: keep the live board in memory on a board server, and persist a snapshot plus an operation log for recovery.
 - Partition by board so each board's editors connect to the same server.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    U1[User] ---|WebSocket| BS[Board Server]
+    U2[User] ---|WebSocket| BS
+    BS --> Store[(Snapshot + Op Log)]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

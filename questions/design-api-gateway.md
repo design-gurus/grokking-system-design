@@ -16,6 +16,17 @@
 - It must not become a single point of failure: run it behind a [load balancer](../patterns/load-balancing.md) as a redundant, stateless fleet.
 - Caching and circuit breaking protect slow or failing backends.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> GW{{API Gateway}}
+    GW --> S1[Service A]
+    GW --> S2[Service B]
+    GW --> S3[Service C]
+    Auth[Auth / Rate limit] -.-> GW
+```
+
 ## Go deeper
 
 - Read more (free): [Load Balancer vs Reverse Proxy vs API Gateway](https://www.designgurus.io/blog/load-balancer-reverse-proxy-api-gateway)

@@ -40,11 +40,14 @@ Drivers are bucketed into cells. A ride request looks up the rider's cell and it
 
 ## 5. High-level design
 
-```
-[driver app] -> [location service] -> [in-memory geo index]
-[rider app]  -> [matching service] -> reads geo index, picks a driver
-                          |
-                     [trip service] -> [data store]
+```mermaid
+flowchart LR
+    Driver[Driver app] --> Loc[Location Service]
+    Loc --> Geo[(In-memory Geo Index)]
+    Rider[Rider app] --> Match[Matching Service]
+    Match --> Geo
+    Match --> Trip[Trip Service]
+    Trip --> DB[(Data Store)]
 ```
 
 - Location updates flow through a stream or queue (see [message queues](../patterns/message-queues.md)) into an in-memory geo index that is frequently updated.

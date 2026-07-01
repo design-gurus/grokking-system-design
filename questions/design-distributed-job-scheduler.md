@@ -16,6 +16,17 @@
 - Exactly-once vs at-least-once: distributed scheduling usually guarantees at-least-once, so jobs should be idempotent, or use a lock (see [Chubby](../deep-dives/chubby-distributed-locking.md)) so only one worker runs a given job.
 - Reliability: retries with backoff, and a dead letter path for jobs that keep failing.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Store[(Jobs by fire time)] --> Sched[Scheduler]
+    Sched --> Q[Queue]
+    Q --> W1[Worker]
+    Q --> W2[Worker]
+    Lock[Lock Service] -.-> Sched
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

@@ -32,6 +32,16 @@
 - Vote accuracy vs write cost: aggregate counts, accept slight lag.
 - Ranking freshness vs compute: recompute hot scores periodically.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> App[App Servers]
+    App --> Posts[(Posts + Comments)]
+    App --> Votes[Vote Counter]
+    App --> Feed[(Ranked Feed Cache)]
+```
+
 ## Go deeper
 
 - For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

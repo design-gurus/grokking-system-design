@@ -16,6 +16,15 @@
 - Keep price and stock checks at checkout; the cart stores item references, not frozen prices.
 - Conflicts (the same cart edited on two devices) resolve by merging items.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> Cart[Cart Service]
+    Cart --> KV[(Key-Value Store)]
+    Cart --> Checkout[Checkout Service]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

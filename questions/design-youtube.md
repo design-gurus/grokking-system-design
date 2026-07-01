@@ -16,6 +16,17 @@
 - Metadata (titles, channels, view counts) lives in a separate service; view counts are a high-volume counter (see the [likes counter](design-youtube-likes-counter.md)).
 - Storage: raw and encoded video in object storage fronted by the CDN.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Upload[Upload] --> TP[Transcoding]
+    TP --> OS[(Object Storage)]
+    OS --> CDN[CDN]
+    CDN --> Player[Player]
+    Meta[(Metadata + Views)] -.-> Player
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

@@ -53,6 +53,18 @@ The hybrid approach is the strong answer: pushing to a celebrity's tens of milli
 - Feed freshness vs cost: eventual consistency keeps it cheap.
 - Read scaling via caching and [replication](../patterns/replication.md).
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> App[App Servers]
+    App --> Feed[Feed Service]
+    App --> Meta[(Metadata: sharded)]
+    App --> OS[(Object Storage)]
+    OS --> CDN[CDN]
+    Feed --> Cache[(Timeline Cache)]
+```
+
 ## Go deeper
 
 - Read more (free): [How to Design Instagram](https://www.designgurus.io/blog/how-to-design-instagram-in-system-design-interview)

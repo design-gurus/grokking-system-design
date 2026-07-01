@@ -55,6 +55,16 @@ The hybrid model avoids the write storm when a user with tens of millions of fol
 - Write amplification of push vs read cost of pull; the hybrid balances them.
 - Read scaling via caching and [replication](../patterns/replication.md).
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> App[App Servers]
+    App --> TL[Timeline Service]
+    App --> Tweets[(Tweets: sharded)]
+    TL --> Cache[(Timeline Cache)]
+```
+
 ## Go deeper
 
 - Practice live: [Mock interviews](https://www.designgurus.io/mock-interviews)

@@ -16,6 +16,17 @@
 - Ranking: completions are ranked by frequency, computed from a stream of past queries and refreshed periodically.
 - Scale: shard by prefix; most traffic hits a small set of popular prefixes, which cache well.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Key[Keystroke] --> Svc[Suggestion Service]
+    Svc --> Trie[(Prefix Trie: top-N)]
+    Svc --> Cache[(Cache)]
+    Stream[Query Stream] --> Build[Build and rank offline]
+    Build --> Trie
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

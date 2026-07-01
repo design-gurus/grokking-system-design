@@ -23,10 +23,13 @@ See the [estimation cheat sheet](../cheat-sheets/estimation.md).
 
 ## 3. High-level design
 
-```
-[seed URLs] -> [URL frontier (queues)] -> [fetchers] -> [parser] -> [content store]
-                       ^                                   |
-                       |------------- new links -----------|
+```mermaid
+flowchart LR
+    Seed[Seed URLs] --> Frontier[URL Frontier queues]
+    Frontier --> Fetch[Fetchers]
+    Fetch --> Parse[Parser]
+    Parse --> Store[(Content Store)]
+    Parse -->|new links| Frontier
 ```
 
 - URL frontier: a set of queues holding URLs to crawl, partitioned by host so politeness can be enforced per site.

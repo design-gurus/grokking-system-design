@@ -28,6 +28,16 @@ Pack a 64-bit ID as: timestamp bits + machine id bits + per-machine sequence num
 - Machine id assignment: hand out via configuration or a coordination service.
 - Sequence overflow: if a node exhausts the sequence in one millisecond, wait for the next tick.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    App1[App Node] --> Gen1[ID Generator: ts + machine + seq]
+    App2[App Node] --> Gen2[ID Generator: ts + machine + seq]
+    Coord[Machine ID assignment] -.-> Gen1
+    Coord -.-> Gen2
+```
+
 ## Go deeper
 
 - For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

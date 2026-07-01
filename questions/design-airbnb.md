@@ -16,6 +16,17 @@
 - Reservations: a hold during checkout with a timeout, confirmed on payment.
 - Read-heavy search vs consistency-critical booking: separate those paths.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Client --> Search[Search Service]
+    Search --> Geo[(Geo Index)]
+    Client --> Book[Booking Service]
+    Book --> DB[(Reservations DB)]
+    Book --> Pay[Payment Service]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)

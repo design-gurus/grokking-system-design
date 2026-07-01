@@ -32,6 +32,18 @@
 - Isolation strength vs startup cost: stronger sandboxes (microVMs) are safer but slower to start; pooling helps.
 - Throughput vs fairness: prioritize and rate-limit so one user cannot starve others.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Sub[Submission] --> Q[Queue]
+    Q --> W1[Judge Worker: sandbox]
+    Q --> W2[Judge Worker: sandbox]
+    Tests[(Test Cases)] -.-> W1
+    Tests -.-> W2
+    W1 --> Verdict[Verdict]
+```
+
 ## Go deeper
 
 - For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

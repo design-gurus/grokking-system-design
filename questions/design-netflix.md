@@ -26,8 +26,12 @@ See the [estimation cheat sheet](../cheat-sheets/estimation.md).
 - Ingest and encoding (write path, offline): uploaded video is split into segments and transcoded into many bitrate and resolution variants, then pushed to the CDN.
 - Playback (read path, online): the client streams from the nearest CDN edge using adaptive bitrate streaming (HLS or DASH), switching quality based on network conditions.
 
-```
-[upload] -> [transcoding pipeline] -> [object storage] -> [CDN edges] -> [player]
+```mermaid
+flowchart LR
+    Upload[Upload] --> TP[Transcoding Pipeline]
+    TP --> OS[(Object Storage)]
+    OS --> CDN[CDN Edges]
+    CDN --> Player[Player]
 ```
 
 ## 4. Adaptive bitrate streaming

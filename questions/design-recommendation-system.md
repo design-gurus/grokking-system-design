@@ -38,6 +38,18 @@ Heavy computation runs offline in a batch or streaming pipeline; the online serv
 - Cold start: new users and items lack history; fall back to popularity and content signals.
 - Freshness vs cost: recompute periodically; do not rebuild everything per request.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Data[(User + Item Data)] --> Offline[Offline Pipeline]
+    Offline --> Store[(Candidates + Model)]
+    Client --> Gen[Candidate Generation]
+    Gen --> Store
+    Gen --> Rank[Ranking]
+    Rank --> Serve[Recommendations]
+```
+
 ## Go deeper
 
 - Read more (free): [How to Design a Recommendation System](https://www.designgurus.io/blog/design-recommendation-system)

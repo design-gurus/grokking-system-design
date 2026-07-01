@@ -16,6 +16,16 @@
 - Partition by symbol: each symbol's book runs independently, so the system scales across symbols.
 - Correctness over availability: trades must be exact.
 
+## High-level design
+
+```mermaid
+flowchart LR
+    Orders[Orders] --> Log[Durable Log]
+    Log --> ME[Matching Engine per symbol]
+    ME --> Book[(Order Book, in-memory)]
+    ME --> Trades[Trades]
+```
+
 ## Go deeper
 
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)
