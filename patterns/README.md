@@ -16,6 +16,18 @@ Learn these once and you can assemble an answer to almost any design question. E
 | [CDN](cdn.md) | Serving static content close to users | Written |
 | [Database indexing](database-indexing.md) | Fast lookups | Written |
 | [Bloom filters](bloom-filters.md) | Cheap "definitely not present" checks | Written |
+| [Proxies](proxies.md) | Intermediaries for routing, security, and caching | Written |
+| [API gateway](api-gateway.md) | One entry point for auth, rate limiting, and routing | Written |
+| [Long polling vs WebSockets vs SSE](long-polling-websockets-sse.md) | Pushing real-time updates to clients | Written |
+| [Quorum](quorum.md) | Consistent reads and writes across replicas | Written |
+| [Leader election](leader-election.md) | Agreeing on one node in charge, surviving failover | Written |
+| [Heartbeats](heartbeats.md) | Detecting failed servers | Written |
+| [Checksums](checksums.md) | Detecting corrupted data | Written |
+| [Idempotency](idempotency.md) | Making retries safe, no duplicate effects | Written |
+| [Distributed locking](distributed-locking.md) | Mutual exclusion across machines | Written |
+| [Write-ahead log](write-ahead-log.md) | Durability and crash recovery | Written |
+| [Circuit breaker](circuit-breaker.md) | Stopping cascading failures | Written |
+| [Batch vs stream processing](batch-vs-stream-processing.md) | Computing over big data, on a schedule or in real time | Written |
 
 ## Add a new pattern
 
