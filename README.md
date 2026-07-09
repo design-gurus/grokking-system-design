@@ -70,20 +70,8 @@ Full breakdown with timings: [cheat-sheets/interview-framework.md](cheat-sheets/
 | CDN | Serving static content close to users | [cdn.md](patterns/cdn.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
 | Database indexing | Fast lookups | [database-indexing.md](patterns/database-indexing.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
 | Bloom filters | Cheap "definitely not present" checks | [bloom-filters.md](patterns/bloom-filters.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Proxies | Intermediaries for routing, security, and caching | [proxies.md](patterns/proxies.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| API gateway | One entry point for auth, rate limiting, and routing | [api-gateway.md](patterns/api-gateway.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Long polling vs WebSockets vs SSE | Pushing real-time updates to clients | [long-polling-websockets-sse.md](patterns/long-polling-websockets-sse.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Quorum | Consistent reads and writes across replicas | [quorum.md](patterns/quorum.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Leader election | Agreeing on one node in charge, surviving failover | [leader-election.md](patterns/leader-election.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Heartbeats | Detecting failed servers | [heartbeats.md](patterns/heartbeats.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Checksums | Detecting corrupted data | [checksums.md](patterns/checksums.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Idempotency | Making retries safe, no duplicate effects | [idempotency.md](patterns/idempotency.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Distributed locking | Mutual exclusion across machines | [distributed-locking.md](patterns/distributed-locking.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Write-ahead log | Durability and crash recovery | [write-ahead-log.md](patterns/write-ahead-log.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Circuit breaker | Stopping cascading failures | [circuit-breaker.md](patterns/circuit-breaker.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Batch vs stream processing | Computing over big data, on a schedule or in real time | [batch-vs-stream-processing.md](patterns/batch-vs-stream-processing.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
 
-This table lists every building block in [patterns/](patterns/). To add a new pattern, copy [patterns/_template.md](patterns/_template.md).
+These are the 12 most essential building blocks. All 24 patterns live in [patterns/](patterns/), including API gateways, quorum, leader election, idempotency, write-ahead logs, circuit breakers, and more. To add a new pattern, copy [patterns/_template.md](patterns/_template.md).
 
 ## System design questions
 
