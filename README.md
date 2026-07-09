@@ -70,6 +70,7 @@ Full breakdown with timings: [cheat-sheets/interview-framework.md](cheat-sheets/
 | CDN | Serving static content close to users | [cdn.md](patterns/cdn.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
 | Database indexing | Fast lookups | [database-indexing.md](patterns/database-indexing.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
 | Bloom filters | Cheap "definitely not present" checks | [bloom-filters.md](patterns/bloom-filters.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
+
 These are the 12 most essential building blocks. All 24 patterns live in [patterns/](patterns/), including API gateways, quorum, leader election, idempotency, write-ahead logs, circuit breakers, and more. To add a new pattern, copy [patterns/_template.md](patterns/_template.md).
 
 ## System design questions
