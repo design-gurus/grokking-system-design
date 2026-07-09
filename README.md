@@ -15,6 +15,7 @@ A pattern-based guide to system design interviews. Learn the building blocks onc
 - [The interview framework](#the-system-design-interview-framework)
 - [Core building blocks (patterns)](#core-building-blocks-patterns)
 - [System design questions](#system-design-questions)
+- [Company-specific interviews](#company-specific-interviews)
 - [Distributed systems deep dives](#distributed-systems-deep-dives)
 - [Cheat sheets](#cheat-sheets)
 - [Study roadmaps](#study-roadmaps)
@@ -141,6 +142,12 @@ Forty-plus walkthroughs at the approach-and-trade-offs level, grouped by difficu
 - [Design Amazon Lambda](questions/design-amazon-lambda.md)
 
 See the full catalog in [questions/](questions/). To add a new question, copy [questions/_template.md](questions/_template.md).
+
+## Company-specific interviews
+
+The same question plays differently at different companies: a rate limiter at Stripe is an API-contract exercise, at xAI it turns into implementation, and at Bloomberg it scales to Terminal fan-out. The [company index](companies/README.md) summarizes how 58 companies run their system design rounds: the signature questions candidates report, what interviewers probe, and which patterns to review for each.
+
+Includes [Stripe](companies/stripe.md), [OpenAI](companies/openai.md), [Bloomberg](companies/bloomberg.md), [Databricks](companies/databricks.md), [Discord](companies/discord.md), [Palantir](companies/palantir.md), [Robinhood](companies/robinhood.md), [Figma](companies/figma.md), [Citadel](companies/citadel.md), [LinkedIn](companies/linkedin.md), and 48 more, grouped by sector.
 
 ## Distributed systems deep dives
 
