@@ -4,7 +4,10 @@
 
 A pattern-based guide to system design interviews. Learn the building blocks once, then apply them to any design question. This repository is a free index, summary, and cheat-sheet collection. For interactive diagrams, video lessons, and worked solutions, see the full course.
 
-<!-- Add badges once the repo is live, for example: stars, license, last commit. -->
+[![GitHub stars](https://img.shields.io/github/stars/design-gurus/grokking-system-design?style=social)](https://github.com/design-gurus/grokking-system-design/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/design-gurus/grokking-system-design)](https://github.com/design-gurus/grokking-system-design/commits/main)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
 
@@ -129,6 +132,17 @@ Forty-plus walkthroughs at the approach-and-trade-offs level, grouped by difficu
 - [Design ChatGPT](questions/design-chatgpt.md)
 - [Design Amazon Lambda](questions/design-amazon-lambda.md)
 
+### AI and LLM systems
+
+The fastest-growing question category, asked heavily by AI labs and increasingly by big tech:
+
+- [Design a RAG pipeline](questions/design-rag-pipeline.md)
+- [Design semantic search (vector search)](questions/design-semantic-search.md)
+- [Design an LLM inference platform](questions/design-llm-inference-platform.md)
+- [Design a model evaluation pipeline](questions/design-model-evaluation-pipeline.md)
+- [Design an AI agent orchestration system](questions/design-ai-agent-orchestration.md)
+- [Design a GPU cluster scheduler](questions/design-gpu-cluster-scheduler.md)
+
 See the full catalog in [questions/](questions/). To add a new question, copy [questions/_template.md](questions/_template.md).
 
 ## Company-specific interviews
@@ -139,7 +153,7 @@ Includes [Stripe](companies/stripe.md), [OpenAI](companies/openai.md), [Bloomber
 
 ## Distributed systems deep dives
 
-Case studies of landmark systems, the "how does X work" questions common in senior interviews: Dynamo, Cassandra, BigTable, Kafka, Chubby, GFS, and HDFS. See [deep-dives/](deep-dives/).
+Case studies of landmark systems, the "how does X work" questions common in senior interviews: Dynamo, Cassandra, BigTable, Kafka, Chubby, GFS, HDFS, Spanner, Raft, MapReduce, ZooKeeper, Memcached at Facebook, Aurora, and DynamoDB. See [deep-dives/](deep-dives/) for all fourteen, with a suggested reading order.
 
 ## Cheat sheets
 
@@ -149,9 +163,15 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 - [Non-functional requirements](cheat-sheets/non-functional-requirements.md): scalability, availability, latency, consistency, and the rest.
 - [Trade-off decision guides](cheat-sheets/trade-offs.md): the common "X vs Y" decisions and how to choose.
 - [SQL vs NoSQL](cheat-sheets/sql-vs-nosql.md): how to choose, and how to justify it in an interview.
+- [PostgreSQL vs DynamoDB vs Cassandra](cheat-sheets/postgres-vs-dynamodb-vs-cassandra.md): the concrete version of the SQL vs NoSQL decision.
+- [Kafka vs RabbitMQ vs SQS](cheat-sheets/kafka-vs-rabbitmq-vs-sqs.md): log vs broker vs managed queue, and the one-question shortcut.
+- [Redis vs Memcached](cheat-sheets/redis-vs-memcached.md): data-structure server vs pure cache.
+- [REST vs gRPC vs GraphQL](cheat-sheets/rest-vs-grpc-vs-graphql.md): pick the API style per boundary, not per fashion.
 - [Core components reference](cheat-sheets/core-components.md): the building blocks and when to use each.
 - [Common mistakes and anti-patterns](cheat-sheets/common-mistakes.md): what sinks interviews, and how to avoid it.
 - [Interview communication tips](cheat-sheets/communication-tips.md): how to come across as a senior candidate.
+- [Senior vs staff expectations](cheat-sheets/senior-vs-staff-expectations.md): how the same question is graded differently by level.
+- [A mock interview, annotated](cheat-sheets/mock-interview-walkthrough.md): two candidates, one question, and where the hire/no-hire line actually sits.
 
 ## Study roadmaps
 
