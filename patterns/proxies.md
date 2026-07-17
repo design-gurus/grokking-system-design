@@ -49,4 +49,5 @@ Most candidates draw a reverse proxy without naming it. Naming it, and knowing t
 
 ## Go deeper
 
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

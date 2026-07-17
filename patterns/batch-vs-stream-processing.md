@@ -36,4 +36,5 @@ State the freshness requirement first, then pick: "trending topics needs minutes
 ## Go deeper
 
 - Full question walkthroughs: [Design an ad click aggregator](../questions/design-ad-click-aggregator.md), [Design a metrics and monitoring system](../questions/design-metrics-monitoring.md)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

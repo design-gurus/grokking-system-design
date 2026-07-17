@@ -49,4 +49,5 @@ Pick a model and justify it, state whether replication is sync or async and why,
 ## Go deeper
 
 - Read more (free): [Data Replication Strategies](https://www.designgurus.io/blog/data-replication-strategies-system-design)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

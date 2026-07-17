@@ -37,4 +37,4 @@ A sentence or two on the signal interviewers look for, and the follow-up questio
 
 ## Go deeper
 
-Link to the relevant lesson in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
+Link to the relevant lesson in [System Design Patterns](https://www.designgurus.io/course/system-design-patterns) or the [main course](https://www.designgurus.io/course/grokking-the-system-design-interview).

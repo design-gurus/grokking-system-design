@@ -61,18 +61,18 @@ Full breakdown with timings: [cheat-sheets/interview-framework.md](cheat-sheets/
 
 | Pattern | What it solves | Cheat sheet | Learn in depth |
 |---------|----------------|-------------|----------------|
-| Caching | Read latency and load on the data store | [caching.md](patterns/caching.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Load balancing | Distributing traffic across servers | [load-balancing.md](patterns/load-balancing.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Sharding and partitioning | Scaling data beyond one machine | [sharding-partitioning.md](patterns/sharding-partitioning.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Replication | Availability and read scaling | [replication.md](patterns/replication.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Consistency models | Correctness under concurrency | [consistency-models.md](patterns/consistency-models.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Consistent hashing | Even distribution with minimal reshuffling | [consistent-hashing.md](patterns/consistent-hashing.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Message queues | Decoupling and async processing | [message-queues.md](patterns/message-queues.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Rate limiting | Protecting services from overload | [rate-limiting.md](patterns/rate-limiting.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| CAP theorem | Reasoning about trade-offs under partitions | [cap-theorem.md](patterns/cap-theorem.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| CDN | Serving static content close to users | [cdn.md](patterns/cdn.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Database indexing | Fast lookups | [database-indexing.md](patterns/database-indexing.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
-| Bloom filters | Cheap "definitely not present" checks | [bloom-filters.md](patterns/bloom-filters.md) | [Course](https://www.designgurus.io/course/grokking-the-system-design-interview) |
+| Caching | Read latency and load on the data store | [caching.md](patterns/caching.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| Load balancing | Distributing traffic across servers | [load-balancing.md](patterns/load-balancing.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| Sharding and partitioning | Scaling data beyond one machine | [sharding-partitioning.md](patterns/sharding-partitioning.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| Replication | Availability and read scaling | [replication.md](patterns/replication.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| Consistency models | Correctness under concurrency | [consistency-models.md](patterns/consistency-models.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| Consistent hashing | Even distribution with minimal reshuffling | [consistent-hashing.md](patterns/consistent-hashing.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| Message queues | Decoupling and async processing | [message-queues.md](patterns/message-queues.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| Rate limiting | Protecting services from overload | [rate-limiting.md](patterns/rate-limiting.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| CAP theorem | Reasoning about trade-offs under partitions | [cap-theorem.md](patterns/cap-theorem.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| CDN | Serving static content close to users | [cdn.md](patterns/cdn.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| Database indexing | Fast lookups | [database-indexing.md](patterns/database-indexing.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| Bloom filters | Cheap "definitely not present" checks | [bloom-filters.md](patterns/bloom-filters.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
 
 These are the 12 most essential building blocks. All 24 patterns live in [patterns/](patterns/), including API gateways, quorum, leader election, idempotency, write-ahead logs, circuit breakers, and more. To add a new pattern, copy [patterns/_template.md](patterns/_template.md).
 
@@ -211,6 +211,7 @@ Free, in-depth articles that pair well with this repo.
 This repo gives you the map. The course gives you the territory: interactive diagrams, video lessons, worked solutions, and practice.
 
 - Course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Patterns course: [System Design Patterns: From Fundamentals to Real Systems](https://www.designgurus.io/course/system-design-patterns), built around the same building blocks as [patterns/](patterns/)
 - Practice live: [Mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
 - More reading: [DesignGurus blog](https://www.designgurus.io/blog)
 

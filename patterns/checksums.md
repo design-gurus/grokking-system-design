@@ -39,4 +39,5 @@ Checksums come up in file storage, upload, and data pipeline designs. One strong
 ## Go deeper
 
 - Related deep dives: [GFS](../deep-dives/gfs-distributed-file-system.md), [HDFS](../deep-dives/hdfs-file-storage.md)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
