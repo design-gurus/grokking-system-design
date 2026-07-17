@@ -49,5 +49,6 @@ Bring it up when asked "what if this service goes down?" The strong answer names
 
 ## Go deeper
 
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
 - Practice live: [Mock interviews](https://www.designgurus.io/mock-interviews)

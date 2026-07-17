@@ -67,4 +67,5 @@ When the cache is full, something must go. Common policies: LRU (least recently 
 ## Go deeper
 
 - Read more (free): [Caching in System Design Interviews](https://www.designgurus.io/blog/caching-system-design-interview)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

@@ -34,5 +34,7 @@ Name the model per piece of data, not for the whole system. Tie it to [replicati
 
 ## Go deeper
 
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - For harder, distributed-systems depth: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

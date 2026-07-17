@@ -46,5 +46,6 @@ State the requirement first ("clients need updates within a second, and they als
 
 ## Go deeper
 
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
 - Practice live: [Mock interviews](https://www.designgurus.io/mock-interviews)

@@ -42,4 +42,5 @@ Draw it at the front of any microservices design and list two or three concrete 
 ## Go deeper
 
 - Full question walkthrough: [Design an API gateway](../questions/design-api-gateway.md)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

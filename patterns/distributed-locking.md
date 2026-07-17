@@ -43,4 +43,5 @@ Give the Redis one-liner for the simple case, then immediately name its weakness
 ## Go deeper
 
 - Related deep dive: [Chubby, Google's distributed lock service](../deep-dives/chubby-distributed-locking.md)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - For harder, distributed-systems depth: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)

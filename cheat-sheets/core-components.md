@@ -66,4 +66,5 @@ Name the component, say why it is there, and tie it to a requirement. Do not add
 
 ## Go deeper
 
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
