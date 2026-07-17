@@ -66,6 +66,19 @@ A broad set of commonly-asked systems, mapped to the [System Design Interview Cr
 | [Design Airbnb](design-airbnb.md) | Geo search, no double-booking |
 | [Design a distributed job scheduler](design-distributed-job-scheduler.md) | Scheduling at scale, reliable firing |
 
+## AI and LLM systems
+
+The fastest-growing question category. AI labs and AI-infrastructure companies (see the [company guides](../companies/README.md)) draw from this set, and big tech is adopting them too. Mapped to [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals).
+
+| Question | Difficulty | Key idea | Status |
+|----------|-----------|----------|--------|
+| [Design a RAG pipeline](design-rag-pipeline.md) | Medium | Ingestion vs query paths, retrieval, grounding | Written |
+| [Design semantic search](design-semantic-search.md) | Medium | Embeddings, ANN indexes, filtered search | Written |
+| [Design an LLM inference platform](design-llm-inference-platform.md) | Hard | Continuous batching, KV cache, GPU utilization | Written |
+| [Design a model evaluation pipeline](design-model-evaluation-pipeline.md) | Medium | Batch eval runs, LLM-as-judge, release gating | Written |
+| [Design an AI agent orchestration system](design-ai-agent-orchestration.md) | Hard | Durable workflows, tool sandboxing, budgets | Written |
+| [Design a GPU cluster scheduler](design-gpu-cluster-scheduler.md) | Hard | Gang scheduling, preemption, utilization | Written |
+
 ## Add a new question
 
 1. Copy [_template.md](_template.md) to `questions/design-your-system.md`.
