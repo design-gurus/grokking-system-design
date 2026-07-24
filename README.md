@@ -217,16 +217,21 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 
 ## Local AI study assistant
 
-An optional, **100% offline** study buddy that runs on your own machine — no API keys, no data leaves your laptop. It indexes every page in this repo and, using a local LLM via [Ollama](https://ollama.com), answers your questions grounded in *this* content with citations. It can also quiz you from the [flashcards](cheat-sheets/flashcards.md).
+An optional, **100% offline** study buddy that runs on your own machine — no API keys, no study data leaves your laptop. It indexes every page in this repo and, using a local LLM via [Ollama](https://ollama.com), answers your questions grounded in *this* content with citations.
+
+It ships with a **web UI** that lets you:
+
+1. **Walk every resource in order** — a sidebar takes you through fundamentals → patterns → guides → questions → cheat sheets → deep dives, with Previous/Next, rendered Mermaid diagrams, and a progress tracker.
+2. **Ask the AI about the page you're reading** — grounded answers with clickable source citations, plus one-tap "explain simply / analogy / trade-offs / gotchas."
+3. **Quiz yourself to check your knowledge** — flashcards per topic, graded by the local model, plus "write me a question from this page."
 
 ```bash
 cd tools/study-assistant
-python3 study_assistant.py build
-python3 study_assistant.py ask "when should I shard instead of adding read replicas?"
-python3 study_assistant.py quiz caching
+python3 study_assistant.py build     # index the repo (once)
+python3 study_assistant.py serve     # open the web UI at http://127.0.0.1:8000
 ```
 
-Without Ollama it still works, falling back to offline keyword search over the repo. Setup and details: [tools/study-assistant/](tools/study-assistant/). It's also a working example of the [RAG pipeline](questions/design-rag-pipeline.md) and [semantic search](questions/design-semantic-search.md) questions.
+Prefer the terminal? `ask`, `chat`, and `quiz` do the same from the CLI. Without Ollama it still works, falling back to offline keyword search over the repo. Setup and details: [tools/study-assistant/](tools/study-assistant/). It's also a working example of the [RAG pipeline](questions/design-rag-pipeline.md) and [semantic search](questions/design-semantic-search.md) questions.
 
 ## Glossary
 

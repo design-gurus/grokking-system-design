@@ -592,6 +592,513 @@ def quiz(topic: str | None) -> None:
 
 
 # --------------------------------------------------------------------------- #
+# Web UI: browse resources one by one, chat with the LLM, and self-quiz
+# --------------------------------------------------------------------------- #
+
+import html as _html
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from urllib.parse import urlparse, parse_qs
+
+UI_DIR = SCRIPT_DIR / "ui"
+
+# The guided learning path: directories, in the order a learner should walk them.
+SECTION_ORDER = [
+    ("Fundamentals", "fundamentals"),
+    ("Guides", "guides"),
+    ("Patterns", "patterns"),
+    ("Questions", "questions"),
+    ("Cheat sheets", "cheat-sheets"),
+    ("Deep dives", "deep-dives"),
+]
+
+# Fundamentals has a deliberate reading order; everything else is README-first
+# then alphabetical.
+FUNDAMENTALS_ORDER = [
+    "README.md", "performance-vs-scalability.md", "latency-vs-throughput.md",
+    "availability-vs-consistency.md", "consistency-patterns.md",
+    "availability-patterns.md", "dns.md", "reverse-proxy-vs-load-balancer.md",
+    "application-layer.md", "databases.md", "asynchronism.md",
+    "communication.md", "security.md",
+]
+
+_INDEX_CACHE: dict | None = None
+
+
+def get_index() -> dict:
+    global _INDEX_CACHE
+    if _INDEX_CACHE is None:
+        if not INDEX_PATH.exists():
+            raise FileNotFoundError(str(INDEX_PATH))
+        _INDEX_CACHE = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    return _INDEX_CACHE
+
+
+def _page_title(path: Path) -> str:
+    try:
+        for ln in path.read_text(encoding="utf-8").splitlines():
+            m = _HEADING_RE.match(ln)
+            if m and len(m.group(1)) == 1:
+                return m.group(2).strip()
+    except Exception:  # noqa: BLE001
+        pass
+    return path.stem.replace("-", " ").title()
+
+
+def build_toc() -> list[dict]:
+    sections = []
+    for label, dirname in SECTION_ORDER:
+        d = REPO_ROOT / dirname
+        if not d.is_dir():
+            continue
+        names = [p.name for p in d.glob("*.md") if p.name != "_template.md"]
+        if dirname == "fundamentals":
+            order = [n for n in FUNDAMENTALS_ORDER if n in names] + \
+                    sorted(n for n in names if n not in FUNDAMENTALS_ORDER)
+        else:
+            order = (["README.md"] if "README.md" in names else []) + \
+                    sorted(n for n in names if n != "README.md")
+        pages = [{"path": f"{dirname}/{n}", "title": _page_title(REPO_ROOT / dirname / n)}
+                 for n in order]
+        sections.append({"label": label, "dir": dirname, "pages": pages})
+    return sections
+
+
+def _flat_pages(toc: list[dict]) -> list[str]:
+    return [p["path"] for s in toc for p in s["pages"]]
+
+
+# --- Minimal, dependency-free Markdown -> HTML (for the repo's markdown) ----- #
+
+_INLINE_CODE_RE = re.compile(r"`([^`]+)`")
+_MD_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+_BOLD_RE = re.compile(r"\*\*([^*]+)\*\*")
+_ITALIC_RE = re.compile(r"(?<!\*)\*([^*\n]+)\*(?!\*)")
+_ITEM_RE = re.compile(r"^(\s*)([-*]|\d+\.)\s+(.*)$")
+
+
+def _resolve_internal_link(base_rel: str, target: str) -> tuple[str, bool]:
+    """Return (target, is_internal_md_page)."""
+    if target.startswith(("http://", "https://", "mailto:", "#", "tel:")):
+        return target, False
+    path_part = target.split("#")[0]
+    if not path_part:
+        return target, False
+    if path_part.endswith("/"):
+        path_part += "README.md"
+    norm = os.path.normpath(os.path.join(os.path.dirname(base_rel), path_part))
+    full = (REPO_ROOT / norm).resolve()
+    try:
+        full.relative_to(REPO_ROOT)
+    except ValueError:
+        return target, False
+    if norm.endswith(".md") and full.exists():
+        return norm.replace(os.sep, "/"), True
+    return target, False
+
+
+def render_inline(text: str, base_rel: str) -> str:
+    codes: list[str] = []
+
+    def _stash(m):
+        codes.append(f"<code>{_html.escape(m.group(1))}</code>")
+        return f"\x00{len(codes) - 1}\x00"
+
+    text = _INLINE_CODE_RE.sub(_stash, text)
+    text = _html.escape(text)
+
+    def _link(m):
+        label, target = m.group(1), m.group(2)
+        resolved, internal = _resolve_internal_link(base_rel, target)
+        if internal:
+            return f'<a href="#/{resolved}" data-nav="{_html.escape(resolved, quote=True)}">{label}</a>'
+        return f'<a href="{_html.escape(target, quote=True)}" target="_blank" rel="noopener">{label}</a>'
+
+    text = _MD_LINK_RE.sub(_link, text)
+    text = _BOLD_RE.sub(r"<strong>\1</strong>", text)
+    text = _ITALIC_RE.sub(r"<em>\1</em>", text)
+    text = re.sub(r"\x00(\d+)\x00", lambda m: codes[int(m.group(1))], text)
+    return text
+
+
+def _render_list(lines: list[str], base_rel: str) -> str:
+    root: list[dict] = []
+    stack: list[tuple[int, list[dict]]] = [(-1, root)]
+    for ln in lines:
+        m = _ITEM_RE.match(ln)
+        if not m:
+            continue
+        indent = len(m.group(1))
+        ordered = bool(re.match(r"\d+\.", m.group(2)))
+        node = {"text": m.group(3), "ordered": ordered, "children": []}
+        while len(stack) > 1 and stack[-1][0] >= indent:
+            stack.pop()
+        stack[-1][1].append(node)
+        stack.append((indent, node["children"]))
+
+    def emit(items: list[dict]) -> str:
+        if not items:
+            return ""
+        tag = "ol" if items[0]["ordered"] else "ul"
+        out = f"<{tag}>"
+        for it in items:
+            out += "<li>" + render_inline(it["text"], base_rel) + emit(it["children"]) + "</li>"
+        return out + f"</{tag}>"
+
+    return emit(root)
+
+
+def markdown_to_html(md_text: str, rel_path: str) -> str:
+    lines = md_text.splitlines()
+    out: list[str] = []
+    para: list[str] = []
+    i, n = 0, len(lines)
+
+    def flush_para():
+        if para:
+            out.append("<p>" + render_inline(" ".join(para).strip(), rel_path) + "</p>")
+            para.clear()
+
+    while i < n:
+        line = lines[i]
+        stripped = line.strip()
+
+        if stripped.startswith("```"):
+            flush_para()
+            lang = stripped[3:].strip()
+            body: list[str] = []
+            i += 1
+            while i < n and not lines[i].strip().startswith("```"):
+                body.append(lines[i])
+                i += 1
+            i += 1
+            code = "\n".join(body)
+            if lang == "mermaid":
+                out.append('<div class="mermaid">' + _html.escape(code) + "</div>")
+            else:
+                cls = f' class="language-{_html.escape(lang)}"' if lang else ""
+                out.append(f"<pre><code{cls}>" + _html.escape(code) + "</code></pre>")
+            continue
+
+        if not stripped:
+            flush_para()
+            i += 1
+            continue
+
+        m = _HEADING_RE.match(line)
+        if m:
+            flush_para()
+            level = len(m.group(1))
+            raw = m.group(2).strip()
+            anchor = re.sub(r"[^a-z0-9]+", "-", raw.lower()).strip("-")
+            out.append(f'<h{level} id="{anchor}">{render_inline(raw, rel_path)}</h{level}>')
+            i += 1
+            continue
+
+        if re.match(r"^(-{3,}|\*{3,}|_{3,})$", stripped):
+            flush_para()
+            out.append("<hr>")
+            i += 1
+            continue
+
+        # GitHub pipe table: header row + separator row of dashes/pipes/colons
+        if "|" in line and i + 1 < n and re.match(r"^[\s|:-]+$", lines[i + 1].strip()) \
+                and "-" in lines[i + 1] and "|" in lines[i + 1]:
+            flush_para()
+            header = [c.strip() for c in stripped.strip("|").split("|")]
+            i += 2
+            body_rows = []
+            while i < n and "|" in lines[i] and lines[i].strip():
+                body_rows.append([c.strip() for c in lines[i].strip().strip("|").split("|")])
+                i += 1
+            thead = "".join(f"<th>{render_inline(h, rel_path)}</th>" for h in header)
+            tbody = "".join(
+                "<tr>" + "".join(f"<td>{render_inline(c, rel_path)}</td>" for c in row) + "</tr>"
+                for row in body_rows
+            )
+            out.append(f'<div class="table-wrap"><table><thead><tr>{thead}</tr></thead>'
+                       f"<tbody>{tbody}</tbody></table></div>")
+            continue
+
+        if stripped.startswith(">"):
+            flush_para()
+            quote = []
+            while i < n and lines[i].strip().startswith(">"):
+                quote.append(lines[i].strip()[1:].strip())
+                i += 1
+            out.append("<blockquote>" + render_inline(" ".join(quote), rel_path) + "</blockquote>")
+            continue
+
+        if _ITEM_RE.match(line):
+            flush_para()
+            items = []
+            while i < n and _ITEM_RE.match(lines[i]):
+                items.append(lines[i])
+                i += 1
+            out.append(_render_list(items, rel_path))
+            continue
+
+        para.append(stripped)
+        i += 1
+
+    flush_para()
+    return "\n".join(out)
+
+
+# --- HTTP request handler --------------------------------------------------- #
+
+class _StudyHandler(BaseHTTPRequestHandler):
+    protocol_version = "HTTP/1.0"  # close after each response; simplest for streaming
+
+    def log_message(self, *args):  # keep the console quiet
+        pass
+
+    # -- helpers --
+    def _json(self, code: int, obj) -> None:
+        self._bytes(code, json.dumps(obj).encode("utf-8"), "application/json; charset=utf-8")
+
+    def _bytes(self, code: int, data: bytes, ctype: str) -> None:
+        self.send_response(code)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        try:
+            self.wfile.write(data)
+        except Exception:  # noqa: BLE001
+            pass
+
+    def _stream_open(self) -> None:
+        self.send_response(200)
+        self.send_header("Content-Type", "application/x-ndjson; charset=utf-8")
+        self.end_headers()
+
+    def _stream(self, obj) -> None:
+        try:
+            self.wfile.write((json.dumps(obj) + "\n").encode("utf-8"))
+            self.wfile.flush()
+        except Exception:  # noqa: BLE001
+            pass
+
+    def _read_json(self) -> dict:
+        length = int(self.headers.get("Content-Length", 0) or 0)
+        if not length:
+            return {}
+        try:
+            return json.loads(self.rfile.read(length) or b"{}")
+        except Exception:  # noqa: BLE001
+            return {}
+
+    # -- routing --
+    def do_GET(self):
+        u = urlparse(self.path)
+        route, qs = u.path, parse_qs(u.query)
+        if route in ("/", "/index.html"):
+            self._serve_index()
+        elif route == "/api/status":
+            self._api_status()
+        elif route == "/api/toc":
+            self._json(200, {"sections": build_toc()})
+        elif route == "/api/page":
+            self._api_page(qs.get("path", [""])[0])
+        elif route == "/api/quiz":
+            self._api_quiz(qs.get("topic", [None])[0], qs.get("path", [None])[0])
+        else:
+            self._json(404, {"error": "not found"})
+
+    def do_POST(self):
+        route = urlparse(self.path).path
+        body = self._read_json()
+        if route == "/api/ask":
+            self._api_ask(body)
+        elif route == "/api/grade":
+            self._api_grade(body)
+        elif route == "/api/gen-question":
+            self._api_gen_question(body)
+        else:
+            self._json(404, {"error": "not found"})
+
+    # -- endpoints --
+    def _serve_index(self):
+        f = UI_DIR / "index.html"
+        if not f.exists():
+            self._bytes(500, b"UI file missing (tools/study-assistant/ui/index.html)", "text/plain")
+            return
+        self._bytes(200, f.read_bytes(), "text/html; charset=utf-8")
+
+    def _api_status(self):
+        models = list_models()
+        self._json(200, {
+            "ollama": models is not None,
+            "chat_model": CHAT_MODEL,
+            "embed_model": EMBED_MODEL,
+            "can_generate": models is not None and model_present(CHAT_MODEL, models),
+            "can_embed": models is not None and model_present(EMBED_MODEL, models),
+            "index": INDEX_PATH.exists(),
+        })
+
+    def _valid_page(self, path: str) -> Path | None:
+        if not path or not path.endswith(".md") or ".." in path.split("/"):
+            return None
+        full = (REPO_ROOT / path).resolve()
+        try:
+            full.relative_to(REPO_ROOT)
+        except ValueError:
+            return None
+        return full if full.exists() else None
+
+    def _api_page(self, path: str):
+        full = self._valid_page(path)
+        if not full:
+            self._json(404, {"error": "page not found"})
+            return
+        toc = build_toc()
+        flat = _flat_pages(toc)
+        prev = nxt = None
+        if path in flat:
+            idx = flat.index(path)
+            prev = flat[idx - 1] if idx > 0 else None
+            nxt = flat[idx + 1] if idx < len(flat) - 1 else None
+        self._json(200, {
+            "path": path,
+            "title": _page_title(full),
+            "html": markdown_to_html(full.read_text(encoding="utf-8"), path),
+            "prev": prev,
+            "next": nxt,
+        })
+
+    def _api_quiz(self, topic, path):
+        cards = parse_flashcards()
+        if topic:
+            t = topic.lower()
+            cards = [c for c in cards if t in c["topic"].lower()]
+        elif path:
+            full = REPO_ROOT / path
+            title = _page_title(full).lower() if full.exists() else ""
+            words = set(re.findall(r"[a-z]+", title)) - STOPWORDS
+            match = [c for c in cards if words & set(re.findall(r"[a-z]+", c["topic"].lower()))]
+            cards = match or cards
+        self._json(200, {"cards": cards})
+
+    def _api_ask(self, body):
+        question = (body.get("question") or "").strip()
+        page = body.get("path")
+        if not question:
+            self._json(400, {"error": "empty question"})
+            return
+        try:
+            index = get_index()
+        except FileNotFoundError:
+            self._stream_open()
+            self._stream({"type": "error",
+                          "message": "No index yet. Run: python3 study_assistant.py build"})
+            return
+        models = list_models()
+        can_embed = models is not None and model_present(EMBED_MODEL, models)
+        can_generate = models is not None and model_present(CHAT_MODEL, models)
+
+        query = question
+        if page and (REPO_ROOT / page).exists():
+            query = f"{_page_title(REPO_ROOT / page)} {question}".strip()
+        chunks, mode = retrieve(index, query, DEFAULT_TOP_K, can_embed)
+
+        self._stream_open()
+        seen, sources = set(), []
+        for ch in chunks:
+            key = (ch["file"], ch["heading"])
+            if key not in seen:
+                seen.add(key)
+                sources.append({"file": ch["file"], "heading": ch["heading"]})
+        self._stream({"type": "sources", "mode": mode, "sources": sources,
+                      "can_generate": can_generate})
+
+        if can_generate and chunks:
+            prompt = (
+                f"Context sections from the repo:\n\n{format_context(chunks)}\n\n"
+                f"Question: {question}\n\n"
+                "Answer using only the context above, and cite source files in square brackets."
+            )
+            for frag in generate_stream(prompt):
+                self._stream({"type": "token", "text": frag})
+        else:
+            for ch in chunks:
+                snip = ch["text"].strip()
+                if len(snip) > 700:
+                    snip = snip[:700].rstrip() + " …"
+                self._stream({"type": "section", "file": ch["file"],
+                              "heading": ch["heading"], "text": snip})
+        self._stream({"type": "done"})
+
+    def _api_grade(self, body):
+        q, ref, ans = body.get("question", ""), body.get("reference", ""), body.get("answer", "")
+        if not (model_present(CHAT_MODEL)):
+            self._json(200, {"grade": None, "can_generate": False})
+            return
+        prompt = (
+            f"Question: {q}\nReference answer: {ref}\nStudent answer: {ans}\n\n"
+            "On the first line say Correct, Partially correct, or Incorrect. Then give one "
+            "sentence of specific, encouraging feedback."
+        )
+        out = "".join(generate_stream(prompt, system="You are a fair, encouraging quiz grader."))
+        self._json(200, {"grade": out.strip(), "can_generate": True})
+
+    def _api_gen_question(self, body):
+        full = self._valid_page(body.get("path", ""))
+        if not full:
+            self._json(400, {"error": "bad path"})
+            return
+        if not model_present(CHAT_MODEL):
+            cards = parse_flashcards()
+            title = _page_title(full).lower()
+            words = set(re.findall(r"[a-z]+", title)) - STOPWORDS
+            pick = next((c for c in cards
+                         if words & set(re.findall(r"[a-z]+", c["topic"].lower()))), None)
+            if pick:
+                self._json(200, {"question": pick["q"], "reference": pick["a"], "generated": False})
+            else:
+                self._json(200, {"question": None, "can_generate": False})
+            return
+        text = full.read_text(encoding="utf-8")[:4000]
+        prompt = (
+            "Based on this study page, write ONE open-ended, interview-style question that tests "
+            "real understanding (not trivia). Then on a new line write 'ANSWER:' followed by a "
+            f"concise model answer.\n\nPage:\n{text}"
+        )
+        out = "".join(generate_stream(
+            prompt, system="You write incisive system-design interview questions."))
+        q, a = out, ""
+        if "ANSWER:" in out:
+            q, a = out.split("ANSWER:", 1)
+        self._json(200, {"question": q.strip(), "reference": a.strip(), "generated": True})
+
+
+def serve(host: str = "127.0.0.1", port: int = 8000, open_browser: bool = True) -> None:
+    if not (UI_DIR / "index.html").exists():
+        sys.exit(yellow(f"UI file missing: {UI_DIR / 'index.html'}"))
+    note = "index ready" if INDEX_PATH.exists() else "no index yet — run 'build' for AI answers"
+    models = list_models()
+    llm = (green(f"Ollama up ({CHAT_MODEL})") if models is not None and model_present(CHAT_MODEL, models)
+           else yellow("Ollama/model not detected — browse + keyword search still work"))
+    url = f"http://{host}:{port}"
+    try:
+        httpd = ThreadingHTTPServer((host, port), _StudyHandler)
+    except OSError as e:
+        sys.exit(yellow(f"Could not bind {url} ({e}). Try a different --port."))
+    print(bold("Study UI: ") + cyan(url) + dim(f"  ·  {note}  ·  ") + llm)
+    print(dim("Press Ctrl-C to stop."))
+    if open_browser:
+        try:
+            import threading
+            import webbrowser
+            threading.Timer(0.7, lambda: webbrowser.open(url)).start()
+        except Exception:  # noqa: BLE001
+            pass
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\n" + dim("stopped."))
+        httpd.shutdown()
+
+
+# --------------------------------------------------------------------------- #
 # CLI
 # --------------------------------------------------------------------------- #
 
@@ -603,6 +1110,7 @@ def build_parser() -> argparse.ArgumentParser:
         epilog=(
             "examples:\n"
             "  python3 study_assistant.py build\n"
+            "  python3 study_assistant.py serve            # open the web UI\n"
             "  python3 study_assistant.py ask \"how does consistent hashing reduce reshuffling?\"\n"
             "  python3 study_assistant.py chat\n"
             "  python3 study_assistant.py quiz caching\n"
@@ -619,6 +1127,10 @@ def build_parser() -> argparse.ArgumentParser:
                     help=f"sections to retrieve (default {DEFAULT_TOP_K})")
     q = sub.add_parser("quiz", help="flashcard quiz")
     q.add_argument("topic", nargs="?", help="optional topic filter (e.g. caching)")
+    s = sub.add_parser("serve", help="launch the local web study UI")
+    s.add_argument("--port", type=int, default=8000, help="port (default 8000)")
+    s.add_argument("--host", default="127.0.0.1", help="bind host (default 127.0.0.1)")
+    s.add_argument("--no-open", action="store_true", help="don't auto-open the browser")
     return p
 
 
@@ -633,6 +1145,8 @@ def main(argv: list[str] | None = None) -> None:
         chat_loop(load_index(), args.top_k)
     elif args.command == "quiz":
         quiz(args.topic)
+    elif args.command == "serve":
+        serve(args.host, args.port, not args.no_open)
     else:
         build_parser().print_help()
 
