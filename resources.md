@@ -53,12 +53,33 @@ The most-read foundational guides, ranked by readership:
 - [REST vs GraphQL vs gRPC](https://www.designgurus.io/blog/rest-graphql-grpc-system-design)
 - [Top 10 Software Architecture Patterns](https://www.designgurus.io/blog/understanding-top-10-software-architecture-patterns)
 
+## Engineering blogs and real-world architectures
+
+The best free source of real-world system design is the teams building it. These blogs show the patterns in this repo running in production:
+
+- [Netflix TechBlog](https://netflixtechblog.com)
+- [Uber Engineering](https://www.uber.com/blog/engineering/)
+- [Meta Engineering](https://engineering.fb.com)
+- [Discord Engineering](https://discord.com/category/engineering)
+- [Cloudflare Blog](https://blog.cloudflare.com)
+- [AWS Architecture Blog](https://aws.amazon.com/blogs/architecture/)
+- [High Scalability](http://highscalability.com)
+
+For the landmark systems behind these ideas, see the [deep dives](deep-dives/).
+
+## Credits and related open-source guides
+
+- [system-design-primer](https://github.com/donnemartin/system-design-primer) by Donne Martin — a landmark open-source system design guide (CC BY 4.0). This repo's [fundamentals](fundamentals/) track and [scaling walkthrough](guides/scaling-to-millions-of-users.md) were written to complement it in the pattern-based Grokking style: the same core concepts, in our own words, with original diagrams.
+
 ## In this repo
 
+- [Fundamentals](fundamentals/): the concepts under the patterns.
 - [Patterns](patterns/): the building blocks.
+- [Guides](guides/): end-to-end walkthroughs.
 - [Questions](questions/): worked-through design problems.
-- [Cheat sheets](cheat-sheets/): framework, estimation, SQL vs NoSQL.
+- [Cheat sheets](cheat-sheets/): framework, estimation, SQL vs NoSQL, flashcards.
 - [Roadmaps](roadmaps/): study plans.
+- [Study assistant](tools/study-assistant/): a local, offline AI tutor over this repo.
 - [Glossary](glossary.md): the vocabulary.
 
 ## How to use this list

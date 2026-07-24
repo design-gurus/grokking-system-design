@@ -16,12 +16,15 @@ A pattern-based guide to system design interviews. Learn the building blocks onc
 - [What is Grokking System Design?](#what-is-grokking-system-design)
 - [How to use this repo](#how-to-use-this-repo)
 - [The interview framework](#the-system-design-interview-framework)
+- [Fundamentals (start here)](#fundamentals-start-here)
 - [Core building blocks (patterns)](#core-building-blocks-patterns)
+- [End-to-end guides](#end-to-end-guides)
 - [System design questions](#system-design-questions)
 - [Company-specific interviews](#company-specific-interviews)
 - [Distributed systems deep dives](#distributed-systems-deep-dives)
 - [Cheat sheets](#cheat-sheets)
 - [Study roadmaps](#study-roadmaps)
+- [Local AI study assistant](#local-ai-study-assistant)
 - [Glossary](#glossary)
 - [Recommended reading](#recommended-reading-designgurus-blog)
 - [Newsletter](#newsletter)
@@ -38,10 +41,12 @@ This methodology was created by Arslan Ahmad. The original, fully updated course
 ## How to use this repo
 
 1. Read the [interview framework](cheat-sheets/interview-framework.md) so you have a repeatable structure for any question.
-2. Work through the [core patterns](patterns/) until each one is intuitive.
-3. Practice with the [question catalog](questions/), applying the patterns.
-4. Follow a [study roadmap](roadmaps/) to stay on track.
-5. Go deeper in the [full course](https://www.designgurus.io/course/grokking-the-system-design-interview) when you want interactive lessons and worked solutions.
+2. Build the foundation with the [fundamentals](fundamentals/) so the trade-offs behind every decision are intuitive.
+3. Work through the [core patterns](patterns/) until each one is intuitive.
+4. See the blocks combine in the [scaling walkthrough](guides/scaling-to-millions-of-users.md).
+5. Practice with the [question catalog](questions/), applying the patterns.
+6. Follow a [study roadmap](roadmaps/) to stay on track, and drill with [flashcards](cheat-sheets/flashcards.md) (or the [local AI study assistant](tools/study-assistant/)).
+7. Go deeper in the [full course](https://www.designgurus.io/course/grokking-the-system-design-interview) when you want interactive lessons and worked solutions.
 
 ## The system design interview framework
 
@@ -56,6 +61,27 @@ A repeatable structure beats memorized answers. The short version:
 7. Identify bottlenecks and trade-offs.
 
 Full breakdown with timings: [cheat-sheets/interview-framework.md](cheat-sheets/interview-framework.md).
+
+## Fundamentals (start here)
+
+Before the patterns, understand the forces they balance: latency, throughput, availability, consistency, and cost. The [fundamentals track](fundamentals/) is the conceptual on-ramp — where a pattern shows you *how*, a fundamental explains *why* and *when*. Each page has a diagram and links to the patterns that put the idea into practice.
+
+| Fundamental | The question it answers |
+|-------------|-------------------------|
+| [Performance vs scalability](fundamentals/performance-vs-scalability.md) | Slow for one user, or slow only under load? |
+| [Latency vs throughput](fundamentals/latency-vs-throughput.md) | The two numbers every design is judged on |
+| [Availability vs consistency](fundamentals/availability-vs-consistency.md) | CAP and PACELC, in plain language |
+| [Consistency patterns](fundamentals/consistency-patterns.md) | Weak, eventual, or strong? |
+| [Availability patterns](fundamentals/availability-patterns.md) | Fail-over, replication, and the "nines" |
+| [DNS](fundamentals/dns.md) | How a name becomes a connection |
+| [Reverse proxy vs load balancer](fundamentals/reverse-proxy-vs-load-balancer.md) | Two boxes that look alike |
+| [Application layer](fundamentals/application-layer.md) | Services, microservices, and discovery |
+| [Databases](fundamentals/databases.md) | Scaling RDBMS, and the NoSQL families |
+| [Asynchronism](fundamentals/asynchronism.md) | Queues, workers, and back pressure |
+| [Communication](fundamentals/communication.md) | HTTP, TCP, UDP, RPC, and REST |
+| [Security](fundamentals/security.md) | The baseline every design should name |
+
+See [fundamentals/](fundamentals/) for the suggested reading order.
 
 ## Core building blocks (patterns)
 
@@ -75,6 +101,14 @@ Full breakdown with timings: [cheat-sheets/interview-framework.md](cheat-sheets/
 | Bloom filters | Cheap "definitely not present" checks | [bloom-filters.md](patterns/bloom-filters.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
 
 These are the 12 most essential building blocks. All 24 patterns live in [patterns/](patterns/), including API gateways, quorum, leader election, idempotency, write-ahead logs, circuit breakers, and more. To add a new pattern, copy [patterns/_template.md](patterns/_template.md).
+
+## End-to-end guides
+
+Longer walkthroughs that tie the fundamentals and patterns into one story. Start with the flagship:
+
+- [Scaling from one user to millions](guides/scaling-to-millions-of-users.md): the evolution of an architecture, stage by stage — single server → load balancer → replicas → cache → CDN → sharding → async workers → multi-region. Each step is triggered by a named bottleneck and fixed with a pattern, with a diagram at every stage. This mirrors how a real interview unfolds.
+
+See [guides/](guides/) for the full list.
 
 ## System design questions
 
@@ -172,6 +206,7 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 - [Interview communication tips](cheat-sheets/communication-tips.md): how to come across as a senior candidate.
 - [Senior vs staff expectations](cheat-sheets/senior-vs-staff-expectations.md): how the same question is graded differently by level.
 - [A mock interview, annotated](cheat-sheets/mock-interview-walkthrough.md): two candidates, one question, and where the hire/no-hire line actually sits.
+- [Flashcards](cheat-sheets/flashcards.md): rapid-fire Q&A over the fundamentals and patterns, for spaced-repetition review. The [study assistant](tools/study-assistant/) can quiz you from this deck.
 
 ## Study roadmaps
 
@@ -179,6 +214,19 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 - [2-week sprint](roadmaps/2-week-plan.md): a focused sprint before an interview.
 - [6-week study plan](roadmaps/6-week-plan.md): build depth from a baseline.
 - Pick by timeline in [roadmaps/](roadmaps/).
+
+## Local AI study assistant
+
+An optional, **100% offline** study buddy that runs on your own machine — no API keys, no data leaves your laptop. It indexes every page in this repo and, using a local LLM via [Ollama](https://ollama.com), answers your questions grounded in *this* content with citations. It can also quiz you from the [flashcards](cheat-sheets/flashcards.md).
+
+```bash
+cd tools/study-assistant
+python3 study_assistant.py build
+python3 study_assistant.py ask "when should I shard instead of adding read replicas?"
+python3 study_assistant.py quiz caching
+```
+
+Without Ollama it still works, falling back to offline keyword search over the repo. Setup and details: [tools/study-assistant/](tools/study-assistant/). It's also a working example of the [RAG pipeline](questions/design-rag-pipeline.md) and [semantic search](questions/design-semantic-search.md) questions.
 
 ## Glossary
 
