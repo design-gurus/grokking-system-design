@@ -114,6 +114,19 @@
   .card .q{font-weight:600;margin:6px 0 10px}
   .grade{margin-top:10px;padding:9px 11px;border-radius:9px;background:var(--chip);font-size:13.5px;white-space:pre-wrap}
   .reveal{margin-top:10px;padding:9px 11px;border-radius:9px;background:var(--accent-soft);font-size:13.5px}
+  .rate{display:flex;gap:6px;margin-top:10px}
+  .rate button{flex:1;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;
+    padding:7px 6px;cursor:pointer;font-size:12px}
+  .rate button:hover{border-color:var(--accent)}
+  .rate button b{display:block;font-size:11px;color:var(--muted);font-weight:500}
+  .srs-stats{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .srs-stats span{font-size:12px;background:var(--chip);padding:4px 9px;border-radius:999px;color:var(--muted)}
+  .srs-stats span b{color:var(--accent)}
+  .iv-input-wrap{margin-top:10px}
+  #iv-log .msg.ai .who{color:var(--accent)}
+  .feedback{border:1px solid var(--line);border-radius:12px;padding:4px 14px;margin-top:12px;background:var(--panel)}
+  .feedback h3{font-size:15px;margin:.9em 0 .3em}
+  .feedback ul{margin:.3em 0;padding-left:1.2em}
   .spinner{display:inline-block;width:13px;height:13px;border:2px solid var(--line);border-top-color:var(--accent);
     border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px}
   @keyframes spin{to{transform:rotate(360deg)}}
@@ -152,8 +165,9 @@
 
   <aside class="rail" id="rail">
     <div class="rail-tabs">
-      <div class="rail-tab active" data-tab="ask">Ask the AI</div>
-      <div class="rail-tab" data-tab="quiz">Quiz me</div>
+      <div class="rail-tab active" data-tab="ask">Ask</div>
+      <div class="rail-tab" data-tab="quiz">Quiz</div>
+      <div class="rail-tab" data-tab="interview">Interview</div>
     </div>
 
     <div class="rail-body" id="tab-ask">
@@ -173,12 +187,28 @@
     </div>
 
     <div class="rail-body" id="tab-quiz" style="display:none">
-      <p class="hint">Check your understanding. Cards are drawn from the flashcards for this topic; with a local model, your answers get graded.</p>
+      <p class="hint">Check your understanding. Cards are drawn from the flashcards for this topic; with a local model, your typed answers get graded. Rate each card to schedule it for spaced repetition.</p>
+      <div class="srs-stats" id="srs-stats"></div>
       <div class="row">
         <button class="btn" id="quiz-load">Quiz this topic</button>
-        <button class="btn ghost" id="quiz-generate">Question from this page</button>
+        <button class="btn ghost" id="quiz-due">Review due</button>
+        <button class="btn ghost" id="quiz-generate">Question from page</button>
       </div>
       <div id="quiz-area"></div>
+    </div>
+
+    <div class="rail-body" id="tab-interview" style="display:none">
+      <p class="hint">A mock interview with the local model as your interviewer. It asks one question at a time and probes your trade-offs; finish to get scored against the framework. <span id="iv-note"></span></p>
+      <div class="row">
+        <button class="btn" id="iv-start">Start interview on this page</button>
+        <button class="btn ghost" id="iv-score" disabled>Score me</button>
+        <button class="btn ghost" id="iv-reset" disabled>Reset</button>
+      </div>
+      <div id="iv-log"></div>
+      <div class="iv-input-wrap" id="iv-input-wrap" style="display:none">
+        <textarea id="iv-input" placeholder="Your answer… (Enter to send, Shift+Enter for newline)"></textarea>
+        <div class="row"><button class="btn" id="iv-send">Send</button></div>
+      </div>
     </div>
   </aside>
 </div>
@@ -187,7 +217,7 @@
 <script>
 const $ = (s,el=document)=>el.querySelector(s);
 const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
-const state = { toc:[], flat:[], current:null, status:{}, visited:new Set() };
+const state = { toc:[], flat:[], current:null, status:{}, visited:new Set(), allCards:null };
 
 try{ state.visited = new Set(JSON.parse(localStorage.getItem('gsd-visited')||'[]')); }catch(e){}
 
@@ -323,49 +353,140 @@ function linkifyCitations(text){
   return text.replace(/\[([a-z0-9\-\/]+\.md)\]/gi, (m,p)=>'[<a href="#" data-nav="'+escapeAttr(p)+'">'+escapeHtml(p)+'</a>]');
 }
 
-// ---- Quiz panel ----
-async function loadQuiz(){
-  const area = $('#quiz-area'); area.innerHTML='<p class="hint"><span class="spinner"></span> loading cards…</p>';
-  const data = await api('/api/quiz?path='+encodeURIComponent(state.current||''));
-  if(!data.cards || !data.cards.length){ area.innerHTML='<p class="hint">No flashcards for this topic yet.</p>'; return; }
-  const cards = shuffle(data.cards); let i=0;
-  function show(){
-    if(i>=cards.length){ area.innerHTML='<p class="hint">Done — you went through '+cards.length+' card(s). </p><div class="row"><button class="btn ghost" id="q-again">Restart</button></div>'; $('#q-again').onclick=()=>{i=0;show();}; return; }
-    renderCard(area, cards[i], ()=>{ i++; show(); }, i+1, cards.length);
+// ---- Quiz panel + spaced repetition (Leitner/SM-2-lite in localStorage) ----
+const SRS_KEY='gsd-srs', DAY=86400000;
+function srsLoad(){ try{ return JSON.parse(localStorage.getItem(SRS_KEY)||'{}'); }catch(e){ return {}; } }
+function srsSave(d){ try{ localStorage.setItem(SRS_KEY, JSON.stringify(d)); }catch(e){} }
+function hashStr(s){ let h=0; for(let i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))|0; return h>>>0; }
+function cardId(card){ return 'c'+hashStr((card.topic||'')+'|'+card.q); }
+function isDue(id){ const c=srsLoad()[id]; return !c || c.due<=Date.now(); }
+function schedule(id, rating){ // 0 again, 1 hard, 2 good, 3 easy
+  const d=srsLoad(), now=Date.now(); const c=d[id]||{reps:0,interval:0,ease:2.5};
+  if(rating===0){ c.reps=0; c.interval=0; c.ease=Math.max(1.3,c.ease-0.2); }
+  else{
+    c.reps++;
+    if(c.reps===1) c.interval=1;
+    else if(c.reps===2) c.interval=3;
+    else c.interval=Math.max(1, Math.round(c.interval*(rating===1?1.2:rating===3?c.ease+0.15:c.ease)));
+    c.ease=Math.max(1.3, c.ease + (rating===1?-0.15:rating===3?0.15:0));
   }
-  show();
+  c.due = now + (rating===0 ? 60000 : c.interval*DAY);
+  c.last=now; d[id]=c; srsSave(d);
 }
-
+async function ensureAllCards(){ if(state.allCards) return state.allCards; const d=await api('/api/quiz'); state.allCards=d.cards||[]; return state.allCards; }
+async function refreshSrsStats(){
+  const cards=await ensureAllCards(), srs=srsLoad(); let due=0, learned=0, fresh=0;
+  for(const c of cards){ const e=srs[cardId(c)]; if(!e) fresh++; else if(e.reps>0) learned++; if(!e||e.due<=Date.now()) due++; }
+  const s=$('#srs-stats'); if(s) s.innerHTML='<span>Due <b>'+due+'</b></span><span>Learned <b>'+learned+'</b></span><span>New <b>'+fresh+'</b></span><span>Total <b>'+cards.length+'</b></span>';
+  const b=$('#quiz-due'); if(b) b.textContent='Review due ('+due+')';
+}
+async function loadQuiz(){
+  const area=$('#quiz-area'); area.innerHTML='<p class="hint"><span class="spinner"></span> loading cards…</p>';
+  const data=await api('/api/quiz?path='+encodeURIComponent(state.current||''));
+  if(!data.cards||!data.cards.length){ area.innerHTML='<p class="hint">No flashcards for this topic. Try "Review due".</p>'; return; }
+  runDeck(shuffle(data.cards));
+}
+async function loadDue(){
+  const area=$('#quiz-area'); const cards=await ensureAllCards(); const due=cards.filter(c=>isDue(cardId(c)));
+  if(!due.length){ area.innerHTML='<p class="hint">Nothing due — you\'re caught up. 🎉</p>'; return; }
+  runDeck(shuffle(due));
+}
+function runDeck(cards){
+  const area=$('#quiz-area'); let i=0;
+  (function show(){
+    if(i>=cards.length){ area.innerHTML='<p class="hint">Done — '+cards.length+' card(s) reviewed.</p>'; refreshSrsStats(); return; }
+    renderCard(area, cards[i], ()=>{ i++; show(); }, i+1, cards.length);
+  })();
+}
 function renderCard(area, card, onNext, idx, total){
+  const ref = card.a || card.reference || '';
+  const graded = state.status.can_generate;
   area.innerHTML =
     '<div class="card"><div class="topic">'+escapeHtml(card.topic||'')+(total?(' · '+idx+'/'+total):'')+'</div>'+
     '<div class="q">'+escapeHtml(card.q)+'</div>'+
     '<textarea id="q-ans" placeholder="Type your answer… (optional)"></textarea>'+
-    '<div class="row"><button class="btn" id="q-check">Check</button>'+
-    '<button class="btn ghost" id="q-reveal">Reveal answer</button>'+
-    (onNext?'<button class="btn ghost" id="q-next">Next ▸</button>':'')+'</div>'+
-    '<div id="q-out"></div></div>';
-  $('#q-reveal').onclick=()=>{ $('#q-out').innerHTML='<div class="reveal"><b>Model answer:</b> '+escapeHtml(card.a||card.reference||'')+'</div>'; };
+    '<div class="row"><button class="btn" id="q-check">'+(graded?'Check':'Show answer')+'</button>'+
+    '<button class="btn ghost" id="q-reveal">Reveal</button></div>'+
+    '<div id="q-out"></div><div id="q-rate"></div></div>';
+  function showRating(){
+    if(!onNext) return; // one-off generated card: don't schedule
+    $('#q-rate').innerHTML='<div class="rate">'+
+      '<button data-r="0">Again<b>&lt;1m</b></button><button data-r="1">Hard</button>'+
+      '<button data-r="2">Good</button><button data-r="3">Easy</button></div>';
+    $$('#q-rate .rate button').forEach(b=>b.onclick=()=>{ schedule(cardId(card), +b.dataset.r); onNext(); });
+  }
+  $('#q-reveal').onclick=()=>{ $('#q-out').innerHTML='<div class="reveal"><b>Answer:</b> '+escapeHtml(ref)+'</div>'; showRating(); };
   $('#q-check').onclick=async()=>{
-    const ans = $('#q-ans').value.trim();
-    const ref = card.a || card.reference || '';
-    const out = $('#q-out');
-    if(!state.status.can_generate){ out.innerHTML='<div class="grade">No local model, so here is the model answer to compare against:</div><div class="reveal">'+escapeHtml(ref)+'</div>'; return; }
+    const ans=$('#q-ans').value.trim(), out=$('#q-out');
+    if(!graded){ out.innerHTML='<div class="reveal"><b>Answer:</b> '+escapeHtml(ref)+'</div>'; showRating(); return; }
     out.innerHTML='<div class="grade"><span class="spinner"></span> grading…</div>';
-    const g = await api('/api/grade',{method:'POST',headers:{'Content-Type':'application/json'},
+    const g=await api('/api/grade',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({question:card.q, reference:ref, answer:ans})});
-    out.innerHTML='<div class="grade">'+escapeHtml(g.grade||'')+'</div>'+
-      '<div class="reveal"><b>Model answer:</b> '+escapeHtml(ref)+'</div>';
+    out.innerHTML='<div class="grade">'+escapeHtml(g.grade||'')+'</div><div class="reveal"><b>Answer:</b> '+escapeHtml(ref)+'</div>';
+    showRating();
   };
-  if(onNext) $('#q-next').onclick=onNext;
 }
-
 async function generateQuestion(){
-  const area = $('#quiz-area'); area.innerHTML='<p class="hint"><span class="spinner"></span> writing a question from this page…</p>';
-  const data = await api('/api/gen-question',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({path:state.current})});
+  const area=$('#quiz-area'); area.innerHTML='<p class="hint"><span class="spinner"></span> writing a question from this page…</p>';
+  const data=await api('/api/gen-question',{method:'POST',headers:{'Content-Type':'application/json'}, body:JSON.stringify({path:state.current})});
   if(!data.question){ area.innerHTML='<p class="hint">Could not generate a question for this page.</p>'; return; }
   renderCard(area, {topic:(data.generated?'Generated for this page':'From this topic'), q:data.question, a:data.reference||''}, null);
+}
+
+// ---- Interview mode (the local LLM plays interviewer) ----
+let ivTranscript=[], ivPath=null;
+async function ivStart(){
+  if(!state.status.can_generate){ $('#iv-note').innerHTML='Needs a local model — <code>ollama pull '+escapeHtml(state.status.chat_model)+'</code>. Until then, self-drive with the <a href="#" data-nav="cheat-sheets/interview-framework.md">framework</a>.'; }
+  ivTranscript=[]; ivPath=state.current; $('#iv-log').innerHTML='';
+  $('#iv-start').disabled=true; $('#iv-score').disabled=false; $('#iv-reset').disabled=false;
+  await ivTurn();
+  $('#iv-input-wrap').style.display='block'; $('#iv-input').focus();
+}
+async function ivTurn(){
+  const log=$('#iv-log');
+  const bubble=document.createElement('div'); bubble.className='msg ai';
+  bubble.innerHTML='<div class="who">Interviewer</div><span class="spinner"></span>'; log.appendChild(bubble); log.scrollTop=log.scrollHeight;
+  let text='';
+  try{
+    const resp=await fetch('/api/interview',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({path:ivPath, transcript:ivTranscript})});
+    const reader=resp.body.getReader(), dec=new TextDecoder(); let buf='';
+    while(true){ const {value,done}=await reader.read(); if(done) break; buf+=dec.decode(value,{stream:true}); let idx;
+      while((idx=buf.indexOf('\n'))>=0){ const line=buf.slice(0,idx); buf=buf.slice(idx+1); if(!line.trim()) continue; const o=JSON.parse(line);
+        if(o.type==='token') text+=o.text;
+        else if(o.type==='error') text=o.message;
+        bubble.innerHTML='<div class="who">Interviewer</div>'+escapeHtml(text||'…'); log.scrollTop=log.scrollHeight;
+      }
+    }
+  }catch(e){ text='Error: '+e; bubble.innerHTML='<div class="who">Interviewer</div>'+escapeHtml(text); }
+  if(text.trim()) ivTranscript.push({role:'interviewer', text:text.trim()});
+}
+async function ivSend(){
+  const inp=$('#iv-input'), val=inp.value.trim(); if(!val) return; inp.value='';
+  ivTranscript.push({role:'candidate', text:val});
+  const log=$('#iv-log'); const d=document.createElement('div'); d.className='msg you'; d.innerHTML='<div class="who">You</div>'+escapeHtml(val); log.appendChild(d); log.scrollTop=log.scrollHeight;
+  await ivTurn();
+}
+async function ivScore(){
+  const log=$('#iv-log'); const out=document.createElement('div'); out.className='feedback';
+  out.innerHTML='<div class="who">Scoring…</div><span class="spinner"></span>'; log.appendChild(out); log.scrollTop=log.scrollHeight;
+  const g=await api('/api/interview-score',{method:'POST',headers:{'Content-Type':'application/json'}, body:JSON.stringify({path:ivPath, transcript:ivTranscript})});
+  out.innerHTML = g.can_generate ? mdLite(g.feedback||'') : '<p class="hint">Scoring needs a local model.</p>';
+  wireInternalLinks(out); log.scrollTop=log.scrollHeight;
+}
+function ivReset(){ ivTranscript=[]; $('#iv-log').innerHTML=''; $('#iv-input-wrap').style.display='none';
+  $('#iv-start').disabled=false; $('#iv-score').disabled=true; $('#iv-reset').disabled=true; }
+function mdLite(s){
+  const lines=String(s).split('\n'); let html='', inUl=false;
+  const inline=t=>escapeHtml(t).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  for(let ln of lines){ ln=ln.trim();
+    if(!ln){ if(inUl){html+='</ul>';inUl=false;} continue; }
+    const h=ln.match(/^#{2,4}\s+(.*)/);
+    if(h){ if(inUl){html+='</ul>';inUl=false;} html+='<h3>'+inline(h[1])+'</h3>'; continue; }
+    if(/^[-*]\s+/.test(ln)){ if(!inUl){html+='<ul>';inUl=true;} html+='<li>'+inline(ln.replace(/^[-*]\s+/,''))+'</li>'; continue; }
+    if(inUl){html+='</ul>';inUl=false;} html+='<p>'+inline(ln)+'</p>';
+  }
+  if(inUl) html+='</ul>'; return html;
 }
 
 // ---- events ----
@@ -374,11 +495,17 @@ $('#ask-input').addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.shiftKey)
 $('#ask-clear').onclick=()=>{ $('#ask-log').innerHTML=''; };
 $$('#ask-chips .chip').forEach(c=>c.onclick=()=>ask(c.dataset.q));
 $('#quiz-load').onclick=loadQuiz;
+$('#quiz-due').onclick=loadDue;
 $('#quiz-generate').onclick=generateQuestion;
+$('#iv-start').onclick=ivStart;
+$('#iv-send').onclick=ivSend;
+$('#iv-score').onclick=ivScore;
+$('#iv-reset').onclick=ivReset;
+$('#iv-input').addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); ivSend(); }});
 $$('.rail-tab').forEach(t=>t.onclick=()=>{
   $$('.rail-tab').forEach(x=>x.classList.toggle('active',x===t));
-  $('#tab-ask').style.display = t.dataset.tab==='ask'?'block':'none';
-  $('#tab-quiz').style.display = t.dataset.tab==='quiz'?'block':'none';
+  ['ask','quiz','interview'].forEach(name=>{ const el=$('#tab-'+name); if(el) el.style.display = t.dataset.tab===name?'block':'none'; });
+  if(t.dataset.tab==='quiz') refreshSrsStats();
 });
 $('#btn-nav').onclick=()=>$('#sidebar').classList.toggle('open');
 $('#btn-rail').onclick=()=>$('#rail').classList.toggle('open');

@@ -913,6 +913,10 @@ class _StudyHandler(BaseHTTPRequestHandler):
             self._api_grade(body)
         elif route == "/api/gen-question":
             self._api_gen_question(body)
+        elif route == "/api/interview":
+            self._api_interview(body)
+        elif route == "/api/interview-score":
+            self._api_interview_score(body)
         else:
             self._json(404, {"error": "not found"})
 
@@ -1068,6 +1072,81 @@ class _StudyHandler(BaseHTTPRequestHandler):
         if "ANSWER:" in out:
             q, a = out.split("ANSWER:", 1)
         self._json(200, {"question": q.strip(), "reference": a.strip(), "generated": True})
+
+    # -- interview mode: the LLM plays the interviewer --
+    def _interview_topic(self, body) -> str:
+        path = body.get("path")
+        if path and (REPO_ROOT / path).exists():
+            return _page_title(REPO_ROOT / path)
+        return body.get("topic") or "system design"
+
+    def _interview_context(self, topic: str) -> str:
+        try:
+            index = get_index()
+        except FileNotFoundError:
+            return ""
+        chunks, _ = retrieve(index, topic, 4, model_present(EMBED_MODEL))
+        return format_context(chunks)
+
+    @staticmethod
+    def _transcript_text(transcript: list, limit: int | None = None) -> str:
+        turns = transcript[-limit:] if limit else transcript
+        return "\n".join(
+            ("Interviewer: " if t.get("role") == "interviewer" else "Candidate: ") + t.get("text", "")
+            for t in turns
+        )
+
+    def _api_interview(self, body):
+        transcript = body.get("transcript") or []
+        topic = self._interview_topic(body)
+        self._stream_open()
+        self._stream({"type": "topic", "topic": topic})
+        if not model_present(CHAT_MODEL):
+            self._stream({"type": "error",
+                          "message": f"Interview Mode needs a local model — run: ollama pull {CHAT_MODEL}"})
+            self._stream({"type": "done"})
+            return
+        context = self._interview_context(topic)
+        convo = self._transcript_text(transcript, limit=12)
+        if not transcript:
+            task = (f"Begin a mock system design interview on: {topic}. Give a one-line framing, "
+                    "then ask your FIRST question (usually clarifying requirements/scope). "
+                    "2-3 sentences total.")
+        else:
+            task = ("Continue as interviewer. Based on the candidate's last answer, ask ONE focused "
+                    "follow-up that probes scale, a bottleneck, or a trade-off they glossed over. "
+                    "Do not lecture or give the answer. 1-3 sentences. If the design is now "
+                    "thoroughly covered, say you're wrapping up and to click 'Score me'.")
+        system = ("You are a senior staff engineer running a rigorous but friendly system design "
+                  "interview. Ask one question at a time. Never hand over the model answer; draw the "
+                  "candidate out. Use the reference notes only to know what a strong answer covers.")
+        prompt = (f"Reference notes (for your eyes only):\n{context}\n\n"
+                  f"Transcript so far:\n{convo or '(none yet)'}\n\n{task}")
+        for frag in generate_stream(prompt, system=system):
+            self._stream({"type": "token", "text": frag})
+        self._stream({"type": "done"})
+
+    def _api_interview_score(self, body):
+        transcript = body.get("transcript") or []
+        topic = self._interview_topic(body)
+        if not model_present(CHAT_MODEL):
+            self._json(200, {"feedback": None, "can_generate": False})
+            return
+        context = self._interview_context(topic)
+        prompt = (
+            f"Reference notes:\n{context}\n\nTopic: {topic}\n\n"
+            f"Full transcript:\n{self._transcript_text(transcript)}\n\n"
+            "Write structured post-interview feedback using these exact markdown headers:\n"
+            "### Verdict\n(Strong hire / Hire / Lean hire / No hire — plus one sentence)\n"
+            "### Covered well\n(bullets, cite what they said)\n"
+            "### Gaps and what to add\n(bullets tied to the framework: requirements, estimation, "
+            "API, data model, high-level design, deep dive, bottlenecks/trade-offs)\n"
+            "### Practice next\n(one concrete bullet)"
+        )
+        system = ("You are a fair, specific, encouraging system design interviewer writing "
+                  "post-interview feedback grounded in what the candidate actually said.")
+        out = "".join(generate_stream(prompt, system=system))
+        self._json(200, {"feedback": out.strip(), "can_generate": True, "topic": topic})
 
 
 def serve(host: str = "127.0.0.1", port: int = 8000, open_browser: bool = True) -> None:

@@ -223,7 +223,8 @@ It ships with a **web UI** that lets you:
 
 1. **Walk every resource in order** — a sidebar takes you through fundamentals → patterns → guides → questions → cheat sheets → deep dives, with Previous/Next, rendered Mermaid diagrams, and a progress tracker.
 2. **Ask the AI about the page you're reading** — grounded answers with clickable source citations, plus one-tap "explain simply / analogy / trade-offs / gotchas."
-3. **Quiz yourself to check your knowledge** — flashcards per topic, graded by the local model, plus "write me a question from this page."
+3. **Quiz yourself with spaced repetition** — flashcards per topic (or "review due" across all topics), graded by the local model, with Again/Hard/Good/Easy scheduling so you drill what you keep missing.
+4. **Run a mock interview** — the local model plays the interviewer, probes your trade-offs one question at a time, then scores the transcript against the [interview framework](cheat-sheets/interview-framework.md).
 
 ```bash
 cd tools/study-assistant

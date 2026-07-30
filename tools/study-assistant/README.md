@@ -44,8 +44,9 @@ flowchart LR
 `python3 study_assistant.py serve` launches a local study app at `http://127.0.0.1:8000` with three things side by side:
 
 1. **A guided resource browser.** A sidebar lists every page — fundamentals, patterns, guides, questions, cheat sheets, deep dives — in a sensible learning order. Click through, or use **Previous / Next** to go one by one. Markdown renders with tables and code, Mermaid diagrams render as real diagrams, and a progress bar tracks how much you've covered (saved in your browser).
-2. **"Ask the AI" panel.** Ask about the page you're reading and get an answer grounded in the repo, with clickable source citations. Quick chips cover "Explain simply", "Analogy", "Trade-offs", and "Gotchas". Without a local model it shows the most relevant sections instead.
-3. **"Quiz me" panel.** Pull flashcards for the current topic and test yourself; with a local model, your typed answers get graded with feedback. "Question from this page" has the model write a fresh interview-style question from what you're reading.
+2. **"Ask" panel.** Ask about the page you're reading and get an answer grounded in the repo, with clickable source citations. Quick chips cover "Explain simply", "Analogy", "Trade-offs", and "Gotchas". Without a local model it shows the most relevant sections instead.
+3. **"Quiz" panel with spaced repetition.** Pull flashcards for the current topic (or **Review due** across every topic) and test yourself; with a local model, your typed answers get graded. After each card you rate yourself **Again / Hard / Good / Easy**, and a lightweight SM-2/Leitner scheduler (kept in your browser) decides when to resurface it — so you drill what you keep missing. "Question from page" has the model write a fresh question from what you're reading.
+4. **"Interview" panel — a mock interview.** The local model plays the interviewer: it opens on the current topic, asks one question at a time, and probes the scale, bottlenecks, and trade-offs you gloss over. Hit **Score me** and it grades the whole transcript against the [interview framework](../../cheat-sheets/interview-framework.md) — verdict, what you covered well, gaps, and what to practice next. (Needs a local model; without one it points you to the framework to self-drive.)
 
 ```bash
 python3 study_assistant.py serve                 # http://127.0.0.1:8000
