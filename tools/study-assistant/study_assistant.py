@@ -607,6 +607,7 @@ SECTION_ORDER = [
     ("Guides", "guides"),
     ("Patterns", "patterns"),
     ("Questions", "questions"),
+    ("Low-level design", "low-level-design"),
     ("Cheat sheets", "cheat-sheets"),
     ("Deep dives", "deep-dives"),
 ]

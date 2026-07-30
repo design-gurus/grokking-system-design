@@ -77,6 +77,7 @@ For the landmark systems behind these ideas, see the [deep dives](deep-dives/).
 - [Patterns](patterns/): the building blocks.
 - [Guides](guides/): end-to-end walkthroughs.
 - [Questions](questions/): worked-through design problems.
+- [Low-level design](low-level-design/): the object-oriented design round.
 - [Cheat sheets](cheat-sheets/): framework, estimation, SQL vs NoSQL, flashcards.
 - [Roadmaps](roadmaps/): study plans.
 - [Study assistant](tools/study-assistant/): a local, offline AI tutor over this repo.

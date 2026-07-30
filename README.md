@@ -20,6 +20,7 @@ A pattern-based guide to system design interviews. Learn the building blocks onc
 - [Core building blocks (patterns)](#core-building-blocks-patterns)
 - [End-to-end guides](#end-to-end-guides)
 - [System design questions](#system-design-questions)
+- [Low-level design (OOD)](#low-level-design-object-oriented-design)
 - [Company-specific interviews](#company-specific-interviews)
 - [Distributed systems deep dives](#distributed-systems-deep-dives)
 - [Cheat sheets](#cheat-sheets)
@@ -178,6 +179,19 @@ The fastest-growing question category, asked heavily by AI labs and increasingly
 - [Design a GPU cluster scheduler](questions/design-gpu-cluster-scheduler.md)
 
 See the full catalog in [questions/](questions/). To add a new question, copy [questions/_template.md](questions/_template.md).
+
+## Low-level design (object-oriented design)
+
+The other interview round: not *how the boxes fit together at scale*, but *how the classes inside one box fit together*. The [low-level design track](low-level-design/) covers the OOD classics — each with a Mermaid class diagram, the key methods, the design patterns it exercises, and the concurrency edge cases:
+
+- [Parking lot](low-level-design/parking-lot.md) — the canonical OOD question (Strategy, Factory, Singleton).
+- [Elevator system](low-level-design/elevator-system.md) — scheduling with the State pattern.
+- [LRU cache](low-level-design/lru-cache.md) — O(1) get/put with a hash map + doubly linked list.
+- [Rate limiter](low-level-design/rate-limiter.md) — the code-level, Strategy-based version.
+- [Vending machine](low-level-design/vending-machine.md) — a finite state machine.
+- [In-memory key-value store](low-level-design/key-value-store.md) — thread-safe, with TTL and eviction.
+
+Start with [how to approach an LLD question](low-level-design/README.md), which covers SOLID and the patterns worth knowing.
 
 ## Company-specific interviews
 
