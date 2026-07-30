@@ -2,6 +2,15 @@
 
 > How Facebook turned a simple in-memory cache into the layer that let a social network read from MySQL at billions of requests per second.
 
+```mermaid
+flowchart LR
+    W[Web servers] -->|1. get| MC[(Memcached pool)]
+    MC -->|hit| W
+    W -->|2. miss, read| DB[(MySQL)]
+    W -->|3. set the value| MC
+    DB -. invalidate keys on write .-> MC
+```
+
 ## What it is
 
 "Scaling Memcache at Facebook" is the classic paper on operating a [look-aside cache](../patterns/caching.md) at extreme scale. Memcached itself is a plain in-memory key-value store; the interesting system is everything Facebook built around thousands of instances of it: routing, invalidation, and consistency across regions.

@@ -2,6 +2,18 @@
 
 > The open-source coordination kernel: a small, consistent store of tiny files that distributed systems use for locks, leaders, and configuration.
 
+```mermaid
+flowchart LR
+    C[Clients] -->|reads served locally| Any[Any server]
+    C -->|writes go to the leader| Le[Leader]
+    subgraph Ensemble[Ensemble — majority quorum]
+      Le --- F1[Follower]
+      Le --- F2[Follower]
+    end
+    Le -. ZAB atomic broadcast .-> F1
+    Any -. watches notify clients on znode change .-> C
+```
+
 ## What it is
 
 ZooKeeper is a replicated coordination service, the open-source answer to Google's [Chubby](chubby-distributed-locking.md). It exposes a tree of small data nodes (znodes) with strong ordering guarantees, and systems build their coordination primitives on top: [leader election](../patterns/leader-election.md), [distributed locks](../patterns/distributed-locking.md), service discovery, configuration. Kafka (before KRaft), HBase, and Hadoop all leaned on it.

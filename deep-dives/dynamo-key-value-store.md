@@ -2,6 +2,16 @@
 
 > Amazon's design for a highly available key-value store that stays writable even during failures and partitions.
 
+```mermaid
+flowchart LR
+    C[Client] -->|put / get key| Coord[Coordinator node]
+    Coord -->|consistent hashing ring| R1[(Replica N1)]
+    Coord --> R2[(Replica N2)]
+    Coord --> R3[(Replica N3)]
+    Coord -. W writes, R reads: sloppy quorum + hinted handoff .-> R1
+    R1 -. vector clocks reconcile conflicting versions .-> R2
+```
+
 ## What it is
 
 Dynamo is a key-value store that prioritizes availability over strong consistency. It is the design that popularized always-writable, eventually consistent storage, and it influenced Cassandra, Riak, and DynamoDB.

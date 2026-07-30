@@ -2,6 +2,16 @@
 
 > A distributed, replicated commit log that moves huge streams of events between systems with high throughput.
 
+```mermaid
+flowchart LR
+    P[Producers] -->|append to a partition| L[Partition leader]
+    L -->|replicate| F1[Follower]
+    L -->|replicate| F2[Follower]
+    L --> CG1[Consumer group A]
+    L --> CG2[Consumer group B]
+    CG1 -. each group tracks its own offset .-> L
+```
+
 ## What it is
 
 Kafka is a durable, partitioned, append-only log. Producers append events to topics; consumers read them at their own pace. It is the backbone of many event-driven and streaming architectures, and a common answer when a design needs a [message queue](../patterns/message-queues.md) at scale.

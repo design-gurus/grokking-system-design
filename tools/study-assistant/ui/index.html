@@ -36,6 +36,18 @@
   .progress-label{font-size:12px;color:var(--muted);white-space:nowrap}
   .icon-btn{display:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);
     border-radius:8px;padding:6px 10px;cursor:pointer;font-size:13px}
+  .search{position:relative;flex:0 1 300px;min-width:120px}
+  .search input{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);
+    border-radius:8px;padding:7px 11px;font:inherit;font-size:13px}
+  .search input:focus{outline:none;border-color:var(--accent)}
+  .search-results{position:absolute;top:112%;left:0;right:0;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;box-shadow:var(--shadow);max-height:64vh;overflow-y:auto;z-index:30;display:none}
+  .search-results.open{display:block}
+  .search-results .sr{padding:8px 12px;cursor:pointer;border-bottom:1px solid var(--line)}
+  .search-results .sr:last-child{border-bottom:0}
+  .search-results .sr.active,.search-results .sr:hover{background:var(--accent-soft)}
+  .search-results .sr .t{font-size:13.5px;font-weight:600}
+  .search-results .sr .h{font-size:12px;color:var(--muted)}
 
   .layout{display:grid;grid-template-columns:270px minmax(0,1fr) 360px;height:calc(100vh - 53px)}
   nav.sidebar,aside.rail{overflow-y:auto;background:var(--panel)}
@@ -147,6 +159,10 @@
 <header>
   <button class="icon-btn" id="btn-nav">☰ Menu</button>
   <div class="brand">Grokking System Design <small>· study</small></div>
+  <div class="search" id="search">
+    <input id="search-input" type="search" placeholder="Search all pages…  ( / )" autocomplete="off" spellcheck="false" />
+    <div class="search-results" id="search-results"></div>
+  </div>
   <span class="badge" id="llm-badge">checking…</span>
   <div class="progress-wrap">
     <div class="progress"><i id="progress-bar"></i></div>
@@ -213,7 +229,9 @@
   </aside>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<!-- Mermaid is vendored locally (tools/study-assistant/ui/vendor) so the UI is fully offline.
+     The onerror only triggers if that file is missing, falling back to a CDN. -->
+<script src="/vendor/mermaid.min.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';s.onload=function(){try{mermaid.initialize({startOnLoad:false,theme:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'default',securityLevel:'loose'});window.mermaidReady=true;}catch(e){}};document.head.appendChild(s);"></script>
 <script>
 const $ = (s,el=document)=>el.querySelector(s);
 const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
@@ -222,8 +240,7 @@ const state = { toc:[], flat:[], current:null, status:{}, visited:new Set(), all
 try{ state.visited = new Set(JSON.parse(localStorage.getItem('gsd-visited')||'[]')); }catch(e){}
 
 const dark = matchMedia('(prefers-color-scheme: dark)').matches;
-let mermaidReady = false;
-if(window.mermaid){ try{ mermaid.initialize({startOnLoad:false, theme: dark?'dark':'default', securityLevel:'loose'}); mermaidReady=true; }catch(e){} }
+if(window.mermaid){ try{ mermaid.initialize({startOnLoad:false, theme: dark?'dark':'default', securityLevel:'loose'}); window.mermaidReady=true; }catch(e){} }
 
 async function api(path, opts){ const r = await fetch(path, opts); return r.json(); }
 
@@ -281,7 +298,7 @@ async function loadPage(path, push=true){
 
 function renderMermaid(container){
   const nodes = $$('.mermaid', container);
-  if(!mermaidReady || !window.mermaid){ return; } // leave as readable text when offline
+  if(!window.mermaidReady || !window.mermaid){ return; } // leave as readable text when offline
   nodes.forEach(async (node,i)=>{
     const src = node.textContent;
     try{ const {svg} = await mermaid.render('mmd-'+Date.now()+'-'+i, src); node.innerHTML = svg; node.setAttribute('data-processed','1'); }
@@ -511,6 +528,38 @@ $('#btn-nav').onclick=()=>$('#sidebar').classList.toggle('open');
 $('#btn-rail').onclick=()=>$('#rail').classList.toggle('open');
 function closeMobilePanels(){ $('#sidebar').classList.remove('open'); }
 window.addEventListener('hashchange',()=>{ const p=decodeURIComponent(location.hash.replace(/^#\//,'')); if(p && p!==state.current) loadPage(p,false); });
+
+// ---- Search ----
+const si=$('#search-input'), sr=$('#search-results');
+let searchTimer=null, searchItems=[], searchActive=-1;
+si.addEventListener('input',()=>{ clearTimeout(searchTimer); searchTimer=setTimeout(runSearch,160); });
+si.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ si.value=''; closeSearch(); si.blur(); }
+  else if(e.key==='ArrowDown'){ e.preventDefault(); moveSearch(1); }
+  else if(e.key==='ArrowUp'){ e.preventDefault(); moveSearch(-1); }
+  else if(e.key==='Enter'){ const it=searchItems[searchActive]||searchItems[0]; if(it){ loadPage(it.file); closeSearch(); si.blur(); } }
+});
+async function runSearch(){
+  const q=si.value.trim(); if(q.length<2){ closeSearch(); return; }
+  const d=await api('/api/search?q='+encodeURIComponent(q));
+  searchItems=d.results||[]; searchActive=-1;
+  if(!searchItems.length){ sr.innerHTML='<div class="sr"><div class="h">No matches for “'+escapeHtml(q)+'”</div></div>'; sr.classList.add('open'); return; }
+  sr.innerHTML=searchItems.map((r,i)=>'<div class="sr" data-i="'+i+'"><div class="t">'+escapeHtml(r.title)+'</div>'+(r.heading?'<div class="h">'+escapeHtml(r.heading)+'</div>':'')+'</div>').join('');
+  sr.classList.add('open');
+  $$('.sr',sr).forEach(el=>{ if(el.dataset.i!==undefined) el.onclick=()=>{ loadPage(searchItems[+el.dataset.i].file); closeSearch(); si.blur(); }; });
+}
+function moveSearch(dir){ if(!searchItems.length) return; searchActive=(searchActive+dir+searchItems.length)%searchItems.length; $$('.sr',sr).forEach((el,i)=>el.classList.toggle('active',i===searchActive)); }
+function closeSearch(){ sr.classList.remove('open'); }
+document.addEventListener('click',e=>{ if(!$('#search').contains(e.target)) closeSearch(); });
+
+// ---- Keyboard shortcuts: / focus search, j/k prev/next page ----
+document.addEventListener('keydown',e=>{
+  const tag=(e.target.tagName||'').toLowerCase(), typing=tag==='input'||tag==='textarea';
+  if(e.key==='/' && !typing){ e.preventDefault(); si.focus(); si.select(); return; }
+  if(typing || e.metaKey || e.ctrlKey || e.altKey) return;
+  if(e.key==='j'){ const n=$('.pager a.next[data-path]'); if(n){ e.preventDefault(); n.click(); } }
+  else if(e.key==='k'){ const p=$('.pager a.prev[data-path]'); if(p){ e.preventDefault(); p.click(); } }
+});
 
 // ---- utils ----
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }

@@ -43,7 +43,7 @@ flowchart LR
 
 `python3 study_assistant.py serve` launches a local study app at `http://127.0.0.1:8000` with three things side by side:
 
-1. **A guided resource browser.** A sidebar lists every page — fundamentals, patterns, guides, questions, cheat sheets, deep dives — in a sensible learning order. Click through, or use **Previous / Next** to go one by one. Markdown renders with tables and code, Mermaid diagrams render as real diagrams, and a progress bar tracks how much you've covered (saved in your browser).
+1. **A guided resource browser.** A sidebar lists every page — fundamentals, patterns, guides, questions, low-level design, cheat sheets, deep dives — in a sensible learning order. Click through, use **Previous / Next** (or the `j` / `k` keys) to go one by one, or hit `/` to **search** every page by title and heading. Markdown renders with tables and code, Mermaid diagrams render as real diagrams, and a progress bar tracks how much you've covered (saved in your browser).
 2. **"Ask" panel.** Ask about the page you're reading and get an answer grounded in the repo, with clickable source citations. Quick chips cover "Explain simply", "Analogy", "Trade-offs", and "Gotchas". Without a local model it shows the most relevant sections instead.
 3. **"Quiz" panel with spaced repetition.** Pull flashcards for the current topic (or **Review due** across every topic) and test yourself; with a local model, your typed answers get graded. After each card you rate yourself **Again / Hard / Good / Easy**, and a lightweight SM-2/Leitner scheduler (kept in your browser) decides when to resurface it — so you drill what you keep missing. "Question from page" has the model write a fresh question from what you're reading.
 4. **"Interview" panel — a mock interview.** The local model plays the interviewer: it opens on the current topic, asks one question at a time, and probes the scale, bottlenecks, and trade-offs you gloss over. Hit **Score me** and it grades the whole transcript against the [interview framework](../../cheat-sheets/interview-framework.md) — verdict, what you covered well, gaps, and what to practice next. (Needs a local model; without one it points you to the framework to self-drive.)
@@ -132,9 +132,7 @@ Add `--top-k N` to `ask` or `chat` to change how many sections are retrieved.
 
 ## Privacy
 
-Your study data is local. The tool reads files from this repo and makes HTTP calls **only** to your Ollama server on `127.0.0.1`. There are no external API calls for indexing, retrieval, answering, or grading — no telemetry, no API keys. The generated `index.json` stays on your disk and is git-ignored.
-
-One caveat for the web UI: to draw the Mermaid diagrams, the page loads the Mermaid **library** (a static script) from a public CDN. That's a one-time script download, not your data — nothing you read, ask, or answer ever leaves your machine. Fully offline, diagrams simply show as their text source and everything else keeps working.
+Everything is local and fully offline. The tool reads files from this repo and makes HTTP calls **only** to your Ollama server on `127.0.0.1`. There are no external API calls for indexing, retrieval, answering, or grading — no telemetry, no API keys, no CDNs. The Mermaid diagram library is **vendored** in `ui/vendor/`, so the web UI makes **zero** outbound requests. The generated `index.json` stays on your disk and is git-ignored.
 
 ## Notes and limits
 

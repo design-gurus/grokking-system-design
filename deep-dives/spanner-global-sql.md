@@ -2,6 +2,17 @@
 
 > Google's globally distributed database that offers SQL, transactions, and strong consistency across continents.
 
+```mermaid
+flowchart TB
+    C[Client] --> Z[Paxos group for a shard]
+    subgraph Global[Globally distributed shards]
+      Z --- Z2[Paxos group]
+      Z --- Z3[Paxos group]
+    end
+    TT[TrueTime: GPS + atomic clocks] -. bounded-uncertainty timestamps .-> Z
+    Z -. two-phase commit across groups for cross-shard txns .-> Z2
+```
+
 ## What it is
 
 Spanner is Google's globally replicated relational database. It was the first system to offer externally consistent (linearizable) distributed transactions at global scale, which the CAP folklore said was impractical. It backs Google's ads and billing systems and inspired CockroachDB and YugabyteDB.

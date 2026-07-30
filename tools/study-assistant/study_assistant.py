@@ -668,6 +668,43 @@ def _flat_pages(toc: list[dict]) -> list[str]:
     return [p["path"] for s in toc for p in s["pages"]]
 
 
+_SEARCH_DOCS: list[dict] | None = None
+
+
+def search_docs() -> list[dict]:
+    """Build (once) a lightweight in-memory search index over every markdown
+    file: title, headings, and token counts. Independent of the RAG index, so
+    search works even before `build`."""
+    global _SEARCH_DOCS
+    if _SEARCH_DOCS is not None:
+        return _SEARCH_DOCS
+    docs = []
+    for path in iter_markdown_files(REPO_ROOT):
+        try:
+            text = path.read_text(encoding="utf-8")
+        except Exception:  # noqa: BLE001
+            continue
+        headings = [m.group(2).strip() for ln in text.splitlines()
+                    for m in [_HEADING_RE.match(ln)] if m]
+        title = headings[0] if headings else path.stem
+        head_counts: dict[str, int] = {}
+        for t in tokenize(" ".join(headings)):
+            head_counts[t] = head_counts.get(t, 0) + 1
+        body_counts: dict[str, int] = {}
+        for t in tokenize(text):
+            body_counts[t] = body_counts.get(t, 0) + 1
+        docs.append({
+            "file": str(path.relative_to(REPO_ROOT)),
+            "title": title,
+            "headings": headings,
+            "title_tokens": set(tokenize(title)),
+            "head_counts": head_counts,
+            "body_counts": body_counts,
+        })
+    _SEARCH_DOCS = docs
+    return _SEARCH_DOCS
+
+
 # --- Minimal, dependency-free Markdown -> HTML (for the repo's markdown) ----- #
 
 _INLINE_CODE_RE = re.compile(r"`([^`]+)`")
@@ -894,6 +931,8 @@ class _StudyHandler(BaseHTTPRequestHandler):
         route, qs = u.path, parse_qs(u.query)
         if route in ("/", "/index.html"):
             self._serve_index()
+        elif route.startswith("/vendor/"):
+            self._serve_vendor(route)
         elif route == "/api/status":
             self._api_status()
         elif route == "/api/toc":
@@ -902,6 +941,8 @@ class _StudyHandler(BaseHTTPRequestHandler):
             self._api_page(qs.get("path", [""])[0])
         elif route == "/api/quiz":
             self._api_quiz(qs.get("topic", [None])[0], qs.get("path", [None])[0])
+        elif route == "/api/search":
+            self._api_search(qs.get("q", [""])[0])
         else:
             self._json(404, {"error": "not found"})
 
@@ -928,6 +969,19 @@ class _StudyHandler(BaseHTTPRequestHandler):
             self._bytes(500, b"UI file missing (tools/study-assistant/ui/index.html)", "text/plain")
             return
         self._bytes(200, f.read_bytes(), "text/html; charset=utf-8")
+
+    def _serve_vendor(self, route: str):
+        name = route[len("/vendor/"):]
+        if not name or "/" in name or ".." in name:
+            self._json(404, {"error": "not found"})
+            return
+        f = UI_DIR / "vendor" / name
+        if not f.exists():
+            self._json(404, {"error": "not found"})
+            return
+        ctype = "application/javascript; charset=utf-8" if name.endswith(".js") \
+            else ("text/css; charset=utf-8" if name.endswith(".css") else "application/octet-stream")
+        self._bytes(200, f.read_bytes(), ctype)
 
     def _api_status(self):
         models = list_models()
@@ -969,6 +1023,29 @@ class _StudyHandler(BaseHTTPRequestHandler):
             "prev": prev,
             "next": nxt,
         })
+
+    def _api_search(self, q: str):
+        toks = tokenize(q or "")
+        ql = (q or "").strip().lower()
+        if not toks:
+            self._json(200, {"results": []})
+            return
+        results = []
+        for d in search_docs():
+            score = 0.0
+            for t in toks:
+                if t in d["title_tokens"]:
+                    score += 6
+                score += d["head_counts"].get(t, 0) * 3
+                score += min(d["body_counts"].get(t, 0), 6) * 0.5
+            if ql and ql in d["title"].lower():
+                score += 8
+            if score <= 0:
+                continue
+            heading = next((h for h in d["headings"] if any(t in h.lower() for t in toks)), None)
+            results.append((score, {"file": d["file"], "title": d["title"], "heading": heading}))
+        results.sort(key=lambda x: x[0], reverse=True)
+        self._json(200, {"results": [r for _, r in results[:12]]})
 
     def _api_quiz(self, topic, path):
         cards = parse_flashcards()

@@ -2,6 +2,16 @@
 
 > The open-source distributed file system at the heart of the Hadoop ecosystem, modeled on the ideas of GFS.
 
+```mermaid
+flowchart LR
+    Cl[Client] -->|which blocks, where| NN[NameNode: metadata]
+    Cl -->|read / write blocks| DN1[DataNode]
+    Cl --> DN2[DataNode]
+    DN1 -. blocks replicated 3x .-> DN2
+    DN2 -.-> DN3[DataNode]
+    DN1 -. block reports + heartbeats .-> NN
+```
+
 ## What it is
 
 HDFS stores very large files across a cluster of commodity machines, for high-throughput batch processing. It is essentially an open-source realization of the [GFS](gfs-distributed-file-system.md) design.

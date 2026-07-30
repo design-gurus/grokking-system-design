@@ -2,6 +2,19 @@
 
 > Mutual exclusion across machines: make sure at most one process in the whole system does a thing at a time.
 
+```mermaid
+sequenceDiagram
+    participant A as Process A
+    participant B as Process B
+    participant L as Lock service<br/>(Redis / ZooKeeper)
+    A->>L: acquire(key, ttl)
+    L-->>A: granted (fencing token 7)
+    B->>L: acquire(key, ttl)
+    L-->>B: denied — held by A
+    A->>L: release(key)
+    L-->>B: now granted (token 8)
+```
+
 ## What it is
 
 A mutex protects a resource within one process; a distributed lock protects it across a fleet. Typical uses: stop two workers from processing the same job, prevent double-booking of a seat or a room, guard a migration so it runs once. The lock lives in a shared store that all contenders can see.

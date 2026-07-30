@@ -2,6 +2,15 @@
 
 > Require a minimum number of replicas to agree before a read or write counts, so the system stays correct when some nodes are down.
 
+```mermaid
+flowchart LR
+    W["Write to W=2<br/>of N=3"] --> R1[(Replica 1)]
+    W --> R2[(Replica 2)]
+    Rd["Read from R=2<br/>of N=3"] --> R2
+    Rd --> R3[(Replica 3)]
+    R2 -. R plus W exceeds N, so a read overlaps the latest write .-> Rd
+```
+
 ## What it is
 
 With N replicas of a piece of data, a quorum system requires W replicas to acknowledge a write and R replicas to answer a read. If **R + W > N**, every read set overlaps every write set by at least one node, so a read always sees the latest acknowledged write. This is how leaderless stores like Dynamo and Cassandra offer tunable consistency.

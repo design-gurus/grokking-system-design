@@ -2,6 +2,15 @@
 
 > Amazon's fully managed NoSQL service (the 2022 paper): predictable single-digit-millisecond latency at any scale, two decades after Dynamo.
 
+```mermaid
+flowchart LR
+    C[Client] --> RR[Request router]
+    RR -->|partition by key| P1[(Partition)]
+    RR --> P2[(Partition)]
+    P1 -. replicated 3x across AZs, Multi-Paxos leader .-> P1r[(Replicas)]
+    P1 -. adaptive capacity auto-splits hot partitions .-> P2
+```
+
 ## What it is
 
 DynamoDB is AWS's flagship managed key-value and document database. Despite the name, it is not [Dynamo](dynamo-key-value-store.md): Dynamo was an eventually consistent library teams operated themselves; DynamoDB is a multi-tenant cloud service with strong consistency options, transactions, and an SLA. The 2022 paper's headline: during the 2021 Prime Day, DynamoDB peaked at 89 million requests per second with single-digit-millisecond latency.
