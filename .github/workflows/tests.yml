@@ -1,0 +1,26 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  study-assistant:
+    name: Study assistant (pytest + mermaid check)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pytest
+        run: python -m pip install --upgrade pip pytest
+      - name: Run tests
+        # Covers the markdown renderer, flashcard parser, retrieval, TOC, search,
+        # and a repo-wide structural validation of every Mermaid diagram.
+        run: python -m pytest tools/study-assistant/tests -q

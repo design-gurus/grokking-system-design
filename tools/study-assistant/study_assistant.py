@@ -705,6 +705,31 @@ def search_docs() -> list[dict]:
     return _SEARCH_DOCS
 
 
+def search(query: str, limit: int = 12) -> list[dict]:
+    """Rank pages for a query over titles (weighted highest), headings, then
+    body. Returns [{file, title, heading}] best-first."""
+    toks = tokenize(query or "")
+    ql = (query or "").strip().lower()
+    if not toks:
+        return []
+    scored = []
+    for d in search_docs():
+        score = 0.0
+        for t in toks:
+            if t in d["title_tokens"]:
+                score += 6
+            score += d["head_counts"].get(t, 0) * 3
+            score += min(d["body_counts"].get(t, 0), 6) * 0.5
+        if ql and ql in d["title"].lower():
+            score += 8
+        if score <= 0:
+            continue
+        heading = next((h for h in d["headings"] if any(t in h.lower() for t in toks)), None)
+        scored.append((score, {"file": d["file"], "title": d["title"], "heading": heading}))
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [r for _, r in scored[:limit]]
+
+
 # --- Minimal, dependency-free Markdown -> HTML (for the repo's markdown) ----- #
 
 _INLINE_CODE_RE = re.compile(r"`([^`]+)`")
@@ -1025,27 +1050,7 @@ class _StudyHandler(BaseHTTPRequestHandler):
         })
 
     def _api_search(self, q: str):
-        toks = tokenize(q or "")
-        ql = (q or "").strip().lower()
-        if not toks:
-            self._json(200, {"results": []})
-            return
-        results = []
-        for d in search_docs():
-            score = 0.0
-            for t in toks:
-                if t in d["title_tokens"]:
-                    score += 6
-                score += d["head_counts"].get(t, 0) * 3
-                score += min(d["body_counts"].get(t, 0), 6) * 0.5
-            if ql and ql in d["title"].lower():
-                score += 8
-            if score <= 0:
-                continue
-            heading = next((h for h in d["headings"] if any(t in h.lower() for t in toks)), None)
-            results.append((score, {"file": d["file"], "title": d["title"], "heading": heading}))
-        results.sort(key=lambda x: x[0], reverse=True)
-        self._json(200, {"results": [r for _, r in results[:12]]})
+        self._json(200, {"results": search(q)})
 
     def _api_quiz(self, topic, path):
         cards = parse_flashcards()

@@ -134,6 +134,17 @@ Add `--top-k N` to `ask` or `chat` to change how many sections are retrieved.
 
 Everything is local and fully offline. The tool reads files from this repo and makes HTTP calls **only** to your Ollama server on `127.0.0.1`. There are no external API calls for indexing, retrieval, answering, or grading — no telemetry, no API keys, no CDNs. The Mermaid diagram library is **vendored** in `ui/vendor/`, so the web UI makes **zero** outbound requests. The generated `index.json` stays on your disk and is git-ignored.
 
+## Development
+
+Run the test suite (markdown renderer, flashcard parser, retrieval, TOC, search, and a repo-wide Mermaid structural check):
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest tests -q
+```
+
+The same tests run in CI on every push and pull request (`.github/workflows/tests.yml`).
+
 ## Notes and limits
 
 - It answers from repo content only — it's a study aid, not a general chatbot. If the repo doesn't cover something, it will say so.
