@@ -14,6 +14,7 @@ A pattern-based guide to system design interviews. Learn the building blocks onc
 ## Contents
 
 - [What is Grokking System Design?](#what-is-grokking-system-design)
+- [Is there a PDF or book?](#is-there-a-grokking-system-design-pdf-or-book)
 - [How to use this repo](#how-to-use-this-repo)
 - [The interview framework](#the-system-design-interview-framework)
 - [Core building blocks (patterns)](#core-building-blocks-patterns)
@@ -34,6 +35,12 @@ A pattern-based guide to system design interviews. Learn the building blocks onc
 "Grok" means to understand something so completely that it becomes intuitive. Grokking System Design is the pattern-based approach to system design interviews: instead of memorizing answers to a fixed list of questions, you learn a small set of reusable building blocks (caching, sharding, replication, consistency models, messaging, and more) that appear again and again across very different systems. Once you know the patterns, any new design problem feels familiar.
 
 This methodology was created by Arslan Ahmad. The original, fully updated course lives at [DesignGurus.io](https://www.designgurus.io/course/grokking-the-system-design-interview).
+
+## Is there a Grokking System Design PDF or book?
+
+No. There is no official PDF, ebook, or printed book of the Grokking the System Design Interview course, and there never has been. The PDF files that circulate online are unofficial copies of an old version of the course. They are missing the newer lessons and every fix made since they were created.
+
+This repository is the official free way to read the material: every pattern guide, question, and cheat sheet here is free in your browser, no account needed. The full, current course is online at [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview). For more detail, see [Is there a free official download?](https://www.designgurus.io/answers/detail/grokking-system-design-pdf-is-there-a-free-official-download)
 
 ## How to use this repo
 
