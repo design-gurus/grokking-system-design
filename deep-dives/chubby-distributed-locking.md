@@ -2,6 +2,18 @@
 
 > Google's coarse-grained lock and small-file service, used for coordination and leader election across a fleet.
 
+```mermaid
+flowchart LR
+    C[Clients] -->|RPC + cached leases| M[Chubby master]
+    subgraph Cell[Chubby cell — 5 replicas]
+      M --- R1[(Replica)]
+      M --- R2[(Replica)]
+      M --- R3[(Replica)]
+    end
+    M -. Paxos replicates the small DB .-> R1
+    R2 -. elect a new master if it fails .-> M
+```
+
 ## What it is
 
 Chubby provides distributed locks and a small, reliable key-value and file namespace. Systems use it to elect a leader, store a little critical metadata, and coordinate, without each one implementing consensus themselves. It inspired Apache ZooKeeper.

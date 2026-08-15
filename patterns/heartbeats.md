@@ -2,6 +2,17 @@
 
 > Nodes periodically say "I'm alive" so the system can tell a dead server from a slow one and react automatically.
 
+```mermaid
+sequenceDiagram
+    participant N as Node
+    participant M as Monitor
+    loop every interval
+        N->>M: heartbeat "I'm alive"
+    end
+    Note over M: no heartbeat for<br/>N missed intervals
+    M->>M: mark node dead → failover / rebalance
+```
+
 ## What it is
 
 In a distributed system you can never directly observe that a remote node is dead; you can only observe that it has stopped talking. A heartbeat is a small periodic message ("still here") sent to a monitor or to peers. Miss enough of them and the node is declared failed, triggering failover, re-replication, or removal from the load balancer pool.

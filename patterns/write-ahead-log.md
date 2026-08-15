@@ -2,6 +2,14 @@
 
 > Record every change to an append-only log before applying it, so a crash never loses acknowledged data.
 
+```mermaid
+flowchart LR
+    C[Change] -->|1. append + fsync| L[(WAL on disk)]
+    L -->|2. ack the client| Client
+    L -->|3. apply| M[In-memory state / tables]
+    L -. on crash: replay the log to recover .-> M
+```
+
 ## What it is
 
 Updating data structures in place is fragile: crash mid-update and the structure is corrupt. A write-ahead log flips the order: first append a description of the change to a sequential log and flush it to disk, only then apply the change to the real data structures (which can even sit in memory). After a crash, replay the log and you are back exactly where you were.

@@ -2,6 +2,17 @@
 
 > A small fingerprint computed from data, checked after transfer or storage to detect corruption.
 
+```mermaid
+flowchart LR
+    D[Data] --> C1[compute checksum]
+    D -->|send data + checksum| R[Receiver]
+    C1 -->|send| R
+    R --> C2[recompute checksum]
+    C2 --> V{matches?}
+    V -->|yes| OK[Accept]
+    V -->|no| BAD[Corrupted → re-request]
+```
+
 ## What it is
 
 Disks silently flip bits, networks drop and mangle packets, and memory fails. A checksum is a compact value (CRC32, MD5, SHA-256) computed from a block of data. Recompute it later: if it does not match, the data changed. It converts silent corruption, the worst kind of failure, into a detectable and therefore fixable one.

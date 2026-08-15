@@ -2,6 +2,16 @@
 
 > The consensus algorithm designed to be teachable: how a cluster of machines agrees on a single log even as nodes crash.
 
+```mermaid
+flowchart LR
+    Cl[Client] -->|command| Le[Leader]
+    Le -->|AppendEntries| F1[Follower]
+    Le -->|AppendEntries| F2[Follower]
+    F1 -. ack .-> Le
+    F2 -. ack .-> Le
+    Le -->|committed once a majority acks| SM[Apply to state machine]
+```
+
 ## What it is
 
 Raft is a consensus algorithm: it keeps a replicated log identical across a cluster, so a group of machines behaves like one reliable machine. It was designed explicitly to be easier to understand than Paxos, and it won: etcd, Consul, CockroachDB, TiDB, and Kafka's KRaft mode all run Raft.

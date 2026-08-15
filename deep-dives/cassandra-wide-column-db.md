@@ -2,6 +2,17 @@
 
 > A distributed database that blends Dynamo's availability with a BigTable-style data model, with no single point of failure.
 
+```mermaid
+flowchart LR
+    W[Write] --> CL[(Commit log)]
+    W --> MT[Memtable in RAM]
+    MT -->|flush when full| SS[(SSTables on disk)]
+    SS -->|background| Comp[Compaction merges SSTables]
+    subgraph Ring[Peer-to-peer ring — no leader]
+      N1((Node)) --- N2((Node)) --- N3((Node)) --- N1
+    end
+```
+
 ## What it is
 
 Cassandra is a wide-column store designed for high write throughput, linear scalability, and high availability across data centers. It borrows its distribution model from [Dynamo](dynamo-key-value-store.md) and its data model from [BigTable](bigtable-wide-column-store.md).

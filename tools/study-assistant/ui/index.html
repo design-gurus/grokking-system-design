@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grokking System Design — Study</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --panel:#ffffff; --ink:#1b1f24; --muted:#5b6572; --line:#e5e8ec;
+    --accent:#2f6df6; --accent-soft:#e8f0ff; --ok:#1a7f4b; --warn:#b26a00; --code:#f0f2f5;
+    --chip:#eef1f5; --shadow:0 1px 3px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f1216; --panel:#161a20; --ink:#e6e9ee; --muted:#9aa4b2; --line:#262c35;
+      --accent:#6ea0ff; --accent-soft:#1b2740; --ok:#57c48a; --warn:#e0a441; --code:#1c222b;
+      --chip:#1d232c; --shadow:0 1px 3px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header{display:flex;align-items:center;gap:14px;padding:10px 16px;background:var(--panel);
+    border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+  .brand{font-weight:700;letter-spacing:.2px;white-space:nowrap}
+  .brand small{color:var(--muted);font-weight:500}
+  .badge{font-size:12px;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--muted);white-space:nowrap}
+  .badge.ok{background:rgba(26,127,75,.14);color:var(--ok)}
+  .badge.warn{background:rgba(178,106,0,.14);color:var(--warn)}
+  .progress-wrap{margin-left:auto;display:flex;align-items:center;gap:10px;min-width:180px}
+  .progress{flex:1;height:7px;background:var(--chip);border-radius:999px;overflow:hidden}
+  .progress > i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+  .progress-label{font-size:12px;color:var(--muted);white-space:nowrap}
+  .icon-btn{display:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);
+    border-radius:8px;padding:6px 10px;cursor:pointer;font-size:13px}
+  .search{position:relative;flex:0 1 300px;min-width:120px}
+  .search input{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);
+    border-radius:8px;padding:7px 11px;font:inherit;font-size:13px}
+  .search input:focus{outline:none;border-color:var(--accent)}
+  .search-results{position:absolute;top:112%;left:0;right:0;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;box-shadow:var(--shadow);max-height:64vh;overflow-y:auto;z-index:30;display:none}
+  .search-results.open{display:block}
+  .search-results .sr{padding:8px 12px;cursor:pointer;border-bottom:1px solid var(--line)}
+  .search-results .sr:last-child{border-bottom:0}
+  .search-results .sr.active,.search-results .sr:hover{background:var(--accent-soft)}
+  .search-results .sr .t{font-size:13.5px;font-weight:600}
+  .search-results .sr .h{font-size:12px;color:var(--muted)}
+
+  .layout{display:grid;grid-template-columns:270px minmax(0,1fr) 360px;height:calc(100vh - 53px)}
+  nav.sidebar,aside.rail{overflow-y:auto;background:var(--panel)}
+  nav.sidebar{border-right:1px solid var(--line);padding:12px 8px}
+  aside.rail{border-left:1px solid var(--line);display:flex;flex-direction:column}
+  main{overflow-y:auto;padding:26px 34px 80px}
+
+  .sec-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+    padding:12px 10px 4px}
+  .navlink{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;color:var(--ink);
+    font-size:13.5px;cursor:pointer}
+  .navlink:hover{background:var(--chip);text-decoration:none}
+  .navlink.active{background:var(--accent-soft);color:var(--accent);font-weight:600}
+  .navlink .tick{width:14px;color:var(--ok);font-size:12px;flex:none}
+  .navlink .tick.off{color:transparent}
+
+  article{max-width:820px}
+  article h1{font-size:30px;margin:.2em 0 .5em;line-height:1.2}
+  article h2{font-size:22px;margin:1.4em 0 .5em;padding-top:.3em;border-top:1px solid var(--line)}
+  article h3{font-size:17px;margin:1.2em 0 .4em}
+  article h1:first-child,article h2:first-child{border:0;padding:0;margin-top:0}
+  article p{margin:.7em 0}
+  article ul,article ol{margin:.6em 0;padding-left:1.4em}
+  article li{margin:.25em 0}
+  article code{background:var(--code);padding:.12em .4em;border-radius:5px;font-size:.88em;
+    font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+  article pre{background:var(--code);padding:14px 16px;border-radius:10px;overflow:auto}
+  article pre code{background:none;padding:0}
+  article blockquote{margin:.9em 0;padding:.4em 1em;border-left:3px solid var(--accent);
+    color:var(--muted);background:var(--accent-soft);border-radius:0 8px 8px 0}
+  .table-wrap{overflow-x:auto;margin:1em 0}
+  article table{border-collapse:collapse;width:100%;font-size:14px}
+  article th,article td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  article th{background:var(--chip)}
+  .mermaid{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;
+    margin:1em 0;overflow-x:auto;white-space:pre-wrap;font-family:ui-monospace,monospace;font-size:13px;color:var(--muted);text-align:center}
+  .mermaid[data-processed] , .mermaid svg{white-space:normal;font-family:inherit}
+
+  .pager{display:flex;justify-content:space-between;gap:12px;margin-top:34px;max-width:820px}
+  .pager a{flex:1;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--panel);
+    color:var(--ink);cursor:pointer}
+  .pager a:hover{border-color:var(--accent);text-decoration:none}
+  .pager a small{display:block;color:var(--muted);font-size:11px}
+  .pager a.next{text-align:right}
+  .pager a.disabled{opacity:.4;pointer-events:none}
+
+  .rail-tabs{display:flex;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+  .rail-tab{flex:1;padding:11px;text-align:center;cursor:pointer;font-size:13px;font-weight:600;color:var(--muted)}
+  .rail-tab.active{color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent)}
+  .rail-body{flex:1;overflow-y:auto;padding:14px}
+  .hint{font-size:12.5px;color:var(--muted);margin:0 0 10px}
+
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+  .chip{font-size:12px;padding:5px 10px;border-radius:999px;background:var(--chip);color:var(--ink);
+    border:1px solid var(--line);cursor:pointer}
+  .chip:hover{border-color:var(--accent);color:var(--accent)}
+  textarea{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;
+    padding:10px;font:inherit;resize:vertical;min-height:64px}
+  .btn{background:var(--accent);color:#fff;border:0;border-radius:9px;padding:9px 14px;cursor:pointer;font-weight:600}
+  .btn:hover{filter:brightness(1.05)}
+  .btn.ghost{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .row{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
+
+  .msg{margin:12px 0;padding:11px 13px;border-radius:12px;font-size:14px}
+  .msg.you{background:var(--accent-soft);color:var(--ink)}
+  .msg.ai{background:var(--panel);border:1px solid var(--line);white-space:pre-wrap}
+  .msg .who{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+  .src{font-size:12px;color:var(--muted);margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+  .src a{background:var(--chip);padding:3px 8px;border-radius:6px}
+  .section-fallback{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0}
+  .section-fallback h5{margin:0 0 5px;font-size:13px}
+
+  .card{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--panel);margin-bottom:12px}
+  .card .topic{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .card .q{font-weight:600;margin:6px 0 10px}
+  .grade{margin-top:10px;padding:9px 11px;border-radius:9px;background:var(--chip);font-size:13.5px;white-space:pre-wrap}
+  .reveal{margin-top:10px;padding:9px 11px;border-radius:9px;background:var(--accent-soft);font-size:13.5px}
+  .rate{display:flex;gap:6px;margin-top:10px}
+  .rate button{flex:1;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;
+    padding:7px 6px;cursor:pointer;font-size:12px}
+  .rate button:hover{border-color:var(--accent)}
+  .rate button b{display:block;font-size:11px;color:var(--muted);font-weight:500}
+  .srs-stats{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .srs-stats span{font-size:12px;background:var(--chip);padding:4px 9px;border-radius:999px;color:var(--muted)}
+  .srs-stats span b{color:var(--accent)}
+  .iv-input-wrap{margin-top:10px}
+  #iv-log .msg.ai .who{color:var(--accent)}
+  .feedback{border:1px solid var(--line);border-radius:12px;padding:4px 14px;margin-top:12px;background:var(--panel)}
+  .feedback h3{font-size:15px;margin:.9em 0 .3em}
+  .feedback ul{margin:.3em 0;padding-left:1.2em}
+  .spinner{display:inline-block;width:13px;height:13px;border:2px solid var(--line);border-top-color:var(--accent);
+    border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  @media (max-width:1100px){
+    .layout{grid-template-columns:1fr}
+    nav.sidebar,aside.rail{position:fixed;top:53px;bottom:0;width:300px;z-index:15;box-shadow:var(--shadow);
+      transform:translateX(-110%);transition:transform .25s}
+    aside.rail{right:0;left:auto;width:360px;max-width:92vw;transform:translateX(110%)}
+    nav.sidebar.open{transform:none}
+    aside.rail.open{transform:none}
+    .icon-btn{display:inline-block}
+    .progress-wrap{min-width:120px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <button class="icon-btn" id="btn-nav">☰ Menu</button>
+  <div class="brand">Grokking System Design <small>· study</small></div>
+  <div class="search" id="search">
+    <input id="search-input" type="search" placeholder="Search all pages…  ( / )" autocomplete="off" spellcheck="false" />
+    <div class="search-results" id="search-results"></div>
+  </div>
+  <span class="badge" id="llm-badge">checking…</span>
+  <div class="progress-wrap">
+    <div class="progress"><i id="progress-bar"></i></div>
+    <span class="progress-label" id="progress-label">0 / 0</span>
+  </div>
+  <button class="icon-btn" id="btn-rail">Study ▸</button>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <main id="main">
+    <article id="content"><p class="hint">Loading…</p></article>
+    <div class="pager" id="pager"></div>
+  </main>
+
+  <aside class="rail" id="rail">
+    <div class="rail-tabs">
+      <div class="rail-tab active" data-tab="ask">Ask</div>
+      <div class="rail-tab" data-tab="quiz">Quiz</div>
+      <div class="rail-tab" data-tab="interview">Interview</div>
+    </div>
+
+    <div class="rail-body" id="tab-ask">
+      <p class="hint">Ask about the page you're reading. Answers are grounded in this repo and cite their sources. <span id="ask-mode"></span></p>
+      <div class="chips" id="ask-chips">
+        <span class="chip" data-q="Explain this page in simple terms.">Explain simply</span>
+        <span class="chip" data-q="Give a concrete real-world analogy for this topic.">Analogy</span>
+        <span class="chip" data-q="What are the key trade-offs to mention in an interview?">Trade-offs</span>
+        <span class="chip" data-q="What are common mistakes or gotchas with this?">Gotchas</span>
+      </div>
+      <textarea id="ask-input" placeholder="Ask anything… (Enter to send, Shift+Enter for newline)"></textarea>
+      <div class="row">
+        <button class="btn" id="ask-send">Ask</button>
+        <button class="btn ghost" id="ask-clear">Clear</button>
+      </div>
+      <div id="ask-log"></div>
+    </div>
+
+    <div class="rail-body" id="tab-quiz" style="display:none">
+      <p class="hint">Check your understanding. Cards are drawn from the flashcards for this topic; with a local model, your typed answers get graded. Rate each card to schedule it for spaced repetition.</p>
+      <div class="srs-stats" id="srs-stats"></div>
+      <div class="row">
+        <button class="btn" id="quiz-load">Quiz this topic</button>
+        <button class="btn ghost" id="quiz-due">Review due</button>
+        <button class="btn ghost" id="quiz-generate">Question from page</button>
+      </div>
+      <div id="quiz-area"></div>
+    </div>
+
+    <div class="rail-body" id="tab-interview" style="display:none">
+      <p class="hint">A mock interview with the local model as your interviewer. It asks one question at a time and probes your trade-offs; finish to get scored against the framework. <span id="iv-note"></span></p>
+      <div class="row">
+        <button class="btn" id="iv-start">Start interview on this page</button>
+        <button class="btn ghost" id="iv-score" disabled>Score me</button>
+        <button class="btn ghost" id="iv-reset" disabled>Reset</button>
+      </div>
+      <div id="iv-log"></div>
+      <div class="iv-input-wrap" id="iv-input-wrap" style="display:none">
+        <textarea id="iv-input" placeholder="Your answer… (Enter to send, Shift+Enter for newline)"></textarea>
+        <div class="row"><button class="btn" id="iv-send">Send</button></div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- Mermaid is vendored locally (tools/study-assistant/ui/vendor) so the UI is fully offline.
+     The onerror only triggers if that file is missing, falling back to a CDN. -->
+<script src="/vendor/mermaid.min.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';s.onload=function(){try{mermaid.initialize({startOnLoad:false,theme:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'default',securityLevel:'loose'});window.mermaidReady=true;}catch(e){}};document.head.appendChild(s);"></script>
+<script>
+const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
+const state = { toc:[], flat:[], current:null, status:{}, visited:new Set(), allCards:null };
+
+try{ state.visited = new Set(JSON.parse(localStorage.getItem('gsd-visited')||'[]')); }catch(e){}
+
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+if(window.mermaid){ try{ mermaid.initialize({startOnLoad:false, theme: dark?'dark':'default', securityLevel:'loose'}); window.mermaidReady=true; }catch(e){} }
+
+async function api(path, opts){ const r = await fetch(path, opts); return r.json(); }
+
+// ---- boot ----
+async function boot(){
+  state.status = await api('/api/status');
+  renderBadge();
+  const toc = await api('/api/toc');
+  state.toc = toc.sections; state.flat = state.toc.flatMap(s=>s.pages.map(p=>p.path));
+  renderSidebar();
+  const initial = decodeURIComponent((location.hash.replace(/^#\//,'')||'')) || (state.flat[0]||'fundamentals/README.md');
+  loadPage(initial, false);
+  updateProgress();
+}
+
+function renderBadge(){
+  const b = $('#llm-badge'); const s = state.status;
+  if(s.can_generate){ b.className='badge ok'; b.textContent='● local AI ready ('+s.chat_model+')'; $('#ask-mode').textContent=''; }
+  else if(s.ollama){ b.className='badge warn'; b.textContent='● model not pulled'; $('#ask-mode').innerHTML='Model not installed — showing relevant sections. <code>ollama pull '+s.chat_model+'</code>'; }
+  else { b.className='badge warn'; b.textContent='● offline (keyword mode)'; $('#ask-mode').textContent='Ollama not running — answers fall back to keyword search over the repo.'; }
+  if(!s.index && $('#ask-mode').textContent===''){ $('#ask-mode').innerHTML='Tip: run <code>python3 study_assistant.py build</code> for semantic search.'; }
+}
+
+function renderSidebar(){
+  const nav = $('#sidebar'); nav.innerHTML='';
+  for(const sec of state.toc){
+    const l = document.createElement('div'); l.className='sec-label'; l.textContent=sec.label; nav.appendChild(l);
+    for(const pg of sec.pages){
+      const a = document.createElement('div'); a.className='navlink'; a.dataset.path=pg.path;
+      a.innerHTML = '<span class="tick '+(state.visited.has(pg.path)?'':'off')+'">✓</span><span>'+escapeHtml(pg.title)+'</span>';
+      a.onclick = ()=>loadPage(pg.path);
+      nav.appendChild(a);
+    }
+  }
+  highlightNav();
+}
+function highlightNav(){ $$('.navlink').forEach(n=>n.classList.toggle('active', n.dataset.path===state.current)); }
+
+async function loadPage(path, push=true){
+  const data = await api('/api/page?path='+encodeURIComponent(path));
+  if(data.error){ $('#content').innerHTML='<p class="hint">Could not load '+escapeHtml(path)+'.</p>'; return; }
+  state.current = path;
+  document.title = data.title + ' — Grokking System Design';
+  const c = $('#content'); c.innerHTML = data.html;
+  wireInternalLinks(c);
+  renderMermaid(c);
+  renderPager(data);
+  state.visited.add(path); persistVisited(); markTick(path); updateProgress(); highlightNav();
+  if(push) location.hash = '#/'+path;
+  $('#main').scrollTo(0,0);
+  // reset quiz context, clear generated card
+  $('#quiz-area').innerHTML='';
+  closeMobilePanels();
+}
+
+function renderMermaid(container){
+  const nodes = $$('.mermaid', container);
+  if(!window.mermaidReady || !window.mermaid){ return; } // leave as readable text when offline
+  nodes.forEach(async (node,i)=>{
+    const src = node.textContent;
+    try{ const {svg} = await mermaid.render('mmd-'+Date.now()+'-'+i, src); node.innerHTML = svg; node.setAttribute('data-processed','1'); }
+    catch(e){ /* keep source text on failure */ }
+  });
+}
+
+function wireInternalLinks(container){
+  $$('a[data-nav]', container).forEach(a=>{
+    a.addEventListener('click', ev=>{ ev.preventDefault(); loadPage(a.getAttribute('data-nav')); });
+  });
+}
+
+function renderPager(data){
+  const p = $('#pager');
+  const cell = (path, cls, label)=>{
+    if(!path) return '<a class="'+cls+' disabled"></a>';
+    const title = titleFor(path);
+    return '<a class="'+cls+'" data-path="'+escapeHtml(path)+'"><small>'+label+'</small>'+escapeHtml(title)+'</a>';
+  };
+  p.innerHTML = cell(data.prev,'prev','◂ Previous') + cell(data.next,'next','Next ▸');
+  $$('.pager a[data-path]').forEach(a=>a.onclick=()=>loadPage(a.dataset.path));
+}
+function titleFor(path){ for(const s of state.toc) for(const pg of s.pages) if(pg.path===path) return pg.title; return path; }
+
+function markTick(path){ const n = $('.navlink[data-path="'+cssEscape(path)+'"]'); if(n){ const t=$('.tick',n); if(t) t.classList.remove('off'); } }
+function persistVisited(){ try{ localStorage.setItem('gsd-visited', JSON.stringify([...state.visited])); }catch(e){} }
+function updateProgress(){
+  const total = state.flat.length||1; const done = state.flat.filter(p=>state.visited.has(p)).length;
+  $('#progress-bar').style.width = Math.round(done/total*100)+'%';
+  $('#progress-label').textContent = done+' / '+total;
+}
+
+// ---- Ask panel ----
+function addMsg(cls, html){ const d=document.createElement('div'); d.className='msg '+cls; d.innerHTML=html; $('#ask-log').prepend(d); return d; }
+
+async function ask(question){
+  question = (question||'').trim(); if(!question) return;
+  addMsg('you','<div class="who">You</div>'+escapeHtml(question));
+  const ai = addMsg('ai','<div class="who">Assistant</div><span class="spinner"></span>');
+  let body='', sources=[], meta=null;
+  try{
+    const resp = await fetch('/api/ask',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({question, path:state.current})});
+    const reader = resp.body.getReader(); const dec = new TextDecoder(); let buf='';
+    const paint = ()=>{
+      let out = '<div class="who">Assistant</div>'+ (body? linkifyCitations(escapeHtml(body)) : '<span class="spinner"></span>');
+      if(sources.length){ out += '<div class="src">'+sources.map(s=>'<a href="#" data-nav="'+escapeAttr(s.file)+'">'+escapeHtml(shortName(s.file))+'</a>').join('')+'</div>'; }
+      ai.innerHTML = out; wireInternalLinks(ai);
+    };
+    while(true){
+      const {value, done} = await reader.read(); if(done) break;
+      buf += dec.decode(value,{stream:true}); let idx;
+      while((idx=buf.indexOf('\n'))>=0){
+        const line=buf.slice(0,idx); buf=buf.slice(idx+1); if(!line.trim()) continue;
+        const o=JSON.parse(line);
+        if(o.type==='sources'){ sources=o.sources; meta=o; if(!o.can_generate) body=''; }
+        else if(o.type==='token'){ body+=o.text; }
+        else if(o.type==='section'){ body += (body?'\n\n':'') + '▸ '+shortName(o.file)+' · '+o.heading+'\n'+o.text; }
+        else if(o.type==='error'){ body += (o.message||'error'); }
+        paint();
+      }
+    }
+    paint();
+  }catch(e){ ai.innerHTML='<div class="who">Assistant</div>Error: '+escapeHtml(String(e)); }
+}
+function shortName(f){ return f; }
+function linkifyCitations(text){
+  return text.replace(/\[([a-z0-9\-\/]+\.md)\]/gi, (m,p)=>'[<a href="#" data-nav="'+escapeAttr(p)+'">'+escapeHtml(p)+'</a>]');
+}
+
+// ---- Quiz panel + spaced repetition (Leitner/SM-2-lite in localStorage) ----
+const SRS_KEY='gsd-srs', DAY=86400000;
+function srsLoad(){ try{ return JSON.parse(localStorage.getItem(SRS_KEY)||'{}'); }catch(e){ return {}; } }
+function srsSave(d){ try{ localStorage.setItem(SRS_KEY, JSON.stringify(d)); }catch(e){} }
+function hashStr(s){ let h=0; for(let i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))|0; return h>>>0; }
+function cardId(card){ return 'c'+hashStr((card.topic||'')+'|'+card.q); }
+function isDue(id){ const c=srsLoad()[id]; return !c || c.due<=Date.now(); }
+function schedule(id, rating){ // 0 again, 1 hard, 2 good, 3 easy
+  const d=srsLoad(), now=Date.now(); const c=d[id]||{reps:0,interval:0,ease:2.5};
+  if(rating===0){ c.reps=0; c.interval=0; c.ease=Math.max(1.3,c.ease-0.2); }
+  else{
+    c.reps++;
+    if(c.reps===1) c.interval=1;
+    else if(c.reps===2) c.interval=3;
+    else c.interval=Math.max(1, Math.round(c.interval*(rating===1?1.2:rating===3?c.ease+0.15:c.ease)));
+    c.ease=Math.max(1.3, c.ease + (rating===1?-0.15:rating===3?0.15:0));
+  }
+  c.due = now + (rating===0 ? 60000 : c.interval*DAY);
+  c.last=now; d[id]=c; srsSave(d);
+}
+async function ensureAllCards(){ if(state.allCards) return state.allCards; const d=await api('/api/quiz'); state.allCards=d.cards||[]; return state.allCards; }
+async function refreshSrsStats(){
+  const cards=await ensureAllCards(), srs=srsLoad(); let due=0, learned=0, fresh=0;
+  for(const c of cards){ const e=srs[cardId(c)]; if(!e) fresh++; else if(e.reps>0) learned++; if(!e||e.due<=Date.now()) due++; }
+  const s=$('#srs-stats'); if(s) s.innerHTML='<span>Due <b>'+due+'</b></span><span>Learned <b>'+learned+'</b></span><span>New <b>'+fresh+'</b></span><span>Total <b>'+cards.length+'</b></span>';
+  const b=$('#quiz-due'); if(b) b.textContent='Review due ('+due+')';
+}
+async function loadQuiz(){
+  const area=$('#quiz-area'); area.innerHTML='<p class="hint"><span class="spinner"></span> loading cards…</p>';
+  const data=await api('/api/quiz?path='+encodeURIComponent(state.current||''));
+  if(!data.cards||!data.cards.length){ area.innerHTML='<p class="hint">No flashcards for this topic. Try "Review due".</p>'; return; }
+  runDeck(shuffle(data.cards));
+}
+async function loadDue(){
+  const area=$('#quiz-area'); const cards=await ensureAllCards(); const due=cards.filter(c=>isDue(cardId(c)));
+  if(!due.length){ area.innerHTML='<p class="hint">Nothing due — you\'re caught up. 🎉</p>'; return; }
+  runDeck(shuffle(due));
+}
+function runDeck(cards){
+  const area=$('#quiz-area'); let i=0;
+  (function show(){
+    if(i>=cards.length){ area.innerHTML='<p class="hint">Done — '+cards.length+' card(s) reviewed.</p>'; refreshSrsStats(); return; }
+    renderCard(area, cards[i], ()=>{ i++; show(); }, i+1, cards.length);
+  })();
+}
+function renderCard(area, card, onNext, idx, total){
+  const ref = card.a || card.reference || '';
+  const graded = state.status.can_generate;
+  area.innerHTML =
+    '<div class="card"><div class="topic">'+escapeHtml(card.topic||'')+(total?(' · '+idx+'/'+total):'')+'</div>'+
+    '<div class="q">'+escapeHtml(card.q)+'</div>'+
+    '<textarea id="q-ans" placeholder="Type your answer… (optional)"></textarea>'+
+    '<div class="row"><button class="btn" id="q-check">'+(graded?'Check':'Show answer')+'</button>'+
+    '<button class="btn ghost" id="q-reveal">Reveal</button></div>'+
+    '<div id="q-out"></div><div id="q-rate"></div></div>';
+  function showRating(){
+    if(!onNext) return; // one-off generated card: don't schedule
+    $('#q-rate').innerHTML='<div class="rate">'+
+      '<button data-r="0">Again<b>&lt;1m</b></button><button data-r="1">Hard</button>'+
+      '<button data-r="2">Good</button><button data-r="3">Easy</button></div>';
+    $$('#q-rate .rate button').forEach(b=>b.onclick=()=>{ schedule(cardId(card), +b.dataset.r); onNext(); });
+  }
+  $('#q-reveal').onclick=()=>{ $('#q-out').innerHTML='<div class="reveal"><b>Answer:</b> '+escapeHtml(ref)+'</div>'; showRating(); };
+  $('#q-check').onclick=async()=>{
+    const ans=$('#q-ans').value.trim(), out=$('#q-out');
+    if(!graded){ out.innerHTML='<div class="reveal"><b>Answer:</b> '+escapeHtml(ref)+'</div>'; showRating(); return; }
+    out.innerHTML='<div class="grade"><span class="spinner"></span> grading…</div>';
+    const g=await api('/api/grade',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({question:card.q, reference:ref, answer:ans})});
+    out.innerHTML='<div class="grade">'+escapeHtml(g.grade||'')+'</div><div class="reveal"><b>Answer:</b> '+escapeHtml(ref)+'</div>';
+    showRating();
+  };
+}
+async function generateQuestion(){
+  const area=$('#quiz-area'); area.innerHTML='<p class="hint"><span class="spinner"></span> writing a question from this page…</p>';
+  const data=await api('/api/gen-question',{method:'POST',headers:{'Content-Type':'application/json'}, body:JSON.stringify({path:state.current})});
+  if(!data.question){ area.innerHTML='<p class="hint">Could not generate a question for this page.</p>'; return; }
+  renderCard(area, {topic:(data.generated?'Generated for this page':'From this topic'), q:data.question, a:data.reference||''}, null);
+}
+
+// ---- Interview mode (the local LLM plays interviewer) ----
+let ivTranscript=[], ivPath=null;
+async function ivStart(){
+  if(!state.status.can_generate){ $('#iv-note').innerHTML='Needs a local model — <code>ollama pull '+escapeHtml(state.status.chat_model)+'</code>. Until then, self-drive with the <a href="#" data-nav="cheat-sheets/interview-framework.md">framework</a>.'; }
+  ivTranscript=[]; ivPath=state.current; $('#iv-log').innerHTML='';
+  $('#iv-start').disabled=true; $('#iv-score').disabled=false; $('#iv-reset').disabled=false;
+  await ivTurn();
+  $('#iv-input-wrap').style.display='block'; $('#iv-input').focus();
+}
+async function ivTurn(){
+  const log=$('#iv-log');
+  const bubble=document.createElement('div'); bubble.className='msg ai';
+  bubble.innerHTML='<div class="who">Interviewer</div><span class="spinner"></span>'; log.appendChild(bubble); log.scrollTop=log.scrollHeight;
+  let text='';
+  try{
+    const resp=await fetch('/api/interview',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({path:ivPath, transcript:ivTranscript})});
+    const reader=resp.body.getReader(), dec=new TextDecoder(); let buf='';
+    while(true){ const {value,done}=await reader.read(); if(done) break; buf+=dec.decode(value,{stream:true}); let idx;
+      while((idx=buf.indexOf('\n'))>=0){ const line=buf.slice(0,idx); buf=buf.slice(idx+1); if(!line.trim()) continue; const o=JSON.parse(line);
+        if(o.type==='token') text+=o.text;
+        else if(o.type==='error') text=o.message;
+        bubble.innerHTML='<div class="who">Interviewer</div>'+escapeHtml(text||'…'); log.scrollTop=log.scrollHeight;
+      }
+    }
+  }catch(e){ text='Error: '+e; bubble.innerHTML='<div class="who">Interviewer</div>'+escapeHtml(text); }
+  if(text.trim()) ivTranscript.push({role:'interviewer', text:text.trim()});
+}
+async function ivSend(){
+  const inp=$('#iv-input'), val=inp.value.trim(); if(!val) return; inp.value='';
+  ivTranscript.push({role:'candidate', text:val});
+  const log=$('#iv-log'); const d=document.createElement('div'); d.className='msg you'; d.innerHTML='<div class="who">You</div>'+escapeHtml(val); log.appendChild(d); log.scrollTop=log.scrollHeight;
+  await ivTurn();
+}
+async function ivScore(){
+  const log=$('#iv-log'); const out=document.createElement('div'); out.className='feedback';
+  out.innerHTML='<div class="who">Scoring…</div><span class="spinner"></span>'; log.appendChild(out); log.scrollTop=log.scrollHeight;
+  const g=await api('/api/interview-score',{method:'POST',headers:{'Content-Type':'application/json'}, body:JSON.stringify({path:ivPath, transcript:ivTranscript})});
+  out.innerHTML = g.can_generate ? mdLite(g.feedback||'') : '<p class="hint">Scoring needs a local model.</p>';
+  wireInternalLinks(out); log.scrollTop=log.scrollHeight;
+}
+function ivReset(){ ivTranscript=[]; $('#iv-log').innerHTML=''; $('#iv-input-wrap').style.display='none';
+  $('#iv-start').disabled=false; $('#iv-score').disabled=true; $('#iv-reset').disabled=true; }
+function mdLite(s){
+  const lines=String(s).split('\n'); let html='', inUl=false;
+  const inline=t=>escapeHtml(t).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  for(let ln of lines){ ln=ln.trim();
+    if(!ln){ if(inUl){html+='</ul>';inUl=false;} continue; }
+    const h=ln.match(/^#{2,4}\s+(.*)/);
+    if(h){ if(inUl){html+='</ul>';inUl=false;} html+='<h3>'+inline(h[1])+'</h3>'; continue; }
+    if(/^[-*]\s+/.test(ln)){ if(!inUl){html+='<ul>';inUl=true;} html+='<li>'+inline(ln.replace(/^[-*]\s+/,''))+'</li>'; continue; }
+    if(inUl){html+='</ul>';inUl=false;} html+='<p>'+inline(ln)+'</p>';
+  }
+  if(inUl) html+='</ul>'; return html;
+}
+
+// ---- events ----
+$('#ask-send').onclick=()=>{ ask($('#ask-input').value); $('#ask-input').value=''; };
+$('#ask-input').addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); $('#ask-send').click(); }});
+$('#ask-clear').onclick=()=>{ $('#ask-log').innerHTML=''; };
+$$('#ask-chips .chip').forEach(c=>c.onclick=()=>ask(c.dataset.q));
+$('#quiz-load').onclick=loadQuiz;
+$('#quiz-due').onclick=loadDue;
+$('#quiz-generate').onclick=generateQuestion;
+$('#iv-start').onclick=ivStart;
+$('#iv-send').onclick=ivSend;
+$('#iv-score').onclick=ivScore;
+$('#iv-reset').onclick=ivReset;
+$('#iv-input').addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); ivSend(); }});
+$$('.rail-tab').forEach(t=>t.onclick=()=>{
+  $$('.rail-tab').forEach(x=>x.classList.toggle('active',x===t));
+  ['ask','quiz','interview'].forEach(name=>{ const el=$('#tab-'+name); if(el) el.style.display = t.dataset.tab===name?'block':'none'; });
+  if(t.dataset.tab==='quiz') refreshSrsStats();
+});
+$('#btn-nav').onclick=()=>$('#sidebar').classList.toggle('open');
+$('#btn-rail').onclick=()=>$('#rail').classList.toggle('open');
+function closeMobilePanels(){ $('#sidebar').classList.remove('open'); }
+window.addEventListener('hashchange',()=>{ const p=decodeURIComponent(location.hash.replace(/^#\//,'')); if(p && p!==state.current) loadPage(p,false); });
+
+// ---- Search ----
+const si=$('#search-input'), sr=$('#search-results');
+let searchTimer=null, searchItems=[], searchActive=-1;
+si.addEventListener('input',()=>{ clearTimeout(searchTimer); searchTimer=setTimeout(runSearch,160); });
+si.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ si.value=''; closeSearch(); si.blur(); }
+  else if(e.key==='ArrowDown'){ e.preventDefault(); moveSearch(1); }
+  else if(e.key==='ArrowUp'){ e.preventDefault(); moveSearch(-1); }
+  else if(e.key==='Enter'){ const it=searchItems[searchActive]||searchItems[0]; if(it){ loadPage(it.file); closeSearch(); si.blur(); } }
+});
+async function runSearch(){
+  const q=si.value.trim(); if(q.length<2){ closeSearch(); return; }
+  const d=await api('/api/search?q='+encodeURIComponent(q));
+  searchItems=d.results||[]; searchActive=-1;
+  if(!searchItems.length){ sr.innerHTML='<div class="sr"><div class="h">No matches for “'+escapeHtml(q)+'”</div></div>'; sr.classList.add('open'); return; }
+  sr.innerHTML=searchItems.map((r,i)=>'<div class="sr" data-i="'+i+'"><div class="t">'+escapeHtml(r.title)+'</div>'+(r.heading?'<div class="h">'+escapeHtml(r.heading)+'</div>':'')+'</div>').join('');
+  sr.classList.add('open');
+  $$('.sr',sr).forEach(el=>{ if(el.dataset.i!==undefined) el.onclick=()=>{ loadPage(searchItems[+el.dataset.i].file); closeSearch(); si.blur(); }; });
+}
+function moveSearch(dir){ if(!searchItems.length) return; searchActive=(searchActive+dir+searchItems.length)%searchItems.length; $$('.sr',sr).forEach((el,i)=>el.classList.toggle('active',i===searchActive)); }
+function closeSearch(){ sr.classList.remove('open'); }
+document.addEventListener('click',e=>{ if(!$('#search').contains(e.target)) closeSearch(); });
+
+// ---- Keyboard shortcuts: / focus search, j/k prev/next page ----
+document.addEventListener('keydown',e=>{
+  const tag=(e.target.tagName||'').toLowerCase(), typing=tag==='input'||tag==='textarea';
+  if(e.key==='/' && !typing){ e.preventDefault(); si.focus(); si.select(); return; }
+  if(typing || e.metaKey || e.ctrlKey || e.altKey) return;
+  if(e.key==='j'){ const n=$('.pager a.next[data-path]'); if(n){ e.preventDefault(); n.click(); } }
+  else if(e.key==='k'){ const p=$('.pager a.prev[data-path]'); if(p){ e.preventDefault(); p.click(); } }
+});
+
+// ---- utils ----
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function escapeAttr(s){ return escapeHtml(s); }
+function cssEscape(s){ return String(s).replace(/"/g,'\\"'); }
+function shuffle(a){ a=[...a]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+boot();
+</script>
+</body>
+</html>

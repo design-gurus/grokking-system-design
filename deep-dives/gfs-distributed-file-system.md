@@ -2,6 +2,16 @@
 
 > A distributed file system built for very large files, append-heavy workloads, and frequent hardware failure on commodity machines.
 
+```mermaid
+flowchart LR
+    Cl[Client] -->|1. filename to chunk handle| Ma[Master: metadata only]
+    Ma -->|2. chunk locations| Cl
+    Cl -->|3. read / write data directly| CS1[Chunkserver]
+    Cl --> CS2[Chunkserver]
+    CS1 -. each chunk replicated 3x .-> CS2
+    CS2 -.-> CS3[Chunkserver]
+```
+
 ## What it is
 
 GFS stores huge files across thousands of commodity servers, treating failure as normal rather than exceptional. It is the storage layer beneath systems like [BigTable](bigtable-wide-column-store.md), and the blueprint for [HDFS](hdfs-file-storage.md).

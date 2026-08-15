@@ -2,6 +2,20 @@
 
 > A small, fast structure that tells you an item is "definitely not present" or "possibly present", using very little memory.
 
+```mermaid
+flowchart LR
+    K[Insert key] --> H1[hash 1]
+    K --> H2[hash 2]
+    K --> H3[hash 3]
+    H1 --> B[(Bit array<br/>set those bits to 1)]
+    H2 --> B
+    H3 --> B
+    Q[Query key] -->|hash, check the bits| D{All bits 1?}
+    B --> D
+    D -->|no| N[Definitely NOT present]
+    D -->|yes| M[Possibly present → check the store]
+```
+
 ## What it is
 
 A Bloom filter is a probabilistic set membership test. It can return false positives (it may say "possibly present" for something that is not there) but never false negatives (if it says "not present", that is certain). In exchange, it uses far less memory than storing the actual set.

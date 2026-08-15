@@ -2,6 +2,17 @@
 
 > Google's distributed storage for structured data: a sparse, sorted, multi-dimensional map that scales to petabytes.
 
+```mermaid
+flowchart TB
+    Client --> TS1[Tablet server]
+    Client --> TS2[Tablet server]
+    Master[Master: assigns tablets] --> TS1
+    Master --> TS2
+    TS1 --> GFS[(GFS: SSTables + logs)]
+    TS2 --> GFS
+    Chubby[Chubby lock service] -. metadata + master election .-> Master
+```
+
 ## What it is
 
 BigTable is a wide-column store that holds a sparse, distributed, sorted map indexed by row key, column key, and timestamp. It backs many Google products and inspired HBase and Cassandra's data model.

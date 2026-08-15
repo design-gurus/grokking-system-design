@@ -1,0 +1,10 @@
+# The study assistant runs on the Python standard library alone — no install
+# is strictly required. The only optional dependency speeds up vector math:
+#
+#     pip install -r requirements.txt
+#
+# numpy is optional. Without it, cosine similarity falls back to pure Python
+# (correct, just slower on large indexes). The local LLM itself runs in Ollama,
+# which is a separate install — see README.md.
+
+numpy>=1.21 ; python_version >= "3.8"

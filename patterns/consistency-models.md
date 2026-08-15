@@ -2,6 +2,13 @@
 
 > The contract for what a read is allowed to return when data is replicated and being written concurrently.
 
+```mermaid
+flowchart LR
+    S["Strong<br/>read always sees latest write"] --- C["Causal<br/>cause before effect"] --- R["Read-your-writes<br/>see your own updates"] --- E["Eventual<br/>replicas converge later"]
+    S -.stronger, more coordination.-> E
+    E -.weaker, faster, more available.-> S
+```
+
 ## What it is
 
 A consistency model defines how up to date and ordered reads are across replicas. Stronger models are easier to reason about but cost latency and availability; weaker models are faster and more available but can return stale or out-of-order data.

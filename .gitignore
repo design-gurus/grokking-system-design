@@ -12,3 +12,11 @@ node_modules/
 dist/
 build/
 .cache/
+
+# Study assistant (tools/study-assistant): generated index + Python artifacts
+tools/study-assistant/index.json
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/

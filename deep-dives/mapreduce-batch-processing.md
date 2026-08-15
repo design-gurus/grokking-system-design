@@ -2,6 +2,18 @@
 
 > Google's programming model that let ordinary engineers run computations across thousands of machines by writing two functions.
 
+```mermaid
+flowchart LR
+    In[(Input splits)] --> M1[Map]
+    In --> M2[Map]
+    M1 --> Sh[Shuffle + sort by key]
+    M2 --> Sh
+    Sh --> R1[Reduce]
+    Sh --> R2[Reduce]
+    R1 --> Out[(Output)]
+    R2 --> Out
+```
+
 ## What it is
 
 MapReduce is a programming model plus runtime for processing huge datasets on clusters of commodity machines. The user writes a map function (transform each record into key-value pairs) and a reduce function (combine all values for a key); the framework handles distribution, parallelism, and failures. It powered Google's indexing pipeline, spawned Hadoop, and its ideas live on in Spark and every [batch processing](../patterns/batch-vs-stream-processing.md) system since.
