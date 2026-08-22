@@ -142,6 +142,12 @@ See [SQL vs NoSQL](sql-vs-nosql.md) and [database indexing](../patterns/database
 **Q:** What is denormalization, and what does it trade?
 **A:** Storing the same data in more than one place, or precomputing a result, so a read touches one place instead of joining. It trades write complexity and storage for read speed. It matters most across shards, where joins are expensive.
 
+**Q:** DynamoDB or MongoDB: what is the deciding question?
+**A:** Can you list every query the application will ever make? If yes, DynamoDB gives key access at any scale with zero operations. If the product is still changing, MongoDB's ad hoc queries and aggregation pipeline forgive what you did not predict. See [DynamoDB vs MongoDB](dynamodb-vs-mongodb.md).
+
+**Q:** What is an inverted index, and how does it differ from a B-tree?
+**A:** It maps each term to the sorted list of documents containing it, so a text query intersects a few of those lists instead of scanning documents. A B-tree finds an exact value in one column and has no notion of relevance, which is why search engines use a different structure.
+
 ## Replication and quorum
 
 See [replication](../patterns/replication.md) and [quorum](../patterns/quorum.md).
@@ -160,6 +166,12 @@ See [replication](../patterns/replication.md) and [quorum](../patterns/quorum.md
 
 **Q:** What is split brain?
 **A:** Two nodes both believe they are the leader, usually after a network partition, and both accept writes. The data then diverges. Quorum rules and fencing prevent it, by making sure only one side can win.
+
+**Q:** Two servers each accepted a write. Why can you not use timestamps to decide which is newer?
+**A:** Their clocks drift, and clock sync still leaves milliseconds of skew. Last-writer-wins by timestamp silently drops the write whose server was running behind. You need a [logical clock](../patterns/logical-clocks.md) instead.
+
+**Q:** Lamport clock or vector clock: what is the difference?
+**A:** A Lamport clock is one counter per node. It guarantees that if A caused B then A's value is lower, but it cannot tell you two events were concurrent. A vector clock keeps one counter per node, so comparing two vectors detects true concurrency, which is what lets a system keep both versions and merge them.
 
 ## Sharding and partitioning
 
@@ -204,6 +216,40 @@ See [message queues](../patterns/message-queues.md) and [Kafka vs RabbitMQ vs SQ
 
 **Q:** Batch or stream processing: how do you choose?
 **A:** Batch processes large, bounded sets on a schedule, and it is simpler and cheaper per record. Streaming processes records as they arrive, with results in seconds. Choose by how fresh the answer must be, because freshness is what you pay for.
+
+**Q:** Kafka, Kinesis, or Pub/Sub: what separates them?
+**A:** They are all durable streams, so the deciding factors are cloud and capacity model. Kafka runs anywhere and gives you the full ecosystem, at operational cost. Kinesis is AWS with shards you size. Pub/Sub is GCP with no partitions to manage. See [Kafka vs Kinesis vs Pub/Sub](kafka-vs-kinesis-vs-pubsub.md).
+
+**Q:** Every buffer needs what two things?
+**A:** A bound, and a policy for when it fills. The policies are block the producer, shed load (reject with 429 or 503 plus Retry-After), or drop data. An unbounded queue does not remove overload, it hides overload until it is fatal. See [backpressure](../patterns/backpressure.md).
+
+**Q:** Why autoscale consumers on queue depth rather than CPU?
+**A:** A consumer blocked waiting on a slow downstream dependency looks idle on CPU while the backlog keeps growing. Queue depth and consumer lag are the signals that actually track falling behind.
+
+## Distributed transactions and event-driven state
+
+See [distributed transactions](../patterns/distributed-transactions.md), [event sourcing and CQRS](../patterns/event-sourcing-cqrs.md), and the [outbox pattern](../patterns/outbox-pattern.md).
+
+**Q:** How does two-phase commit work, and why is it rare between services?
+**A:** A coordinator asks every participant to prepare, and commits only when all vote yes. It is atomic, but it blocks: participants hold locks while waiting, and a dead coordinator freezes all of them. One slow service would stall everyone, so it lives inside databases rather than between microservices.
+
+**Q:** What is a saga?
+**A:** One logical operation split into a chain of local transactions, each committing immediately. A later failure is undone by a compensating action, such as refunding a charge. The price is that half-finished states are visible between steps.
+
+**Q:** Choreography or orchestration for a saga?
+**A:** In choreography each service reacts to the previous service's event, so there is no coordinator but the flow is written down nowhere. In orchestration one service drives the steps and handles failures, giving you one place to read the flow. Past about three steps, choose orchestration.
+
+**Q:** What is the dual-write problem?
+**A:** A service must update its database and publish an event, and no transaction covers both. A crash in between leaves either a state change nobody hears about or an event for a change that rolled back.
+
+**Q:** How does the outbox pattern fix it?
+**A:** The event is inserted into an outbox table in the same local transaction as the state change, so the two commit together or not at all. A relay then reads unsent rows and publishes them. Delivery is at-least-once, so consumers must be idempotent.
+
+**Q:** What is event sourcing, and what does CQRS add?
+**A:** Event sourcing stores the facts (deposited 100, withdrew 30) in an append-only log instead of current state, and derives state by replaying them. CQRS separates the write path from purpose-built read models, each shaped for one query and updated by projectors reading the log.
+
+**Q:** When is event sourcing the wrong choice?
+**A:** Plain CRUD with a single view. You would pay for read-after-write lag, event schemas you must support forever, and slow rebuilds without snapshots, and get nothing back. Reach for it when audit or time-travel queries are real requirements.
 
 ## APIs and communication
 
@@ -269,6 +315,12 @@ See [leader election](../patterns/leader-election.md), [distributed locking](../
 **Q:** What do heartbeats do?
 **A:** Each node sends a small periodic message to say it is alive. Missing several in a row marks the node as failed, which triggers failover or rebalancing. The interval trades detection speed against false alarms from a brief network delay.
 
+**Q:** How do a thousand nodes learn who is in the cluster?
+**A:** A [gossip protocol](../patterns/gossip-protocol.md). Each node periodically exchanges its membership table with a few random peers and keeps the newest entry per node. Information reaches everyone in about log N rounds, and each node's cost stays constant as the cluster grows.
+
+**Q:** Why not just heartbeat every node to a coordinator?
+**A:** The coordinator is a single point of failure and a hot spot, and all-to-all heartbeats cost N-squared messages per round. Gossip is the decentralized middle, at the price of eventual convergence and occasional false suspicion.
+
 ## Durability and data integrity
 
 See [write-ahead log](../patterns/write-ahead-log.md), [checksums](../patterns/checksums.md), and [bloom filters](../patterns/bloom-filters.md).
@@ -281,6 +333,59 @@ See [write-ahead log](../patterns/write-ahead-log.md), [checksums](../patterns/c
 
 **Q:** What is a bloom filter, and what is its trade-off?
 **A:** A small structure that answers set membership. It can say "possibly present" for something absent, but it never says "not present" for something that is there. That one-sided error lets it use very little memory, and it saves expensive lookups for keys that are not there.
+
+## Landmark systems
+
+See the [deep dives](../deep-dives/) for the full case studies.
+
+**Q:** What idea makes Borg and Kubernetes work?
+**A:** Declarative desired state plus a reconciliation loop. You describe what should be running, and controllers continuously compare that to reality and correct the difference. Treating the datacenter as one scheduled pool, instead of machines owned by teams, is what reclaims the wasted capacity.
+
+**Q:** Why is Redis fast, and what is the cost of that design?
+**A:** Everything is in memory and one command runs at a time, so every operation is atomic with no locks. The cost is a hard per-node ceiling: one slow command blocks every client, which is why commands that walk a whole keyspace are dangerous in production.
+
+**Q:** Why is deep pagination expensive in a distributed search index?
+**A:** A query is scatter-gather across shards, and each shard must return enough hits for the coordinator to merge correctly. Asking for page 100 forces every shard to return 100 pages worth, so cost grows with the page number.
+
+**Q:** What is a watermark in stream processing?
+**A:** A moving assertion that no event older than time T will still arrive. It is what allows a time window to close and emit a result, given that events arrive late and out of order. Events arriving after it follow a stated policy: drop, or update the emitted result.
+
+**Q:** Does a stream processor's exactly-once guarantee make your pipeline exactly-once?
+**A:** No. Checkpoints restore the processor's own state exactly, but a replay re-emits output, so the sink must be transactional or idempotent. Exactly-once is a property of the whole pipeline, not a checkbox on one component.
+
+**Q:** How does HNSW search billions of vectors quickly?
+**A:** It links each vector to its near neighbors in a graph and walks greedily toward the query, with sparse upper layers for long jumps and dense lower layers for fine search. It is approximate: you trade recall against latency, and that dial is a product decision.
+
+**Q:** What is the hard part of vector search in practice?
+**A:** Filtering. Applying a metadata filter after the graph walk can return too few results, and applying it during the walk can disconnect the graph. Pre-filtering versus post-filtering is a real design decision, and permission-filtered retrieval is where it bites.
+
+## Design problem shapes
+
+Recurring shapes from the [question catalog](../questions/).
+
+**Q:** Identified or counted inventory: why does it change the design?
+**A:** Ticket seats are identified: you hold seat 12F, so each seat is its own row with a status. Hotel rooms are counted: you book one king room per night, so inventory is a count per room type per date and a stay updates several date rows in one transaction.
+
+**Q:** How do you hold an item during checkout without a distributed lock?
+**A:** A conditional update inside one transaction: set the status to held only where it is still free. If the row count comes back short, someone else won. The database's own atomicity settles the race, and a TTL on the hold releases abandoned checkouts.
+
+**Q:** Why can a stale availability display never cause a double-sell?
+**A:** Because the purchase transaction is the source of truth and re-checks at commit time. A stale cached map costs one user a "just taken" message, which is a far cheaper problem than serializing every viewer through the booking database.
+
+**Q:** What does a spatial index do that a normal index cannot?
+**A:** It makes points that are close in space close in the index, using geohash cells or a quadtree. A B-tree sorts on one dimension, so it narrows latitude and then scans that whole band around the world to check longitude.
+
+**Q:** Why does video conferencing use UDP for media but a reliable channel for signaling?
+**A:** A retransmitted video frame arrives after the moment it described, so fresh-but-lossy beats late-but-reliable. Signaling (join, mute, roster) is small and must be correct, so it stays on a reliable channel.
+
+**Q:** What is an SFU, and why not a mesh?
+**A:** A selective forwarding unit takes one uploaded stream per client and forwards selected streams down to others. A mesh has every client send to every other, so upload bandwidth runs out at around four participants.
+
+**Q:** Why does a code assistant cache prompt prefixes?
+**A:** Consecutive completion requests share almost the whole prompt (the file so far) and differ by a few characters. Caching the model's computed state for the shared prefix means each keystroke request pays only for the new tokens, which is what makes the product affordable.
+
+**Q:** Why must an LLM gateway meter tokens rather than requests?
+**A:** One request can cost a hundred tokens or a hundred thousand. Since true usage is known only after the response, quotas estimate from the prompt, reserve against the budget, then settle with actuals.
 
 ## Numbers worth memorizing
 
@@ -318,4 +423,5 @@ See [interview framework](interview-framework.md), [common mistakes](common-mist
 
 - Full explanations: [patterns](../patterns/) and the other [cheat sheets](./)
 - Practice questions: [question catalog](../questions/) and the [practice bank](../questions/practice-bank.md)
+- The real systems behind the cards: [deep dives](../deep-dives/)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

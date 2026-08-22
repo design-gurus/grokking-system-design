@@ -164,13 +164,13 @@ See the full catalog in [questions/](questions/). To add a new question, copy [q
 
 ## Company-specific interviews
 
-The same question plays differently at different companies: a rate limiter at Stripe is an API-contract exercise, at xAI it turns into implementation, and at Bloomberg it scales to Terminal fan-out. The [company index](companies/README.md) summarizes how 58 companies run their system design rounds: the signature questions candidates report, what interviewers probe, and which patterns to review for each.
+The same question plays differently at different companies: a rate limiter at Stripe is an API-contract exercise, at xAI it turns into implementation, and at Bloomberg it scales to Terminal fan-out. The [company index](companies/README.md) summarizes how 122 companies run their system design rounds: the signature questions candidates report, what interviewers probe, and which patterns to review for each.
 
-Includes [Stripe](companies/stripe.md), [OpenAI](companies/openai.md), [Bloomberg](companies/bloomberg.md), [Databricks](companies/databricks.md), [Discord](companies/discord.md), [Palantir](companies/palantir.md), [Robinhood](companies/robinhood.md), [Figma](companies/figma.md), [Citadel](companies/citadel.md), [LinkedIn](companies/linkedin.md), and 48 more, grouped by sector.
+Includes [Stripe](companies/stripe.md), [OpenAI](companies/openai.md), [Bloomberg](companies/bloomberg.md), [Databricks](companies/databricks.md), [Discord](companies/discord.md), [Palantir](companies/palantir.md), [Robinhood](companies/robinhood.md), [Figma](companies/figma.md), [Citadel](companies/citadel.md), [LinkedIn](companies/linkedin.md), and 112 more, grouped by sector.
 
 ## Distributed systems deep dives
 
-Case studies of landmark systems, the "how does X work" questions common in senior interviews: Dynamo, Cassandra, BigTable, Kafka, Chubby, GFS, HDFS, Spanner, Raft, MapReduce, ZooKeeper, Memcached at Facebook, Aurora, and DynamoDB. See [deep-dives/](deep-dives/) for all fourteen, with a suggested reading order.
+Case studies of landmark systems, the "how does X work" questions common in senior interviews: Dynamo, Cassandra, BigTable, Kafka, Chubby, GFS, HDFS, Spanner, Raft, MapReduce, ZooKeeper, Memcached at Facebook, Aurora, and DynamoDB, plus the infrastructure behind modern stacks: [Borg and Kubernetes](deep-dives/borg-kubernetes.md), [Redis internals](deep-dives/redis-internals.md), [Elasticsearch and Lucene](deep-dives/elasticsearch-lucene.md), [Flink](deep-dives/flink-stream-processing.md), and [HNSW and vector databases](deep-dives/hnsw-vector-search.md). See [deep-dives/](deep-dives/) for all nineteen, with a suggested reading order.
 
 ## Cheat sheets
 
