@@ -28,6 +28,12 @@ Learn these once and you can assemble an answer to almost any design question. E
 | [Write-ahead log](write-ahead-log.md) | Durability and crash recovery | Written |
 | [Circuit breaker](circuit-breaker.md) | Stopping cascading failures | Written |
 | [Batch vs stream processing](batch-vs-stream-processing.md) | Computing over big data, on a schedule or in real time | Written |
+| [Distributed transactions (2PC vs sagas)](distributed-transactions.md) | One operation across many services, correctly | Written |
+| [Event sourcing and CQRS](event-sourcing-cqrs.md) | State as an event log, plus purpose-built read views | Written |
+| [Outbox pattern](outbox-pattern.md) | Publishing events reliably alongside database writes | Written |
+| [Backpressure](backpressure.md) | Pushing back on producers instead of buffering without limit | Written |
+| [Gossip protocol](gossip-protocol.md) | Cluster membership and health without a coordinator | Written |
+| [Logical clocks (Lamport and vector)](logical-clocks.md) | Ordering events when wall clocks cannot be trusted | Written |
 
 ## Add a new pattern
 

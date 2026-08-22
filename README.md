@@ -81,11 +81,11 @@ Full breakdown with timings: [cheat-sheets/interview-framework.md](cheat-sheets/
 | Database indexing | Fast lookups | [database-indexing.md](patterns/database-indexing.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
 | Bloom filters | Cheap "definitely not present" checks | [bloom-filters.md](patterns/bloom-filters.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
 
-These are the 12 most essential building blocks. All 24 patterns live in [patterns/](patterns/), including API gateways, quorum, leader election, idempotency, write-ahead logs, circuit breakers, and more. To add a new pattern, copy [patterns/_template.md](patterns/_template.md).
+These are the 12 most essential building blocks. All 30 patterns live in [patterns/](patterns/), including API gateways, quorum, leader election, idempotency, write-ahead logs, circuit breakers, sagas, event sourcing, gossip, and more. To add a new pattern, copy [patterns/_template.md](patterns/_template.md).
 
 ## System design questions
 
-Forty-plus walkthroughs at the approach-and-trade-offs level, grouped by difficulty. Self-test with the [practice question bank](questions/practice-bank.md), and see full worked solutions in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
+Fifty-plus walkthroughs at the approach-and-trade-offs level, grouped by difficulty. Self-test with the [practice question bank](questions/practice-bank.md), and see full worked solutions in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
 
 ### Basic
 
@@ -121,6 +121,10 @@ Forty-plus walkthroughs at the approach-and-trade-offs level, grouped by difficu
 - [Design Google News](questions/design-google-news.md)
 - [Design a code judging system](questions/design-code-judging-system.md)
 - [Design a distributed job scheduler](questions/design-distributed-job-scheduler.md)
+- [Design Ticketmaster](questions/design-ticketmaster.md)
+- [Design a real-time gaming leaderboard](questions/design-gaming-leaderboard.md)
+- [Design a proximity service (Yelp)](questions/design-proximity-service.md)
+- [Design a hotel reservation system](questions/design-hotel-reservation.md)
 
 ### Expert
 
@@ -138,6 +142,10 @@ Forty-plus walkthroughs at the approach-and-trade-offs level, grouped by difficu
 - [Design Google Ads](questions/design-google-ads.md)
 - [Design ChatGPT](questions/design-chatgpt.md)
 - [Design Amazon Lambda](questions/design-amazon-lambda.md)
+- [Design Google Maps](questions/design-google-maps.md)
+- [Design a food delivery app (DoorDash)](questions/design-food-delivery.md)
+- [Design Zoom](questions/design-zoom.md)
+- [Design a distributed message queue](questions/design-distributed-message-queue.md)
 
 ### AI and LLM systems
 
@@ -149,6 +157,8 @@ The fastest-growing question category, asked heavily by AI labs and increasingly
 - [Design a model evaluation pipeline](questions/design-model-evaluation-pipeline.md)
 - [Design an AI agent orchestration system](questions/design-ai-agent-orchestration.md)
 - [Design a GPU cluster scheduler](questions/design-gpu-cluster-scheduler.md)
+- [Design an AI code assistant (Copilot)](questions/design-code-assistant.md)
+- [Design an LLM gateway](questions/design-llm-gateway.md)
 
 See the full catalog in [questions/](questions/). To add a new question, copy [questions/_template.md](questions/_template.md).
 
