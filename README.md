@@ -149,7 +149,7 @@ Fifty-plus walkthroughs at the approach-and-trade-offs level, grouped by difficu
 
 ### AI and LLM systems
 
-The fastest-growing question category, asked heavily by AI labs and increasingly by big tech:
+The fastest-growing question category, asked heavily by AI labs and increasingly by big tech. These are written for a general system design round. If your round is an AI or ML round, where the interviewer digs into training data, evaluation, and cost per request, use the companion repository [Grokking AI System Design](https://github.com/design-gurus/grokking-ai-system-design).
 
 - [Design a RAG pipeline](questions/design-rag-pipeline.md)
 - [Design semantic search (vector search)](questions/design-semantic-search.md)
@@ -236,6 +236,7 @@ This repo gives you the map. The course gives you the territory: interactive dia
 
 - Course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
 - Patterns course: [System Design Patterns: From Fundamentals to Real Systems](https://www.designgurus.io/course/system-design-patterns), built around the same building blocks as [patterns/](patterns/)
+- AI and ML rounds: [Grokking the AI System Design Interview](https://www.designgurus.io/course/grokking-the-ai-system-design-interview), and its free companion repository [Grokking AI System Design](https://github.com/design-gurus/grokking-ai-system-design)
 - Practice live: [Mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
 - More reading: [DesignGurus blog](https://www.designgurus.io/blog)
 
