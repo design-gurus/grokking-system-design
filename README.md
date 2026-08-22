@@ -201,7 +201,8 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 - [1-week crash plan](roadmaps/1-week-plan.md): when your interview is days away.
 - [2-week sprint](roadmaps/2-week-plan.md): a focused sprint before an interview.
 - [6-week study plan](roadmaps/6-week-plan.md): build depth from a baseline.
-- Pick by timeline in [roadmaps/](roadmaps/).
+- [Senior and staff refresher](roadmaps/senior-staff-refresher.md): for experienced engineers who have not interviewed in years. Starts with a recorded diagnostic, then fixes only the gaps it finds.
+- Pick by timeline, or by experience, in [roadmaps/](roadmaps/).
 
 ## Glossary
 
