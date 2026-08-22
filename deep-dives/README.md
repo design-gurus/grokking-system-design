@@ -18,10 +18,15 @@ Case studies of landmark distributed systems, the kind of "how does X work" ques
 | [Memcached at Facebook](memcached-at-facebook.md) | Look-aside caching at planet scale | Written |
 | [Aurora](aurora-cloud-native-database.md) | Cloud-native relational storage (the log is the database) | Written |
 | [DynamoDB](dynamodb-managed-nosql.md) | Managed NoSQL with predictable latency (2022 paper) | Written |
+| [Borg and Kubernetes](borg-kubernetes.md) | Cluster management on shared machine pools | Written |
+| [Redis internals](redis-internals.md) | Single-threaded in-memory data structure server | Written |
+| [Elasticsearch and Lucene](elasticsearch-lucene.md) | Full-text search, from inverted index to cluster | Written |
+| [Flink](flink-stream-processing.md) | Stateful stream processing with exactly-once state | Written |
+| [HNSW and vector databases](hnsw-vector-search.md) | Approximate nearest-neighbor search over embeddings | Written |
 
 ## How these relate to the patterns
 
-These systems are where the [patterns](../patterns/) come together: Dynamo and Cassandra use [consistent hashing](../patterns/consistent-hashing.md) and [replication](../patterns/replication.md) with [tunable consistency](../patterns/consistency-models.md); BigTable runs on GFS and uses Chubby; Kafka is a [message queue](../patterns/message-queues.md) built as a replicated log. Raft is the consensus behind [leader election](../patterns/leader-election.md) in etcd and ZooKeeper's cousins; Spanner and Aurora are two different answers to replicating a [write-ahead log](../patterns/write-ahead-log.md); Memcached at Facebook is the [caching pattern](../patterns/caching.md) operated at its limit.
+These systems are where the [patterns](../patterns/) come together: Dynamo and Cassandra use [consistent hashing](../patterns/consistent-hashing.md) and [replication](../patterns/replication.md) with [tunable consistency](../patterns/consistency-models.md); BigTable runs on GFS and uses Chubby; Kafka is a [message queue](../patterns/message-queues.md) built as a replicated log. Raft is the consensus behind [leader election](../patterns/leader-election.md) in etcd and ZooKeeper's cousins; Spanner and Aurora are two different answers to replicating a [write-ahead log](../patterns/write-ahead-log.md); Memcached at Facebook is the [caching pattern](../patterns/caching.md) operated at its limit. Borg and Kubernetes turn a datacenter into one scheduled pool; Redis shows what a single-threaded server buys you; Lucene and HNSW are the two halves of modern retrieval (words and meaning); Flink is [stream processing](../patterns/batch-vs-stream-processing.md) with real state and real [backpressure](../patterns/backpressure.md).
 
 ## Suggested reading order
 
@@ -29,7 +34,9 @@ These systems are where the [patterns](../patterns/) come together: Dynamo and C
 2. Open-source counterparts: HDFS, Cassandra, ZooKeeper.
 3. Coordination and consensus: Chubby → ZooKeeper → Raft.
 4. Modern managed databases: DynamoDB, Aurora, Spanner.
-5. Infrastructure at scale: Kafka, MapReduce, Memcached at Facebook.
+5. Infrastructure at scale: Kafka, MapReduce, Memcached at Facebook, Redis internals.
+6. Compute and streams: Borg and Kubernetes, Flink.
+7. Retrieval: Elasticsearch and Lucene, then HNSW and vector databases.
 
 ## Add a new deep dive
 
