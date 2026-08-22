@@ -179,6 +179,7 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 - [Interview communication tips](cheat-sheets/communication-tips.md): how to come across as a senior candidate.
 - [Senior vs staff expectations](cheat-sheets/senior-vs-staff-expectations.md): how the same question is graded differently by level.
 - [A mock interview, annotated](cheat-sheets/mock-interview-walkthrough.md): two candidates, one question, and where the hire/no-hire line actually sits.
+- [Flashcards](cheat-sheets/flashcards.md): rapid-fire question and answer cards across every core pattern, for finding the gaps in your recall.
 
 ## Study roadmaps
 
