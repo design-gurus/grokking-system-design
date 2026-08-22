@@ -65,6 +65,14 @@ A broad set of commonly-asked systems, mapped to the [System Design Interview Cr
 | [Design Google Search](design-google-search.md) | Crawl, inverted index, ranking |
 | [Design Airbnb](design-airbnb.md) | Geo search, no double-booking |
 | [Design a distributed job scheduler](design-distributed-job-scheduler.md) | Scheduling at scale, reliable firing |
+| [Design Ticketmaster](design-ticketmaster.md) | Seat holds, no double-sell, on-sale spikes |
+| [Design a real-time gaming leaderboard](design-gaming-leaderboard.md) | Sorted sets, rank at scale |
+| [Design a proximity service (Yelp)](design-proximity-service.md) | Geospatial indexing, two-step reads |
+| [Design Google Maps](design-google-maps.md) | Tiles, hierarchical routing, live ETA |
+| [Design a food delivery app (DoorDash)](design-food-delivery.md) | Order state machine, dispatch, live tracking |
+| [Design a hotel reservation system](design-hotel-reservation.md) | Counted inventory by date, no double-booking |
+| [Design Zoom](design-zoom.md) | UDP media, SFU topology, regional cascades |
+| [Design a distributed message queue](design-distributed-message-queue.md) | Partitioned log, replication, delivery semantics |
 
 ## AI and LLM systems
 
@@ -78,6 +86,8 @@ The fastest-growing question category. AI labs and AI-infrastructure companies (
 | [Design a model evaluation pipeline](design-model-evaluation-pipeline.md) | Medium | Batch eval runs, LLM-as-judge, release gating | Written |
 | [Design an AI agent orchestration system](design-ai-agent-orchestration.md) | Hard | Durable workflows, tool sandboxing, budgets | Written |
 | [Design a GPU cluster scheduler](design-gpu-cluster-scheduler.md) | Hard | Gang scheduling, preemption, utilization | Written |
+| [Design an AI code assistant (Copilot)](design-code-assistant.md) | Hard | FIM completions, prefix caching, repo retrieval | Written |
+| [Design an LLM gateway](design-llm-gateway.md) | Medium | Routing, token quotas, failover, cost metering | Written |
 
 ## Add a new question
 
