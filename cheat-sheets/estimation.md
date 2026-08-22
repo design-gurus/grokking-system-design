@@ -15,7 +15,7 @@ The numbers worth memorizing so you can size a system quickly and credibly.
 | Disk seek (spinning) | ~10 ms |
 | Round trip between continents | ~150 ms |
 
-Takeaway: memory is roughly 100 times faster than SSD, which is far faster than a disk seek, which is far faster than a cross-continent network call. [Cache](../patterns/caching.md) accordingly.
+Takeaway: memory is roughly 100 times faster than SSD, which is far faster than a disk seek, which is far faster than a cross-continent network call. [Cache](../patterns/caching.md) accordingly. For the full ladder on one log scale, with the design rules that fall out of it, see [latency numbers, visualized](latency-numbers.md).
 
 ## Powers of two (for storage)
 

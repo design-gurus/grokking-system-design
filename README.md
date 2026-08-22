@@ -166,14 +166,19 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 
 - [System design in one page](cheat-sheets/system-design-in-one-page.md): the whole framework, patterns, and numbers, condensed into one screenshot.
 - [Back-of-the-envelope estimation](cheat-sheets/estimation.md): the latency and capacity numbers worth memorizing.
+- [Latency numbers, visualized](cheat-sheets/latency-numbers.md): the full ladder from cache hit to cross-continent round trip on one log scale, and the design rules that fall out of it.
 - [Interview framework](cheat-sheets/interview-framework.md): the step-by-step structure with timings.
 - [Non-functional requirements](cheat-sheets/non-functional-requirements.md): scalability, availability, latency, consistency, and the rest.
 - [Trade-off decision guides](cheat-sheets/trade-offs.md): the common "X vs Y" decisions and how to choose.
 - [SQL vs NoSQL](cheat-sheets/sql-vs-nosql.md): how to choose, and how to justify it in an interview.
 - [PostgreSQL vs DynamoDB vs Cassandra](cheat-sheets/postgres-vs-dynamodb-vs-cassandra.md): the concrete version of the SQL vs NoSQL decision.
 - [Kafka vs RabbitMQ vs SQS](cheat-sheets/kafka-vs-rabbitmq-vs-sqs.md): log vs broker vs managed queue, and the one-question shortcut.
+- [Kafka vs Kinesis vs Pub/Sub](cheat-sheets/kafka-vs-kinesis-vs-pubsub.md): the managed streaming decision, by cloud, capacity model, and replay needs.
+- [DynamoDB vs MongoDB](cheat-sheets/dynamodb-vs-mongodb.md): access patterns known up front vs queries that evolve with the product.
 - [Redis vs Memcached](cheat-sheets/redis-vs-memcached.md): data-structure server vs pure cache.
 - [REST vs gRPC vs GraphQL](cheat-sheets/rest-vs-grpc-vs-graphql.md): pick the API style per boundary, not per fashion.
+- [WebSockets vs SSE vs long polling](cheat-sheets/websockets-vs-sse-vs-long-polling.md): pick the real-time transport by message direction and frequency.
+- [AWS vs GCP vs Azure](cheat-sheets/aws-vs-gcp-vs-azure.md): the service translation table, so you can answer in any interviewer's cloud dialect.
 - [Core components reference](cheat-sheets/core-components.md): the building blocks and when to use each.
 - [Common mistakes and anti-patterns](cheat-sheets/common-mistakes.md): what sinks interviews, and how to avoid it.
 - [Interview communication tips](cheat-sheets/communication-tips.md): how to come across as a senior candidate.
