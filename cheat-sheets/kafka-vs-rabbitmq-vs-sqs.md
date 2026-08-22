@@ -44,4 +44,5 @@ Do not say "I would use Kafka because it is scalable". Say "order events must be
 ## Go deeper
 
 - [Kafka deep dive](../deep-dives/kafka-distributed-messaging.md) and the [message queues pattern](../patterns/message-queues.md)
+- Choosing a managed cloud stream instead? [Kafka vs Kinesis vs Pub/Sub](kafka-vs-kinesis-vs-pubsub.md)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)

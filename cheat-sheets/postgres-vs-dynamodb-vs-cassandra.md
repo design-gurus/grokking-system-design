@@ -35,4 +35,5 @@ Do not say "Postgres does not scale, so NoSQL". Say "orders and payments need tr
 ## Go deeper
 
 - Deep dives: [DynamoDB](../deep-dives/dynamodb-managed-nosql.md), [Cassandra](../deep-dives/cassandra-wide-column-db.md), [Dynamo](../deep-dives/dynamo-key-value-store.md)
+- Weighing a document store instead? [DynamoDB vs MongoDB](dynamodb-vs-mongodb.md)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
