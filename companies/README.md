@@ -1,6 +1,6 @@
 # Company-specific system design interviews
 
-The same interview loop does not exist twice. Citadel budgets microseconds, ServiceNow probes upgrade safety, Anthropic hands you a problem its own teams are still solving, and Bloomberg asks "why this and not the alternative" until it finds bottom. These notes summarize how 58 companies actually run their system design rounds, so you can aim the [patterns](../patterns/) and [questions](../questions/) in this repo at the loop you are facing.
+The same interview loop does not exist twice. Citadel budgets microseconds, ServiceNow probes upgrade safety, Anthropic hands you a problem its own teams are still solving, and Bloomberg asks "why this and not the alternative" until it finds bottom. These notes summarize how 122 companies actually run their system design rounds, so you can aim the [patterns](../patterns/) and [questions](../questions/) in this repo at the loop you are facing.
 
 Each company page covers: how the round runs, the signature questions candidates report, what interviewers probe, and which patterns in this repo to review, with a link to the full company guide on DesignGurus.io for the complete round-by-round breakdown.
 
@@ -26,6 +26,11 @@ How to use these notes:
 - **[Hugging Face](hugging-face.md)**: Design thinking is evaluated through take-homes and discussions rather than a whiteboard hour, drawn from Hub-scale problems: hosting a million models, serving open weights, and library architecture where APIs are public contracts and backward compatibility is sacred.
 - **[ElevenLabs](elevenlabs.md)**: The product decomposition round asks for the user experience and the system together, founder-style, for voice-product use cases.
 - **[Groq](groq.md)**: Conversations run on inference-at-speed atop deterministic, compiler-scheduled silicon: execution time is knowable, which turns scheduling into bin-packing and admission control into a real-time capacity ledger that can make honest promises.
+- **[Cerebras](cerebras.md)**: The round splits by team: cloud and platform roles get a classic distributed systems question, while systems software roles get lower-level design covering memory, scheduling, and data movement on unusual hardware.
+- **[Harvey](harvey.md)**: Legal constraints are the grading rubric: results must respect matter-level permissions, and answers must cite the source text they came from.
+- **[Runway](runway.md)**: Questions come straight from the product: multi-gigabyte video assets, GPU workers, and users who sit waiting while a render finishes.
+- **[Sierra](sierra.md)**: The system design round replaced the coding screen, which the company has said publicly, so this session decides more of the result than at most places.
+- **[Together AI](together-ai.md)**: Every question traces back to serving open-source models through an API: routing by model name, batching requests for GPU efficiency, and streaming tokens back one at a time.
 
 ## Big tech
 
@@ -37,6 +42,7 @@ How to use these notes:
 - **[Adobe](adobe.md)**: Design runs at three altitudes: product architecture at creative-cloud scale, object-oriented low-level design, and database judgment, increasingly with a generative-AI accent (Firefly-style features with GPU economics inside consumer products).
 - **[LinkedIn](linkedin.md)**: Product-centric prompts (feed, notifications, People You May Know) that are secretly graph problems: the key instinct is designing for extreme degree skew (most members have hundreds of connections; some have millions of followers).
 - **[Oracle](oracle.md)**: Loops vary by organization: OCI runs a modern distributed-systems interview (multi-tenant cloud services, replication, consistency), while application orgs lean toward practical enterprise design.
+- **[IBM](ibm.md)**: Three qualities decide this 45 to 60 minute round: scalability, reliability, and maintainability, and the last one carries unusual weight because the designs are expected to run for years inside banks and governments.
 
 ## Consumer, marketplace, and commerce
 
@@ -50,6 +56,17 @@ How to use these notes:
 - **[Roblox](roblox.md)**: Gaming-platform physics: real-time multiplayer state under human-reflex latency budgets, matchmaking and session placement, a real virtual economy, and safety systems for an audience heavy with minors.
 - **[Discord](discord.md)**: The famous real-time canon: message fan-out where three-friend groups and million-member servers share one product surface, presence at hundreds of millions, and low-latency voice.
 - **[Walmart Global Tech](walmart-global-tech.md)**: Retail at the world's largest scale: omnichannel inventory truth across 10,000+ stores and a digital catalog, Black Friday burst engineering, and supply-chain systems.
+- **[Booking.com](booking-com.md)**: Selling the same room twice is treated as a real customer disaster, so correctness is graded ahead of raw scale.
+- **[Dropbox](dropbox.md)**: Simplicity is graded directly, so adding queues, caches, and shards without a stated reason counts against you in this one hour round.
+- **[Duolingo](duolingo.md)**: Prompts come straight from the product's own machinery: streaks, reminder timing, the experimentation platform, and the models that pick each exercise.
+- **[eBay](ebay.md)**: Auction mechanics are the sharpest test in this loop: many bids on one item in the same second, a hard deadline, and exactly one winner.
+- **[Epic Games](epic-games.md)**: Game constraints govern the hour: players notice delay above roughly 100 milliseconds and state updates arrive many times per second, so a design that works for a web shop can fail for a shooter.
+- **[Expedia](expedia.md)**: Reported difficulty is easy to medium next to other large tech companies, so clean decomposition and steady narration carry the round more than exotic techniques.
+- **[Instacart](instacart.md)**: The source of truth is a physical shelf the company does not control, and that one fact generates most of the round.
+- **[Lyft](lyft.md)**: Different parts of one design get different guarantees, and saying so is the senior signal: locations may be slightly stale, trip and payment records may never be wrong.
+- **[Snap](snap.md)**: Deletion is a first-class requirement here, so storage answers need a time to live and a delete path that survives a failed job.
+- **[Twitch](twitch.md)**: Everything reduces to fan-out arithmetic said out loud: a million viewers times thousands of chat messages per second is billions of deliveries, and that number justifies every choice after it.
+- **[Zoom](zoom.md)**: Two formats share the same 60 minute slot: a high-level architecture question, or a low-level one about the classes and API contracts inside a single service.
 
 ## Fintech and quantitative finance
 
@@ -63,6 +80,23 @@ How to use these notes:
 - **[Bloomberg](bloomberg.md)**: Consistently reported as the loop's hardest round: real-time financial systems probed with relentless "why this and not the alternative" follow-ups.
 - **[Capital One](capital-one.md)**: Bank-grade constraints on cloud-native architecture: security, compliance, consistency, and fault tolerance are explicit evaluation criteria, and the business dimension surfaces even in design rounds (this is the company that gives engineers case interviews).
 - **[Intuit](intuit.md)**: Money-grade correctness at consumer scale with the industry's most extreme seasonal burst: tax season compresses a year of traffic into weeks.
+- **[Affirm](affirm.md)**: For senior roles, candidates report this round carries the most weight in the loop, and every question comes from the lending domain.
+- **[Block (Square)](block-square.md)**: Every question is a money movement question, drawn from Square merchant payments, Cash App transfers, and Afterpay installments.
+- **[Brex](brex.md)**: A stated company value, complexity is the enemy, shows up in the grading: a simple design defended with reasons scores better than extra services added to look impressive.
+- **[Chime](chime.md)**: Mobile check deposit is the reported signature question, and it is not a photo upload problem: the hard part is clearing that takes days, the state machine around it, and money correctness.
+- **[D. E. Shaw](d-e-shaw.md)**: Design sessions go mainly to senior candidates, one 45 to 60 minute session in the final round, and the weight sits on correctness rather than scale.
+- **[Deel](deel.md)**: Design is folded into the technical interview alongside live coding, not run as a separate whiteboard round for every candidate.
+- **[Goldman Sachs](goldman-sachs.md)**: One dedicated design round at the Superday can set the level of the offer, and the interviewer spends much of it pushing on failure cases: what happens when this feed stops, and who notices first.
+- **[Gusto](gusto.md)**: Every reported question is a money-correctness question: a payroll calculation engine with tax rules that differ by state, a direct deposit flow where bank transfers come back days later, and an audit log that cannot be altered.
+- **[Hudson River Trading](hudson-river-trading.md)**: There is no classic web-scale round here: the design questions are about one machine and the microseconds between a packet arriving and an output leaving.
+- **[JPMorgan Chase](jpmorgan-chase.md)**: Losing a record or paying a customer twice counts as a failed round, so consistency and auditability outrank scale numbers in the grading.
+- **[Jump Trading](jump-trading.md)**: Systems questions are spread across the loop instead of concentrated in one design round, and the emphasis stays low-level: memory, threads, sockets, and the cost of each.
+- **[Klarna](klarna.md)**: The recurring test is a checkout that never double charges, at millions of purchases a day.
+- **[Nubank](nubank.md)**: Immutable data and functional programming are public parts of the engineering culture, and they change what a good answer sounds like: append new facts, keep history, and derive read models from them.
+- **[Plaid](plaid.md)**: Every question starts from one hard fact: thousands of bank APIs fail, return partial pages, or send the same record twice, and the system must stay correct anyway.
+- **[Revolut](revolut.md)**: Design is graded in two places: an architecture review of your own take-home project, about 45 to 60 minutes, and for senior candidates a separate discussion about money systems.
+- **[Toast](toast.md)**: Restaurant internet failing during dinner service is the constraint the whole round is built on, so terminals must keep taking orders offline and sync later without losing or doubling anything.
+- **[Wise](wise.md)**: Correctness outranks raw scale, and the problem usually arrives as a business case, mostly for senior roles: a transfer flow, a ledger, or an integration with unreliable bank partners.
 
 ## Developer tools and enterprise software
 
@@ -79,6 +113,28 @@ How to use these notes:
 - **[Wiz](wiz.md)**: Cloud-security platform design: agentless ingestion living inside cloud providers' API rate limits, the Security Graph (hundreds of millions of nodes per tenant), and toxic-combination detection as incremental multi-hop pattern queries.
 - **[Workday](workday.md)**: Enterprise systems of record for HR and financials: the signature concept is effective-dated temporal data (every change has validity ranges; the org chart is a time-travel query), with paycheck-grade correctness and enterprise seasonality (payroll runs, open enrollment).
 - **[Rippling](rippling.md)**: The compound-startup architecture: one employee graph powering payroll, IT, and finance, so prompts run on shared data models with many consumers, event cascades across products, and the offboarding guarantee (access revocation must complete, on time, provably).
+- **[Airtable](airtable.md)**: Expect a requirement to be added partway through, because candidates report the mid-design change as a deliberate pattern, and adapting without restarting is part of the grade.
+- **[Cisco](cisco.md)**: Scale is counted in devices rather than users, so a telemetry design serving fifty thousand routers is decided by write volume, not by read traffic.
+- **[Confluent](confluent.md)**: Follow ups go past the component diagram and into guarantees: what a client sees when a node dies mid write, and whether ordering survives it.
+- **[Docker](docker.md)**: Interviewers work on infrastructure daily, so vague storage math gets caught: being specific about layer sizes, bandwidth, and request rates matters more here than at most companies.
+- **[Elastic](elastic.md)**: One concept sits under almost every question: the inverted index, and you should be able to draw it and explain it in plain words.
+- **[GitLab](gitlab.md)**: Design often has no room of its own: it surfaces inside the technical and leadership rounds at senior and staff level, as an open discussion rather than one fixed prompt.
+- **[Glean](glean.md)**: Enterprise search is the entire question space, and permission-aware retrieval is the signature problem.
+- **[Grafana Labs](grafana-labs.md)**: Every box in your diagram needs a number attached to it: the company calls the exercise non abstract system design, and an estimate that is wrong but reasoned scores while a design with no arithmetic does not.
+- **[HashiCorp](hashicorp.md)**: Every prompt maps onto one of the company's own tools: secrets storage (Vault), job placement (Nomad), shared state with locking (Terraform), and service discovery (Consul).
+- **[Linear](linear.md)**: The client is offline-first, so the whole round turns on sync: a local copy that answers every read, and a server that decides one global order for incoming changes.
+- **[Miro](miro.md)**: The round happens on a Miro board, so the diagram is graded as communication: labeled arrows and a readable layout count, because the product is the drawing tool.
+- **[Okta](okta.md)**: Security awareness is graded as a fourth signal next to structure, numbers, and depth, so token expiry, key rotation, encryption, and least privilege have to come up without a prompt.
+- **[Palo Alto Networks](palo-alto-networks.md)**: Networking is tested harder here than at most product companies, so TCP, TLS, and load balancing follow-ups arrive inside whatever design you are drawing.
+- **[Redis](redis.md)**: A design that scales but never mentions memory or latency misses what the company actually sells, because the managed business rests on low latency, high availability, and predictable memory use.
+- **[SAP](sap.md)**: Multi-tenancy is the lens on almost every follow-up question, and interviewers push on each shared cache and shared queue to find where one customer's data could leak into another's.
+- **[SentinelOne](sentinelone.md)**: Concurrency sits beside distributed design here: candidates report multi-threaded queue questions, including lock-free versions, in the same conversation as event pipeline design.
+- **[Slack](slack.md)**: Most of the score sits in the connection layer: a pool of gateway servers holding WebSockets, with pub/sub behind them so each gateway receives only the channels its connected users belong to.
+- **[Snyk](snyk.md)**: Interviewers listen for one specific insight: a reverse index from package version to the projects that use it, instead of rescanning every project each time a new vulnerability record arrives.
+- **[Supabase](supabase.md)**: Deep Postgres knowledge counts more here than at most companies, because each prompt is a platform piece bolted onto a real database: write ahead log streaming, row level security, and connection pooling.
+- **[Temporal](temporal.md)**: Name the guarantees before drawing any component: at least once delivery, idempotency, leases, and event history are used precisely here, and interviewers notice when they are not.
+- **[Twilio](twilio.md)**: Three reliability concepts carry most of the score, and you are expected to raise all three yourself: idempotency keys, retries with exponential backoff, and a dead-letter queue.
+- **[Unity](unity.md)**: The round splits by track, so backend candidates design distributed services while engine candidates design memory, allocation, and object lifetimes against a frame budget.
 
 ## Defense and frontier tech
 
@@ -86,6 +142,14 @@ How to use these notes:
 - **[Palantir](palantir.md)**: The Decomposition round is the centerpiece: a vague real-world problem (a chess game, a parking garage, infection tracking) that you must turn into buildable structure: requirements interrogated, domain modeled, components carved with interfaces, and a build order defended, with mid-session constraint twists.
 - **[SpaceX](spacex.md)**: Consequence-driven reliability across an unusual range: telemetry pipelines where bandwidth is set by physics, command paths where wrong is unrecoverable, and constellation-scale infrastructure (Starlink is plausibly the largest distributed system with physics in the loop ever built).
 - **[Waymo](waymo.md)**: Two altitudes: on-vehicle low-level design (traffic-signal state machines, in-vehicle pub-sub, sensor scene graphs) where unknown-state honesty is graded, and fleet-scale infrastructure where the simulation platform (billions of tested miles) is the company's safety case in executable form.
+- **[AMD](amd.md)**: Questions sit at the hardware-software boundary, and many rounds end with you implementing one component in real C or C++.
+- **[Boston Dynamics](boston-dynamics.md)**: The clients in your diagram are robots, and a wrong answer can move a heavy machine near a person, so safety is treated as a requirement rather than a feature.
+- **[Intel](intel.md)**: Which team you face decides the whole round, so ask the recruiter first: cloud and services teams ask standard scalable design, while embedded, driver, and platform teams go low level.
+- **[Neuralink](neuralink.md)**: No interview questions are published, so the round is best predicted from the product: an implanted brain-computer interface and the systems around it.
+- **[Qualcomm](qualcomm.md)**: Low-level design is the default here, not web-scale design, so a candidate who only practiced URL shorteners and news feeds will be surprised.
+- **[Rivian](rivian.md)**: Every question connects back to the vehicle, so a design that works for a phone app but breaks for a truck offline in a remote area will be found out.
+- **[Samsara](samsara.md)**: Sensor streams set the agenda: hundreds of thousands of devices reporting every few seconds, data arriving late and out of order, and gateways that drop off the network in a tunnel.
+- **[Zoox](zoox.md)**: Designs are graded by what happens when a part fails with a rider inside a driverless vehicle, so the failure discussion decides the round.
 
 ---
 
