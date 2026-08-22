@@ -41,7 +41,7 @@ This is the section most experienced candidates skip, and it is where stale answ
 - **Cost is graded as a design input.** Interviewers now ask what a design costs to run, and "cheapest thing that meets the requirement" is a real answer. Right-sizing beats prestige architecture.
 - **Managed services changed the default answer, but not the questions.** You would not build a queue at work, so interviewers now ask you to build one on purpose. See [design a distributed message queue](../questions/design-distributed-message-queue.md).
 - **AI and LLM questions are a real category**, not just at AI labs. Retrieval, inference serving, and cost per request now appear in ordinary product loops. Skim [design a RAG pipeline](../questions/design-rag-pipeline.md) and [design an LLM gateway](../questions/design-llm-gateway.md) even if you never touch models.
-- **Vector search joined the standard toolkit.** Embeddings and approximate nearest-neighbor search sit next to the inverted index now, and hybrid retrieval is the expected answer. See [design semantic search](../questions/design-semantic-search.md).
+- **Vector search joined the standard toolkit.** Embeddings and approximate nearest-neighbor search sit next to the inverted index now, and hybrid retrieval is the expected answer. See [design semantic search](../questions/design-semantic-search.md), and [HNSW and vector databases](../deep-dives/hnsw-vector-search.md) next to [Elasticsearch and Lucene](../deep-dives/elasticsearch-lucene.md) for the two halves of retrieval.
 - **Real-time is the default expectation**, not a bonus feature. Know when to pick server-sent events over WebSockets: [WebSockets vs SSE vs long polling](../cheat-sheets/websockets-vs-sse-vs-long-polling.md).
 - **The boring parts are now the signal.** Rollout, observability, on-call load, and team boundaries are where staff evidence lives, because that is what the job is.
 - **Newer patterns get named directly.** If your vocabulary predates them, read [distributed transactions](../patterns/distributed-transactions.md), the [outbox pattern](../patterns/outbox-pattern.md), [event sourcing and CQRS](../patterns/event-sourcing-cqrs.md), and [backpressure](../patterns/backpressure.md).
@@ -56,7 +56,7 @@ This is the section most experienced candidates skip, and it is where stale answ
 
 **Failure narration is thin.** Take your own diagnostic design and kill every box in turn. Say what breaks, what the user sees, and what you do. Senior candidates are graded on this more than on the happy path.
 
-**Depth is lopsided.** Pick the two areas furthest from your daily work and read those [patterns](../patterns/) plus one [deep dive](../deep-dives/) each. Staff candidates fail the breadth check as often as the depth one.
+**Depth is lopsided.** Pick the two areas furthest from your daily work and read those [patterns](../patterns/) plus one [deep dive](../deep-dives/) each. Staff candidates fail the breadth check as often as the depth one. If your gaps are on the infrastructure side, [Borg and Kubernetes](../deep-dives/borg-kubernetes.md), [Flink](../deep-dives/flink-stream-processing.md), and [Redis internals](../deep-dives/redis-internals.md) cover the layers most often taken for granted.
 
 **You do not negotiate requirements.** For each practice question, write down one requirement you would challenge, one thing you would buy instead of build, and a one-sentence split between the first version and the second. This is the clearest staff signal available to you.
 
