@@ -77,4 +77,4 @@ flowchart LR
 ## Go deeper
 
 - Related: [Design Ticketmaster](design-ticketmaster.md) covers identified inventory, the other half of this pairing.
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-hotel-reservation)

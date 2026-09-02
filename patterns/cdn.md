@@ -45,6 +45,6 @@ Say what you cache, how content reaches the edge (pull vs push), and how you han
 
 ## Go deeper
 
-- Read more (free): [Content Delivery Networks (CDN) in System Design](https://www.designgurus.io/blog/content-delivery-network-cdn-system-design-basics)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [Content Delivery Networks (CDN) in System Design](https://www.designgurus.io/blog/content-delivery-network-cdn-system-design-basics?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-cdn)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-cdn)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-cdn)

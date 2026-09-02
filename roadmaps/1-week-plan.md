@@ -12,7 +12,7 @@ For when your interview is just days away. Assumes 2 to 3 hours per day. This is
 | 4 | Practice: [Design TinyURL](../questions/design-tinyurl.md) and [Design Instagram](../questions/design-instagram.md) |
 | 5 | Practice: [Design WhatsApp](../questions/design-whatsapp.md) and [Design Uber](../questions/design-uber.md) |
 | 6 | One hard question ([Netflix](../questions/design-netflix.md) or [Dropbox](../questions/design-dropbox.md)), then review [trade-offs](../cheat-sheets/trade-offs.md) and [common mistakes](../cheat-sheets/common-mistakes.md) |
-| 7 | A timed [mock interview](https://www.designgurus.io/mock-interviews), then review your weak spots |
+| 7 | A timed [mock interview](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-1-week-plan), then review your weak spots |
 
 ## Tips
 
@@ -21,5 +21,5 @@ For when your interview is just days away. Assumes 2 to 3 hours per day. This is
 
 ## Go deeper
 
-- Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-1-week-plan)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-1-week-plan)

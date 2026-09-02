@@ -75,4 +75,4 @@ Do not brand-drop ("I will use S3, Lambda, and DynamoDB") before the design exis
 
 - The components themselves: [core components](core-components.md) and the [patterns](../patterns/)
 - Landmark systems behind these services: [Spanner](../deep-dives/spanner-global-sql.md), [DynamoDB](../deep-dives/dynamodb-managed-nosql.md), [Bigtable](../deep-dives/bigtable-wide-column-store.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-aws-vs-gcp-vs-azure)

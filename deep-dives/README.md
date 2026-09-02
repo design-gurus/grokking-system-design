@@ -1,6 +1,6 @@
 # Deep dives: real distributed systems
 
-Case studies of landmark distributed systems, the kind of "how does X work" question that shows up in senior interviews and in [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii). Each file summarizes the key design ideas in plain language. For the full treatment, see the course.
+Case studies of landmark distributed systems, the kind of "how does X work" question that shows up in senior interviews and in [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-readme). Each file summarizes the key design ideas in plain language. For the full treatment, see the course.
 
 | System | What it is | Status |
 |--------|------------|--------|

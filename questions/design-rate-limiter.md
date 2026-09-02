@@ -58,5 +58,5 @@ flowchart LR
 
 ## Go deeper
 
-- Read more (free): [How to Design a Rate Limiter](https://www.designgurus.io/blog/grokking-rate-limiters)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [How to Design a Rate Limiter](https://www.designgurus.io/blog/grokking-rate-limiters?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-rate-limiter)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-rate-limiter)

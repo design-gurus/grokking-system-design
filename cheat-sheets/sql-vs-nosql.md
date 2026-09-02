@@ -34,4 +34,4 @@ Do not say "I would use NoSQL because it scales". Say "the access pattern is a k
 ## Go deeper
 
 - The concrete versions of this decision: [PostgreSQL vs DynamoDB vs Cassandra](postgres-vs-dynamodb-vs-cassandra.md) and [DynamoDB vs MongoDB](dynamodb-vs-mongodb.md)
-- Data storage lessons in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Data storage lessons in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-sql-vs-nosql)

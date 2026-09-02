@@ -29,6 +29,6 @@ flowchart LR
 
 ## Go deeper
 
-- Read more (free): [Load Balancer vs Reverse Proxy vs API Gateway](https://www.designgurus.io/blog/load-balancer-reverse-proxy-api-gateway)
-- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [Load Balancer vs Reverse Proxy vs API Gateway](https://www.designgurus.io/blog/load-balancer-reverse-proxy-api-gateway?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-api-gateway)
+- Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-api-gateway)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-api-gateway)

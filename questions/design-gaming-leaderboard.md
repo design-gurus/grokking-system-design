@@ -71,5 +71,5 @@ flowchart LR
 
 ## Go deeper
 
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gaming-leaderboard)
 - Related: [Design the YouTube likes counter](design-youtube-likes-counter.md)

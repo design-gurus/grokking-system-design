@@ -45,5 +45,5 @@ State the non-functional requirements explicitly before you design, and put numb
 
 ## Go deeper
 
-- Read more (free): [Scalability in System Design](https://www.designgurus.io/blog/grokking-system-design-scalability), [High Availability in System Design](https://www.designgurus.io/blog/high-availability-system-design-basics)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [Scalability in System Design](https://www.designgurus.io/blog/grokking-system-design-scalability?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-non-functional-requirements), [High Availability in System Design](https://www.designgurus.io/blog/high-availability-system-design-basics?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-non-functional-requirements)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-non-functional-requirements)

@@ -21,7 +21,7 @@ Want to self-test without solutions? Use the [practice question bank](practice-b
 
 ## Advanced questions
 
-Deeper problems, mapped to the [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii) topics.
+Deeper problems, mapped to the [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme) topics.
 
 | Question | Difficulty | Key idea | Status |
 |----------|-----------|----------|--------|
@@ -39,7 +39,7 @@ Deeper problems, mapped to the [Advanced System Design Interview, Volume II](htt
 
 ## More systems
 
-A broad set of commonly-asked systems, mapped to the [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course).
+A broad set of commonly-asked systems, mapped to the [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme).
 
 | Question | Key idea |
 |----------|----------|
@@ -76,7 +76,7 @@ A broad set of commonly-asked systems, mapped to the [System Design Interview Cr
 
 ## AI and LLM systems
 
-The fastest-growing question category. AI labs and AI-infrastructure companies (see the [company guides](../companies/README.md)) draw from this set, and big tech is adopting them too. Mapped to [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals).
+The fastest-growing question category. AI labs and AI-infrastructure companies (see the [company guides](../companies/README.md)) draw from this set, and big tech is adopting them too. Mapped to [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme).
 
 | Question | Difficulty | Key idea | Status |
 |----------|-----------|----------|--------|

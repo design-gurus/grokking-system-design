@@ -47,4 +47,4 @@ Do not say "I will use WebSockets because it is real-time". Say "notifications o
 
 - How each mechanism works: [long polling, WebSockets, and SSE](../patterns/long-polling-websockets-sse.md)
 - Questions that lean on this choice: [design WhatsApp](../questions/design-whatsapp.md), [design a live comment stream](../questions/design-live-comment-streaming.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-websockets-vs-sse-vs-long-polling)

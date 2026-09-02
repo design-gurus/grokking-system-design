@@ -71,6 +71,6 @@ Paged KV-cache management (vLLM-style) allocates cache in fixed-size blocks rath
 
 This walkthrough is written for a general system design round. For the AI-round version, which leads with data, evaluation, and cost, see [continuous batching and the KV cache](https://github.com/design-gurus/grokking-ai-system-design/blob/main/building-blocks/continuous-batching-and-kv-cache.md).
 
-- AI system design: [Grokking the AI System Design Interview](https://www.designgurus.io/course/grokking-the-ai-system-design-interview)
-- AI foundations: [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- AI system design: [Grokking the AI System Design Interview](https://www.designgurus.io/course/grokking-the-ai-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-llm-inference-platform)
+- AI foundations: [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-llm-inference-platform)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-llm-inference-platform)

@@ -71,5 +71,5 @@ flowchart LR
 
 ## Go deeper
 
-- Read more (free): [How to Design a URL Shortener](https://www.designgurus.io/blog/url-shortening)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [How to Design a URL Shortener](https://www.designgurus.io/blog/url-shortening?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-tinyurl)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-tinyurl)

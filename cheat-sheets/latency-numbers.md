@@ -74,4 +74,4 @@ Anchor your design choices to a number: "a feed read hits memory in microseconds
 
 - [Back-of-the-envelope estimation](estimation.md): the capacity numbers and the method
 - [Caching](../patterns/caching.md), [CDN](../patterns/cdn.md), and [replication](../patterns/replication.md): the three patterns these numbers justify
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-latency-numbers)

@@ -66,6 +66,6 @@ State where the load balancer sits, the algorithm and why, how health checks wor
 
 ## Go deeper
 
-- Read more (free): [Complete Load Balancer Guide](https://www.designgurus.io/blog/complete-load-balancing-guide)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [Complete Load Balancer Guide](https://www.designgurus.io/blog/complete-load-balancing-guide?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-load-balancing)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-load-balancing)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-load-balancing)

@@ -424,4 +424,4 @@ See [interview framework](interview-framework.md), [common mistakes](common-mist
 - Full explanations: [patterns](../patterns/) and the other [cheat sheets](./)
 - Practice questions: [question catalog](../questions/) and the [practice bank](../questions/practice-bank.md)
 - The real systems behind the cards: [deep dives](../deep-dives/)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-flashcards)

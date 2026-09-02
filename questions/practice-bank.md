@@ -74,5 +74,5 @@ A list of prompts to test yourself. There are no solutions here on purpose. Try 
 
 ## Go deeper
 
-- Practice live with feedback: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
-- Full course with worked solutions: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Practice live with feedback: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-practice-bank)
+- Full course with worked solutions: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-practice-bank)
