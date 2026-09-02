@@ -68,7 +68,7 @@ Knowledge is not the constraint here, so spend your remaining time on delivery.
 2. Read the [annotated mock interview](../cheat-sheets/mock-interview-walkthrough.md) and compare it against your own recording. Find the sentences the stronger candidate says that you do not.
 3. Reread [common mistakes](../cheat-sheets/common-mistakes.md) and [communication tips](../cheat-sheets/communication-tips.md) the day before.
 4. If the role is at a specific company, read its page in the [company index](../companies/README.md). The same question is graded differently at Stripe, Bloomberg, and Palantir.
-5. Book one [mock interview with an ex-FAANG engineer](https://www.designgurus.io/mock-interviews). An experienced engineer's blind spots are hard to see alone, which is the whole reason this plan starts with a recording.
+5. Book one [mock interview with an ex-FAANG engineer](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-senior-staff-refresher). An experienced engineer's blind spots are hard to see alone, which is the whole reason this plan starts with a recording.
 
 ## The failure modes specific to experienced candidates
 
@@ -84,5 +84,5 @@ These do not appear in the general advice, because they only happen to people wh
 ## Go deeper
 
 - Level calibration: [senior vs staff expectations](../cheat-sheets/senior-vs-staff-expectations.md)
-- Practice against a human bar: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Practice against a human bar: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-senior-staff-refresher)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-senior-staff-refresher)

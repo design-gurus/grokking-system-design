@@ -23,7 +23,7 @@ A focused plan for when you have an interview coming up soon. Assumes about 1 to
 | 10 | [Design WhatsApp](../questions/design-whatsapp.md) (a real-time chat system) |
 | 11 | [Design Uber](../questions/design-uber.md) (a geo system) |
 | 12 | [Design a web crawler](../questions/design-web-crawler.md) or a [notification system](../questions/design-notification-system.md) |
-| 13 | A timed [mock interview](https://www.designgurus.io/mock-interviews) under real conditions |
+| 13 | A timed [mock interview](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan) under real conditions |
 | 14 | Review your weak spots and redo one question |
 
 ## Tips
@@ -32,9 +32,9 @@ A focused plan for when you have an interview coming up soon. Assumes about 1 to
 - After each question, write down what you missed and target it next time.
 - Browse the full [question catalog](../questions/) for more practice.
 - For senior or staff roles, also skim the [deep dives](../deep-dives/) (Dynamo, Kafka, GFS, and more).
-- Practice live: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews).
+- Practice live: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan).
 
 ## Go deeper
 
-- Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan)

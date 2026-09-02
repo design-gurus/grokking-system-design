@@ -52,6 +52,6 @@ flowchart LR
 
 ## Go deeper
 
-- Read more (free): [How to Design a Recommendation System](https://www.designgurus.io/blog/design-recommendation-system)
-- For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [How to Design a Recommendation System](https://www.designgurus.io/blog/design-recommendation-system?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-recommendation-system)
+- For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-recommendation-system)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-recommendation-system)

@@ -108,5 +108,5 @@ The knowledge gap between the two candidates is small; both knew token bucket an
 ## Practice this
 
 - Run the same drill on any question in the [catalog](../questions/README.md): play Candidate B out loud, unprompted, against a timer.
-- Get graded by a human: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Get graded by a human: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-mock-interview-walkthrough)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-mock-interview-walkthrough)

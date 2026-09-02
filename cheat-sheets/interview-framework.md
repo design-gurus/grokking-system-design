@@ -44,5 +44,5 @@ Name the first bottleneck at scale and your fix. Reference patterns: [caching](.
 
 ## Go deeper
 
-- Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-interview-framework)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-interview-framework)

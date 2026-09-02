@@ -36,4 +36,4 @@ Do not say "I would add Redis because it is fast". Say "this is a read-heavy fee
 ## Go deeper
 
 - [Caching pattern](../patterns/caching.md) and the [Memcached at Facebook deep dive](../deep-dives/memcached-at-facebook.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-redis-vs-memcached)

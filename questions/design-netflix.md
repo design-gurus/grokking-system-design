@@ -53,6 +53,6 @@ Video is stored as small segments at several quality levels. The player requests
 
 ## Go deeper
 
-- Read more (free): [Designing a Scalable Video Streaming Platform (Netflix/YouTube)](https://www.designgurus.io/blog/design-video-streaming-platform)
-- For harder problems like this: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [Designing a Scalable Video Streaming Platform (Netflix/YouTube)](https://www.designgurus.io/blog/design-video-streaming-platform?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-netflix)
+- For harder problems like this: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-netflix)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-netflix)

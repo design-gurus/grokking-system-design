@@ -41,6 +41,6 @@ Name the shard key and justify it from the access patterns, explain how you avoi
 
 ## Go deeper
 
-- Read more (free): [Database Sharding Guide](https://www.designgurus.io/blog/database-sharding-guide-2026)
-- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [Database Sharding Guide](https://www.designgurus.io/blog/database-sharding-guide-2026?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-sharding-partitioning)
+- Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-sharding-partitioning)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-sharding-partitioning)

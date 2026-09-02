@@ -41,4 +41,4 @@ Learn these once and you can assemble an answer to almost any design question. E
 2. Fill in each section.
 3. Add a row above and, if it is a core pattern, to the table in the root [README](../README.md).
 
-For the full, in-depth treatment of every pattern with interactive diagrams, see [System Design Patterns: From Fundamentals to Real Systems](https://www.designgurus.io/course/system-design-patterns), the course built around exactly these building blocks.
+For the full, in-depth treatment of every pattern with interactive diagrams, see [System Design Patterns: From Fundamentals to Real Systems](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-readme), the course built around exactly these building blocks.

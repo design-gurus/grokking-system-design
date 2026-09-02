@@ -48,4 +48,4 @@ Do not say "I would use Kafka because it handles streaming". Say "we are on AWS 
 
 - [Kafka deep dive](../deep-dives/kafka-distributed-messaging.md) and the [message queues pattern](../patterns/message-queues.md)
 - Choosing a queue instead of a stream? [Kafka vs RabbitMQ vs SQS](kafka-vs-rabbitmq-vs-sqs.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-kafka-vs-kinesis-vs-pubsub)

@@ -1,6 +1,6 @@
 # Grokking System Design
 
-> The free, open companion to the original **Grokking the System Design Interview** course by [DesignGurus.io](https://www.designgurus.io/course/grokking-the-system-design-interview), created by Arslan Ahmad and the original Grokking team.
+> The free, open companion to the original **Grokking the System Design Interview** course by [DesignGurus.io](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme), created by Arslan Ahmad and the original Grokking team.
 
 A pattern-based guide to system design interviews. Learn the building blocks once, then apply them to any design question. This repository is a free index, summary, and cheat-sheet collection. For interactive diagrams, video lessons, and worked solutions, see the full course.
 
@@ -34,13 +34,13 @@ A pattern-based guide to system design interviews. Learn the building blocks onc
 
 "Grok" means to understand something so completely that it becomes intuitive. Grokking System Design is the pattern-based approach to system design interviews: instead of memorizing answers to a fixed list of questions, you learn a small set of reusable building blocks (caching, sharding, replication, consistency models, messaging, and more) that appear again and again across very different systems. Once you know the patterns, any new design problem feels familiar.
 
-This methodology was created by Arslan Ahmad. The original, fully updated course lives at [DesignGurus.io](https://www.designgurus.io/course/grokking-the-system-design-interview).
+This methodology was created by Arslan Ahmad. The original, fully updated course lives at [DesignGurus.io](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme).
 
 ## Is there a Grokking System Design PDF or book?
 
 No. There is no official PDF, ebook, or printed book of the Grokking the System Design Interview course, and there never has been. The PDF files that circulate online are unofficial copies of an old version of the course. They are missing the newer lessons and every fix made since they were created.
 
-This repository is the official free way to read the material: every pattern guide, question, and cheat sheet here is free in your browser, no account needed. The full, current course is online at [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview). For more detail, see [Is there a free official download?](https://www.designgurus.io/answers/detail/grokking-system-design-pdf-is-there-a-free-official-download)
+This repository is the official free way to read the material: every pattern guide, question, and cheat sheet here is free in your browser, no account needed. The full, current course is online at [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme). For more detail, see [Is there a free official download?](https://www.designgurus.io/answers/detail/grokking-system-design-pdf-is-there-a-free-official-download?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
 
 ## How to use this repo
 
@@ -48,7 +48,7 @@ This repository is the official free way to read the material: every pattern gui
 2. Work through the [core patterns](patterns/) until each one is intuitive.
 3. Practice with the [question catalog](questions/), applying the patterns.
 4. Follow a [study roadmap](roadmaps/) to stay on track.
-5. Go deeper in the [full course](https://www.designgurus.io/course/grokking-the-system-design-interview) when you want interactive lessons and worked solutions.
+5. Go deeper in the [full course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) when you want interactive lessons and worked solutions.
 
 ## The system design interview framework
 
@@ -68,24 +68,24 @@ Full breakdown with timings: [cheat-sheets/interview-framework.md](cheat-sheets/
 
 | Pattern | What it solves | Cheat sheet | Learn in depth |
 |---------|----------------|-------------|----------------|
-| Caching | Read latency and load on the data store | [caching.md](patterns/caching.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| Load balancing | Distributing traffic across servers | [load-balancing.md](patterns/load-balancing.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| Sharding and partitioning | Scaling data beyond one machine | [sharding-partitioning.md](patterns/sharding-partitioning.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| Replication | Availability and read scaling | [replication.md](patterns/replication.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| Consistency models | Correctness under concurrency | [consistency-models.md](patterns/consistency-models.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| Consistent hashing | Even distribution with minimal reshuffling | [consistent-hashing.md](patterns/consistent-hashing.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| Message queues | Decoupling and async processing | [message-queues.md](patterns/message-queues.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| Rate limiting | Protecting services from overload | [rate-limiting.md](patterns/rate-limiting.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| CAP theorem | Reasoning about trade-offs under partitions | [cap-theorem.md](patterns/cap-theorem.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| CDN | Serving static content close to users | [cdn.md](patterns/cdn.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| Database indexing | Fast lookups | [database-indexing.md](patterns/database-indexing.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
-| Bloom filters | Cheap "definitely not present" checks | [bloom-filters.md](patterns/bloom-filters.md) | [Course](https://www.designgurus.io/course/system-design-patterns) |
+| Caching | Read latency and load on the data store | [caching.md](patterns/caching.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| Load balancing | Distributing traffic across servers | [load-balancing.md](patterns/load-balancing.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| Sharding and partitioning | Scaling data beyond one machine | [sharding-partitioning.md](patterns/sharding-partitioning.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| Replication | Availability and read scaling | [replication.md](patterns/replication.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| Consistency models | Correctness under concurrency | [consistency-models.md](patterns/consistency-models.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| Consistent hashing | Even distribution with minimal reshuffling | [consistent-hashing.md](patterns/consistent-hashing.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| Message queues | Decoupling and async processing | [message-queues.md](patterns/message-queues.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| Rate limiting | Protecting services from overload | [rate-limiting.md](patterns/rate-limiting.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| CAP theorem | Reasoning about trade-offs under partitions | [cap-theorem.md](patterns/cap-theorem.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| CDN | Serving static content close to users | [cdn.md](patterns/cdn.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| Database indexing | Fast lookups | [database-indexing.md](patterns/database-indexing.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
+| Bloom filters | Cheap "definitely not present" checks | [bloom-filters.md](patterns/bloom-filters.md) | [Course](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme) |
 
 These are the 12 most essential building blocks. All 30 patterns live in [patterns/](patterns/), including API gateways, quorum, leader election, idempotency, write-ahead logs, circuit breakers, sagas, event sourcing, gossip, and more. To add a new pattern, copy [patterns/_template.md](patterns/_template.md).
 
 ## System design questions
 
-Fifty-plus walkthroughs at the approach-and-trade-offs level, grouped by difficulty. Self-test with the [practice question bank](questions/practice-bank.md), and see full worked solutions in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
+Fifty-plus walkthroughs at the approach-and-trade-offs level, grouped by difficulty. Self-test with the [practice question bank](questions/practice-bank.md), and see full worked solutions in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme).
 
 ### Basic
 
@@ -174,6 +174,8 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 
 ## Cheat sheets
 
+Twenty-one quick-reference pages. The index at [cheat-sheets/](cheat-sheets/) groups them by how you use them: running the interview, numbers and recall, and choosing a technology.
+
 - [System design in one page](cheat-sheets/system-design-in-one-page.md): the whole framework, patterns, and numbers, condensed into one screenshot.
 - [Back-of-the-envelope estimation](cheat-sheets/estimation.md): the latency and capacity numbers worth memorizing.
 - [Latency numbers, visualized](cheat-sheets/latency-numbers.md): the full ladder from cache hit to cross-continent round trip on one log scale, and the design rules that fall out of it.
@@ -213,32 +215,32 @@ New to the vocabulary? Start with the [glossary](glossary.md).
 Free, in-depth articles that pair well with this repo.
 
 **Start here**
-- [25 Fundamental System Design Concepts](https://www.designgurus.io/blog/system-design-interview-fundamentals)
-- [System Design Interview Guide (2026): Framework and How to Prepare](https://www.designgurus.io/blog/complete-guide-sys-design)
-- [The Ultimate System Design Cheat Sheet](https://www.designgurus.io/blog/system-design-cheat-sheet)
-- [185+ System Design Guides: The Interview Library](https://www.designgurus.io/blog/system-design-interview-library)
+- [25 Fundamental System Design Concepts](https://www.designgurus.io/blog/system-design-interview-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- [System Design Interview Guide (2026): Framework and How to Prepare](https://www.designgurus.io/blog/complete-guide-sys-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- [The Ultimate System Design Cheat Sheet](https://www.designgurus.io/blog/system-design-cheat-sheet?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- [185+ System Design Guides: The Interview Library](https://www.designgurus.io/blog/system-design-interview-library?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
 
 **Core concepts**
-- [Back-of-the-Envelope Estimation](https://www.designgurus.io/blog/back-of-the-envelope-system-design-interview)
-- [Scalability in System Design](https://www.designgurus.io/blog/grokking-system-design-scalability)
-- [High Availability in System Design](https://www.designgurus.io/blog/high-availability-system-design-basics)
-- [CAP Theorem vs PACELC](https://www.designgurus.io/blog/system-design-interview-basics-cap-vs-pacelc)
-- [Consistency Patterns in Distributed Systems](https://www.designgurus.io/blog/consistency-patterns-distributed-systems)
+- [Back-of-the-Envelope Estimation](https://www.designgurus.io/blog/back-of-the-envelope-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- [Scalability in System Design](https://www.designgurus.io/blog/grokking-system-design-scalability?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- [High Availability in System Design](https://www.designgurus.io/blog/high-availability-system-design-basics?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- [CAP Theorem vs PACELC](https://www.designgurus.io/blog/system-design-interview-basics-cap-vs-pacelc?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- [Consistency Patterns in Distributed Systems](https://www.designgurus.io/blog/consistency-patterns-distributed-systems?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
 
 **Architecture and APIs**
-- [19 Essential Microservices Patterns](https://www.designgurus.io/blog/19-essential-microservices-patterns-for-system-design-interviews)
-- [Monolithic vs Microservices vs SOA](https://www.designgurus.io/blog/monolithic-service-oriented-microservice-architecture)
-- [REST vs GraphQL vs gRPC](https://www.designgurus.io/blog/rest-graphql-grpc-system-design)
+- [19 Essential Microservices Patterns](https://www.designgurus.io/blog/19-essential-microservices-patterns-for-system-design-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- [Monolithic vs Microservices vs SOA](https://www.designgurus.io/blog/monolithic-service-oriented-microservice-architecture?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- [REST vs GraphQL vs gRPC](https://www.designgurus.io/blog/rest-graphql-grpc-system-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
 
 ## Go deeper: the full course
 
 This repo gives you the map. The course gives you the territory: interactive diagrams, video lessons, worked solutions, and practice.
 
-- Course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
-- Patterns course: [System Design Patterns: From Fundamentals to Real Systems](https://www.designgurus.io/course/system-design-patterns), built around the same building blocks as [patterns/](patterns/)
-- AI and ML rounds: [Grokking the AI System Design Interview](https://www.designgurus.io/course/grokking-the-ai-system-design-interview), and its free companion repository [Grokking AI System Design](https://github.com/design-gurus/grokking-ai-system-design)
-- Practice live: [Mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
-- More reading: [DesignGurus blog](https://www.designgurus.io/blog)
+- Course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- Patterns course: [System Design Patterns: From Fundamentals to Real Systems](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme), built around the same building blocks as [patterns/](patterns/)
+- AI and ML rounds: [Grokking the AI System Design Interview](https://www.designgurus.io/course/grokking-the-ai-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme), and its free companion repository [Grokking AI System Design](https://github.com/design-gurus/grokking-ai-system-design)
+- Practice live: [Mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
+- More reading: [DesignGurus blog](https://www.designgurus.io/blog?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
 
 ## Newsletter
 
@@ -252,8 +254,10 @@ Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). If this repo 
 
 ## License
 
-Content is licensed under [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE). You may share and adapt with attribution.
+Content is licensed under [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE). You may share and adapt it, including commercially, as long as you credit DesignGurus.io and link back to this repository.
+
+The license covers the free content here only. It does not grant rights to the paid DesignGurus.io courses, videos, or other products. See [NOTICE.md](NOTICE.md) for the attribution wording and the full scope.
 
 ## About
 
-Maintained by [DesignGurus.io](https://www.designgurus.io/), the home of the original Grokking the System Design Interview course by Arslan Ahmad.
+Maintained by [DesignGurus.io](https://www.designgurus.io/?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme), the home of the original Grokking the System Design Interview course by Arslan Ahmad.

@@ -1,5 +1,7 @@
 # Design [System]
 
+<!-- Before you commit: replace questions-QUESTION-SLUG in the designgurus.io links below with this file path, slashes turned into dashes and .md dropped. -->
+
 > One-line description of what the system does.
 
 ## 1. Requirements
@@ -40,4 +42,4 @@ What breaks first at scale, and how you would address it. Reference the [pattern
 
 ## Go deeper
 
-Link to the full worked solution in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview).
+Link to the full worked solution in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-QUESTION-SLUG).

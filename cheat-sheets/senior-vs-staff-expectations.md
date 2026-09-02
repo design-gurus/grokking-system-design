@@ -51,5 +51,5 @@ Take [design a notification system](../questions/design-notification-system.md).
 ## Go deeper
 
 - Company-by-company expectations: [company-specific interviews](../companies/README.md)
-- Practice against a human bar: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Practice against a human bar: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-senior-vs-staff-expectations)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-senior-vs-staff-expectations)

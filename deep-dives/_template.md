@@ -1,5 +1,7 @@
 # [System name]
 
+<!-- Before you commit: replace deep-dives-SYSTEM-SLUG in the designgurus.io links below with this file path, slashes turned into dashes and .md dropped. -->
+
 > One-line description of what the system is and why it is notable.
 
 ## What it is
@@ -27,5 +29,5 @@ What it gives up to get what it optimizes for.
 
 ## Go deeper
 
-- For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-SYSTEM-SLUG)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-SYSTEM-SLUG)

@@ -26,6 +26,7 @@ Thanks for helping improve this free system design interview guide. Contribution
 - One concept per file.
 - Use relative links between files so they work on GitHub.
 - Prefer simple ASCII or Mermaid diagrams that render on GitHub.
+- Links to designgurus.io carry campaign parameters so we can see which pages send readers there. Append `?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=<page>`, where `<page>` is the file path with slashes turned into dashes and `.md` dropped (`cheat-sheets/estimation.md` becomes `cheat-sheets-estimation`). Links to any other site stay plain.
 
 ## Pull requests
 

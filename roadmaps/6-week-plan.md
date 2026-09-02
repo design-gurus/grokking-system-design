@@ -26,7 +26,7 @@ The advanced [questions](../questions/) (unique ID generator, recommendation sys
 
 ### Week 6: Mocks and polish
 
-Do timed [mock interviews](https://www.designgurus.io/mock-interviews), review your weak spots, study [common mistakes](../cheat-sheets/common-mistakes.md) and [communication tips](../cheat-sheets/communication-tips.md), and prepare for your target company.
+Do timed [mock interviews](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-6-week-plan), review your weak spots, study [common mistakes](../cheat-sheets/common-mistakes.md) and [communication tips](../cheat-sheets/communication-tips.md), and prepare for your target company.
 
 ## Tips
 
@@ -35,4 +35,4 @@ Do timed [mock interviews](https://www.designgurus.io/mock-interviews), review y
 
 ## Go deeper
 
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-6-week-plan)

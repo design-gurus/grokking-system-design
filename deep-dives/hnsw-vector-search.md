@@ -36,5 +36,5 @@ You get sub-linear search over billions of vectors. You pay with results that ar
 ## Go deeper
 
 - How this is used in an AI system, including the permission filtering trap: [vector indexes](https://github.com/design-gurus/grokking-ai-system-design/blob/main/building-blocks/vector-indexes.md)
-- For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-hnsw-vector-search)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-hnsw-vector-search)

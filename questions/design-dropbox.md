@@ -58,6 +58,6 @@ A sync client watches for local changes, computes chunk hashes, asks the metadat
 
 ## Go deeper
 
-- Read more (free): [How to Design a Cloud Storage Service (Dropbox)](https://www.designgurus.io/blog/design-cloud-storage-service)
-- For harder problems like this: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview)
+- Read more (free): [How to Design a Cloud Storage Service (Dropbox)](https://www.designgurus.io/blog/design-cloud-storage-service?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-dropbox)
+- For harder problems like this: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-dropbox)
+- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-dropbox)
