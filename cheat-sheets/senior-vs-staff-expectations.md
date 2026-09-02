@@ -4,6 +4,17 @@ The question does not change with level; the grading does. "Design a notificatio
 
 ## The one-line summary per level
 
+What moves between levels is not the design. It is who is driving:
+
+```mermaid
+flowchart TB
+    M["Mid<br/>Can they design a working<br/>system with guidance?"] -->|"you stop needing<br/>to be steered"| S["Senior<br/>Can they own this end to end,<br/>failure modes included?"]
+    S -->|"you start questioning<br/>the problem itself"| ST["Staff<br/>Would I trust this decision<br/>for a whole org?"]
+    D1["The interviewer drives"] -.-> M
+    D2["You drive"] -.-> S
+    D3["You decide whether it<br/>should be built at all"] -.-> ST
+```
+
 | Level | What the interviewer is asking themselves |
 |-------|-------------------------------------------|
 | Mid (L4 or equivalent) | "Can they design a working system with guidance?" |

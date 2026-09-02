@@ -20,7 +20,7 @@
 An eval run fans out into thousands of independent (prompt, model, grader) tasks: an embarrassingly parallel batch workload on top of a [job scheduler](design-distributed-job-scheduler.md).
 
 ```mermaid
-flowchart LR
+flowchart TB
     U[Eval config] --> API[Eval Service] --> Q[Task Queue]
     Q --> W1[Runner] --> INF[Inference endpoint]
     Q --> W2[Runner] --> INF

@@ -4,6 +4,20 @@ For experienced engineers who have not interviewed in years. You have built and 
 
 This plan is organized by gap, not by day. Diagnose first, then fix only what is broken. Most people here need 6 to 10 hours total, not six weeks.
 
+```mermaid
+flowchart TD
+    D["Step 1: cold 45-min question<br/>recorded, outside your specialty"] --> S["Step 2: score 8 checks"]
+    S --> C["Step 3: what changed<br/>since you last interviewed"]
+    C --> G{"Fewer than<br/>6 passes?"}
+    G -->|yes| F["Fix structure first"]
+    G -->|no| T["Fix only the failed rows"]
+    F --> R["Step 5: rehearse<br/>timed, out loud, recorded"]
+    T --> R
+    R -->|"still weak"| D
+```
+
+Note the loop at the bottom. The diagnostic is not a one-time entry test. Re-running it after you have fixed a gap is how you find out whether the fix held.
+
 ## Who this is not for
 
 If you have never taken a system design interview, or you cannot yet explain sharding and replication without notes, start with the [6-week study plan](6-week-plan.md) instead. This plan assumes the knowledge is there and only the performance is rusty.

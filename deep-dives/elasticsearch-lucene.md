@@ -12,6 +12,21 @@ A database index answers "find rows where this column equals X". Search asks a d
 
 ## Key design ideas
 
+Scatter-gather is why deep pagination hurts: asking for page 100 makes every shard return 100 pages of hits so the merge can be correct.
+
+```mermaid
+flowchart TB
+    Q["Query"] --> CO["Coordinating node"]
+    CO -->|"scatter to one copy<br/>of every shard"| S1["Shard 1<br/>a complete Lucene index"]
+    CO --> S2["Shard 2"]
+    CO --> S3["Shard 3"]
+    S1 -.->|"its own top K"| CO
+    S2 -.-> CO
+    S3 -.-> CO
+    CO -->|"gather and merge<br/>into one ranking"| R["Results"]
+    S1 --> SEG["Immutable segments<br/>plus a translog"]
+```
+
 | Idea | How it works |
 |------|--------------|
 | Inverted index | Map each term to the sorted list of document ids that contain it (a posting list). A query intersects a few posting lists instead of scanning every document |

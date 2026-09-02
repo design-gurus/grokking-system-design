@@ -12,6 +12,26 @@ An embedding is a list of numbers a model produces for a piece of text, an image
 
 ## Key design ideas
 
+A skip list laid over space. The walk starts on the sparse top layer and takes long jumps, then drops down for finer search as it closes in.
+
+```mermaid
+flowchart TB
+    subgraph L2["Top layer: few nodes, long links"]
+        direction LR
+        A2["entry point"] --> B2["long jump"]
+    end
+    subgraph L1["Middle layer"]
+        direction LR
+        A1["node"] --> B1["node"] --> C1["node"]
+    end
+    subgraph L0["Bottom layer: every vector, dense links"]
+        direction LR
+        A0["node"] --> B0["node"] --> C0["node"] --> D0["nearest neighbour"]
+    end
+    L2 -->|"drop down when no neighbour<br/>is closer to the query"| L1
+    L1 --> L0
+```
+
 | Idea | How it works |
 |------|--------------|
 | Proximity graph | Each vector is a node linked to its near neighbors; a search starts at some node and greedily walks to whichever neighbor is closer to the query |

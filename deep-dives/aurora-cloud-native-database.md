@@ -12,6 +12,20 @@ Running MySQL on cloud disks with synchronous mirroring multiplies write traffic
 
 ## Key design ideas
 
+Only redo log records cross the network. The storage tier builds the pages itself, which is what removes most of the write traffic.
+
+```mermaid
+flowchart TB
+    W["Writer instance"] -->|"redo log records only,<br/>never data pages"| S
+    R1["Read replica"] -->|"consumes the<br/>same log stream"| S
+    R2["Read replica"] --> S
+    subgraph S["Shared storage volume, 10 GB segments"]
+        direction LR
+        AZ1["AZ 1<br/>2 nodes"] --- AZ2["AZ 2<br/>2 nodes"] --- AZ3["AZ 3<br/>2 nodes"]
+    end
+    S -.->|"a write commits at 4 of 6,<br/>a read needs 3 of 6"| W
+```
+
 | Idea | How it works |
 |------|--------------|
 | The log is the database | The engine sends only redo log records to storage; storage nodes apply them to build pages in the background. Write traffic drops by an order of magnitude |

@@ -12,6 +12,25 @@ Every coordination need in a distributed system (configuration, [leader election
 
 ## Key design ideas
 
+The commit point is the moment a majority has the entry, not the moment every follower has replied.
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant L as Leader, term 4
+    participant F1 as Follower 1
+    participant F2 as Follower 2
+    C->>L: write x = 5
+    L->>L: append to local log
+    L->>F1: AppendEntries
+    L->>F2: AppendEntries
+    F1-->>L: ok
+    Note over L: a majority now has it,<br/>so the entry is committed
+    L-->>C: success
+    F2-->>L: ok, arriving later
+    Note over F2: catching up is normal<br/>and blocks nothing
+```
+
 | Idea | How it works |
 |------|--------------|
 | Strong leader | All writes flow through one elected leader; followers just replicate. This collapses most of the protocol's complexity |

@@ -12,6 +12,22 @@ Before MapReduce, every large computation at Google (build the index, analyze lo
 
 ## Key design ideas
 
+The shuffle in the middle is the expensive part of every job, and it is the part you write no code for.
+
+```mermaid
+flowchart LR
+    IN[("Input splits<br/>in GFS")] --> M1["Map task"]
+    IN --> M2["Map task"]
+    IN --> M3["Map task"]
+    M1 -->|"output partitioned by key"| SH{{"Shuffle<br/>all-to-all exchange"}}
+    M2 --> SH
+    M3 --> SH
+    SH --> R1["Reduce task<br/>keys A to M"]
+    SH --> R2["Reduce task<br/>keys N to Z"]
+    R1 --> OUT[("Output")]
+    R2 --> OUT
+```
+
 | Idea | How it works |
 |------|--------------|
 | Two-phase model | Map tasks process input splits in parallel; output is partitioned by key; reduce tasks pull, sort, and aggregate each partition |

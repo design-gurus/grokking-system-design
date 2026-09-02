@@ -22,6 +22,20 @@ How to choose a data store, and how to justify it in an interview. The right ans
 
 ## How to choose
 
+The same decision as a tree:
+
+```mermaid
+flowchart TD
+    A["Start: list the access patterns"] --> B{"Multi-row transactions,<br/>joins, or strong consistency?"}
+    B -->|yes| SQL["Lean SQL"]
+    B -->|no| C{"Scaling writes horizontally,<br/>simple access, flexible schema?"}
+    C -->|yes| NO["Lean NoSQL"]
+    C -->|no| SQL
+    SQL --> D{"Also carrying high-volume<br/>or shape-shifting data?"}
+    NO --> D
+    D -->|yes| BOTH["Use both: SQL for the core,<br/>NoSQL for the volume"]
+```
+
 1. Describe the access patterns: read vs write ratio, query shapes, consistency needs, scale.
 2. If you need multi-row transactions, complex joins, and strong consistency, lean SQL.
 3. If you need to scale writes horizontally with simple access patterns and flexible schema, lean NoSQL.

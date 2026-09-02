@@ -12,6 +12,22 @@ Many systems need the same hard primitive: agree on one leader, or hold a lock t
 
 ## Key design ideas
 
+All client traffic hits one elected master. The other four replicas exist so the master can be replaced, not to share the load.
+
+```mermaid
+flowchart TB
+    CL["Client<br/>holds a session lease"] -->|"lock and small-file requests"| MA["Elected master"]
+    MA -->|"cache invalidations"| CL
+    MA -.->|"lease expires,<br/>locks are released"| CL
+    subgraph Cell["Chubby cell: 5 replicas running Paxos"]
+        direction LR
+        MA <--> R1["Replica"]
+        MA <--> R2["Replica"]
+        MA <--> R3["Replica"]
+        MA <--> R4["Replica"]
+    end
+```
+
 | Idea | How it works |
 |------|--------------|
 | Consensus | A cell of (usually five) replicas runs Paxos to stay consistent through failures |

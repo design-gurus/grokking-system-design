@@ -16,6 +16,18 @@ How to choose an in-memory store, and how to justify it in an interview. Short v
 
 ## How to choose
 
+Start at the top. The memory question disqualifies both before the comparison even matters:
+
+```mermaid
+flowchart TD
+    A{"Does the working set<br/>fit in memory?"} -->|no| N["Neither. Fix the data model,<br/>or use a disk store"]
+    A -->|yes| B{"Do you need anything<br/>besides GET and SET?"}
+    B -->|no| M["Memcached:<br/>look-aside cache, simplest ops,<br/>highest throughput per node"]
+    B -->|"data structures"| R1["Redis: sorted sets, INCR<br/>with expiry, lists, streams"]
+    B -->|"must survive a restart"| R2["Redis with persistence<br/>and replicas"]
+    B -->|"distributed locks"| R3["Redis: SET NX with expiry"]
+```
+
 1. Pure look-aside cache for serialized blobs, biggest possible throughput per node, simplest ops → Memcached. This is the [Facebook use case](../deep-dives/memcached-at-facebook.md).
 2. You need the data structures → Redis, and name the mapping: sorted sets for leaderboards, INCR with expiry for [rate limiting](../patterns/rate-limiting.md), lists/streams for lightweight queues, sets for presence.
 3. Cache that must survive restarts, or cache plus source-of-truth-ish state (sessions you cannot lose) → Redis with persistence and replicas.

@@ -4,6 +4,19 @@
 
 ## The framework (45-minute round)
 
+Each step of the framework pulls in a different group of patterns:
+
+```mermaid
+flowchart LR
+    S1["Requirements"] --> S2["Estimation"]
+    S2 --> S4["Data model"]
+    S4 --> S5["High-level design"]
+    S5 --> S6["Deep dive"]
+    S4 -.-> P1["SQL vs NoSQL,<br/>indexing"]
+    S5 -.-> P2["Load balancing, caching,<br/>CDN, queues"]
+    S6 -.-> P3["Sharding, replication,<br/>consistency, quorum"]
+```
+
 | # | Step | Time |
 |---|------|------|
 | 1 | Requirements and scope: functional and non-functional, confirm scope | 5 min |
