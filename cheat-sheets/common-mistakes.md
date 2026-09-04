@@ -2,6 +2,19 @@
 
 The mistakes that sink system design interviews, and how to avoid each. Most are about process and communication, not missing knowledge.
 
+Most of these are not separate errors. They are one chain, and it starts in the first two minutes:
+
+```mermaid
+flowchart TD
+    A["Jump straight into design"] --> B["Skip estimation"]
+    B --> C["Rabbit-hole on one component"]
+    C --> D["Run out of time"]
+    D --> E["Never reach the deep dive"]
+    E --> F["No-hire"]
+    G["The fix, at either point:<br/>scope first, then cover the whole<br/>design before going deep"] -.-> A
+    G -.-> C
+```
+
 | Mistake | Why it hurts | The fix |
 |---------|--------------|---------|
 | Jumping straight into design | You solve the wrong problem | Clarify requirements and scope first (see the [framework](interview-framework.md)) |

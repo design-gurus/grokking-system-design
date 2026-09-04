@@ -24,6 +24,19 @@ Ask: do messages need to be replayed or consumed by multiple independent readers
 
 ## How to choose
 
+Start from what the consumer needs, not from the brand:
+
+```mermaid
+flowchart TD
+    A{"What does the<br/>consumer need?"} -->|"replay, and several independent<br/>systems reading the same events"| K["Kafka: a replicated log"]
+    A -->|"one task, done once,<br/>by one worker"| B{"Routing keys, priorities, or a<br/>dead-letter flow you control?"}
+    B -->|no| S["SQS: managed queue"]
+    B -->|yes| R["RabbitMQ: a smart broker"]
+    K --> O["Strict global ordering?<br/>None of them, at scale.<br/>Order holds per partition or per group,<br/>so design keys accordingly"]
+    S --> O
+    R --> O
+```
+
 1. Event stream feeding multiple systems (analytics, search indexing, caches) → Kafka. Consumer groups replay independently; retention is your safety net.
 2. Task/job distribution (emails, thumbnails, work items) → a queue. SQS on AWS, RabbitMQ when you need routing keys, priorities, or dead-letter flows you control.
 3. Event sourcing or audit trail → Kafka; the retained, ordered log is the feature.

@@ -12,6 +12,22 @@ Dynamo proved always-available storage but was painful: every team ran its own c
 
 ## Key design ideas
 
+Admission control sits in front of the partitions. That is how one tenant is stopped from starving another.
+
+```mermaid
+flowchart TB
+    C["Request"] --> RT["Request router<br/>and admission control"]
+    RT -->|"hash of the partition key"| P1["Partition 1"]
+    RT --> P2["Partition 2: hot"]
+    P1 --> G
+    subgraph G["Every partition: 3 replicas across AZs"]
+        direction LR
+        L["Leader"] --- F1["Replica"] --- F2["Replica"]
+    end
+    P2 -->|"borrow idle capacity,<br/>then split and rebalance"| P2a["Partition 2a"]
+    P2 --> P2b["Partition 2b"]
+```
+
 | Idea | How it works |
 |------|--------------|
 | Partitioned, replicated storage | Tables split by key hash into partitions ([sharding](../patterns/sharding-partitioning.md)); each partition is a 3-replica group across AZs using Paxos for [leader election](../patterns/leader-election.md) and replication |

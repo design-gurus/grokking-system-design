@@ -69,6 +69,17 @@ Most services translate cleanly. A few do not, and knowing them is senior-level 
 
 ## How to talk about it in an interview
 
+Design in components, and name a vendor only when asked to be concrete:
+
+```mermaid
+flowchart LR
+    A["Name the component<br/>you need"] -->|"for example, an object store"| B["The design is now complete,<br/>and cloud-neutral"]
+    B --> C{"Interviewer asks you<br/>to be concrete"}
+    C -->|AWS| S3["S3"]
+    C -->|GCP| GCS["Cloud Storage"]
+    C -->|Azure| AZ["Blob Storage"]
+```
+
 Do not brand-drop ("I will use S3, Lambda, and DynamoDB") before the design exists. Say "uploads land in an object store, a queue feeds the transcoding workers, and metadata lives in a managed relational database", then translate into whatever cloud the interviewer speaks. Component-first answers show the design transfers; brand-first answers suggest you know one vendor's catalog rather than the underlying system.
 
 ## Go deeper

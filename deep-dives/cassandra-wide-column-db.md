@@ -12,6 +12,20 @@ Applications that write a lot and must stay available across regions, where a si
 
 ## Key design ideas
 
+A peer-to-peer ring on the outside, an append-only log-structured store on the inside.
+
+```mermaid
+flowchart TB
+    C["Client"] --> CO["Any node is<br/>the coordinator"]
+    CO -->|"consistency level:<br/>ONE, QUORUM or ALL"| R1["Replica 1"]
+    CO --> R2["Replica 2"]
+    CO --> R3["Replica 3"]
+    R1 --> L["Commit log"]
+    L --> MT["Memtable<br/>in memory"]
+    MT -->|"flush when full"| SS["Immutable SSTables"]
+    SS -->|"background compaction"| SS
+```
+
 | Idea | How it works |
 |------|--------------|
 | Peer-to-peer ring | No leader; every node is equal, using [consistent hashing](../patterns/consistent-hashing.md) |

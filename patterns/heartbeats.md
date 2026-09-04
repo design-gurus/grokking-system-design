@@ -20,6 +20,22 @@ Two common shapes:
 
 ## The timeout trade-off
 
+You are never observing death. You are observing silence, and choosing how long to wait before acting on it:
+
+```mermaid
+sequenceDiagram
+    participant W as Worker
+    participant C as Coordinator
+    W->>C: heartbeat
+    W->>C: heartbeat
+    Note over W: the worker dies,<br/>or the network drops
+    C->>C: 1 missed
+    C->>C: 2 missed
+    C->>C: 5 missed, 10s elapsed
+    Note over C: declare it dead,<br/>reassign its work
+    Note over W,C: a short timeout finds real failures fast<br/>but declares healthy nodes dead.<br/>A long timeout does the reverse
+```
+
 The detection timeout is the whole game:
 
 | Timeout | Consequence |

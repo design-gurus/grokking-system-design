@@ -12,6 +12,23 @@ Sharded MySQL gave Google scale but no cross-shard transactions, and Bigtable ga
 
 ## Key design ideas
 
+Each split is its own replicated group, so the two-phase commit participants are themselves fault tolerant. TrueTime is what makes timestamps comparable across all of them.
+
+```mermaid
+flowchart TB
+    TT["TrueTime<br/>GPS and atomic clocks"] -.->|"a timestamp plus its uncertainty;<br/>commit waits the uncertainty out"| TX
+    TX["Transaction touching<br/>two splits"] -->|"two-phase commit"| G1
+    TX --> G2
+    subgraph G1["Split A: one Paxos group"]
+        direction LR
+        A1["US"] --- A2["EU"] --- A3["Asia"]
+    end
+    subgraph G2["Split B: one Paxos group"]
+        direction LR
+        B1["US"] --- B2["EU"] --- B3["Asia"]
+    end
+```
+
 | Idea | How it works |
 |------|--------------|
 | TrueTime | GPS and atomic clocks in every datacenter expose time as an interval with bounded uncertainty; Spanner waits out the uncertainty before commit, making timestamp order match real-time order |

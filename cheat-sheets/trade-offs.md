@@ -4,6 +4,18 @@
 
 ## Strong vs eventual consistency
 
+Nearly every trade-off below is one of three arguments wearing different clothes:
+
+```mermaid
+flowchart LR
+    Q["Every trade-off<br/>in an interview"] --> A["Correctness<br/>vs latency"]
+    Q --> B["Cost now<br/>vs cost later"]
+    Q --> C["Simplicity<br/>vs flexibility"]
+    A --> A2["Strong vs eventual consistency,<br/>sync vs async replication"]
+    B --> B2["Push vs pull fan-out,<br/>normalize vs denormalize"]
+    C --> C2["Monolith vs microservices,<br/>SQL vs NoSQL"]
+```
+
 - **Strong:** every read sees the latest write. Use for money, inventory, and anything where a wrong answer is worse than a slow one.
 - **Eventual:** replicas converge over time; a read may be briefly stale. Use for feeds, counts, and profiles.
 - **Pick the weakest the product tolerates**, since weaker is faster and more available. See [consistency models](../patterns/consistency-models.md).

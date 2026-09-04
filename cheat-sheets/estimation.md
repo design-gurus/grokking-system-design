@@ -35,6 +35,18 @@ Takeaway: memory is roughly 100 times faster than SSD, which is far faster than 
 
 ## A worked example
 
+Every estimate is the same short chain. Learn the chain and the numbers follow:
+
+```mermaid
+flowchart LR
+    U["Daily active users"] -->|"x actions per user"| R["Requests per day"]
+    R -->|"divide by 86,400"| RPS["Average requests<br/>per second"]
+    RPS -->|"x 2 or 3"| PK["Peak requests<br/>per second"]
+    R -->|"x bytes per record"| ST["Storage per day"]
+    ST -->|"x 365, x years,<br/>x replication factor"| TOT["Total storage"]
+    RPS -->|"x response size"| BW["Bandwidth"]
+```
+
 100 million writes per day:
 - Per second: 100,000,000 / 100,000 is about 1,000 writes per second.
 - At a 100 to 1 read-to-write ratio: about 100,000 reads per second.

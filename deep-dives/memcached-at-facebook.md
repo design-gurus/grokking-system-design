@@ -12,6 +12,23 @@ Facebook's workload is read-dominated (orders of magnitude more reads than write
 
 ## Key design ideas
 
+Two details carry the whole design: a write deletes the cache entry instead of updating it, and a miss hands out a lease so only one client refills the key.
+
+```mermaid
+sequenceDiagram
+    participant WS as Web server
+    participant MR as mcrouter
+    participant MC as Memcached fleet
+    participant DB as MySQL
+    WS->>MR: 1. get key
+    MR->>MC: consistent hashing picks the node
+    MC-->>WS: 2. miss, plus a short-lived lease token
+    WS->>DB: 3. only the token holder reads
+    DB-->>WS: value
+    WS->>MR: 4. set, and the lease is honoured
+    Note over MC,DB: separately, the replication tail turns every<br/>committed write into a cache delete,<br/>in every region
+```
+
 | Idea | How it works |
 |------|--------------|
 | Look-aside caching | Web servers read the cache first, fall back to MySQL on miss, then populate the cache |

@@ -26,7 +26,7 @@ Name the three properties that make GPU scheduling its own problem:
 ## 3. High-level design
 
 ```mermaid
-flowchart LR
+flowchart TB
     U[Job submissions] --> API[API] --> Q[Priority Queues per team]
     Q --> SCH[Scheduler: gang + topology placement]
     SCH --> ST[(Cluster State Store)]

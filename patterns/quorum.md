@@ -19,6 +19,17 @@ The read touches at least one replica (B) that saw the write, and version number
 
 ## Tuning R and W
 
+The rule is not arbitrary. R plus W greater than N is exactly the condition that forces the two sets to share a replica:
+
+```mermaid
+flowchart TB
+    W["Write, W = 2"] --> A["Replica A"]
+    W --> B["Replica B"]
+    R["Read, R = 2"] --> B
+    R --> C["Replica C"]
+    B -.->|"B is in both sets, so the<br/>read cannot miss the write"| OV["With N = 3, R + W = 4 > 3,<br/>so overlap is guaranteed"]
+```
+
 | Configuration | Effect |
 |---------------|--------|
 | W = N, R = 1 | Fast reads, slow and fragile writes |
