@@ -1,5 +1,7 @@
 # Practice question bank
 
+> Prompts to test yourself against, with no solutions here on purpose.
+
 A list of prompts to test yourself. There are no solutions here on purpose. Try each one end to end using the [interview framework](../cheat-sheets/interview-framework.md), out loud, with a timer. Then check yourself against the walkthrough in this repo (linked where available) or the full course.
 
 **How to practice:** clarify requirements, estimate, define the API and data model, draw the high-level design, deep dive on one part, and finish with bottlenecks and trade-offs. Catch yourself on the [common mistakes](../cheat-sheets/common-mistakes.md).

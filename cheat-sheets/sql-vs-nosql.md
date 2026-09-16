@@ -1,5 +1,7 @@
 # SQL vs NoSQL
 
+> Relational, document, key-value, or wide-column, chosen by the queries the product actually makes.
+
 How to choose a data store, and how to justify it in an interview. The right answer is always "it depends on the access patterns", so state the patterns first.
 
 ## Quick comparison

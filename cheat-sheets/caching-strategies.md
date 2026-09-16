@@ -1,5 +1,7 @@
 # Caching strategies
 
+> Five ways to keep a cache and a database consistent, and the one question that picks between them.
+
 Which part of your system writes to the cache, and when, is the whole decision behind cache-aside, read-through, write-through, write-behind, and refresh-ahead. Each name puts a different component in charge of the cache. (The [caching pattern](../patterns/caching.md) explains how a cache works; this sheet is the decision.)
 
 ## Quick comparison

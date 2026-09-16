@@ -1,5 +1,7 @@
 # DynamoDB vs MongoDB
 
+> One question settles this: can you list every query before you design the schema?
+
 How to choose between the two most-named NoSQL databases in interviews. They solve different problems: DynamoDB is a managed key-value store that demands you know your access patterns up front, and MongoDB is a document database that lets the queries evolve with the product.
 
 ## Quick comparison

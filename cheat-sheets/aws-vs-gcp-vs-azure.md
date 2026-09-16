@@ -1,5 +1,7 @@
 # AWS vs GCP vs Azure: the service translation table
 
+> The same building block under three different names, so you can answer in whatever cloud the interviewer uses.
+
 System design interviews are cloud-neutral. Design in components (an object store, a queue, a managed relational database), then name a vendor service only to be concrete. This table translates between the three big clouds, so you can follow any interviewer's dialect and answer in it.
 
 ## Compute

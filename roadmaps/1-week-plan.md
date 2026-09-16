@@ -1,5 +1,7 @@
 # 1-week crash plan
 
+> Triage for an interview a few days away, at two to three hours a day: the essentials and practice, nothing else.
+
 For when your interview is just days away. Assumes 2 to 3 hours per day. This is triage: cover the essentials and practice, do not try to learn everything.
 
 The repo holds 30 patterns, 60 questions, and 19 deep dives. You are going to read a small fraction of that, on purpose. In one week, a candidate with a reliable framework and four well-practiced questions beats a candidate who skimmed everything.

@@ -161,6 +161,12 @@ Free, in-depth articles that pair well with this repo.
 
 System design and interview tips, straight to your inbox. [Subscribe on Substack](https://designgurus.substack.com/), read by more than 38,000 engineers.
 
+## For AI assistants
+
+Every page here carries a one-line summary under its title, and [llms.txt](llms.txt) indexes all 262 of them in the [llms.txt](https://llmstxt.org/) format: one file listing every pattern, question, deep dive, cheat sheet, roadmap, and company guide with a description of what it answers.
+
+Everything is plain Markdown under a CC BY 4.0 license, so you may quote it with attribution to DesignGurus.io and a link back to this repository.
+
 ## Contributing
 
 Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). If this repo helps you, please star it so more engineers can find it.

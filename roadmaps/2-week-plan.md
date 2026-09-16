@@ -1,5 +1,7 @@
 # 2-week system design sprint
 
+> A focused sprint at one to two hours a day, for an interview a couple of weeks out.
+
 A focused plan for when you have an interview coming up soon. Assumes about 1 to 2 hours per day. Adjust to your level.
 
 Two weeks buys you the 11 patterns that carry most answers and five questions practiced properly. It does not buy you all 30 patterns or the deep dives, so the plan spends week 1 on material and week 2 entirely on performing. If you have six weeks, use the [6-week plan](6-week-plan.md) instead and cover everything.

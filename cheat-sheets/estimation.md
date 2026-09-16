@@ -1,5 +1,7 @@
 # Back-of-the-envelope estimation
 
+> The handful of numbers worth memorizing, and how to turn them into a size for any system.
+
 The numbers worth memorizing so you can size a system quickly and credibly.
 
 ## Latency numbers every engineer should know (approximate)

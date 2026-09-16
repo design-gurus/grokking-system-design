@@ -1,5 +1,7 @@
 # Sharding strategies
 
+> Five ways to map a row to a machine, and the query each one makes expensive.
+
 How to split one dataset across many machines, and how to defend the choice in an interview. Sharding splits one dataset across many machines, and a machine can hold one shard or many. A strategy is the rule that maps a row to a shard, and it decides which queries stay fast and which fall apart. (The [sharding pattern page](../patterns/sharding-partitioning.md) covers the mechanics.)
 
 ## Quick comparison

@@ -1,5 +1,7 @@
 # Senior and staff refresher
 
+> For experienced engineers who have not interviewed in years: a cold diagnostic first, then only the gaps it finds.
+
 For experienced engineers who have not interviewed in years. You have built and operated real systems. Your problem is not learning what a cache is. Your problem is that the interview is a 45-minute performance with its own rules, your mental model of the default stack is a few years stale, and the bar for your level moved while you were shipping.
 
 This plan is organized by gap, not by day. Diagnose first, then fix only what is broken. Most people here need 6 to 10 hours total, not six weeks.

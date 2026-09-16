@@ -1,5 +1,7 @@
 # Kafka vs RabbitMQ vs SQS
 
+> A log, a broker, or a managed queue: choose by what the consumer needs, not by brand.
+
 How to choose a messaging system, and how to justify it in an interview. They are not three brands of the same thing: Kafka is a replicated log, RabbitMQ is a smart broker, SQS is a managed queue. Start from what the consumer needs.
 
 ## Quick comparison

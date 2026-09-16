@@ -1,14 +1,36 @@
 # Cheat sheets: the fast reference
 
-The pages you reread the week before an interview. Patterns teach you how something works and questions give you practice. These sheets are for recall and decisions: the structure to follow, the numbers to quote, and the "which one would you pick" answers interviewers ask for by name.
+> Twenty-seven pages for recall and decisions: the structure to follow, the numbers to quote, and the "which one would you pick" answers interviewers ask for by name.
 
-Twenty-seven sheets, grouped by how you use them.
+The pages you reread the week before an interview. Patterns teach you how something works and questions give you practice. These sheets are what you carry into the room.
+
+They are also the most-read pages in this repo. Four of the six most-viewed content pages are cheat sheets, which is why the collection keeps growing.
 
 ## Start here
 
-1. [The interview framework](interview-framework.md), so you have a repeatable structure for any question.
+1. [The interview framework](interview-framework.md), the most-read page in the repo, and the structure to apply to any question.
 2. [System design in one page](system-design-in-one-page.md), the whole map on one screen.
 3. [Non-functional requirements](non-functional-requirements.md), the constraints that drive every later choice.
+4. [Back-of-the-envelope estimation](estimation.md), the numbers worth memorizing.
+
+## Find the sheet by the decision
+
+Every comparison sheet starts from one question. Find yours here.
+
+| The question in front of you | The sheet |
+|------------------------------|-----------|
+| Which database? | [SQL vs NoSQL](sql-vs-nosql.md), then [PostgreSQL vs DynamoDB vs Cassandra](postgres-vs-dynamodb-vs-cassandra.md) |
+| Do I know every query up front? | [DynamoDB vs MongoDB](dynamodb-vs-mongodb.md) |
+| Which cache, and how does it stay correct? | [Redis vs Memcached](redis-vs-memcached.md), [caching strategies](caching-strategies.md) |
+| A log, a broker, or a managed queue? | [Kafka vs RabbitMQ vs SQS](kafka-vs-rabbitmq-vs-sqs.md), [Kafka vs Kinesis vs Pub/Sub](kafka-vs-kinesis-vs-pubsub.md) |
+| Which API style? | [REST vs gRPC vs GraphQL](rest-vs-grpc-vs-graphql.md) |
+| How do updates reach the client? | [WebSockets vs SSE vs long polling](websockets-vs-sse-vs-long-polling.md) |
+| Which read may be stale? | [Strong vs eventual consistency](strong-vs-eventual-consistency.md) |
+| How do I split the data? | [Sharding strategies](sharding-strategies.md) |
+| Write the feed, or build it on read? | [Push vs pull feeds](push-vs-pull-feeds.md) |
+| How do I count requests per client? | [Rate limiting algorithms](rate-limiting-algorithms.md) |
+| Which layer does the balancer work at? | [L4 vs L7 load balancing](l4-vs-l7-load-balancing.md) |
+| What is this called in the other cloud? | [AWS vs GCP vs Azure](aws-vs-gcp-vs-azure.md) |
 
 ## Running the interview
 

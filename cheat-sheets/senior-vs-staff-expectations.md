@@ -1,5 +1,7 @@
 # Senior vs staff: how the same question is graded differently
 
+> The same question, graded differently by level, and what the interviewer listens for at each one.
+
 The question does not change with level; the grading does. "Design a notification system" is asked at every level from mid to staff+. What changes is who drives, how much ambiguity you are expected to resolve yourself, and how deep the trade-off reasoning goes. Interviewers rarely say this out loud, which is why strong senior candidates get downleveled: they gave a clean mid-level performance.
 
 ## The one-line summary per level

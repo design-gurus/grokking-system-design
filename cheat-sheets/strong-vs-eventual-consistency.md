@@ -1,5 +1,7 @@
 # Strong vs eventual consistency
 
+> Which read is allowed to be stale, and who would notice: the question that picks a consistency model.
+
 How to choose a consistency level, and how to justify it in an interview. The choice is made per piece of data, not once for the whole system. The [consistency models page](../patterns/consistency-models.md) defines each model; this sheet is the decision: which reads may return old data, and which must not.
 
 ## Quick comparison

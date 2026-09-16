@@ -1,5 +1,7 @@
 # REST vs gRPC vs GraphQL
 
+> Choose an API style by who the client is, and whether you control it.
+
 How to choose an API style, and how to justify it in an interview. The decision is mostly about who the client is: a browser you do not control, a service you do, or a product team iterating on screens.
 
 ## Quick comparison
