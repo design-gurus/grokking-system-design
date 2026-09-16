@@ -2,7 +2,7 @@
 
 The pages you reread the week before an interview. Patterns teach you how something works and questions give you practice. These sheets are for recall and decisions: the structure to follow, the numbers to quote, and the "which one would you pick" answers interviewers ask for by name.
 
-Twenty-one sheets, grouped by how you use them.
+Twenty-seven sheets, grouped by how you use them.
 
 ## Start here
 
@@ -51,6 +51,12 @@ The comparison sheets. Each one starts from the question you should ask first, t
 | [REST vs gRPC vs GraphQL](rest-vs-grpc-vs-graphql.md) | Who is the client, and do you control it? | Written |
 | [WebSockets vs SSE vs long polling](websockets-vs-sse-vs-long-polling.md) | Which direction do messages go, and how often? | Written |
 | [AWS vs GCP vs Azure](aws-vs-gcp-vs-azure.md) | What is this service called in the interviewer's cloud? | Written |
+| [Caching strategies](caching-strategies.md) | Who writes to the cache, and when? | Written |
+| [Push vs pull feeds](push-vs-pull-feeds.md) | Do you pay for fan-out at write time or read time? | Written |
+| [Rate limiting algorithms](rate-limiting-algorithms.md) | Do you need to allow bursts, and how much memory can you spend per client? | Written |
+| [Sharding strategies](sharding-strategies.md) | What do you shard on, and which query breaks if you choose wrong? | Written |
+| [Strong vs eventual consistency](strong-vs-eventual-consistency.md) | Which read is allowed to be stale, and who would notice? | Written |
+| [L4 vs L7 load balancing](l4-vs-l7-load-balancing.md) | Does the balancer need to read the request to decide? | Written |
 
 ## How these fit with the rest of the repo
 

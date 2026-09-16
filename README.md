@@ -9,7 +9,7 @@
 
 Most candidates prepare by memorizing answers to a list of questions, then meet a question that is not on the list. This repo takes the other approach. You learn a small set of building blocks, like caching, sharding, replication, and consistency, then apply them to any design problem. Everything here is free to read in your browser, with no account.
 
-**30 patterns · 59 questions · 122 company guides · 19 deep dives · 21 cheat sheets · 4 roadmaps · 134 diagrams**
+**30 patterns · 59 questions · 122 company guides · 19 deep dives · 27 cheat sheets · 4 roadmaps · 134 diagrams**
 
 ## Start here
 
@@ -94,13 +94,13 @@ To add a new question, copy [questions/_template.md](questions/_template.md).
 
 ## Cheat sheets
 
-Twenty-one quick-reference pages, grouped by how you use them. Full index at [cheat-sheets/](cheat-sheets/).
+Twenty-seven quick-reference pages, grouped by how you use them. Full index at [cheat-sheets/](cheat-sheets/).
 
 **Running the interview.** [Interview framework](cheat-sheets/interview-framework.md) · [system design in one page](cheat-sheets/system-design-in-one-page.md) · [non-functional requirements](cheat-sheets/non-functional-requirements.md) · [communication tips](cheat-sheets/communication-tips.md) · [common mistakes](cheat-sheets/common-mistakes.md) · [senior vs staff expectations](cheat-sheets/senior-vs-staff-expectations.md) · [a mock interview, annotated](cheat-sheets/mock-interview-walkthrough.md)
 
 **Numbers and recall.** [Back-of-the-envelope estimation](cheat-sheets/estimation.md) · [latency numbers, visualized](cheat-sheets/latency-numbers.md) · [core components reference](cheat-sheets/core-components.md) · [flashcards](cheat-sheets/flashcards.md)
 
-**Choosing a technology.** [Trade-off decision guides](cheat-sheets/trade-offs.md) · [SQL vs NoSQL](cheat-sheets/sql-vs-nosql.md) · [PostgreSQL vs DynamoDB vs Cassandra](cheat-sheets/postgres-vs-dynamodb-vs-cassandra.md) · [DynamoDB vs MongoDB](cheat-sheets/dynamodb-vs-mongodb.md) · [Redis vs Memcached](cheat-sheets/redis-vs-memcached.md) · [Kafka vs RabbitMQ vs SQS](cheat-sheets/kafka-vs-rabbitmq-vs-sqs.md) · [Kafka vs Kinesis vs Pub/Sub](cheat-sheets/kafka-vs-kinesis-vs-pubsub.md) · [REST vs gRPC vs GraphQL](cheat-sheets/rest-vs-grpc-vs-graphql.md) · [WebSockets vs SSE vs long polling](cheat-sheets/websockets-vs-sse-vs-long-polling.md) · [AWS vs GCP vs Azure](cheat-sheets/aws-vs-gcp-vs-azure.md)
+**Choosing a technology.** [Trade-off decision guides](cheat-sheets/trade-offs.md) · [SQL vs NoSQL](cheat-sheets/sql-vs-nosql.md) · [PostgreSQL vs DynamoDB vs Cassandra](cheat-sheets/postgres-vs-dynamodb-vs-cassandra.md) · [DynamoDB vs MongoDB](cheat-sheets/dynamodb-vs-mongodb.md) · [Redis vs Memcached](cheat-sheets/redis-vs-memcached.md) · [Kafka vs RabbitMQ vs SQS](cheat-sheets/kafka-vs-rabbitmq-vs-sqs.md) · [Kafka vs Kinesis vs Pub/Sub](cheat-sheets/kafka-vs-kinesis-vs-pubsub.md) · [REST vs gRPC vs GraphQL](cheat-sheets/rest-vs-grpc-vs-graphql.md) · [WebSockets vs SSE vs long polling](cheat-sheets/websockets-vs-sse-vs-long-polling.md) · [AWS vs GCP vs Azure](cheat-sheets/aws-vs-gcp-vs-azure.md) · [caching strategies](cheat-sheets/caching-strategies.md) · [push vs pull feeds](cheat-sheets/push-vs-pull-feeds.md) · [rate limiting algorithms](cheat-sheets/rate-limiting-algorithms.md) · [sharding strategies](cheat-sheets/sharding-strategies.md) · [strong vs eventual consistency](cheat-sheets/strong-vs-eventual-consistency.md) · [L4 vs L7 load balancing](cheat-sheets/l4-vs-l7-load-balancing.md)
 
 ## Study roadmaps
 
