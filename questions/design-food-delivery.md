@@ -59,7 +59,7 @@ The courier app streams its location every few seconds. Ingest these pings throu
 ## High-level design
 
 ```mermaid
-flowchart LR
+flowchart TB
     C[Customer app] --> O[Order Service]
     O --> DB[(Order DB and Outbox)]
     DB --> ES[Event Stream]

@@ -12,6 +12,26 @@ Every distributed system needs a little bit of strongly consistent, highly avail
 
 ## Key design ideas
 
+The ensemble on top, and the leader-election recipe below it. Each candidate watches only the one ahead of it, so a failure wakes one client rather than all of them.
+
+```mermaid
+flowchart TB
+    subgraph E["Ensemble"]
+        direction LR
+        LE["Leader<br/>orders every write, via ZAB"] --> F1["Follower<br/>serves reads"]
+        LE --> F2["Follower<br/>serves reads"]
+    end
+    subgraph Z["/election: ephemeral sequential znodes"]
+        direction TB
+        N1["node-0000<br/>lowest, so it is the leader"]
+        N2["node-0001"]
+        N3["node-0002"]
+    end
+    E --> Z
+    N2 -.->|"watches only<br/>its predecessor"| N1
+    N3 -.->|"watches only<br/>its predecessor"| N2
+```
+
 | Idea | How it works |
 |------|--------------|
 | Znode tree | A filesystem-like hierarchy of nodes holding small data (kilobytes); not a general datastore, a coordination surface |

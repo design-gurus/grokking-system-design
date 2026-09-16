@@ -6,6 +6,20 @@ Functional requirements say what the system does (post a tweet, book a ride). No
 
 ## The core qualities
 
+Each quality forces a concrete piece of the design. That is why stating them early is worth so much:
+
+```mermaid
+flowchart LR
+    NFR["Non-functional<br/>requirement"] --> SC["Scalability"]
+    NFR --> AV["Availability"]
+    NFR --> LA["Latency"]
+    NFR --> CO["Consistency"]
+    SC -->|forces| SC2["Sharding and replication"]
+    AV -->|forces| AV2["Redundancy and failover,<br/>no single point of failure"]
+    LA -->|forces| LA2["Caching, a CDN,<br/>and a decision about geography"]
+    CO -->|forces| CO2["Quorums, or an explicit<br/>staleness budget"]
+```
+
 | Quality | The question it answers | What it drives |
 |---------|-------------------------|----------------|
 | Scalability | Can it handle growth in users, data, and traffic? | Sharding, replication, stateless services |

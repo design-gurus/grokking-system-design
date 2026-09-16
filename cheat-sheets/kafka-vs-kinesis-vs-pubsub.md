@@ -26,6 +26,20 @@ Ask: do you need the log itself (replay, compaction, stream processing, portabil
 
 ## How to choose
 
+The first question is whose log it is:
+
+```mermaid
+flowchart TD
+    A{"Whose log is it?"} -->|"yours, and it must be<br/>able to move between clouds"| K["Kafka"]
+    A -->|"AWS, feeding the<br/>AWS analytics stack"| KI["Kinesis"]
+    A -->|"GCP, and you never want<br/>to size a shard again"| P["Pub/Sub"]
+    K --> E{"Event sourcing, replay, or<br/>stateful stream processing?"}
+    E -->|yes| K2["Kafka: the retained log<br/>and its ecosystem are the product"]
+    KI --> O["Strict global ordering?<br/>None of them, at scale."]
+    P --> O
+    K2 --> O
+```
+
 1. Event backbone feeding many independent systems, event sourcing, stateful stream processing → Kafka. The retained log and the ecosystem are the product.
 2. AWS shop moving clickstream or telemetry into the AWS analytics stack → Kinesis. Lambda and Firehose integrations do most of the work for you.
 3. GCP shop, or you never want to think about capacity again → Pub/Sub. There are no shards to size, and it scales while you sleep.

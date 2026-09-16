@@ -12,6 +12,20 @@ For a shopping cart, being unable to write is worse than briefly showing stale d
 
 ## Key design ideas
 
+Any node can coordinate a write, and the write succeeds as soon as W replicas acknowledge it. Nothing in this picture has to be up for the system to stay writable.
+
+```mermaid
+flowchart TB
+    C["Client write"] --> CO["Coordinator<br/>any node on the ring"]
+    CO -->|"send to N replicas"| A["Node A"]
+    CO --> B["Node B"]
+    CO --> D["Node C: down"]
+    A -.->|"W acks, so the write<br/>has already succeeded"| CO
+    B -.-> CO
+    D -->|"write parked on a neighbour,<br/>forwarded later"| H["Hinted handoff"]
+    A <-.->|"anti-entropy<br/>Merkle trees"| B
+```
+
 | Idea | How it works |
 |------|--------------|
 | Partitioning | [Consistent hashing](../patterns/consistent-hashing.md) spreads keys across nodes with minimal reshuffling |

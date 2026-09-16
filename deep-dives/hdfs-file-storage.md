@@ -12,6 +12,19 @@ Storing and streaming huge datasets for analytics, where throughput matters far 
 
 ## Key design ideas
 
+The same split as GFS: metadata through the NameNode, bytes straight from the DataNodes.
+
+```mermaid
+flowchart LR
+    C["Client"] -->|"1. block locations?"| NN["NameNode<br/>namespace + block map"]
+    NN -->|"2. DataNode list,<br/>rack aware"| C
+    C -->|"3. stream blocks directly"| D1["DataNode<br/>rack 1"]
+    C --> D2["DataNode<br/>rack 2"]
+    D1 -.->|"replicated 3x<br/>across racks"| D2
+    D1 -.->|"heartbeats and<br/>block reports"| NN
+    SB["Standby NameNode"] -.->|"takes over on failure"| NN
+```
+
 | Idea | How it works |
 |------|--------------|
 | NameNode | A master node holds the namespace and block metadata (the equivalent of the GFS master) |

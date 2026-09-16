@@ -8,6 +8,17 @@ A consistency model defines how up to date and ordered reads are across replicas
 
 ## The spectrum (strong to weak)
 
+The models form one line, and moving along it is always the same trade:
+
+```mermaid
+flowchart LR
+    L["Linearizable<br/>every read sees<br/>the latest write"] --> SQ["Sequential<br/>everyone sees<br/>the same order"]
+    SQ --> CA["Causal<br/>related writes<br/>stay in order"]
+    CA --> EV["Eventual<br/>replicas converge,<br/>eventually"]
+    L -.-> C1["More coordination:<br/>higher latency,<br/>less availability"]
+    EV -.-> C2["Less coordination:<br/>lower latency,<br/>more availability"]
+```
+
 | Model | What it guarantees |
 |-------|--------------------|
 | Linearizable (strong) | Every read sees the most recent write, as if there were one copy |

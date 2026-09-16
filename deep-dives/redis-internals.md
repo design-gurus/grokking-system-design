@@ -12,6 +12,19 @@ An application that reads and writes shared state on every request cannot pay a 
 
 ## Key design ideas
 
+One command runs start to finish before the next begins. That single fact is where the atomicity comes from, and why there are no locks inside the server.
+
+```mermaid
+flowchart LR
+    C1["Client 1"] --> EV{{"Event loop<br/>watches every socket at once"}}
+    C2["Client 2"] --> EV
+    C3["Client 3"] --> EV
+    EV -->|"one command at a time,<br/>start to finish"| EX["Command execution<br/>single threaded"]
+    EX --> D[("Data structures<br/>in memory")]
+    EX -->|"replies"| IO["I/O threads<br/>write the bytes back"]
+    IO --> C1
+```
+
 | Idea | How it works |
 |------|--------------|
 | Single-threaded command execution | One command runs at a time, start to finish. That is where atomicity comes from, and it means no locks and no contention inside the server. Later versions threaded the network I/O (reading bytes off sockets and writing replies back), not the command loop itself |

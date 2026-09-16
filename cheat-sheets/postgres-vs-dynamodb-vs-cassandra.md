@@ -16,6 +16,19 @@ How to choose between the three stores that cover most interview answers: a rela
 
 ## How to choose
 
+Note where this starts. The default is a real answer, not a placeholder:
+
+```mermaid
+flowchart TD
+    A["Default: PostgreSQL"] --> B{"Is access purely by key,<br/>at huge or spiky scale,<br/>with zero ops wanted?"}
+    B -->|yes| D["DynamoDB"]
+    B -->|no| C{"Is write volume<br/>the defining load?"}
+    C -->|yes| CA["Cassandra: an LSM write path<br/>absorbs floods a B-tree cannot"]
+    C -->|no| A2["Stay on PostgreSQL. One instance<br/>plus read replicas goes further<br/>than candidates think"]
+    D --> P["Most real answers are polyglot:<br/>a relational core, with the<br/>append-shaped data elsewhere"]
+    CA --> P
+```
+
 1. Default to PostgreSQL. Relational data, transactions, flexible queries, and decades of tooling cover the majority of systems, and a single beefy instance with read replicas goes further than candidates think (state the number: tens of thousands of transactions per second).
 2. Access is by key, scale is huge or spiky, and you want zero operations → DynamoDB. Sessions, carts, user profiles, anything shaped like "get item by id" ([shopping cart](../questions/design-amazon-shopping-cart.md) territory).
 3. Write volume is the defining load (time series, events, messages fan-in) and you can shape queries around a partition key → Cassandra. Its LSM write path absorbs write floods that would drown a B-tree.

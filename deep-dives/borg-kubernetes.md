@@ -12,6 +12,20 @@ Static partitioning (giving each team its own permanent set of machines) wastes 
 
 ## Key design ideas
 
+There is no deploy command anywhere in this picture. A controller compares what should be running against what is running, takes one action, and repeats.
+
+```mermaid
+flowchart TB
+    U["You submit<br/>desired state"] --> ST[("Replicated store<br/>Paxos, or etcd on Raft")]
+    ST --> CTRL["Controller"]
+    CTRL -->|observe| OBS["Actual state<br/>on the machines"]
+    OBS -->|difference| CTRL
+    CTRL -->|"one corrective action,<br/>then repeat forever"| SCH["Scheduler"]
+    SCH -->|"filter the machines that fit,<br/>then score the survivors"| N["Machines running serving<br/>and batch work together"]
+    N -->|"a serving job needs room"| PRE["Preempt a batch task<br/>and reschedule it"]
+    PRE --> OBS
+```
+
 | Idea | How it works |
 |------|--------------|
 | Declarative desired state | You submit a description of what should be running, not commands to run; the system continuously drives reality toward that description |

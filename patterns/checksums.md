@@ -19,6 +19,20 @@ The crucial pairing: detection plus **redundancy** equals repair. A checksum alo
 
 ## Where it is used
 
+The value of a checksum is not detection on its own. It is that detection turns a silent failure into a repairable one:
+
+```mermaid
+flowchart TB
+    W["Writer"] -->|"store data plus<br/>its checksum"| D[("Replica A")]
+    W --> D2[("Replica B")]
+    R["Reader"] -->|"read"| D
+    D -->|"recompute the checksum"| CK{"does it match?"}
+    CK -->|yes| OK["serve the data"]
+    CK -->|no| BAD["silent corruption,<br/>now visible"]
+    BAD -->|"fetch a known-good copy"| D2
+    D2 -->|"re-replicate over<br/>the bad block"| D
+```
+
 - Storage: per-block checksums in HDFS, GFS, ZFS; verify on read, repair from a healthy replica.
 - Network transfer: verifying file uploads and downloads end to end (TCP's checksum is weak; applications add their own).
 - Content addressing: when the checksum of the content is also its identifier (Git objects, S3 ETags, Docker layers), integrity checking and deduplication come for free.

@@ -4,6 +4,18 @@
 
 ## What it is
 
+An index buys reads and charges writes. Both halves belong in the answer:
+
+```mermaid
+flowchart LR
+    Q["query filtering<br/>on one column"] --> C{"is there an index<br/>on that column?"}
+    C -->|no| FS["Full table scan:<br/>read every row"]
+    C -->|yes| IX["B-tree on the column"]
+    IX -->|"a few levels<br/>of comparisons"| PTR["Row location"]
+    PTR --> ROW["Read one row"]
+    W["Every insert, update<br/>and delete"] -.->|"must also maintain<br/>every index on the table"| IX
+```
+
 An index is a separate, sorted (or hashed) structure that maps column values to row locations. It turns a full table scan into a fast lookup. The cost is extra storage and slower writes, because every insert, update, or delete must also maintain the index.
 
 ## Common index types

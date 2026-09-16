@@ -12,6 +12,19 @@ Storing very large, semi-structured datasets (web pages, analytics) with fast lo
 
 ## Key design ideas
 
+Three separate systems: tablet servers serve the data, GFS stores it, and Chubby decides who is in charge.
+
+```mermaid
+flowchart TB
+    C["Client"] -->|"reads and writes go<br/>straight to tablet servers"| TS1["Tablet server<br/>rows A to M"]
+    C --> TS2["Tablet server<br/>rows N to Z"]
+    M["Master<br/>assigns tablets"] -.->|"not on the data path"| TS1
+    M -.-> TS2
+    TS1 --> G[("GFS<br/>SSTable files")]
+    TS2 --> G
+    CH["Chubby"] -->|"elects the master,<br/>tracks live tablet servers"| M
+```
+
 | Idea | How it works |
 |------|--------------|
 | Data model | Rows sorted by key, grouped into column families; cells are versioned by timestamp |

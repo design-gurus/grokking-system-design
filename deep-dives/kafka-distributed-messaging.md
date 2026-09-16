@@ -12,6 +12,19 @@ Decoupling producers from consumers while handling millions of events per second
 
 ## Key design ideas
 
+The partition is the unit of everything: ordering, replication, and parallelism. That is why the partition key is the design decision.
+
+```mermaid
+flowchart LR
+    Prod["Producers"] -->|"partition key<br/>picks the partition"| P0["Partition 0<br/>ordered append-only log"]
+    Prod --> P1["Partition 1<br/>ordered append-only log"]
+    P0 -->|"leader replica"| F0["Follower replicas"]
+    P0 --> C1["Consumer A<br/>at offset 4,102"]
+    P1 --> C2["Consumer B<br/>at offset 91"]
+    C1 --- G["One consumer group:<br/>partitions split between members"]
+    C2 --- G
+```
+
 | Idea | How it works |
 |------|--------------|
 | Topics and partitions | A topic is split into partitions; each partition is an ordered, append-only log |

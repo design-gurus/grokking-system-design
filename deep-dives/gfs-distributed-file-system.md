@@ -12,6 +12,19 @@ Google needed to store enormous files (think many gigabytes), written mostly by 
 
 ## Key design ideas
 
+The master answers where, never what. Data never passes through it, which is why a single master can serve a very large cluster.
+
+```mermaid
+flowchart LR
+    C["Client"] -->|"1. which chunkservers<br/>hold chunk N?"| M["Master<br/>metadata only"]
+    M -->|"2. locations"| C
+    C -->|"3. read and write<br/>data directly"| CS1["Chunkserver"]
+    C --> CS2["Chunkserver"]
+    C --> CS3["Chunkserver"]
+    CS1 -.->|"each chunk replicated 3x"| CS2
+    CS2 -.-> CS3
+```
+
 | Idea | How it works |
 |------|--------------|
 | Single master | One master holds all metadata (the namespace and chunk locations) |

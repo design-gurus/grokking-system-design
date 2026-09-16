@@ -25,6 +25,18 @@ Ask: does the client send messages over the same channel, at high frequency?
 
 ## How to choose
 
+Start from the direction and the frequency, not from the technology:
+
+```mermaid
+flowchart TD
+    A{"Which direction do<br/>messages travel?"} -->|"server to client only"| B{"How often?"}
+    A -->|"both ways, constantly"| W["WebSockets:<br/>chat, multiplayer,<br/>collaborative editing"]
+    B -->|"a continuous stream"| S["SSE: notifications, live scores,<br/>progress bars, LLM tokens"]
+    B -->|"every 30 seconds or slower"| P["Plain polling. Do not pay for a<br/>persistent connection to move<br/>slow-changing data"]
+    S -.->|"a corporate proxy<br/>kills the stream"| L["Long polling:<br/>the fallback that still works"]
+    W -.-> L
+```
+
 1. Notification stream, live score, news feed, progress bar → SSE. One direction, plain HTTP, automatic reconnection with resume built in.
 2. Streaming LLM tokens → SSE. This is how ChatGPT and the Claude API deliver output: the client sends one request and reads a stream.
 3. Chat, multiplayer, collaborative editing → WebSockets. The client talks constantly, and a request per message would drown you.

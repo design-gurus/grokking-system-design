@@ -94,6 +94,24 @@ The same question, played twice: once as a borderline no-hire, once as a strong 
 
 ## The difference, in one table
 
+The two rounds diverge in the first five minutes and never converge again:
+
+```mermaid
+flowchart LR
+    subgraph A["Candidate A: borderline no-hire"]
+        direction TB
+        A1["Design immediately"] --> A2["Long detour into<br/>one component"]
+        A2 --> A3["Clock gone"]
+        A3 --> A4["No deep dive,<br/>no trade-offs"]
+    end
+    subgraph B["Candidate B: strong hire"]
+        direction TB
+        B1["Scope and assumptions"] --> B2["Numbers that<br/>change a decision"]
+        B2 --> B3["Design, narrated"]
+        B3 --> B4["Deep dive, plus<br/>stated trade-offs"]
+    end
+```
+
 | Moment | Candidate A | Candidate B |
 |--------|-------------|-------------|
 | First 2 minutes | Named an algorithm | Asked 3 questions, derived a latency budget |

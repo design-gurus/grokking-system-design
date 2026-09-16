@@ -4,6 +4,17 @@ The system design round tests how you think and communicate as much as what you 
 
 ## Drive the conversation
 
+Driving is a loop, not an opening move. You run it once per section of the design:
+
+```mermaid
+flowchart LR
+    A["Say what you are<br/>about to do"] --> B["Do it out loud,<br/>while drawing"]
+    B --> C["Say why you chose it,<br/>and what it costs"]
+    C --> D{"Check in: is this<br/>the direction you want?"}
+    D -->|"interviewer redirects"| A
+    D -->|"no objection"| A
+```
+
 - Use the [interview framework](interview-framework.md) as a visible structure, so the interviewer always knows where you are.
 - State your assumptions out loud and confirm scope before designing.
 - Lead, do not wait to be asked. A senior candidate steers the session.

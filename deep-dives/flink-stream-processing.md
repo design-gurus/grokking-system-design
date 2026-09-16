@@ -12,6 +12,18 @@ Aggregating a never-ending stream raises three questions that simple consumers q
 
 ## Key design ideas
 
+Two things flow through the same graph as the data: watermarks, which decide when a window may close, and barriers, which produce a consistent snapshot without stopping the stream.
+
+```mermaid
+flowchart LR
+    SRC["Source<br/>replayable"] -->|"events, late and<br/>out of order"| OP1["Keyed operator<br/>state in RocksDB"]
+    OP1 --> OP2["Window operator"]
+    OP2 --> SNK["Sink<br/>transactional or idempotent"]
+    WM["Watermark:<br/>nothing older than T<br/>will still arrive"] -.->|"lets the window<br/>close and emit"| OP2
+    BAR["Checkpoint barrier"] -.->|"each operator snapshots<br/>its state as it passes"| OP1
+    BAR -.-> OP2
+```
+
 | Idea | How it works |
 |------|--------------|
 | Event time vs processing time | Event time is when the thing actually happened. Processing time is when your machine saw it. Correct results need event time, because the network delivers events late and out of order |

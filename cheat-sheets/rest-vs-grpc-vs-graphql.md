@@ -16,6 +16,18 @@ How to choose an API style, and how to justify it in an interview. The decision 
 
 ## How to choose
 
+The decision is mostly about who the client is:
+
+```mermaid
+flowchart TD
+    A{"Who is the client?"} -->|"public or third party,<br/>and a CDN should cache it"| R["REST"]
+    A -->|"another service<br/>inside your backend"| G["gRPC"]
+    A -->|"many client shapes, screens<br/>that aggregate several resources"| Q["GraphQL"]
+    R --> M["Mixed is normal, and worth saying:<br/>gRPC inside, REST or GraphQL at the edge,<br/>translated by an API gateway"]
+    G --> M
+    Q --> M
+```
+
 1. Public-facing API, third-party consumers, or anything a CDN should [cache](../patterns/cdn.md) → REST. Ubiquity and HTTP semantics (status codes, caching, retries) are the feature.
 2. Service-to-service inside your backend → gRPC. Typed contracts stop drift between teams, binary encoding cuts latency and cost, and streaming is native. This is the default answer for internal microservices.
 3. Many client shapes (web, iOS, Android) hitting the same data, with screens that aggregate several resources → GraphQL. Clients fetch a screen in one round trip instead of six under-fetching REST calls, and frontend teams ship without waiting for new endpoints.

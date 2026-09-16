@@ -25,6 +25,19 @@ Ask: can you list every query the application will ever make?
 
 ## How to choose
 
+One question decides most of it, and the rest are tie-breakers:
+
+```mermaid
+flowchart TD
+    A{"Do you know every<br/>query up front?"} -->|"yes, and it is by key"| D["DynamoDB"]
+    A -->|"no, they will keep<br/>evolving with the product"| M["MongoDB"]
+    D --> B{"Any of these apply?"}
+    M --> B
+    B -->|"serverless, scale to zero"| D2["DynamoDB"]
+    B -->|"aggregation on live data"| M2["MongoDB: DynamoDB has none,<br/>so you export or keep counters"]
+    B -->|"multi-cloud or on-premises<br/>is on the roadmap"| M3["MongoDB:<br/>DynamoDB does not travel"]
+```
+
 1. Access is by key, scale is huge or spiky, and you are on AWS → DynamoDB. Sessions, carts, profiles, feature flags ([shopping cart](../questions/design-amazon-shopping-cart.md) territory).
 2. Content-shaped data with evolving queries (catalogs, profiles, user-generated content) → MongoDB. The document is the product entity, and you will keep inventing new queries against it.
 3. Serverless architecture that should scale to zero → DynamoDB. Pay-per-request makes it the natural database for Lambda-shaped systems.

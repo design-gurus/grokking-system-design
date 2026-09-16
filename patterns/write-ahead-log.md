@@ -18,6 +18,17 @@ Sequential appends are the fastest thing a disk can do, which is why WALs make s
 
 ## Where it is used
 
+The client is acknowledged after step 1, not step 3. That is what makes a crash survivable and why the write is fast:
+
+```mermaid
+flowchart LR
+    CH["Change"] -->|"1. append and fsync"| L["Write-ahead log<br/>a sequential disk write"]
+    L -->|"2. acknowledge"| CL["Client"]
+    L -->|"3. apply, later"| ST["Data files and<br/>in-memory state"]
+    X["Crash before step 3"] -.->|"in-memory state is lost"| ST
+    L -->|"on restart, replay from<br/>the last checkpoint"| ST
+```
+
 - Every serious database: PostgreSQL's WAL, MySQL's redo log, the memtable-plus-WAL design in LSM stores (Cassandra, RocksDB, [BigTable](../deep-dives/bigtable-wide-column-store.md)).
 - [Replication](replication.md): the log of changes is exactly what you ship to replicas (Postgres streaming replication, MySQL binlog).
 - [Kafka](../deep-dives/kafka-distributed-messaging.md) generalizes the idea: the log itself is the product, and consumers are just replayers.
