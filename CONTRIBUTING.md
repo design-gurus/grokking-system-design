@@ -24,6 +24,7 @@ Thanks for helping improve this free system design interview guide. Contribution
 ## Style
 
 - One concept per file.
+- **Every content page opens with a one-line summary**, written as a blockquote directly under the title, before any other text. It should say what the page settles or explains, in one sentence. This is not decoration: `llms.txt` is generated from these lines, so a page without one breaks the generator, and an AI assistant quoting the page picks up the summary in the same chunk. The templates already include it.
 - Use relative links between files so they work on GitHub.
 - Prefer simple ASCII or Mermaid diagrams that render on GitHub.
 - Links to designgurus.io carry campaign parameters so we can see which pages send readers there. Append `?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=<page>`, where `<page>` is the file path with slashes turned into dashes and `.md` dropped (`cheat-sheets/estimation.md` becomes `cheat-sheets-estimation`). Links to any other site stay plain.

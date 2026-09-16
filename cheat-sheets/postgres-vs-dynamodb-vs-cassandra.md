@@ -1,5 +1,7 @@
 # PostgreSQL vs DynamoDB vs Cassandra
 
+> The SQL versus NoSQL argument made concrete, with three real stores and the access patterns each one fits.
+
 How to choose between the three stores that cover most interview answers: a relational database, a managed key-value service, and a write-optimized wide-column store. This is [SQL vs NoSQL](sql-vs-nosql.md) made concrete.
 
 ## Quick comparison

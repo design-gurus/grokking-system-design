@@ -1,5 +1,7 @@
 # Interview communication tips
 
+> How to sound like a senior engineer while you are still working the problem out.
+
 The system design round tests how you think and communicate as much as what you know. Here is how to come across as a strong, senior candidate.
 
 ## Drive the conversation

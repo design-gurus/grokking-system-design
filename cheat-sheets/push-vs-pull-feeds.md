@@ -1,5 +1,7 @@
 # Push vs pull feeds
 
+> Pay for fan-out when the post is written, or when the feed is opened. Accounts with millions of followers decide it.
+
 Copying one new post out to everyone who should see it is called fan-out. The only real choice is when you pay for that work: write the post into every follower's feed at post time, or assemble the feed when a reader opens the app. Start from the ratio of reads to writes, then look at the largest follower count in the product. ([Design Twitter](../questions/design-twitter.md) and [design Instagram](../questions/design-instagram.md) work the full designs; this sheet is only the decision.)
 
 ## Quick comparison

@@ -1,5 +1,7 @@
 # 6-week study plan
 
+> Build real depth from a baseline at about an hour a day, covering all 30 patterns and all 19 deep dives.
+
 A thorough plan for building real depth from a baseline. Assumes about 1 hour per day. If you have less time, see the [2-week sprint](2-week-plan.md) or the [1-week crash plan](1-week-plan.md). If you have interviewed before and are rusty rather than new, use the [senior and staff refresher](senior-staff-refresher.md) instead, which starts by finding your gaps rather than covering everything.
 
 Six weeks is enough to cover all 30 patterns, roughly 20 questions, and the 19 deep dives, with time left for mock interviews. The plan front-loads the material you use in every answer and leaves the specialized material for later, so that if you run out of time in week 5 you have still covered what matters most.

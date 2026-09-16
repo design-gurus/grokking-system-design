@@ -1,5 +1,7 @@
 # Redis vs Memcached
 
+> A pure cache or a data structure server: decide by whether you need more than GET and SET.
+
 How to choose an in-memory store, and how to justify it in an interview. Short version: Memcached is a pure [cache](../patterns/caching.md); Redis is a data-structure server that also caches. If the answer is not obvious, ask whether you need anything besides GET and SET.
 
 ## Quick comparison

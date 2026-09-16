@@ -1,5 +1,7 @@
 # L4 vs L7 load balancing
 
+> Does the balancer need to read the request to decide where it goes? That one question settles it.
+
 One choice: spread traffic by network address, or by what each request actually asks for. A load balancer spreads traffic over many servers. Layer 4 (the transport layer) forwards packets by IP address and port. Layer 7 (the application layer) reads the HTTP request, so it can route on the path, a header, or a cookie. DNS and anycast sit above both and pick which balancer you reach. (The [load balancing pattern](../patterns/load-balancing.md) explains how each works; this sheet is the decision.)
 
 ## Quick comparison

@@ -1,5 +1,7 @@
 # Latency numbers: the one-page visual
 
+> Every latency worth knowing on one ladder, and the design rules that follow from it.
+
 Every latency number worth knowing, on one page. These numbers are why systems are designed the way they are: caching exists because of the first rows, CDNs exist because of the last one. Memorize the ladder, and half of system design becomes obvious.
 
 ## The ladder

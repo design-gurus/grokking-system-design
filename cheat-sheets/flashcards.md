@@ -1,5 +1,7 @@
 # System design flashcards
 
+> Question and answer cards over every core pattern, for finding the gaps in your recall.
+
 Rapid-fire question and answer cards over the core patterns. Use them to find the gaps in your recall before an interview.
 
 ## How to use this deck

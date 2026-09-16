@@ -1,5 +1,7 @@
 # Rate limiting algorithms
 
+> Five counting algorithms compared by the bursts they allow and the memory each client costs.
+
 Which counting algorithm a rate limiter should use, decided by the burst you allow and the memory each client costs. Token bucket and leaky bucket shape traffic against a rate. The three window algorithms count events in a window instead. ([Rate limiting](../patterns/rate-limiting.md) covers what the pattern does and where it runs; this sheet is the choice between the five.)
 
 ## Quick comparison

@@ -1,5 +1,7 @@
 # A mock interview, annotated: two candidates, one question
 
+> One question answered twice, once as a no-hire and once as a hire, with notes on where each one earned or lost signal.
+
 The same question, played twice: once as a borderline no-hire, once as a strong hire. The margin notes mark where signal was earned or lost. Both transcripts are condensed; a real round is 40 to 45 minutes. The question is [design a rate limiter](../questions/design-rate-limiter.md), and the [interview framework](interview-framework.md) is the structure both candidates should be following.
 
 ---

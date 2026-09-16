@@ -1,5 +1,7 @@
 # The system design interview framework
 
+> The seven steps of a 45 minute round, and how many minutes each one deserves.
+
 A repeatable structure you can apply to any question. Memorize the steps, not the answers. Below is a common pacing for a 45-minute round.
 
 | Step | What you do | Time |

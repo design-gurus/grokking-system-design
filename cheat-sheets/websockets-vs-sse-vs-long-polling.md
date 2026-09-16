@@ -1,5 +1,7 @@
 # WebSockets vs SSE vs long polling
 
+> Choose a real-time transport by which way the messages travel, and how often.
+
 How to choose a real-time delivery mechanism, and how to justify it in an interview. They are not three qualities of the same thing: long polling simulates push with ordinary requests, Server-Sent Events stream one way over plain HTTP, and WebSockets replace HTTP with a two-way channel. Start from the direction and frequency of messages. (The [pattern page](../patterns/long-polling-websockets-sse.md) explains how each works; this sheet is the decision.)
 
 ## Quick comparison

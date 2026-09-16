@@ -1,5 +1,7 @@
 # Common mistakes and anti-patterns
 
+> The errors that cost strong candidates the offer, and what to do instead of each one.
+
 The mistakes that sink system design interviews, and how to avoid each. Most are about process and communication, not missing knowledge.
 
 Most of these are not separate errors. They are one chain, and it starts in the first two minutes:

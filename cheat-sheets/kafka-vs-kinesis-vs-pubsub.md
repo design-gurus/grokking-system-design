@@ -1,5 +1,7 @@
 # Kafka vs Kinesis vs Pub/Sub
 
+> Three managed streams compared by whose log it is, how capacity is billed, and whether you can replay.
+
 How to choose an event streaming platform when the realistic answer is a managed cloud service as often as it is running Kafka. The three are cousins, not clones: Kafka is a partitioned log you operate (or pay someone to), Kinesis is AWS's shard-based stream, and Pub/Sub is Google's global topic service with no partitions to manage at all.
 
 ## Quick comparison
