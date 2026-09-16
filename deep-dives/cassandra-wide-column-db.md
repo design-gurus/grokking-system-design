@@ -68,6 +68,5 @@ It is a weak choice for a small dataset, and for money movement and other work t
 ## Go deeper
 
 - Related deep dive: [Dynamo: a key-value store](dynamo-key-value-store.md)
-- Choosing a sharding strategy: [sharding strategies](../cheat-sheets/sharding-strategies.md)
 - For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-cassandra-wide-column-db)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-cassandra-wide-column-db)

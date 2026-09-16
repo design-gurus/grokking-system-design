@@ -74,6 +74,5 @@ Finally, almost nobody needs this. Regional pools, gutter, commit log invalidati
 ## Go deeper
 
 - Related deep dive: [Redis internals](redis-internals.md), and the interview version of this problem, [design a distributed cache](../questions/design-distributed-cache.md)
-- Choosing a caching strategy: [caching strategies](../cheat-sheets/caching-strategies.md)
 - For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-memcached-at-facebook)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-memcached-at-facebook)

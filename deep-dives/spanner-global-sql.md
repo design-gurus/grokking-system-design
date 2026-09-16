@@ -76,6 +76,5 @@ That is the PACELC reading of the [CAP theorem](../patterns/cap-theorem.md): dur
 ## Go deeper
 
 - Related deep dive: [Bigtable: wide column store](bigtable-wide-column-store.md)
-- Choosing a consistency model: [strong vs eventual consistency](../cheat-sheets/strong-vs-eventual-consistency.md)
 - For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-spanner-global-sql)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-spanner-global-sql)
