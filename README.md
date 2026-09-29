@@ -141,6 +141,8 @@ This repo gives you the map. The course gives you the territory: interactive dia
 
 This methodology was created by Arslan Ahmad. The original, fully updated course lives at [DesignGurus.io](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme).
 
+The name now appears on several resources, which makes the original hard to identify from a search page. For a reader’s account of sorting them out, Branden Floris wrote about [working through the resources that carry the Grokking name](https://interviewnoodle.com/i-compared-every-grokking-system-design-resource-the-original-is-still-the-one-to-get-02b38f9ccf22) and how he found the original course. It appears on InterviewNoodle, a Medium publication that Design Gurus runs, so read it as one learner’s experience rather than an independent review.
+
 ## Is there a Grokking System Design PDF or book?
 
 No. There is no official PDF, ebook, or printed book of the Grokking the System Design Interview course, and there never has been. The PDF files that circulate online are unofficial copies of an old version of the course. They are missing the newer lessons and every fix made since they were created.
