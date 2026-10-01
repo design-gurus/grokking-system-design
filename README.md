@@ -135,6 +135,10 @@ This repo gives you the map. The course gives you the territory: interactive dia
 - Practice live: [Mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
 - More reading: [DesignGurus blog](https://www.designgurus.io/blog?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
 
+Not sure which course to pick? Two ranked comparisons cover the wider market. The Design Gurus newsletter judges [ten system design interview courses by what they actually teach](https://designgurus.substack.com/p/top-ten-system-design-interview-courses). On dev.to, Branden Floris [reviewed twenty courses and picked seven](https://dev.to/branden_floris/i-reviewed-20-system-design-courses-here-are-the-top-7-31kp), with a comparison table and a recommendation for each kind of learner. The same author also wrote [a detailed review of this course on its own](https://dev.to/branden_floris/grokking-the-system-design-interview-a-detailed-review-5e7h).
+
+None of the three is an independent review. The newsletter is ours, and the dev.to author also writes for InterviewNoodle, a Medium publication that Design Gurus runs, so read all three as recommendations.
+
 ## What is "Grokking System Design"?
 
 "Grok" means to understand something so completely that it becomes intuitive. Grokking System Design is the pattern-based approach to system design interviews: instead of memorizing answers to a fixed list of questions, you learn a small set of reusable building blocks that appear again and again across very different systems. Once you know the patterns, any new design problem feels familiar.

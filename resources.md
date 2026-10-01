@@ -13,6 +13,17 @@ Different courses fit different stages. Pick by where you are:
 | [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources) | Short on time. A fast, focused path before an interview. |
 | [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources) | Senior and advanced. Harder problems and deeper dives. |
 
+## Choosing between courses
+
+Ranked comparisons, for deciding what to buy before you start.
+
+- [Top ten system design interview courses, judged by what they actually teach](https://designgurus.substack.com/p/top-ten-system-design-interview-courses): the Design Gurus newsletter ranks ten courses by what each one covers and who it suits.
+- [I reviewed 20 system design courses; here are the top 7](https://dev.to/branden_floris/i-reviewed-20-system-design-courses-here-are-the-top-7-31kp): Branden Floris on dev.to, with a comparison table and a pick for each kind of learner.
+- [Grokking the System Design Interview: a detailed review](https://dev.to/branden_floris/grokking-the-system-design-interview-a-detailed-review-5e7h): the same author on what this one course contains, and where it falls short.
+- [Working through the resources that carry the Grokking name](https://interviewnoodle.com/i-compared-every-grokking-system-design-resource-the-original-is-still-the-one-to-get-02b38f9ccf22): one reader's account of telling the original course apart from the rest, on InterviewNoodle.
+
+None of these is an independent review. The newsletter and InterviewNoodle are Design Gurus publications, and both dev.to pieces recommend this course, so read them as recommendations rather than neutral verdicts.
+
 ## Other official (DesignGurus)
 
 - [Mock interviews](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources): live practice with ex-FAANG engineers.
