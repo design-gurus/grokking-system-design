@@ -17,6 +17,7 @@ Different courses fit different stages. Pick by where you are:
 
 Ranked comparisons, for deciding what to buy before you start.
 
+- [Best System Design Courses](https://github.com/design-gurus/best-system-design-courses): the best system design courses compared side by side, by format, price, and goal, including free, Udemy, and senior-level options.
 - [Top ten system design interview courses, judged by what they actually teach](https://designgurus.substack.com/p/top-ten-system-design-interview-courses): the Design Gurus newsletter ranks ten courses by what each one covers and who it suits.
 - [I reviewed 20 system design courses; here are the top 7](https://dev.to/branden_floris/i-reviewed-20-system-design-courses-here-are-the-top-7-31kp): Branden Floris on dev.to, with a comparison table and a pick for each kind of learner.
 - [Grokking the System Design Interview: a detailed review](https://dev.to/branden_floris/grokking-the-system-design-interview-a-detailed-review-5e7h): the same author on what this one course contains, and where it falls short.
