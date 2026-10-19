@@ -28,7 +28,7 @@ None of these is an independent review. The newsletter and InterviewNoodle are D
 
 - [Mock interviews](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources): live practice with ex-FAANG engineers.
 - [DesignGurus blog](https://www.designgurus.io/blog?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources): free articles on system design and interview prep.
-- [DesignGurus YouTube](https://www.youtube.com/@DesignGurus): free video lessons.
+- [DesignGurus YouTube](https://www.youtube.com/@designgurus1173): free video lessons.
 - [Newsletter](https://designgurus.substack.com/): system design and interview tips by email.
 
 ## Free deep-dive blogs
