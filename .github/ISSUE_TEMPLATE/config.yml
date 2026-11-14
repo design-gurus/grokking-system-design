@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Ask a question
+    url: https://github.com/design-gurus/grokking-system-design/discussions/categories/q-a
+    about: Stuck on a design or a concept? Ask in Discussions, where answers help everyone.
+  - name: Suggest and vote on the next question
+    url: https://github.com/design-gurus/grokking-system-design/discussions/28
+    about: Add your idea or upvote an existing one. The most-voted questions get written first.

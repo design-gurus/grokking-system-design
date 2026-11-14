@@ -7,7 +7,7 @@ assignees: ''
 ---
 
 **Topic**
-<!-- What should we write about? e.g. "Design a rate limiter" -->
+<!-- What should we write about? for example "Design a digital wallet". Check questions/ first, it may already exist. -->
 
 **Why it matters**
 <!-- Interview relevance, companies that ask it, gaps in existing content -->
