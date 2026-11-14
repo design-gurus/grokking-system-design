@@ -4,6 +4,8 @@
 
 The pages you reread the week before an interview. Patterns teach you how something works and questions give you practice. These sheets are what you carry into the room.
 
+To read or print them offline, **[download all 27 sheets and the 4 study plans as one free PDF](https://github.com/design-gurus/grokking-system-design/releases/latest/download/grokking-system-design-cheat-sheets.pdf)**.
+
 They are also the most-read pages in this repo. Four of the six most-viewed content pages are cheat sheets, which is why the collection keeps growing.
 
 ## Start here

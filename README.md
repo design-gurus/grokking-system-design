@@ -11,6 +11,8 @@ Most candidates prepare by memorizing answers to a list of questions, then meet 
 
 **30 patterns · 59 questions · 122 company guides · 19 deep dives · 27 cheat sheets · 4 roadmaps · 134 diagrams**
 
+Prefer to read offline? **[Download the free cheat sheet PDF](https://github.com/design-gurus/grokking-system-design/releases/latest/download/grokking-system-design-cheat-sheets.pdf)**, all 27 cheat sheets and 4 study plans in one file.
+
 ## Start here
 
 | Your situation | Start with |
@@ -150,7 +152,9 @@ The name now appears on several resources, which makes the original hard to iden
 
 ## Is there a Grokking System Design PDF or book?
 
-No. There is no official PDF, ebook, or printed book of the Grokking the System Design Interview course, and there never has been. The PDF files that circulate online are unofficial copies of an old version of the course. They are missing the newer lessons and every fix made since they were created.
+There is no PDF, ebook, or printed book of the Grokking the System Design Interview course, and there never has been. The PDF files that circulate online are unofficial copies of an old version of the course. They are missing the newer lessons and every fix made since they were created.
+
+There is one free, official PDF: **[Grokking System Design: Free Cheat Sheets](https://github.com/design-gurus/grokking-system-design/releases/latest/download/grokking-system-design-cheat-sheets.pdf)**. It collects the 27 cheat sheets and 4 study plans from this repository into one file for offline reading and printing. It is the free companion reference, not the course. Each new edition is published under [Releases](https://github.com/design-gurus/grokking-system-design/releases).
 
 This repository is the official free way to read the material: every pattern guide, question, and cheat sheet here is free in your browser, no account needed. The full, current course is online at [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme). For more detail, see [Is there a free official download?](https://www.designgurus.io/answers/detail/grokking-system-design-pdf-is-there-a-free-official-download?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=readme)
 
