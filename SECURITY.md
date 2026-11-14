@@ -12,6 +12,8 @@ Instead, report it privately through GitHub:
 2. Click **Report a vulnerability**.
 3. Describe the problem, where it is (file path or link), and how it could be exploited.
 
+If the button is not available, email hello@designgurus.org instead.
+
 We will acknowledge your report as soon as we can and keep you updated while we look into it.
 
 ## Scope
