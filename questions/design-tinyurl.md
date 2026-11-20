@@ -138,5 +138,5 @@ The 301 versus 302 choice is the most common follow-up in this question, and the
 
 ## Go deeper
 
+- Full worked solution: the lesson [Designing a URL Shortening Service like TinyURL](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/designing-a-url-shortening-service-like-tinyurl?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-tinyurl) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-tinyurl), free to read as a preview.
 - Read more (free): [How to Design a URL Shortener](https://www.designgurus.io/blog/url-shortening?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-tinyurl)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-tinyurl)

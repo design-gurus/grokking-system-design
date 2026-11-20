@@ -138,5 +138,5 @@ The most common follow-up is tail latency. With 500 shards, even a 1 in 1,000 ch
 
 ## Go deeper
 
+- Closest worked solution: the lesson "Designing Twitter Search" in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-search), which builds the same sharded inverted index over a smaller corpus.
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-search)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-search)

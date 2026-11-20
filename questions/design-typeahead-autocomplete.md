@@ -137,5 +137,5 @@ The most common follow-up is freshness against cost. Rebuilding the whole map ev
 
 ## Go deeper
 
+- Full worked solution: the lesson "Designing Typeahead Suggestion" in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-typeahead-autocomplete).
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-typeahead-autocomplete)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-typeahead-autocomplete)

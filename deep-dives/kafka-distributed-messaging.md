@@ -72,6 +72,6 @@ The rest of the cost is operational: rebalances, lag alerts, shrinking in-sync s
 
 - Related deep dive: [Flink stream processing](flink-stream-processing.md)
 - Practice question: [design a distributed message queue](../questions/design-distributed-message-queue.md)
-- Read more (free): [RabbitMQ vs Kafka vs ActiveMQ](https://www.designgurus.io/blog/rabbitmq-kafka-activemq-system-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-kafka-distributed-messaging)
 - For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-kafka-distributed-messaging)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-kafka-distributed-messaging)
+- Read more (free): [RabbitMQ vs Kafka vs ActiveMQ](https://www.designgurus.io/blog/rabbitmq-kafka-activemq-system-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-kafka-distributed-messaging)

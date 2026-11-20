@@ -61,5 +61,5 @@ flowchart LR
 
 ## Go deeper
 
+- Full worked solution: the lesson "Designing a Web Crawler" in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-web-crawler).
 - Read more (free): [How to Design a Web Crawler](https://www.designgurus.io/blog/design-web-crawler?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-web-crawler)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-web-crawler)

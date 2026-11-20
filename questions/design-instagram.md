@@ -67,5 +67,5 @@ flowchart LR
 
 ## Go deeper
 
+- Full worked solution: the lesson [Designing Instagram](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/designing-instagram?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-instagram) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-instagram), free to read as a preview.
 - Read more (free): [How to Design Instagram](https://www.designgurus.io/blog/how-to-design-instagram-in-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-instagram)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-instagram)

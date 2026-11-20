@@ -141,6 +141,6 @@ The common follow-up is synchronous versus asynchronous replication. Synchronous
 
 ## Go deeper
 
-- Read more (free): [Ultimate Guide to Redis in System Design](https://www.designgurus.io/blog/redis-guide?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-distributed-cache)
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-distributed-cache)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-distributed-cache)
+- Read more (free): [Ultimate Guide to Redis in System Design](https://www.designgurus.io/blog/redis-guide?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-distributed-cache)

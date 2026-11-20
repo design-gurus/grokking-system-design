@@ -41,5 +41,5 @@ flowchart LR
 
 ## Go deeper
 
-- For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-youtube-likes-counter)
+- Full worked solution: the chapter [Designing YouTube Likes Counter](https://www.designgurus.io/course-play/grokking-system-design-interview-ii/doc/youtube-counter?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-youtube-likes-counter) in [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-youtube-likes-counter), a 10-step walkthrough you can start reading free.
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-youtube-likes-counter)
