@@ -141,5 +141,6 @@ The most common follow-up is freshness versus cost. The batch job alone is cheap
 
 ## Go deeper
 
+- Full worked solution for the AI round: the lesson "Capstone: People You May Know" in [Grokking the AI System Design Interview](https://www.designgurus.io/course/grokking-the-ai-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-people-you-may-know).
 - Quick, focused prep: [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-people-you-may-know)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-people-you-may-know)

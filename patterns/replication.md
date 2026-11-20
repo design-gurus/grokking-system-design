@@ -124,6 +124,6 @@ Point 2 is the one interviewers push on. "Async" without a number for the loss w
 
 ## Go deeper
 
-- Read more (free): [Data Replication Strategies](https://www.designgurus.io/blog/data-replication-strategies-system-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-replication)
 - Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-replication)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-replication)
+- Read more (free): [Data Replication Strategies](https://www.designgurus.io/blog/data-replication-strategies-system-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-replication)

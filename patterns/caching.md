@@ -139,6 +139,6 @@ Point 5 is the one interviewers push on. If your database cannot serve the traff
 
 ## Go deeper
 
-- Read more (free): [Caching in System Design Interviews](https://www.designgurus.io/blog/caching-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-caching)
 - Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-caching)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-caching)
+- Read more (free): [Caching in System Design Interviews](https://www.designgurus.io/blog/caching-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-caching)

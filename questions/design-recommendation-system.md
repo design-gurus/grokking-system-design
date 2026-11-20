@@ -52,6 +52,7 @@ flowchart LR
 
 ## Go deeper
 
-- Read more (free): [How to Design a Recommendation System](https://www.designgurus.io/blog/design-recommendation-system?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-recommendation-system)
-- For the full worked solution: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-recommendation-system)
+- Full worked solution: the chapter "Design a Recommendation System" in [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-recommendation-system), a 7-step walkthrough.
+- For the ML round: the lesson [Design a Recommendation System](https://www.designgurus.io/course-play/grokking-the-ai-system-design-interview/doc/design-a-recommendation-system?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-recommendation-system) in [Grokking the AI System Design Interview](https://www.designgurus.io/course/grokking-the-ai-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-recommendation-system), free to read as a preview.
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-recommendation-system)
+- Read more (free): [How to Design a Recommendation System](https://www.designgurus.io/blog/design-recommendation-system?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-recommendation-system)

@@ -121,6 +121,6 @@ Point 4 is the one interviewers push on. Without virtual nodes, the ring is unev
 
 ## Go deeper
 
-- Read more (free): [Consistent Hashing vs Traditional Hashing](https://www.designgurus.io/blog/consistent-hashing-vs-traditional-hashing?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistent-hashing)
 - Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistent-hashing)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistent-hashing)
+- Read more (free): [Consistent Hashing vs Traditional Hashing](https://www.designgurus.io/blog/consistent-hashing-vs-traditional-hashing?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=patterns-consistent-hashing)

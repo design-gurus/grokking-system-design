@@ -42,4 +42,6 @@ What breaks first at scale, and how you would address it. Reference the [pattern
 
 ## Go deeper
 
-Link to the full worked solution in the [course](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-QUESTION-SLUG).
+<!-- Lead with the course lesson that solves this problem, by its exact title. If the lesson is a free preview, link the lesson itself too. If no lesson matches, link the course instead. Free blog posts go last. -->
+
+- Full worked solution: the lesson "LESSON TITLE" in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-QUESTION-SLUG).

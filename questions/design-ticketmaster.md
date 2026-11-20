@@ -76,5 +76,5 @@ flowchart LR
 
 ## Go deeper
 
+- Full worked solution: the lesson "Designing Ticketmaster" in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-ticketmaster).
 - Related: [Design a flash sale system](design-flash-sale-system.md) (counted inventory instead of identified seats).
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-ticketmaster)
