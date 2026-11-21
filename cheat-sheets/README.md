@@ -1,10 +1,10 @@
 # Cheat sheets: the fast reference
 
-> Twenty-seven pages for recall and decisions: the structure to follow, the numbers to quote, and the "which one would you pick" answers interviewers ask for by name.
+> Thirty-five pages for recall and decisions: the structure to follow, the numbers to quote, and the "which one would you pick" answers interviewers ask for by name.
 
 The pages you reread the week before an interview. Patterns teach you how something works and questions give you practice. These sheets are what you carry into the room.
 
-To read or print them offline, **[download all 27 sheets and the 4 study plans as one free PDF](https://github.com/design-gurus/grokking-system-design/releases/latest/download/grokking-system-design-cheat-sheets.pdf)**.
+To read or print them offline, **[download 27 of the sheets and 4 study plans as one free PDF](https://github.com/design-gurus/grokking-system-design/releases/latest/download/grokking-system-design-cheat-sheets.pdf)**.
 
 They are also the most-read pages in this repo. Four of the six most-viewed content pages are cheat sheets, which is why the collection keeps growing.
 
@@ -33,6 +33,14 @@ Every comparison sheet starts from one question. Find yours here.
 | How do I count requests per client? | [Rate limiting algorithms](rate-limiting-algorithms.md) |
 | Which layer does the balancer work at? | [L4 vs L7 load balancing](l4-vs-l7-load-balancing.md) |
 | What is this called in the other cloud? | [AWS vs GCP vs Azure](aws-vs-gcp-vs-azure.md) |
+| What sits in front of my servers? | [API gateway vs load balancer vs reverse proxy](api-gateway-vs-load-balancer-vs-reverse-proxy.md) |
+| One deployable program, or many? | [Monolith vs microservices](monolith-vs-microservices.md) |
+| A bigger machine, or more machines? | [Horizontal vs vertical scaling](horizontal-vs-vertical-scaling.md) |
+| Which storage engine fits the workload? | [B-tree vs LSM tree](b-tree-vs-lsm-tree.md) |
+| How do I stop two writers from overwriting each other? | [Optimistic vs pessimistic locking](optimistic-vs-pessimistic-locking.md) |
+| How do I change data in several services as one operation? | [Two-phase commit vs saga](two-phase-commit-vs-saga.md) |
+| Where do the files go? | [Object vs block vs file storage](object-vs-block-vs-file-storage.md) |
+| How does a request prove who the user is? | [Sessions vs JWT vs OAuth](sessions-vs-jwt-vs-oauth.md) |
 
 ## Running the interview
 
@@ -81,6 +89,14 @@ The comparison sheets. Each one starts from the question you should ask first, t
 | [Sharding strategies](sharding-strategies.md) | What do you shard on, and which query breaks if you choose wrong? | Written |
 | [Strong vs eventual consistency](strong-vs-eventual-consistency.md) | Which read is allowed to be stale, and who would notice? | Written |
 | [L4 vs L7 load balancing](l4-vs-l7-load-balancing.md) | Does the balancer need to read the request to decide? | Written |
+| [API gateway vs load balancer vs reverse proxy](api-gateway-vs-load-balancer-vs-reverse-proxy.md) | What job must be done before the request reaches a server? | Written |
+| [Monolith vs microservices](monolith-vs-microservices.md) | How many teams change this code, and must any part scale or deploy alone? | Written |
+| [Horizontal vs vertical scaling](horizontal-vs-vertical-scaling.md) | Does this tier hold state, and what availability target must it meet? | Written |
+| [B-tree vs LSM tree](b-tree-vs-lsm-tree.md) | Is the workload read-heavy or write-heavy? | Written |
+| [Optimistic vs pessimistic locking](optimistic-vs-pessimistic-locking.md) | How often do two writers change the same row at the same time? | Written |
+| [Two-phase commit vs saga](two-phase-commit-vs-saga.md) | Can the business accept a visible intermediate state? | Written |
+| [Object vs block vs file storage](object-vs-block-vs-file-storage.md) | How is the data accessed? | Written |
+| [Sessions vs JWT vs OAuth](sessions-vs-jwt-vs-oauth.md) | Must the server revoke access immediately, and how many services verify the token? | Written |
 
 ## How these fit with the rest of the repo
 

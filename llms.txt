@@ -1,6 +1,6 @@
 # Grokking System Design
 
-> A free, open, pattern-based guide to system design interviews: 30 reusable patterns, 59 question walkthroughs, 19 distributed systems deep dives, 27 cheat sheets, 122 company guides, and 4 study roadmaps. The open companion to the original Grokking the System Design Interview course by DesignGurus.io.
+> A free, open, pattern-based guide to system design interviews: 30 reusable patterns, 59 question walkthroughs, 19 distributed systems deep dives, 35 cheat sheets, 122 company guides, and 8 study roadmaps. The open companion to the original Grokking the System Design Interview course by DesignGurus.io.
 
 The approach is pattern-based rather than question-based. Instead of memorizing answers to a fixed list of questions, you learn a small set of building blocks (caching, sharding, replication, consistency, messaging) that recur across very different systems, then apply them to whatever question you are asked.
 
@@ -16,32 +16,40 @@ Every page below is plain Markdown and free to read, with no account required. E
 
 Quick reference and decision pages. The comparison sheets each start from one question and give the answer you can say out loud.
 
+- [API gateway vs load balancer vs reverse proxy](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/api-gateway-vs-load-balancer-vs-reverse-proxy.md): Three parts that receive a request before your servers do: choose by the job each one performs, not by the product name.
 - [AWS vs GCP vs Azure: the service translation table](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/aws-vs-gcp-vs-azure.md): The same building block under three different names, so you can answer in whatever cloud the interviewer uses.
+- [B-tree vs LSM tree](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/b-tree-vs-lsm-tree.md): The two storage engine designs behind most databases: decide by whether the workload mostly reads or mostly writes.
+- [Back-of-the-envelope estimation](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/estimation.md): The handful of numbers worth memorizing, and how to turn them into a size for any system.
 - [Caching strategies](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/caching-strategies.md): Five ways to keep a cache and a database consistent, and the one question that picks between them.
 - [Common mistakes and anti-patterns](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/common-mistakes.md): The errors that cost strong candidates the offer, and what to do instead of each one.
-- [Interview communication tips](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/communication-tips.md): How to sound like a senior engineer while you are still working the problem out.
 - [Core components reference](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/core-components.md): The building blocks you assemble in almost every design. What each one is, and when to reach for it.
 - [DynamoDB vs MongoDB](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/dynamodb-vs-mongodb.md): One question settles this: can you list every query before you design the schema?
-- [Back-of-the-envelope estimation](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/estimation.md): The handful of numbers worth memorizing, and how to turn them into a size for any system.
-- [System design flashcards](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/flashcards.md): Question and answer cards over every core pattern, for finding the gaps in your recall.
-- [The system design interview framework](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/interview-framework.md): The seven steps of a 45 minute round, and how many minutes each one deserves.
+- [Horizontal vs vertical scaling](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/horizontal-vs-vertical-scaling.md): A bigger machine or more machines: decide by whether the tier holds state and by how much downtime the product allows.
+- [Interview communication tips](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/communication-tips.md): How to sound like a senior engineer while you are still working the problem out.
 - [Kafka vs Kinesis vs Pub/Sub](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/kafka-vs-kinesis-vs-pubsub.md): Three managed streams compared by whose log it is, how capacity is billed, and whether you can replay.
 - [Kafka vs RabbitMQ vs SQS](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/kafka-vs-rabbitmq-vs-sqs.md): A log, a broker, or a managed queue: choose by what the consumer needs, not by brand.
 - [L4 vs L7 load balancing](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/l4-vs-l7-load-balancing.md): Does the balancer need to read the request to decide where it goes? That one question settles it.
 - [Latency numbers: the one-page visual](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/latency-numbers.md): Every latency worth knowing on one ladder, and the design rules that follow from it.
 - [A mock interview, annotated: two candidates, one question](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/mock-interview-walkthrough.md): One question answered twice, once as a no-hire and once as a hire, with notes on where each one earned or lost signal.
+- [Monolith vs microservices](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/monolith-vs-microservices.md): One deployable program or many small ones: decide by how many teams you have and whether any part must scale or deploy alone.
 - [Non-functional requirements](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/non-functional-requirements.md): What a system must *be*, not just what it must *do*. These are the qualities interviewers probe, and the constraints that shape every design decision.
+- [Object vs block vs file storage](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/object-vs-block-vs-file-storage.md): Three storage models: decide by how the data is accessed, as whole objects over HTTP, as a raw volume for a database, or as a shared directory tree.
+- [Optimistic vs pessimistic locking](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/optimistic-vs-pessimistic-locking.md): Two ways to stop concurrent writers from overwriting each other: decide by how often two writers change the same row at the same time.
 - [PostgreSQL vs DynamoDB vs Cassandra](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/postgres-vs-dynamodb-vs-cassandra.md): The SQL versus NoSQL argument made concrete, with three real stores and the access patterns each one fits.
 - [Push vs pull feeds](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/push-vs-pull-feeds.md): Pay for fan-out when the post is written, or when the feed is opened. Accounts with millions of followers decide it.
 - [Rate limiting algorithms](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/rate-limiting-algorithms.md): Five counting algorithms compared by the bursts they allow and the memory each client costs.
 - [Redis vs Memcached](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/redis-vs-memcached.md): A pure cache or a data structure server: decide by whether you need more than GET and SET.
 - [REST vs gRPC vs GraphQL](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/rest-vs-grpc-vs-graphql.md): Choose an API style by who the client is, and whether you control it.
 - [Senior vs staff: how the same question is graded differently](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/senior-vs-staff-expectations.md): The same question, graded differently by level, and what the interviewer listens for at each one.
+- [Sessions vs JWT vs OAuth](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/sessions-vs-jwt-vs-oauth.md): Sessions and JWTs are two ways to carry a logged-in identity, and OAuth is a protocol that can issue either: decide by how fast access must be revoked and by how many services verify the token.
 - [Sharding strategies](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/sharding-strategies.md): Five ways to map a row to a machine, and the query each one makes expensive.
 - [SQL vs NoSQL](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/sql-vs-nosql.md): Relational, document, key-value, or wide-column, chosen by the queries the product actually makes.
 - [Strong vs eventual consistency](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/strong-vs-eventual-consistency.md): Which read is allowed to be stale, and who would notice: the question that picks a consistency model.
+- [System design flashcards](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/flashcards.md): Question and answer cards over every core pattern, for finding the gaps in your recall.
 - [System design in one page](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/system-design-in-one-page.md): The whole framework, the key patterns, and the numbers, condensed. Bookmark this. Expand any line through the links.
+- [The system design interview framework](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/interview-framework.md): The seven steps of a 45 minute round, and how many minutes each one deserves.
 - [Trade-off decision guides](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/trade-offs.md): Interviews reward reasoning about trade-offs, not memorized answers. Here are the common "X vs Y" decisions and how to choose, each with a one-line answer you can say out loud.
+- [Two-phase commit vs saga](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/two-phase-commit-vs-saga.md): Two ways to change data in several services as one operation: decide by whether the business can accept a visible intermediate state.
 - [WebSockets vs SSE vs long polling](https://github.com/design-gurus/grokking-system-design/blob/main/cheat-sheets/websockets-vs-sse-vs-long-polling.md): Choose a real-time transport by which way the messages travel, and how often.
 
 ## Patterns
@@ -170,11 +178,15 @@ How landmark systems actually work, the "how does X work" questions common in se
 
 ## Study roadmaps
 
-Time-boxed study plans, plus one diagnostic-led plan for experienced engineers.
+Time-boxed study plans, two plans by role, and one diagnostic-led plan for experienced engineers.
 
+- [1-day plan: the interview is tomorrow](https://github.com/design-gurus/grokking-system-design/blob/main/roadmaps/1-day-plan.md): This plan uses one day and about 6 hours to cover the framework, the one-page sheet, the key numbers, 4 patterns, and 2 questions practiced out loud.
 - [1-week crash plan](https://github.com/design-gurus/grokking-system-design/blob/main/roadmaps/1-week-plan.md): Triage for an interview a few days away, at two to three hours a day: the essentials and practice, nothing else.
 - [2-week system design sprint](https://github.com/design-gurus/grokking-system-design/blob/main/roadmaps/2-week-plan.md): A focused sprint at one to two hours a day, for an interview a couple of weeks out.
 - [6-week study plan](https://github.com/design-gurus/grokking-system-design/blob/main/roadmaps/6-week-plan.md): Build real depth from a baseline at about an hour a day, covering all 30 patterns and all 19 deep dives.
+- [3-month study plan](https://github.com/design-gurus/grokking-system-design/blob/main/roadmaps/3-month-plan.md): This 12-week plan takes 30 to 45 minutes a day and covers all 30 patterns, 8 timed questions, 4 deep dives, and 3 mock interviews.
+- [New grad and junior plan](https://github.com/design-gurus/grokking-system-design/blob/main/roadmaps/new-grad-plan.md): A four-week plan at about 45 minutes a day for students, new graduates and junior engineers who face an entry-level system design round.
+- [Engineering manager plan](https://github.com/design-gurus/grokking-system-design/blob/main/roadmaps/engineering-manager-plan.md): A three-week plan at about one hour a day for engineering managers and tech leads who face a system design round in a management loop.
 - [Senior and staff refresher](https://github.com/design-gurus/grokking-system-design/blob/main/roadmaps/senior-staff-refresher.md): For experienced engineers who have not interviewed in years: a cold diagnostic first, then only the gaps it finds.
 
 ## Company-specific interviews
