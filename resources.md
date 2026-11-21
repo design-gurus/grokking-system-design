@@ -36,6 +36,21 @@ Ranked comparisons, for deciding what to buy before you start.
 
 None of these is an independent review. The newsletter and InterviewNoodle are Design Gurus publications, and both dev.to pieces recommend this course, so read them as recommendations rather than neutral verdicts.
 
+## Free companion guides (DesignGurus on GitHub)
+
+Free guides in the same format as this repository, one per interview round or topic.
+
+- [System Design Numbers](https://github.com/design-gurus/system-design-numbers): latency numbers, powers of two, availability tables, traffic formulas, and ten worked capacity estimations.
+- [API Design Interview](https://github.com/design-gurus/api-design-interview): a six-step method for the API design round, the core concepts, and eight question walkthroughs.
+- [Frontend System Design Interview](https://github.com/design-gurus/frontend-system-design-interview): the client side of system design: rendering, state, caching, performance, and eight question walkthroughs.
+- [Microservices Interview Questions](https://github.com/design-gurus/microservices-interview-questions): about 100 questions with short model answers, from service boundaries to sagas and migration.
+- [Staff Engineer Interview](https://github.com/design-gurus/staff-engineer-interview): what changes at staff level: the loop, system design at staff scope, the project deep dive, and down-leveling.
+- [Engineering Manager Interview](https://github.com/design-gurus/engineering-manager-interview): the manager loop round by round: people management, project retrospective, behavioral, and system design for managers.
+- [Software Engineer Levels](https://github.com/design-gurus/software-engineer-levels): engineering ladders at 16 companies, how levels map across them, and what interviews expect at each level.
+- [Amazon Leadership Principles](https://github.com/design-gurus/amazon-leadership-principles): all 16 principles with interview questions, sample answers, and how the Amazon loop works.
+- [Forward Deployed Engineer Interview](https://github.com/design-gurus/forward-deployed-engineer-interview): the forward deployed engineer loop, the decomposition round, and company loops at Palantir, OpenAI, Anthropic, and Google.
+- [Solutions Architect Interview](https://github.com/design-gurus/solutions-architect-interview): architecture design, customer discovery, and presentation rounds, with loops at the major cloud and data companies.
+
 ## Other official (DesignGurus)
 
 - [Mock interviews](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=resources): live practice with ex-FAANG engineers.

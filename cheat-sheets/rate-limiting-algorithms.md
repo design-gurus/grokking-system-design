@@ -64,3 +64,4 @@ Do not say "I will add a rate limiter". Say "the limit is 100 requests per minut
 - The full question: [design a rate limiter](../questions/design-rate-limiter.md), and [design a flash sale system](../questions/design-flash-sale-system.md)
 - Where the counters live: [Redis vs Memcached](redis-vs-memcached.md)
 - Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-rate-limiting-algorithms)
+- What the client sees when it is limited: [API Design Interview](https://github.com/design-gurus/api-design-interview/blob/main/concepts/rate-limiting.md), a free companion guide

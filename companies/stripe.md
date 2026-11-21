@@ -22,3 +22,4 @@
 - Patterns to review: [idempotency](../patterns/idempotency.md), [rate limiting](../patterns/rate-limiting.md), [message queues](../patterns/message-queues.md), [api gateway](../patterns/api-gateway.md)
 - Practice questions: [Design payment system](../questions/design-payment-system.md), [Design rate limiter](../questions/design-rate-limiter.md), [Design metrics monitoring](../questions/design-metrics-monitoring.md)
 - Full company guide: [Stripe system design interview](https://www.designgurus.io/answers/detail/what-to-expect-in-the-stripe-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design)
+- Which level the round is graded against: [the engineering ladder at this company](https://github.com/design-gurus/software-engineer-levels/blob/main/companies/stripe.md), in the free Software Engineer Levels guide

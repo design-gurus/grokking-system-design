@@ -50,3 +50,4 @@ Do not say "GraphQL is more modern than REST". Say "the mobile home screen aggre
 
 - The core of this comparison as a lesson: "REST vs RPC" in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-rest-vs-grpc-vs-graphql).
 - Free article: [REST vs GraphQL vs gRPC](https://www.designgurus.io/blog/rest-graphql-grpc-system-design?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-rest-vs-grpc-vs-graphql)
+- When the whole round is the API: [API Design Interview](https://github.com/design-gurus/api-design-interview/blob/main/concepts/rest-vs-grpc-vs-graphql.md), a free companion guide

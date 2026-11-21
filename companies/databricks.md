@@ -22,3 +22,4 @@
 - Patterns to review: [batch vs stream processing](../patterns/batch-vs-stream-processing.md), [sharding partitioning](../patterns/sharding-partitioning.md), [write ahead log](../patterns/write-ahead-log.md), [consistency models](../patterns/consistency-models.md)
 - Practice questions: [Design ad click aggregator](../questions/design-ad-click-aggregator.md), [Design distributed job scheduler](../questions/design-distributed-job-scheduler.md)
 - Full company guide: [Databricks system design interview](https://www.designgurus.io/answers/detail/what-to-expect-in-the-databricks-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design)
+- Interviewing for a solutions architect role: [the solutions architect loop at this company](https://github.com/design-gurus/solutions-architect-interview/blob/main/companies/databricks.md), in the free Solutions Architect Interview guide

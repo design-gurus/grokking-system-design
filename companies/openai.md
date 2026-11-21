@@ -22,3 +22,4 @@
 - Patterns to review: [message queues](../patterns/message-queues.md), [caching](../patterns/caching.md), [sharding partitioning](../patterns/sharding-partitioning.md), [api gateway](../patterns/api-gateway.md)
 - Practice questions: [Design distributed job scheduler](../questions/design-distributed-job-scheduler.md), [Design notification system](../questions/design-notification-system.md), [Design google search](../questions/design-google-search.md)
 - Full company guide: [OpenAI system design interview](https://www.designgurus.io/answers/detail/what-to-expect-in-the-openai-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design)
+- Interviewing for a forward deployed role: [the forward deployed engineer loop at this company](https://github.com/design-gurus/forward-deployed-engineer-interview/blob/main/companies/openai.md), in the free Forward Deployed Engineer Interview guide
