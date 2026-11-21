@@ -9,16 +9,18 @@
 
 Most candidates prepare by memorizing answers to a list of questions, then meet a question that is not on the list. This repo takes the other approach. You learn a small set of building blocks, like caching, sharding, replication, and consistency, then apply them to any design problem. Everything here is free to read in your browser, with no account.
 
-**30 patterns · 59 questions · 122 company guides · 19 deep dives · 27 cheat sheets · 4 roadmaps · 134 diagrams**
+**30 patterns · 59 questions · 122 company guides · 19 deep dives · 35 cheat sheets · 8 roadmaps · 146 diagrams**
 
-Prefer to read offline? **[Download the free cheat sheet PDF](https://github.com/design-gurus/grokking-system-design/releases/latest/download/grokking-system-design-cheat-sheets.pdf)**, all 27 cheat sheets and 4 study plans in one file.
+Prefer to read offline? **[Download the free cheat sheet PDF](https://github.com/design-gurus/grokking-system-design/releases/latest/download/grokking-system-design-cheat-sheets.pdf)**, 27 cheat sheets and 4 study plans in one file.
 
 ## Start here
 
 | Your situation | Start with |
 |----------------|-----------|
+| My interview is tomorrow | [1-day plan](roadmaps/1-day-plan.md), about 6 hours of strict triage |
 | My interview is in days | [1-week crash plan](roadmaps/1-week-plan.md), then [system design in one page](cheat-sheets/system-design-in-one-page.md) |
 | I have a few weeks | [6-week study plan](roadmaps/6-week-plan.md), working through [patterns/](patterns/) as you go |
+| I am a student or a new graduate | [New grad and junior plan](roadmaps/new-grad-plan.md), four weeks for an entry-level round |
 | I am senior and have not interviewed in years | [Senior and staff refresher](roadmaps/senior-staff-refresher.md), which opens with a diagnostic |
 | I have an interview at a named company | [Company guides](companies/README.md), covering 122 companies |
 | I just want to practice | [Question catalog](questions/README.md) and the [practice bank](questions/practice-bank.md) |
@@ -97,19 +99,23 @@ To add a new question, copy [questions/_template.md](questions/_template.md).
 
 ## Cheat sheets
 
-Twenty-seven quick-reference pages, grouped by how you use them. Full index at [cheat-sheets/](cheat-sheets/).
+Thirty-five quick-reference pages, grouped by how you use them. Full index at [cheat-sheets/](cheat-sheets/).
 
 **Running the interview.** [Interview framework](cheat-sheets/interview-framework.md) · [system design in one page](cheat-sheets/system-design-in-one-page.md) · [non-functional requirements](cheat-sheets/non-functional-requirements.md) · [communication tips](cheat-sheets/communication-tips.md) · [common mistakes](cheat-sheets/common-mistakes.md) · [senior vs staff expectations](cheat-sheets/senior-vs-staff-expectations.md) · [a mock interview, annotated](cheat-sheets/mock-interview-walkthrough.md)
 
 **Numbers and recall.** [Back-of-the-envelope estimation](cheat-sheets/estimation.md) · [latency numbers, visualized](cheat-sheets/latency-numbers.md) · [core components reference](cheat-sheets/core-components.md) · [flashcards](cheat-sheets/flashcards.md)
 
-**Choosing a technology.** [Trade-off decision guides](cheat-sheets/trade-offs.md) · [SQL vs NoSQL](cheat-sheets/sql-vs-nosql.md) · [PostgreSQL vs DynamoDB vs Cassandra](cheat-sheets/postgres-vs-dynamodb-vs-cassandra.md) · [DynamoDB vs MongoDB](cheat-sheets/dynamodb-vs-mongodb.md) · [Redis vs Memcached](cheat-sheets/redis-vs-memcached.md) · [Kafka vs RabbitMQ vs SQS](cheat-sheets/kafka-vs-rabbitmq-vs-sqs.md) · [Kafka vs Kinesis vs Pub/Sub](cheat-sheets/kafka-vs-kinesis-vs-pubsub.md) · [REST vs gRPC vs GraphQL](cheat-sheets/rest-vs-grpc-vs-graphql.md) · [WebSockets vs SSE vs long polling](cheat-sheets/websockets-vs-sse-vs-long-polling.md) · [AWS vs GCP vs Azure](cheat-sheets/aws-vs-gcp-vs-azure.md) · [caching strategies](cheat-sheets/caching-strategies.md) · [push vs pull feeds](cheat-sheets/push-vs-pull-feeds.md) · [rate limiting algorithms](cheat-sheets/rate-limiting-algorithms.md) · [sharding strategies](cheat-sheets/sharding-strategies.md) · [strong vs eventual consistency](cheat-sheets/strong-vs-eventual-consistency.md) · [L4 vs L7 load balancing](cheat-sheets/l4-vs-l7-load-balancing.md)
+**Choosing a technology.** [Trade-off decision guides](cheat-sheets/trade-offs.md) · [SQL vs NoSQL](cheat-sheets/sql-vs-nosql.md) · [PostgreSQL vs DynamoDB vs Cassandra](cheat-sheets/postgres-vs-dynamodb-vs-cassandra.md) · [DynamoDB vs MongoDB](cheat-sheets/dynamodb-vs-mongodb.md) · [Redis vs Memcached](cheat-sheets/redis-vs-memcached.md) · [Kafka vs RabbitMQ vs SQS](cheat-sheets/kafka-vs-rabbitmq-vs-sqs.md) · [Kafka vs Kinesis vs Pub/Sub](cheat-sheets/kafka-vs-kinesis-vs-pubsub.md) · [REST vs gRPC vs GraphQL](cheat-sheets/rest-vs-grpc-vs-graphql.md) · [WebSockets vs SSE vs long polling](cheat-sheets/websockets-vs-sse-vs-long-polling.md) · [AWS vs GCP vs Azure](cheat-sheets/aws-vs-gcp-vs-azure.md) · [caching strategies](cheat-sheets/caching-strategies.md) · [push vs pull feeds](cheat-sheets/push-vs-pull-feeds.md) · [rate limiting algorithms](cheat-sheets/rate-limiting-algorithms.md) · [sharding strategies](cheat-sheets/sharding-strategies.md) · [strong vs eventual consistency](cheat-sheets/strong-vs-eventual-consistency.md) · [L4 vs L7 load balancing](cheat-sheets/l4-vs-l7-load-balancing.md) · [API gateway vs load balancer vs reverse proxy](cheat-sheets/api-gateway-vs-load-balancer-vs-reverse-proxy.md) · [monolith vs microservices](cheat-sheets/monolith-vs-microservices.md) · [horizontal vs vertical scaling](cheat-sheets/horizontal-vs-vertical-scaling.md) · [B-tree vs LSM tree](cheat-sheets/b-tree-vs-lsm-tree.md) · [optimistic vs pessimistic locking](cheat-sheets/optimistic-vs-pessimistic-locking.md) · [two-phase commit vs saga](cheat-sheets/two-phase-commit-vs-saga.md) · [object vs block vs file storage](cheat-sheets/object-vs-block-vs-file-storage.md) · [sessions vs JWT vs OAuth](cheat-sheets/sessions-vs-jwt-vs-oauth.md)
 
 ## Study roadmaps
 
+- [1-day plan](roadmaps/1-day-plan.md): when the interview is tomorrow.
 - [1-week crash plan](roadmaps/1-week-plan.md): when your interview is days away.
 - [2-week sprint](roadmaps/2-week-plan.md): a focused sprint before an interview.
 - [6-week study plan](roadmaps/6-week-plan.md): build depth from a baseline.
+- [3-month study plan](roadmaps/3-month-plan.md): a start from zero, at 30 to 45 minutes a day.
+- [New grad and junior plan](roadmaps/new-grad-plan.md): for students and engineers with under two years of experience.
+- [Engineering manager plan](roadmaps/engineering-manager-plan.md): for managers and tech leads in a management loop.
 - [Senior and staff refresher](roadmaps/senior-staff-refresher.md): for experienced engineers who have not interviewed in years. Starts with a recorded diagnostic, then fixes only the gaps it finds.
 
 Each roadmap states its own coverage, and [roadmaps/](roadmaps/) has a decision tree for picking one.
