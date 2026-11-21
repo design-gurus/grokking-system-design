@@ -24,7 +24,7 @@ Prefer to read offline? **[Download the free cheat sheet PDF](https://github.com
 | I am senior and have not interviewed in years | [Senior and staff refresher](roadmaps/senior-staff-refresher.md), which opens with a diagnostic |
 | I am interviewing for a staff role | [Staff Engineer Interview](https://github.com/design-gurus/staff-engineer-interview), a free guide to every round of the staff loop |
 | I am interviewing for a manager role | [Engineering manager plan](roadmaps/engineering-manager-plan.md) for the design round, then [Engineering Manager Interview](https://github.com/design-gurus/engineering-manager-interview) for the other rounds |
-| My round is API design or frontend design | [API Design Interview](https://github.com/design-gurus/api-design-interview) or [Frontend System Design Interview](https://github.com/design-gurus/frontend-system-design-interview) |
+| My round is API, frontend, or mobile design | [API Design Interview](https://github.com/design-gurus/api-design-interview), [Frontend System Design Interview](https://github.com/design-gurus/frontend-system-design-interview), or [Mobile System Design Interview](https://github.com/design-gurus/mobile-system-design-interview) |
 | I have an interview at a named company | [Company guides](companies/README.md), covering 122 companies |
 | I just want to practice | [Question catalog](questions/README.md) and the [practice bank](questions/practice-bank.md) |
 | I am choosing a course | [Best System Design Courses](https://github.com/design-gurus/best-system-design-courses), which compares free and paid courses by format, price, and goal |
@@ -153,6 +153,10 @@ System design is one round in a loop. These free guides from DesignGurus.io cove
 | [Amazon Leadership Principles](https://github.com/design-gurus/amazon-leadership-principles) | All 16 principles with interview questions, sample answers, and how the Amazon loop works |
 | [Forward Deployed Engineer Interview](https://github.com/design-gurus/forward-deployed-engineer-interview) | The forward deployed engineer loop, the decomposition round, and company loops at Palantir, OpenAI, Anthropic, and Google |
 | [Solutions Architect Interview](https://github.com/design-gurus/solutions-architect-interview) | Architecture design, customer discovery, and presentation rounds, with loops at the major cloud and data companies |
+| [Mobile System Design Interview](https://github.com/design-gurus/mobile-system-design-interview) | The client side of system design for iOS and Android: offline sync, caching, push, performance, and eight question walkthroughs |
+| [DevOps and SRE Interview](https://github.com/design-gurus/devops-sre-interview) | The loop round by round: troubleshooting, Linux and networking, SRE system design, and incident response |
+| [Data Engineering Interview](https://github.com/design-gurus/data-engineering-interview) | SQL, data modeling, and pipeline design rounds, with six pipeline design walkthroughs |
+| [Concurrency Interview](https://github.com/design-gurus/concurrency-interview) | Core concepts and nine classic problems solved in Java, Python, and Go |
 
 ## Go deeper: the full course
 

@@ -50,6 +50,10 @@ Free guides in the same format as this repository, one per interview round or to
 - [Amazon Leadership Principles](https://github.com/design-gurus/amazon-leadership-principles): all 16 principles with interview questions, sample answers, and how the Amazon loop works.
 - [Forward Deployed Engineer Interview](https://github.com/design-gurus/forward-deployed-engineer-interview): the forward deployed engineer loop, the decomposition round, and company loops at Palantir, OpenAI, Anthropic, and Google.
 - [Solutions Architect Interview](https://github.com/design-gurus/solutions-architect-interview): architecture design, customer discovery, and presentation rounds, with loops at the major cloud and data companies.
+- [Mobile System Design Interview](https://github.com/design-gurus/mobile-system-design-interview): the client side of system design for iOS and Android: offline sync, caching, push, performance, and eight question walkthroughs.
+- [DevOps and SRE Interview](https://github.com/design-gurus/devops-sre-interview): the loop round by round: troubleshooting, Linux and networking, SRE system design, and incident response.
+- [Data Engineering Interview](https://github.com/design-gurus/data-engineering-interview): sQL, data modeling, and pipeline design rounds, with six pipeline design walkthroughs.
+- [Concurrency Interview](https://github.com/design-gurus/concurrency-interview): core concepts and nine classic problems solved in Java, Python, and Go.
 
 ## Other official (DesignGurus)
 

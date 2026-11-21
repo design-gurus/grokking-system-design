@@ -54,3 +54,4 @@ Be honest about when it is overkill. If your job is stateless per message (valid
 
 - For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-flink-stream-processing)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-flink-stream-processing)
+- Late data and watermarks as interview topics: [Data Engineering Interview](https://github.com/design-gurus/data-engineering-interview/blob/main/concepts/late-data-and-watermarks.md), a free companion guide
