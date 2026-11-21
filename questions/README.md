@@ -76,7 +76,7 @@ A broad set of commonly-asked systems, mapped to the [System Design Interview Cr
 
 ## AI and LLM systems
 
-The fastest-growing question category. AI labs and AI-infrastructure companies (see the [company guides](../companies/README.md)) draw from this set, and big tech is adopting them too. Mapped to [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme).
+The fastest-growing question category. AI labs and AI-infrastructure companies (see the [company guides](../companies/README.md)) draw from this set, and big tech is adopting them too. Mapped to [Grokking the AI System Design Interview](https://www.designgurus.io/course/grokking-the-ai-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme), with [Grokking Modern AI Fundamentals](https://www.designgurus.io/course/grokking-modern-ai-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme) for the foundations.
 
 | Question | Difficulty | Key idea | Status |
 |----------|-----------|----------|--------|
@@ -88,6 +88,16 @@ The fastest-growing question category. AI labs and AI-infrastructure companies (
 | [Design a GPU cluster scheduler](design-gpu-cluster-scheduler.md) | Hard | Gang scheduling, preemption, utilization | Written |
 | [Design an AI code assistant (Copilot)](design-code-assistant.md) | Hard | FIM completions, prefix caching, repo retrieval | Written |
 | [Design an LLM gateway](design-llm-gateway.md) | Medium | Routing, token quotas, failover, cost metering | Written |
+
+## The same problems in other rounds
+
+Each question page ends with a "Go deeper" list that links the exact course lesson for that problem. Many problems are also taught from a second angle, and the page links those lessons too:
+
+- The frontend of the same product: [Grokking the Modern Frontend System Design Interview](https://www.designgurus.io/course/grokking-the-modern-frontend-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme)
+- The mobile client: [Grokking Modern Mobile System Design Interview](https://www.designgurus.io/course/grokking-modern-mobile-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme)
+- The API contract: [Grokking Modern API Design Interview](https://www.designgurus.io/course/grokking-modern-api-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme)
+- The system split into services: [Grokking Microservices for System Design Interviews](https://www.designgurus.io/course/grokking-microservices-for-system-design-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme)
+- The Redis and Kafka designs: [Grokking Redis](https://www.designgurus.io/course/grokking-redis?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme) and [Grokking Kafka and Event-Driven Architecture](https://www.designgurus.io/course/grokking-kafka-and-event-driven-architecture?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-readme)
 
 ## Add a new question
 

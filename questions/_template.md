@@ -42,6 +42,6 @@ What breaks first at scale, and how you would address it. Reference the [pattern
 
 ## Go deeper
 
-<!-- Lead with the course lesson that solves this problem, by its exact title. If the lesson is a free preview, link the lesson itself too. If no lesson matches, link the course instead. Free blog posts go last. -->
+<!-- Lead with the course lesson that solves this problem. Link the lesson itself at /course-play/COURSE-SLUG/doc/LESSON-SLUG and use its exact title. Then add lessons from other courses that cover the same problem from another angle (API, frontend, mobile, microservices, Redis, Kafka). If no lesson matches, link the course instead. Free blog posts go last. -->
 
-- Full worked solution: the lesson "LESSON TITLE" in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-QUESTION-SLUG).
+- Full worked solution: the lesson [LESSON TITLE](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/LESSON-SLUG?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-QUESTION-SLUG) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-QUESTION-SLUG).

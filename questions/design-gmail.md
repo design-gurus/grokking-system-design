@@ -48,5 +48,6 @@ flowchart LR
 
 ## Go deeper
 
-- Full worked solution: the chapter "Designing Gmail" in [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gmail), a 10-step walkthrough.
+- Full worked solution: the chapter [Designing Gmail](https://www.designgurus.io/course-play/grokking-system-design-interview-ii/doc/design-gmail-rafay?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gmail) in [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gmail), a 10-step walkthrough.
+- The mobile client design: the lesson [Email Client](https://www.designgurus.io/course-play/grokking-modern-mobile-system-design-interview/doc/email-client?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gmail) in [Grokking Modern Mobile System Design Interview](https://www.designgurus.io/course/grokking-modern-mobile-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gmail).
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gmail)

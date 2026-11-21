@@ -68,5 +68,6 @@ flowchart LR
 
 ## Go deeper
 
+- Closest worked solution: the lesson [Designing Yelp or Nearby Friends](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/designing-yelp-or-nearby-friends?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-maps) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-maps), which builds the spatial index this design depends on.
+- The Redis design: the lesson [Geospatial Queries](https://www.designgurus.io/course-play/grokking-redis/doc/54-geospatial-queries?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-maps) in [Grokking Redis](https://www.designgurus.io/course/grokking-redis?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-maps).
 - Related: [Design Uber](design-uber.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-maps)

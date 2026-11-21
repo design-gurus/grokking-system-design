@@ -72,4 +72,6 @@ flowchart TB
 
 ## Go deeper
 
+- Full worked solution: the lesson [Case Study: A Food Delivery Platform](https://www.designgurus.io/course-play/grokking-microservices-for-system-design-interviews/doc/scenario-a-food-delivery-platform?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-food-delivery) in [Grokking Microservices for System Design Interviews](https://www.designgurus.io/course/grokking-microservices-for-system-design-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-food-delivery).
+- The mobile client design: the lesson [Food Delivery](https://www.designgurus.io/course-play/grokking-modern-mobile-system-design-interview/doc/food-delivery?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-food-delivery) in [Grokking Modern Mobile System Design Interview](https://www.designgurus.io/course/grokking-modern-mobile-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-food-delivery).
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-food-delivery)

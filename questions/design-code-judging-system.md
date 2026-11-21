@@ -46,5 +46,5 @@ flowchart LR
 
 ## Go deeper
 
-- Full worked solution: the chapter "Designing Code Judging System" in [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-code-judging-system), a 6-step walkthrough.
+- Full worked solution: the chapter [Designing Code Judging System](https://www.designgurus.io/course-play/grokking-system-design-interview-ii/doc/design-code-judging-system-like-leetcode?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-code-judging-system) in [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-code-judging-system), a 6-step walkthrough.
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-code-judging-system)
