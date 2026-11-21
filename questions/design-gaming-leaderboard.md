@@ -71,5 +71,7 @@ flowchart LR
 
 ## Go deeper
 
+- Full worked solution: the lesson [Design a Gaming Leaderboard](https://www.designgurus.io/course-play/grokking-redis/doc/82-design-a-gaming-leaderboard?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gaming-leaderboard) in [Grokking Redis](https://www.designgurus.io/course/grokking-redis?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gaming-leaderboard).
+- Scaling it out: the lesson [Leaderboard Sharding and Reliability](https://www.designgurus.io/course-play/grokking-redis/doc/84-leaderboard-sharding-and-reliability?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gaming-leaderboard) in [Grokking Redis](https://www.designgurus.io/course/grokking-redis?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gaming-leaderboard).
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-gaming-leaderboard)
 - Related: [Design the YouTube likes counter](design-youtube-likes-counter.md)

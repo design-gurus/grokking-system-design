@@ -44,5 +44,5 @@ flowchart LR
 
 ## Go deeper
 
-- Full worked solution: the chapter "Designing Google News" in [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-news), a 8-step walkthrough.
+- Full worked solution: the chapter [Designing Google News](https://www.designgurus.io/course-play/grokking-system-design-interview-ii/doc/design-global-news-aggregator-system-like-google-news?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-news) in [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-news), an 8-step walkthrough.
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-google-news)

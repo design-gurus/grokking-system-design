@@ -64,5 +64,6 @@ flowchart LR
 
 ## Go deeper
 
-- Full worked solution: the lesson "Designing Yelp or Nearby Friends" in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-proximity-service).
+- Full worked solution: the lesson [Designing Yelp or Nearby Friends](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/designing-yelp-or-nearby-friends?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-proximity-service) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-proximity-service).
+- The Redis design: the lesson [Geospatial Queries](https://www.designgurus.io/course-play/grokking-redis/doc/54-geospatial-queries?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-proximity-service) in [Grokking Redis](https://www.designgurus.io/course/grokking-redis?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=questions-design-proximity-service).
 - Related: [Design Google Maps](design-google-maps.md) covers the map data itself, not just the points near you.
