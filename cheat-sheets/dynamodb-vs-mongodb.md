@@ -60,6 +60,6 @@ Do not say "I need NoSQL, so MongoDB". Say "the cart is get-and-put by user id w
 
 ## Go deeper
 
+- The decision behind this comparison, as a lesson: [SQL vs. NoSQL](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/sql-vs-nosql?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-dynamodb-vs-mongodb) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-dynamodb-vs-mongodb), free to read as a preview.
 - [DynamoDB deep dive](../deep-dives/dynamodb-managed-nosql.md), and its ancestor, the [Dynamo paper](../deep-dives/dynamo-key-value-store.md)
 - The wider decision: [SQL vs NoSQL](sql-vs-nosql.md) and [PostgreSQL vs DynamoDB vs Cassandra](postgres-vs-dynamodb-vs-cassandra.md)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-dynamodb-vs-mongodb)

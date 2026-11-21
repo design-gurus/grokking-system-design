@@ -57,9 +57,9 @@ Do not say "I will use eventual consistency because it scales". Say "the wallet 
 
 ## Go deeper
 
+- This comparison as a lesson: [Strong vs Eventual Consistency](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/strong-vs-eventual-consistency?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-strong-vs-eventual-consistency) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-strong-vs-eventual-consistency), free to read as a preview.
 - The models in depth: [consistency models](../patterns/consistency-models.md) and [logical clocks](../patterns/logical-clocks.md)
 - The read and write math behind them: [quorum](../patterns/quorum.md), [replication](../patterns/replication.md), and [CAP theorem](../patterns/cap-theorem.md)
 - Real systems at each end: [Dynamo](../deep-dives/dynamo-key-value-store.md) (eventual, always writable) and [Spanner](../deep-dives/spanner-global-sql.md) (strong, across regions)
 - Questions that lean on this choice: [design a payment system](../questions/design-payment-system.md), [design the YouTube likes counter](../questions/design-youtube-likes-counter.md)
 - Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-strong-vs-eventual-consistency)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-strong-vs-eventual-consistency)

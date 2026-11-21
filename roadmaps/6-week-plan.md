@@ -99,5 +99,5 @@ Do not drop week 1 or week 2, and do not drop the mock interviews. The framework
 
 ## Go deeper
 
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-6-week-plan)
+- The framework from week 1 as a lesson: [System Design Interviews - A step by step guide](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/system-design-interviews-a-step-by-step-guide?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-6-week-plan) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-6-week-plan), free to read as a preview.
 - Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-6-week-plan)

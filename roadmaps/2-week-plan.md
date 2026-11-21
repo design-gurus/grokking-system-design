@@ -70,5 +70,5 @@ This plan covers 11 of the 30 patterns. The other 19 are not unimportant, they j
 
 ## Go deeper
 
+- Day 1 as a lesson: [System Design Interviews - A step by step guide](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/system-design-interviews-a-step-by-step-guide?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan), free to read as a preview.
 - Short on time? [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-2-week-plan)

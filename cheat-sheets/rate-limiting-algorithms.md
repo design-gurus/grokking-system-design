@@ -59,8 +59,8 @@ Do not say "I will add a rate limiter". Say "the limit is 100 requests per minut
 
 ## Go deeper
 
+- The two main algorithms as a lesson: "Token Bucket vs Leaky Bucket" in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-rate-limiting-algorithms).
 - The pattern: [rate limiting](../patterns/rate-limiting.md), plus [backpressure](../patterns/backpressure.md) and the [API gateway](../patterns/api-gateway.md) where limits live
 - The full question: [design a rate limiter](../questions/design-rate-limiter.md), and [design a flash sale system](../questions/design-flash-sale-system.md)
 - Where the counters live: [Redis vs Memcached](redis-vs-memcached.md)
 - Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-rate-limiting-algorithms)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-rate-limiting-algorithms)

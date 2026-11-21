@@ -66,9 +66,9 @@ Do not say "I will add a cache". Say "product pages are read far more than they 
 
 ## Go deeper
 
+- These strategies as a lesson: "Cache-Aside vs Read-Through, Write-Through vs Write-Back" in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-caching-strategies).
 - How a cache works: [caching pattern](../patterns/caching.md) and [CDN](../patterns/cdn.md)
 - Picking the store: [Redis vs Memcached](redis-vs-memcached.md) and [latency numbers](latency-numbers.md)
 - Real systems making these choices: [Redis internals](../deep-dives/redis-internals.md) and [Memcached at Facebook](../deep-dives/memcached-at-facebook.md)
 - Questions that use this choice: [design a distributed cache](../questions/design-distributed-cache.md), [design Instagram](../questions/design-instagram.md)
 - Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-caching-strategies)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-caching-strategies)
