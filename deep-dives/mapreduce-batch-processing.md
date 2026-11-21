@@ -69,3 +69,4 @@ Later engines kept the model and removed that write. Spark and [Flink](flink-str
 - Related deep dive: [The Google File System](gfs-distributed-file-system.md)
 - For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-mapreduce-batch-processing)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-mapreduce-batch-processing)
+- Batch and streaming in the pipeline design round: [Data Engineering Interview](https://github.com/design-gurus/data-engineering-interview/blob/main/concepts/batch-vs-streaming.md), a free companion guide

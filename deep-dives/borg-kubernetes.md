@@ -57,3 +57,4 @@ This is the source material behind [design a distributed job scheduler](../quest
 
 - For the full deep dive: [Advanced System Design Interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-borg-kubernetes)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=deep-dives-borg-kubernetes)
+- Kubernetes as an interview topic: [DevOps and SRE Interview](https://github.com/design-gurus/devops-sre-interview/blob/main/concepts/containers-and-kubernetes.md), a free companion guide
