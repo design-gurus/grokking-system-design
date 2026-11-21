@@ -49,5 +49,6 @@ Do not say "I would add Redis because it is fast". Say "this is a read-heavy fee
 
 ## Go deeper
 
+- How a cache like these is built: [Design a Distributed Cache (like Redis)](https://www.designgurus.io/course-play/system-design-interview-crash-course/doc/design-a-distributed-cache-like-redis?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-redis-vs-memcached) in [System Design Interview Crash Course](https://www.designgurus.io/course/system-design-interview-crash-course?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-redis-vs-memcached), free to read as a preview.
 - [Caching pattern](../patterns/caching.md) and the [Memcached at Facebook deep dive](../deep-dives/memcached-at-facebook.md)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-redis-vs-memcached)

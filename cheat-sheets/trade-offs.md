@@ -64,5 +64,5 @@ Name the trade-off out loud, state which side you pick, and tie it to the requir
 
 ## Go deeper
 
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-trade-offs)
+- Why trade-offs decide the round, as a lesson: [Importance of Discussing Trade-offs](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/importance-of-discussing-tradeoffs?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-trade-offs) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-trade-offs), free to read as a preview.
 - Read more (free): [Consistency Patterns in Distributed Systems](https://www.designgurus.io/blog/consistency-patterns-distributed-systems?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-trade-offs), [Monolithic vs Microservices vs SOA](https://www.designgurus.io/blog/monolithic-service-oriented-microservice-architecture?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-trade-offs)

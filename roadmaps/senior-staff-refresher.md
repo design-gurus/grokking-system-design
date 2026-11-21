@@ -99,6 +99,6 @@ These do not appear in the general advice, because they only happen to people wh
 
 ## Go deeper
 
+- The framework to rehearse, as a lesson: [System Design Master Template](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/system-design-master-template?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-senior-staff-refresher) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-senior-staff-refresher), free to read as a preview.
 - Level calibration: [senior vs staff expectations](../cheat-sheets/senior-vs-staff-expectations.md)
 - Practice against a human bar: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-senior-staff-refresher)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=roadmaps-senior-staff-refresher)

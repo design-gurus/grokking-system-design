@@ -89,6 +89,7 @@ Do not say "I will put a load balancer in front". Say "anycast plus DNS sends th
 
 ## Go deeper
 
+- This comparison as a lesson: [Load Balancer Types](https://www.designgurus.io/course-play/grokking-system-design-fundamentals/doc/load-balancer-types?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-l4-vs-l7-load-balancing) in [Grokking System Design Fundamentals](https://www.designgurus.io/course/grokking-system-design-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-l4-vs-l7-load-balancing), free to read as a preview.
 - Patterns behind this sheet: [load balancing](../patterns/load-balancing.md) and [proxies](../patterns/proxies.md)
 - Questions that lean on this choice: [design an API gateway](../questions/design-api-gateway.md), [design WhatsApp](../questions/design-whatsapp.md)
 - Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-l4-vs-l7-load-balancing)

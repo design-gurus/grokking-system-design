@@ -66,5 +66,5 @@ Name the component, say why it is there, and tie it to a requirement. Do not add
 
 ## Go deeper
 
+- The building blocks as a lesson: [System Design Basics](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/system-design-basics?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-core-components) in [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-core-components), free to read as a preview.
 - Every pattern, in depth: [System Design Patterns](https://www.designgurus.io/course/system-design-patterns?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-core-components)
-- Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-core-components)

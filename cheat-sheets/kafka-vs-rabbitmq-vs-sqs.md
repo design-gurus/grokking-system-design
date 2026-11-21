@@ -58,6 +58,7 @@ Do not say "I would use Kafka because it is scalable". Say "order events must be
 
 ## Go deeper
 
+- A close comparison as a lesson: [RabbitMQ vs. Kafka vs. ActiveMQ](https://www.designgurus.io/course-play/grokking-system-design-fundamentals/doc/rabbitmq-vs-kafka-vs-activemq?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-kafka-vs-rabbitmq-vs-sqs) in [Grokking System Design Fundamentals](https://www.designgurus.io/course/grokking-system-design-fundamentals?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-kafka-vs-rabbitmq-vs-sqs), free to read as a preview.
 - [Kafka deep dive](../deep-dives/kafka-distributed-messaging.md) and the [message queues pattern](../patterns/message-queues.md)
 - Choosing a managed cloud stream instead? [Kafka vs Kinesis vs Pub/Sub](kafka-vs-kinesis-vs-pubsub.md)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-kafka-vs-rabbitmq-vs-sqs)
