@@ -22,3 +22,4 @@
 - Patterns to review: [message queues](../patterns/message-queues.md), [load balancing](../patterns/load-balancing.md), [idempotency](../patterns/idempotency.md), [rate limiting](../patterns/rate-limiting.md)
 - Practice questions: [Design chatgpt](../questions/design-chatgpt.md), [Design distributed job scheduler](../questions/design-distributed-job-scheduler.md)
 - Full company guide: [Anthropic system design interview](https://www.designgurus.io/answers/detail/what-to-expect-in-the-anthropic-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design)
+- Interviewing for a forward deployed role: [the forward deployed engineer loop at this company](https://github.com/design-gurus/forward-deployed-engineer-interview/blob/main/companies/anthropic.md), in the free Forward Deployed Engineer Interview guide

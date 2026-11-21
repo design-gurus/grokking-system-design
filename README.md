@@ -22,6 +22,9 @@ Prefer to read offline? **[Download the free cheat sheet PDF](https://github.com
 | I have a few weeks | [6-week study plan](roadmaps/6-week-plan.md), working through [patterns/](patterns/) as you go |
 | I am a student or a new graduate | [New grad and junior plan](roadmaps/new-grad-plan.md), four weeks for an entry-level round |
 | I am senior and have not interviewed in years | [Senior and staff refresher](roadmaps/senior-staff-refresher.md), which opens with a diagnostic |
+| I am interviewing for a staff role | [Staff Engineer Interview](https://github.com/design-gurus/staff-engineer-interview), a free guide to every round of the staff loop |
+| I am interviewing for a manager role | [Engineering manager plan](roadmaps/engineering-manager-plan.md) for the design round, then [Engineering Manager Interview](https://github.com/design-gurus/engineering-manager-interview) for the other rounds |
+| My round is API design or frontend design | [API Design Interview](https://github.com/design-gurus/api-design-interview) or [Frontend System Design Interview](https://github.com/design-gurus/frontend-system-design-interview) |
 | I have an interview at a named company | [Company guides](companies/README.md), covering 122 companies |
 | I just want to practice | [Question catalog](questions/README.md) and the [practice bank](questions/practice-bank.md) |
 | I am choosing a course | [Best System Design Courses](https://github.com/design-gurus/best-system-design-courses), which compares free and paid courses by format, price, and goal |
@@ -133,6 +136,23 @@ Case studies of landmark systems, the "how does X work" questions common in seni
 ## Glossary
 
 New to the vocabulary? Start with the [glossary](glossary.md).
+
+## More free interview guides
+
+System design is one round in a loop. These free guides from DesignGurus.io cover the other rounds and the topics that sit next to this repository. Each one follows the same format: short pages, tables, and a question bank.
+
+| Guide | What it covers |
+|-------|----------------|
+| [System Design Numbers](https://github.com/design-gurus/system-design-numbers) | Latency numbers, powers of two, availability tables, traffic formulas, and ten worked capacity estimations |
+| [API Design Interview](https://github.com/design-gurus/api-design-interview) | A six-step method for the API design round, the core concepts, and eight question walkthroughs |
+| [Frontend System Design Interview](https://github.com/design-gurus/frontend-system-design-interview) | The client side of system design: rendering, state, caching, performance, and eight question walkthroughs |
+| [Microservices Interview Questions](https://github.com/design-gurus/microservices-interview-questions) | About 100 questions with short model answers, from service boundaries to sagas and migration |
+| [Staff Engineer Interview](https://github.com/design-gurus/staff-engineer-interview) | What changes at staff level: the loop, system design at staff scope, the project deep dive, and down-leveling |
+| [Engineering Manager Interview](https://github.com/design-gurus/engineering-manager-interview) | The manager loop round by round: people management, project retrospective, behavioral, and system design for managers |
+| [Software Engineer Levels](https://github.com/design-gurus/software-engineer-levels) | Engineering ladders at 16 companies, how levels map across them, and what interviews expect at each level |
+| [Amazon Leadership Principles](https://github.com/design-gurus/amazon-leadership-principles) | All 16 principles with interview questions, sample answers, and how the Amazon loop works |
+| [Forward Deployed Engineer Interview](https://github.com/design-gurus/forward-deployed-engineer-interview) | The forward deployed engineer loop, the decomposition round, and company loops at Palantir, OpenAI, Anthropic, and Google |
+| [Solutions Architect Interview](https://github.com/design-gurus/solutions-architect-interview) | Architecture design, customer discovery, and presentation rounds, with loops at the major cloud and data companies |
 
 ## Go deeper: the full course
 

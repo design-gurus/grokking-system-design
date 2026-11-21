@@ -66,3 +66,5 @@ Take [design a notification system](../questions/design-notification-system.md).
 - Company-by-company expectations: [company-specific interviews](../companies/README.md)
 - Practice against a human bar: [mock interviews with ex-FAANG engineers](https://www.designgurus.io/mock-interviews?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-senior-vs-staff-expectations)
 - Full course: [Grokking the System Design Interview](https://www.designgurus.io/course/grokking-the-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design&utm_content=cheat-sheets-senior-vs-staff-expectations)
+- The whole staff loop, round by round: [Staff Engineer Interview](https://github.com/design-gurus/staff-engineer-interview), a free companion guide
+- How senior and staff map across companies: [Software Engineer Levels](https://github.com/design-gurus/software-engineer-levels), a free companion guide

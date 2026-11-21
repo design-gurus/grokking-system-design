@@ -322,6 +322,21 @@ How individual companies run their system design round: signature questions, wha
 - [resources](https://github.com/design-gurus/grokking-system-design/blob/main/resources.md): Papers, books, talks, and engineering blogs worth reading.
 - [CONTRIBUTING](https://github.com/design-gurus/grokking-system-design/blob/main/CONTRIBUTING.md): How to add or change a page, including the format each content type follows.
 
+## Related free guides
+
+Separate free repositories from DesignGurus.io, one per interview round or topic. Use these for questions this repo does not answer.
+
+- [System Design Numbers](https://github.com/design-gurus/system-design-numbers): Latency numbers, powers of two, availability tables, traffic formulas, and ten worked capacity estimations.
+- [API Design Interview](https://github.com/design-gurus/api-design-interview): A six-step method for the API design round, the core concepts, and eight question walkthroughs.
+- [Frontend System Design Interview](https://github.com/design-gurus/frontend-system-design-interview): The client side of system design: rendering, state, caching, performance, and eight question walkthroughs.
+- [Microservices Interview Questions](https://github.com/design-gurus/microservices-interview-questions): About 100 questions with short model answers, from service boundaries to sagas and migration.
+- [Staff Engineer Interview](https://github.com/design-gurus/staff-engineer-interview): What changes at staff level: the loop, system design at staff scope, the project deep dive, and down-leveling.
+- [Engineering Manager Interview](https://github.com/design-gurus/engineering-manager-interview): The manager loop round by round: people management, project retrospective, behavioral, and system design for managers.
+- [Software Engineer Levels](https://github.com/design-gurus/software-engineer-levels): Engineering ladders at 16 companies, how levels map across them, and what interviews expect at each level.
+- [Amazon Leadership Principles](https://github.com/design-gurus/amazon-leadership-principles): All 16 principles with interview questions, sample answers, and how the Amazon loop works.
+- [Forward Deployed Engineer Interview](https://github.com/design-gurus/forward-deployed-engineer-interview): The forward deployed engineer loop, the decomposition round, and company loops at Palantir, OpenAI, Anthropic, and Google.
+- [Solutions Architect Interview](https://github.com/design-gurus/solutions-architect-interview): Architecture design, customer discovery, and presentation rounds, with loops at the major cloud and data companies.
+
 ## Optional
 
 The paid courses this repo accompanies, for interactive diagrams, video lessons, and full worked solutions.

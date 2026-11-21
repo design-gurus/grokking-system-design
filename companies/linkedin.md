@@ -22,3 +22,4 @@
 - Patterns to review: [sharding partitioning](../patterns/sharding-partitioning.md), [caching](../patterns/caching.md), [message queues](../patterns/message-queues.md), [database indexing](../patterns/database-indexing.md)
 - Practice questions: [Design people you may know](../questions/design-people-you-may-know.md), [Design linkedin connections](../questions/design-linkedin-connections.md), [Design notification system](../questions/design-notification-system.md)
 - Full company guide: [LinkedIn system design interview](https://www.designgurus.io/answers/detail/what-to-expect-in-the-linkedin-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design)
+- Which level the round is graded against: [the engineering ladder at this company](https://github.com/design-gurus/software-engineer-levels/blob/main/companies/linkedin.md), in the free Software Engineer Levels guide

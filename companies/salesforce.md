@@ -21,3 +21,4 @@
 - Patterns to review: [sharding partitioning](../patterns/sharding-partitioning.md), [database indexing](../patterns/database-indexing.md), [rate limiting](../patterns/rate-limiting.md), [caching](../patterns/caching.md)
 - Practice questions: [Design api gateway](../questions/design-api-gateway.md), [Design ad click aggregator](../questions/design-ad-click-aggregator.md)
 - Full company guide: [Salesforce system design interview](https://www.designgurus.io/answers/detail/what-are-the-top-system-design-interview-questions-for-salesforce-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design)
+- Which level the round is graded against: [the engineering ladder at this company](https://github.com/design-gurus/software-engineer-levels/blob/main/companies/salesforce.md), in the free Software Engineer Levels guide

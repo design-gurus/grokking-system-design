@@ -21,3 +21,4 @@
 - Patterns to review: [replication](../patterns/replication.md), [consistency models](../patterns/consistency-models.md), [sharding partitioning](../patterns/sharding-partitioning.md), [quorum](../patterns/quorum.md)
 - Practice questions: [Design amazon s3](../questions/design-amazon-s3.md), [Design distributed cache](../questions/design-distributed-cache.md)
 - Full company guide: [Oracle system design interview](https://www.designgurus.io/answers/detail/what-are-the-top-system-design-interview-questions-for-oracle-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design)
+- Which level the round is graded against: [the engineering ladder at this company](https://github.com/design-gurus/software-engineer-levels/blob/main/companies/oracle.md), in the free Software Engineer Levels guide
