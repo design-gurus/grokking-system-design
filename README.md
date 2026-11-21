@@ -22,6 +22,7 @@ Prefer to read offline? **[Download the free cheat sheet PDF](https://github.com
 | I am senior and have not interviewed in years | [Senior and staff refresher](roadmaps/senior-staff-refresher.md), which opens with a diagnostic |
 | I have an interview at a named company | [Company guides](companies/README.md), covering 122 companies |
 | I just want to practice | [Question catalog](questions/README.md) and the [practice bank](questions/practice-bank.md) |
+| I am choosing a course | [Best System Design Courses](https://github.com/design-gurus/best-system-design-courses), which compares free and paid courses by format, price, and goal |
 
 ## The system design interview framework
 
