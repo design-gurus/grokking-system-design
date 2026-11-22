@@ -23,3 +23,4 @@
 - Practice questions: [Design distributed job scheduler](../questions/design-distributed-job-scheduler.md), [Design notification system](../questions/design-notification-system.md), [Design google search](../questions/design-google-search.md)
 - Full company guide: [OpenAI system design interview](https://www.designgurus.io/answers/detail/what-to-expect-in-the-openai-system-design-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design)
 - Interviewing for a forward deployed role: [the forward deployed engineer loop at this company](https://github.com/design-gurus/forward-deployed-engineer-interview/blob/main/companies/openai.md), in the free Forward Deployed Engineer Interview guide
+- The other rounds of the loop: [OpenAI Interview Guide](https://github.com/design-gurus/openai-interview-guide), a free companion guide to the coding and behavioral rounds, the levels, and the process

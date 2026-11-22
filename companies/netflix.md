@@ -22,3 +22,4 @@
 - Practice questions: [Design netflix](../questions/design-netflix.md), [Design youtube](../questions/design-youtube.md), [Design recommendation system](../questions/design-recommendation-system.md)
 - Full company guide: [Netflix system design interview](https://www.designgurus.io/answers/detail/what-are-the-top-system-design-interview-questions-for-netflix-interview?utm_source=github&utm_medium=repo&utm_campaign=grokking-system-design)
 - Which level the round is graded against: [the engineering ladder at this company](https://github.com/design-gurus/software-engineer-levels/blob/main/companies/netflix.md), in the free Software Engineer Levels guide
+- The other rounds of the loop: [Netflix Interview Guide](https://github.com/design-gurus/netflix-interview-guide), a free companion guide to the coding and behavioral rounds, the levels, and the process

@@ -54,6 +54,13 @@ Free guides in the same format as this repository, one per interview round or to
 - [DevOps and SRE Interview](https://github.com/design-gurus/devops-sre-interview): the loop round by round: troubleshooting, Linux and networking, SRE system design, and incident response.
 - [Data Engineering Interview](https://github.com/design-gurus/data-engineering-interview): sQL, data modeling, and pipeline design rounds, with six pipeline design walkthroughs.
 - [Concurrency Interview](https://github.com/design-gurus/concurrency-interview): core concepts and nine classic problems solved in Java, Python, and Go.
+- [Google Interview Guide](https://github.com/design-gurus/google-interview-guide): the Google loop round by round, with a question bank and a four-week plan.
+- [Meta Interview Guide](https://github.com/design-gurus/meta-interview-guide): the Meta loop round by round, with a question bank and a four-week plan.
+- [Amazon Interview Guide](https://github.com/design-gurus/amazon-interview-guide): the Amazon loop round by round, with a question bank and a four-week plan.
+- [Microsoft Interview Guide](https://github.com/design-gurus/microsoft-interview-guide): the Microsoft loop round by round, with a question bank and a four-week plan.
+- [Apple Interview Guide](https://github.com/design-gurus/apple-interview-guide): the Apple loop round by round, with a question bank and a four-week plan.
+- [Netflix Interview Guide](https://github.com/design-gurus/netflix-interview-guide): the Netflix loop round by round, with a question bank and a four-week plan.
+- [OpenAI Interview Guide](https://github.com/design-gurus/openai-interview-guide): the OpenAI loop round by round, with a question bank and a four-week plan.
 
 ## Other official (DesignGurus)
 

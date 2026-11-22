@@ -129,6 +129,8 @@ The same question plays differently at different companies. A rate limiter at St
 
 Includes [Stripe](companies/stripe.md), [OpenAI](companies/openai.md), [Bloomberg](companies/bloomberg.md), [Databricks](companies/databricks.md), [Discord](companies/discord.md), [Palantir](companies/palantir.md), [Robinhood](companies/robinhood.md), [Figma](companies/figma.md), [Citadel](companies/citadel.md), [LinkedIn](companies/linkedin.md), and 112 more, grouped by sector.
 
+For the rounds beyond system design, seven companies have a full guide of their own: [Google](https://github.com/design-gurus/google-interview-guide), [Meta](https://github.com/design-gurus/meta-interview-guide), [Amazon](https://github.com/design-gurus/amazon-interview-guide), [Microsoft](https://github.com/design-gurus/microsoft-interview-guide), [Apple](https://github.com/design-gurus/apple-interview-guide), [Netflix](https://github.com/design-gurus/netflix-interview-guide), and [OpenAI](https://github.com/design-gurus/openai-interview-guide).
+
 ## Distributed systems deep dives
 
 Case studies of landmark systems, the "how does X work" questions common in senior interviews: Dynamo, Cassandra, BigTable, Kafka, Chubby, GFS, HDFS, Spanner, Raft, MapReduce, ZooKeeper, Memcached at Facebook, Aurora, and DynamoDB, plus the infrastructure behind modern stacks: [Borg and Kubernetes](deep-dives/borg-kubernetes.md), [Redis internals](deep-dives/redis-internals.md), [Elasticsearch and Lucene](deep-dives/elasticsearch-lucene.md), [Flink](deep-dives/flink-stream-processing.md), and [HNSW and vector databases](deep-dives/hnsw-vector-search.md). See [deep-dives/](deep-dives/) for all nineteen, with a suggested reading order.
@@ -157,6 +159,18 @@ System design is one round in a loop. These free guides from DesignGurus.io cove
 | [DevOps and SRE Interview](https://github.com/design-gurus/devops-sre-interview) | The loop round by round: troubleshooting, Linux and networking, SRE system design, and incident response |
 | [Data Engineering Interview](https://github.com/design-gurus/data-engineering-interview) | SQL, data modeling, and pipeline design rounds, with six pipeline design walkthroughs |
 | [Concurrency Interview](https://github.com/design-gurus/concurrency-interview) | Core concepts and nine classic problems solved in Java, Python, and Go |
+
+Seven more guides cover the whole loop at one company each: the process, coding, system design, behavioral, levels, and a question bank.
+
+| Company guide | What it covers |
+|---------------|----------------|
+| [Google Interview Guide](https://github.com/design-gurus/google-interview-guide) | The Google loop round by round, with a question bank and a four-week plan |
+| [Meta Interview Guide](https://github.com/design-gurus/meta-interview-guide) | The Meta loop round by round, with a question bank and a four-week plan |
+| [Amazon Interview Guide](https://github.com/design-gurus/amazon-interview-guide) | The Amazon loop round by round, with a question bank and a four-week plan |
+| [Microsoft Interview Guide](https://github.com/design-gurus/microsoft-interview-guide) | The Microsoft loop round by round, with a question bank and a four-week plan |
+| [Apple Interview Guide](https://github.com/design-gurus/apple-interview-guide) | The Apple loop round by round, with a question bank and a four-week plan |
+| [Netflix Interview Guide](https://github.com/design-gurus/netflix-interview-guide) | The Netflix loop round by round, with a question bank and a four-week plan |
+| [OpenAI Interview Guide](https://github.com/design-gurus/openai-interview-guide) | The OpenAI loop round by round, with a question bank and a four-week plan |
 
 ## Go deeper: the full course
 
