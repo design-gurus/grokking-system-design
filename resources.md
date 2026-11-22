@@ -46,7 +46,7 @@ Free guides in the same format as this repository, one per interview round or to
 - [Microservices Interview Questions](https://github.com/design-gurus/microservices-interview-questions): about 100 questions with short model answers, from service boundaries to sagas and migration.
 - [Staff Engineer Interview](https://github.com/design-gurus/staff-engineer-interview): what changes at staff level: the loop, system design at staff scope, the project deep dive, and down-leveling.
 - [Engineering Manager Interview](https://github.com/design-gurus/engineering-manager-interview): the manager loop round by round: people management, project retrospective, behavioral, and system design for managers.
-- [Software Engineer Levels](https://github.com/design-gurus/software-engineer-levels): engineering ladders at 16 companies, how levels map across them, and what interviews expect at each level.
+- [Software Engineer Levels](https://github.com/design-gurus/software-engineer-levels): engineering ladders at 17 companies, how levels map across them, and what interviews expect at each level.
 - [Amazon Leadership Principles](https://github.com/design-gurus/amazon-leadership-principles): all 16 principles with interview questions, sample answers, and how the Amazon loop works.
 - [Forward Deployed Engineer Interview](https://github.com/design-gurus/forward-deployed-engineer-interview): the forward deployed engineer loop, the decomposition round, and company loops at Palantir, OpenAI, Anthropic, and Google.
 - [Solutions Architect Interview](https://github.com/design-gurus/solutions-architect-interview): architecture design, customer discovery, and presentation rounds, with loops at the major cloud and data companies.
@@ -61,6 +61,7 @@ Free guides in the same format as this repository, one per interview round or to
 - [Apple Interview Guide](https://github.com/design-gurus/apple-interview-guide): the Apple loop round by round, with a question bank and a four-week plan.
 - [Netflix Interview Guide](https://github.com/design-gurus/netflix-interview-guide): the Netflix loop round by round, with a question bank and a four-week plan.
 - [OpenAI Interview Guide](https://github.com/design-gurus/openai-interview-guide): the OpenAI loop round by round, with a question bank and a four-week plan.
+- [Anthropic Interview Guide](https://github.com/design-gurus/anthropic-interview-guide): the Anthropic loop round by round, with a question bank and a four-week plan.
 
 ## Other official (DesignGurus)
 

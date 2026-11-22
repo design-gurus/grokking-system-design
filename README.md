@@ -129,7 +129,7 @@ The same question plays differently at different companies. A rate limiter at St
 
 Includes [Stripe](companies/stripe.md), [OpenAI](companies/openai.md), [Bloomberg](companies/bloomberg.md), [Databricks](companies/databricks.md), [Discord](companies/discord.md), [Palantir](companies/palantir.md), [Robinhood](companies/robinhood.md), [Figma](companies/figma.md), [Citadel](companies/citadel.md), [LinkedIn](companies/linkedin.md), and 112 more, grouped by sector.
 
-For the rounds beyond system design, seven companies have a full guide of their own: [Google](https://github.com/design-gurus/google-interview-guide), [Meta](https://github.com/design-gurus/meta-interview-guide), [Amazon](https://github.com/design-gurus/amazon-interview-guide), [Microsoft](https://github.com/design-gurus/microsoft-interview-guide), [Apple](https://github.com/design-gurus/apple-interview-guide), [Netflix](https://github.com/design-gurus/netflix-interview-guide), and [OpenAI](https://github.com/design-gurus/openai-interview-guide).
+For the rounds beyond system design, eight companies have a full guide of their own: [Google](https://github.com/design-gurus/google-interview-guide), [Meta](https://github.com/design-gurus/meta-interview-guide), [Amazon](https://github.com/design-gurus/amazon-interview-guide), [Microsoft](https://github.com/design-gurus/microsoft-interview-guide), [Apple](https://github.com/design-gurus/apple-interview-guide), [Netflix](https://github.com/design-gurus/netflix-interview-guide), [OpenAI](https://github.com/design-gurus/openai-interview-guide), and [Anthropic](https://github.com/design-gurus/anthropic-interview-guide).
 
 ## Distributed systems deep dives
 
@@ -151,7 +151,7 @@ System design is one round in a loop. These free guides from DesignGurus.io cove
 | [Microservices Interview Questions](https://github.com/design-gurus/microservices-interview-questions) | About 100 questions with short model answers, from service boundaries to sagas and migration |
 | [Staff Engineer Interview](https://github.com/design-gurus/staff-engineer-interview) | What changes at staff level: the loop, system design at staff scope, the project deep dive, and down-leveling |
 | [Engineering Manager Interview](https://github.com/design-gurus/engineering-manager-interview) | The manager loop round by round: people management, project retrospective, behavioral, and system design for managers |
-| [Software Engineer Levels](https://github.com/design-gurus/software-engineer-levels) | Engineering ladders at 16 companies, how levels map across them, and what interviews expect at each level |
+| [Software Engineer Levels](https://github.com/design-gurus/software-engineer-levels) | Engineering ladders at 17 companies, how levels map across them, and what interviews expect at each level |
 | [Amazon Leadership Principles](https://github.com/design-gurus/amazon-leadership-principles) | All 16 principles with interview questions, sample answers, and how the Amazon loop works |
 | [Forward Deployed Engineer Interview](https://github.com/design-gurus/forward-deployed-engineer-interview) | The forward deployed engineer loop, the decomposition round, and company loops at Palantir, OpenAI, Anthropic, and Google |
 | [Solutions Architect Interview](https://github.com/design-gurus/solutions-architect-interview) | Architecture design, customer discovery, and presentation rounds, with loops at the major cloud and data companies |
@@ -160,7 +160,7 @@ System design is one round in a loop. These free guides from DesignGurus.io cove
 | [Data Engineering Interview](https://github.com/design-gurus/data-engineering-interview) | SQL, data modeling, and pipeline design rounds, with six pipeline design walkthroughs |
 | [Concurrency Interview](https://github.com/design-gurus/concurrency-interview) | Core concepts and nine classic problems solved in Java, Python, and Go |
 
-Seven more guides cover the whole loop at one company each: the process, coding, system design, behavioral, levels, and a question bank.
+Eight more guides cover the whole loop at one company each: the process, coding, system design, behavioral, levels, and a question bank.
 
 | Company guide | What it covers |
 |---------------|----------------|
@@ -171,6 +171,7 @@ Seven more guides cover the whole loop at one company each: the process, coding,
 | [Apple Interview Guide](https://github.com/design-gurus/apple-interview-guide) | The Apple loop round by round, with a question bank and a four-week plan |
 | [Netflix Interview Guide](https://github.com/design-gurus/netflix-interview-guide) | The Netflix loop round by round, with a question bank and a four-week plan |
 | [OpenAI Interview Guide](https://github.com/design-gurus/openai-interview-guide) | The OpenAI loop round by round, with a question bank and a four-week plan |
+| [Anthropic Interview Guide](https://github.com/design-gurus/anthropic-interview-guide) | The Anthropic loop round by round, with a question bank and a four-week plan |
 
 ## Go deeper: the full course
 
