@@ -340,6 +340,13 @@ Separate free repositories from DesignGurus.io, one per interview round or topic
 - [DevOps and SRE Interview](https://github.com/design-gurus/devops-sre-interview): The loop round by round: troubleshooting, Linux and networking, SRE system design, and incident response.
 - [Data Engineering Interview](https://github.com/design-gurus/data-engineering-interview): SQL, data modeling, and pipeline design rounds, with six pipeline design walkthroughs.
 - [Concurrency Interview](https://github.com/design-gurus/concurrency-interview): Core concepts and nine classic problems solved in Java, Python, and Go.
+- [Google Interview Guide](https://github.com/design-gurus/google-interview-guide): The whole Google software engineer interview loop: process, coding, system design, behavioral, levels, and a question bank.
+- [Meta Interview Guide](https://github.com/design-gurus/meta-interview-guide): The whole Meta software engineer interview loop: process, coding, system design, behavioral, levels, and a question bank.
+- [Amazon Interview Guide](https://github.com/design-gurus/amazon-interview-guide): The whole Amazon software engineer interview loop: process, coding, system design, behavioral, levels, and a question bank.
+- [Microsoft Interview Guide](https://github.com/design-gurus/microsoft-interview-guide): The whole Microsoft software engineer interview loop: process, coding, system design, behavioral, levels, and a question bank.
+- [Apple Interview Guide](https://github.com/design-gurus/apple-interview-guide): The whole Apple software engineer interview loop: process, coding, system design, behavioral, levels, and a question bank.
+- [Netflix Interview Guide](https://github.com/design-gurus/netflix-interview-guide): The whole Netflix software engineer interview loop: process, coding, system design, behavioral, levels, and a question bank.
+- [OpenAI Interview Guide](https://github.com/design-gurus/openai-interview-guide): The whole OpenAI software engineer interview loop: process, coding, system design, behavioral, levels, and a question bank.
 
 ## Optional
 
